@@ -1,0 +1,29 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: "CASA Jaipur Workship"
+message: >-
+  A short introduction to code and reproducibility
+  in urban analytics.
+type: software
+authors:
+  - given-names: Jon
+    family-names: Reades
+    email: j.reades@ucl.ac.uk
+    affiliation: University College London
+    orcid: 'https://orcid.org/0000-0002-1443-9263'
+repository-code: 'https://github.com/jreades/jaipur/'
+url: 'https://jreades.github.io/jaipur/'
+repository: 'https://jreades.github.io/jaipur/'
+abstract: >-
+  This is a set of practical 'sessions' to help you
+  get to grips with the basics of programming and
+  spatial analysis using Python.
+keywords:
+  - python
+  - programming
+  - docker
+  - markdown
+  - github
+license: CC-BY-NC-4.0

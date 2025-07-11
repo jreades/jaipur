@@ -1,0 +1,11 @@
+version: 2025
+
+env:
+  display: "SDS"
+  name: "pod"
+  year: 2025
+
+docker:
+  base: "jreades/pod:2024"
+  all: "jreades/pod:2024-intel"
+  mac: "jreades/pod:2024-silicon"

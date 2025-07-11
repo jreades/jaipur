@@ -1,0 +1,85 @@
+project:
+  type: website
+  output-dir: _site
+  preview:
+    port: 4100
+  render:
+    - "*.qmd"
+  resources:
+    - "img"
+
+execute:
+  freeze: auto
+
+website:
+  title: "CASA Jaipur Training"
+  image: "img/CASA_Logo_no_text.png"
+  repo-url: https://github.com/jreades/jaipur/
+  repo-actions: [issue]
+  favicon: "/img/favicon.ico"
+  open-graph:
+    locale: en_GB
+    site-name: "Introduction to Spatial Data Science"
+  page-navigation: true
+  reader-mode: true
+  page-footer: 
+    left: "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) 2022–2023, Jon Reades"
+    center: "![](/img/favicon-16x16.png){.height:10px} CASA Computing Environment"
+    right: 
+      - icon: github
+        href: https://github.com/jreades/jaipur
+      - icon: twitter 
+        href: https://bsky.app/profile/casaucl.bsky.social
+  navbar:
+    background: primary
+    number-depth: 2
+    search: true
+    logo: "/img/CASA_Logo_no_text.png"
+    collapse: true
+    collapse-below: md
+    left:
+      - text: "Welcome"
+        href: index.qmd
+      - sidebar:setup
+      - sidebar:sessions
+
+  sidebar:
+    - id: setup
+      title: "Setup"
+      style: "docked"
+      collapse-level: 2
+      background: light
+      contents:
+        - setup/health.qmd
+        - setup/base.qmd
+        - setup/env.qmd
+        - setup/code_camp.qmd
+
+    - id: sessions
+      title: "Sessions"
+      style: "docked"
+      collapse-level: 2
+      background: light
+      contents:
+        - sessions/index.qmd
+#        - sessions/day1.qmd
+#        - sessions/day2.qmd
+#        - sessions/day3.qmd
+#        - sessions/day4.qmd
+
+highlight-style: pygments
+
+format:
+  html:
+    theme: 
+      - minty
+      - css/web.scss
+    code-copy: true
+    code-link: true
+    #cover-image: cover.png
+    toc: true
+    toc-title: "On this page"
+    toc-depth: 2
+    toc_float: 
+      collapsed: false
+      smooth_scroll: true
