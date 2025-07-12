@@ -1,14 +1,23 @@
 ---
-title: "Health Check"
+title: "Requirements"
 author: "Jon Reades"
 date: "8/11/2025"
 ---
 
-When answering the questions below, 'your computer' is the machine on which you plan to do the programming.
+This guide will help you to perform a basic 'health check' on your computer to see if you're likely to run into problems running the programming environment. When answering the questions below, 'your computer' is the machine on which you plan to do the programming.
+
+::: {.callout-tip}
+### TL;DR
+
+If your computer is less than 4 years old, has plenty of RAM and more than 20GB of free disk space then you're *probably* fine. The only other common issue is pif you have Windows 10 *Home* installed.
+
+::: 
+
+We try to support as many different configurations as possible, but there is *no* programming environment that installs and runs seamlessly on *all* computers so if you run into issues please come back to this guide.
 
 ## Hardware Requirements
 
-We try to support as many different configurations as possible, but there is *no* programming environment that installs and runs seamlessly on *all* computers. However, in our experience the students **most likely to encounter problems** share one or more of the following:
+In our experience the students **most likely to encounter problems** share one or more of the following:
 
 1. Your computer 8GB or less of RAM.
 2. Your computer has less than 20GB of free disk space remaining.
@@ -37,16 +46,18 @@ We're going to assume that you know what you're doing. If you want a recommendat
 
 :::
 
-If your computer has less than 8GB of RAM *and/or* less than 20GB of free disk space you are likely to have issues with Docker and (on Windows) WSL2. Your options are: 1) add more RAM (possible on Windows); 2) back up and remove unnecessary files (Movies, Photos, and Applications are particularly big 'hogs').
+If your computer has less than 8GB of RAM *and/or* less than 20GB of free disk space you are likely to have issues with [virutalisation](virtualisation.qmd) and (on Windows) WSL2. Your options are: 1) add more RAM (possible on Windows); 2) back up and remove unnecessary files (Movies, Photos, and Applications are particularly big 'hogs').
 
 ## Software Requirements
 
-We try to support as many different configurations as possible, but there is *no* programming environment that installs and runs seamlessly on *all* computers. However, in our experience the students **most likely to encounter problems** share one or more of the following:
+In our experience the students **most likely to encounter problems** share one or more of the following:
 
 1. Your computer runs Windows 10 Home or older, or 
 2. Your computer runs MacOS 10.13 (High Sierra) or older.
 
 As long as your computer is running one of the last two major releases of the Operating System you should encounter few issues.
+
+::: {.panel-tabset}
 
 ### MacOS
 
@@ -60,13 +71,12 @@ You will need to look up:
 
 - What Operating System and Version is _your computer_ running? [Help for Windows](https://support.microsoft.com/en-gb/help/13443/windows-which-version-am-i-running).
 
+:::
+
 ### Recommendations
 
 If you are using a Mac then your system should have the option to update to the latest version of the MacOS at no charge. If you are unable to update then it is likely that you have an older machine that is not fully supported by the most recent Operating System and, in all probability, you will also encounter issues running the programming environment.
 
 If you are using a Windows PC then try to update to either Windows 11 or to Windows 10 Pro as this will 'unlock' additional features that are useful for supporting the programming environment. As a student you are likely to qualify for significantly cheaper/free updates, so make sure you do this when you have access to a discount.
 
-## System Updates
-
-Now that you know your computer is 'up-to-spec', please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the *other* steps in this brief guide to getting started. 
 

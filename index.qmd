@@ -4,21 +4,6 @@ author: "Jon Reades"
 date: "11/8/2025"
 ---
 
-In order to get you started on your spatial and data science 'journey' you will need to follow the guidance provided on the pages we've linked to below. These are divided into three sections: 
-
-## Requirements
-
-::: {.callout-warning}
-### Health Check
-
-Before trying to install the software, please complete the [basic health check](./req/health.qmd) to ensure that your computer is up-to-date and able to run the software we use.
-
-:::
-
-Once you know that your machine and operating system are up-to-date, you should install the [basic utilities](./req/base.qmd) that will enable you to complete installation of the programming environment. 
-
-## Setup
-
 ::: {.callout-tip}
 ### Code Camp
 
@@ -26,7 +11,19 @@ If you have the time, then [Code Camp](https://jreades.github.io/code-camp/) is 
 
 :::
 
-The [Setup](./setup/index.qmd) section will help you to get your computer ready for the workshop.
+In order to get you started on your spatial and data science 'journey' you will need to follow the guidance provided on the pages we've linked to below. 
+
+## Requirements
+
+Before trying to install the software, please complete the [basic health check](./setup/health.qmd) to ensure that your computer is up-to-date and able to run the software we use.
+
+## Updates
+
+Once you know that your machine and operating system are up-to-date, you should install the [basic utilities](./req/base.qmd) that will enable you to complete installation of the programming environment. 
+
+## Installation
+
+The [Installation Guide](./setup/index.qmd) section will help you to get your computer ready for the workshop.
 
 ## Citing
 

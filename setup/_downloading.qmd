@@ -1,12 +1,11 @@
-## Downloading
 
-### What Kind of Computer?
+## What Kind of Computer?
 
-#### Apple Intel or Silicon/M-chip?
+### Apple Intel or Silicon/M-chip?
 
 Apple has stopped using Intel computer chips and now uses its own 'Silicon' (aka 'M') chips instead. Confusingly, these are often *also* referred to by their technical specification as `AMD64` (Intel) and `ARM64` (Apple), respectively. To find out which you have, click on the Apple icon (&#63743;) and select `About this Mac`. Look at the `Processor` section and you should see which type of computer you have. If you see the word `Intel` then you have an Intel computer, if you see `M1`, `M2`, `M3`, etc. then you have an Apple Silicon computer.
 
-#### Windows 32- or 64-bit?
+### Windows 32- or 64-bit?
 
 It is *highly unlikely* that you have a 32-bit machine, so if in doubt download the 64-bit version. It is also unlikely that you have an ARM device if you have an off-the-shelf Windows computer.
 
@@ -14,31 +13,37 @@ Please download *all* of the *Essential* packages for your type of computer (App
 
 ::: {.panel-tabset}
 
-## Apple Intel
+### Apple Intel
 
 - Essential:
-  - [Docker Desktop for Mac with Intel chip](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-amd64)
+  - [Podman for ARM64](https://github.com/containers/podman/releases/download/v5.5.2/podman-installer-macos-arm64.pkg)
 - Optional:
   - [iTerm2](https://iterm2.com/downloads/stable/iTerm2-3_5_4.zip)
   - [QGIS Long-Term Release (LTR)](https://qgis.org/downloads/macos/qgis-macos-ltr.dmg) 
   - [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/darwin)
+- Only if Podman doesn't work:
+  - [Docker Desktop for Mac with Intel chip](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-amd64)
 
-## Apple Silicon (M-chips)
+### Apple Silicon (M-chips)
 
 - Essential: 
-  - [Docker Desktop for Mac with Apple silicon](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-arm64) 
+  - [Podman for AMD64](https://github.com/containers/podman/releases/download/v5.5.2/podman-installer-macos-amd64.pkg)
 - Optional:
   - [iTerm2](https://iterm2.com/downloads/stable/iTerm2-3_5_4.zip)
   - [QGIS Long-Term Release (LTR)](https://qgis.org/downloads/macos/qgis-macos-ltr.dmg) 
   - [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/darwin-arm64)
+- Only if Podman doesn't work:
+  - [Docker Desktop for Mac with Apple silicon](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-arm64) 
 
-## Windows PCs
+### Windows PCs
 
 - Essential:
-  - [Docker Desktop for Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+  - [Podman for AMD64](https://github.com/containers/podman/releases/download/v5.5.2/podman-installer-windows-amd64.exe) (it's highly unlikely that you need the [ARM64 installer](https://github.com/containers/podman/releases/download/v5.5.2/podman-installer-windows-arm64.exe))
 - Optional:
   - [QGIS Long-Term Release (LTR)](https://qgis.org/downloads/QGIS-OSGeo4W-3.34.10-1.msi)
   - [Git](https://git-scm.com/download/win)
   - [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/win32)
+- Only if Podman doesn't work:
+  - [Docker Desktop for Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
 
 :::

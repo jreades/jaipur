@@ -1,4 +1,4 @@
-## Installing Docker
+## Installing Podman or Docker
 
 :::{.callout-warning}
 ### Essential Topic
@@ -7,9 +7,9 @@ This next section is _essential_ to running the {{< var env.name >}} environment
 
 :::
 
-Docker is a complex application doing *very* complex things. It's not surprising that it can be a bit of a pain to install. But once installed, it's a very powerful *platform* for 'doing (spatial) data science' that's widely used in industry and, increasingly, academia.
+Podman and Docker are complex applications doing *very* complex things. It's not surprising that it can be a bit of a pain to install. But once installed, they are a very powerful *platform* for 'doing (spatial) data science'. It's an approach that's widely used in industry and, increasingly, academia.
 
-*One* way to think of it as a 'library' of ready-made *virtual* computers that you can copy and use free-of-charge. If you'd like to know more about what Docker is and how it works, you can read more in the [Understanding Docker](../docker/index.qmd#understanding-docker) section.
+*One* way to think of it as a 'library' of ready-made *virtual* computers that you can copy and use free-of-charge. If you'd like to know more about what Podman/Docker are and how they work, you can read more in the [Understanding Virtualisation](virtualisation.qmd) section.
 
 ::: {.callout-important}
 ### Windows Users

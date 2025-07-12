@@ -53,7 +53,6 @@ website:
         - setup/health.qmd
         - setup/base.qmd
         - setup/env.qmd
-        - setup/code_camp.qmd
 
     - id: sessions
       title: "Sessions"
@@ -62,6 +61,7 @@ website:
       background: light
       contents:
         - sessions/index.qmd
+        - setup/code_camp.qmd
 #        - sessions/day1.qmd
 #        - sessions/day2.qmd
 #        - sessions/day3.qmd
