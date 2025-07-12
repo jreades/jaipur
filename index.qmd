@@ -19,7 +19,7 @@ Before trying to install the software, please complete the [basic health check](
 
 ## Updates
 
-Once you know that your machine and operating system are up-to-date, you should install the [basic utilities](./req/base.qmd) that will enable you to complete installation of the programming environment. 
+Once you know that your machine and operating system are up-to-date, you should install the [basic utilities](./setup/base.qmd) that will enable you to complete installation of the programming environment. 
 
 ## Installation
 
