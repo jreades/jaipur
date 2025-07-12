@@ -12,7 +12,7 @@ execute:
   freeze: auto
 
 website:
-  title: "CASA Jaipur Training"
+  title: "CASA/MNIT Workshop"
   image: "img/CASA_Logo_no_text.png"
   repo-url: https://github.com/jreades/jaipur/
   repo-actions: [issue]

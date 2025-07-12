@@ -2,10 +2,10 @@ version: 2025
 
 env:
   display: "SDS"
-  name: "pod"
+  name: sparc
   year: 2025
 
 docker:
-  base: "jreades/pod:2024"
-  all: "jreades/pod:2024-intel"
-  mac: "jreades/pod:2024-silicon"
+  base: "jreades/sparc:2025"
+  all: "jreades/sparc:2025-intel"
+  mac: "jreades/sparc:2025-silicon"

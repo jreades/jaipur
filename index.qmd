@@ -1,8 +1,14 @@
 ---
-title: "CASA's Jaipur Training"
+title: "Welcome"
 author: "Jon Reades"
 date: "11/8/2025"
 ---
+
+Over the course of the week we will be exploring a little bit of what is possible using code (Python, in this case) to process and analyse spatial data. Along the way we'll touch both on the practical benefits of coding (instead of using only point-and-click software like ArcGIS or QGIS) as well as the more subtle philosophical advantages of using open source software and code.
+
+Each day we will have about 90 minutes of lecture and discussion, then a short break, and then about 90 minutes of an 'applied' workshop using the techniques and principles discussed earlier. Because we only have a week, we will be focussing on understanding the *why* we do something in a particular way, and a general understanding of  *what* is happening, rather than digging into *how* to code. 
+
+These days, AI can help you a lot with the basics of coding, but it is important to recognise that AI is only as good as the problems it was trained on, and you'll likely find that it knows a lot less about Indian geo-data than it does British or American data. Treat the AI as a personal tutor that is endlessly patient and can offer you 1:1 time, but it cannot answer questions of ethics or purpose.
 
 ::: {.callout-tip}
 ### Code Camp
@@ -11,7 +17,7 @@ If you have the time, then [Code Camp](https://jreades.github.io/code-camp/) is 
 
 :::
 
-In order to get you started on your spatial and data science 'journey' you will need to follow the guidance provided on the pages we've linked to below. 
+Now,in order to get you started on your spatial and data science 'journey', you will need to follow the guidance provided on the pages we've linked to below to check that you're able to run the programming environment and get everything (or as much as you can!) set up and ready to go on Day 1.. 
 
 ## Requirements
 
@@ -23,7 +29,11 @@ Once you know that your machine and operating system are up-to-date, you should 
 
 ## Installation
 
-The [Installation Guide](./setup/index.qmd) section will help you to get your computer ready for the workshop.
+The [Installation Guide](./setup/env.qmd) section will help you to get your computer ready for the workshop sessions.
+
+## Sessions
+
+There are [four sessions](./sessions/index.qmd) planned for the week. The sessions will make use of the tools installed above, so please try to install Podman on your laptop *before* the start of the first session as this will save quite a bit of time and also allow us to help you more quickly if there are any issues.
 
 ## Citing
 
