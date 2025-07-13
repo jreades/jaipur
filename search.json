@@ -1,31 +1,38 @@
 [
   {
-    "objectID": "setup/no_install.html",
-    "href": "setup/no_install.html",
-    "title": "No Install Options",
+    "objectID": "setup/wsl.html",
+    "href": "setup/wsl.html",
+    "title": "CASA Jaipur Training",
     "section": "",
-    "text": "The following options provide alternatives for those who are unable to install the full programming environment on their main computer and would otherwise be unable to continue with the module. Each of these has pros and cons but they allow you to run code ‘in the cloud’ and so mean that any internet-connected device can be used to write and run code."
+    "text": "MacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post."
   },
   {
-    "objectID": "setup/no_install.html#ucl-jupyterhub",
-    "href": "setup/no_install.html#ucl-jupyterhub",
-    "title": "No Install Options",
-    "section": "UCL JupyterHub",
-    "text": "UCL JupyterHub\n\n\n\n\n\n\nConfiguration for Staff\n\n\n\nPlease see the JupyterHub page for information about configuring a new environment.\n\n\nTo connect to JupyterHub:\n\nStart up the UCL VPN.\nConnect to JupyterHub\nAuthenticate using your UCL credentials.\nIf you see a URL that ends in tree? please replace this with lab? to get the JupyterLab interface and not the original Jupyter Notebook interface (you can bookmark this page once it opens).\nCreate a new terminal: File &gt; New &gt; Terminal\n\nNote that you need to replace {group_name} with the appropriate group role (this value will be obvious once you’re logged in and can run ls /shared/groups/ in the Terminal):\nconda config --append envs_dirs /shared/groups/{group_name}/casa\njupyter contrib nbextension install --user"
+    "objectID": "setup/problems.html",
+    "href": "setup/problems.html",
+    "title": "Dealing with Problems",
+    "section": "",
+    "text": "There are two types of problems that you’re likely to encounter when trying to use Podman or Docker:\nThe vast majority of people encountering these issues will be on Windows machines."
   },
   {
-    "objectID": "setup/no_install.html#google-colab",
-    "href": "setup/no_install.html#google-colab",
-    "title": "No Install Options",
-    "section": "Google Colab",
-    "text": "Google Colab\nGoogle’s Colaboratory is an easy way to get started without needing to install anything, while still being able to save your work. This approach will work well for the first few weeks, up to the point where we start loading larger data sets that require more memory than Google’s free tier provides. At that point you’ll either need to start sampling from the full data set, or you’re back to Docker!\nHere’s how to get started with Colab:\n\nGo to Google’s Colab site and sign in using your Google account details (or create an account if you don’t already have one).\nIf you are trying to clone a practical from Foundations then: choose File then Open and select the GitHub tab from the open options (it’s between Google Drive and Upload).\nEnter the following URL: https://github.com/jreades/fsds.\nYou should now see a list of notebooks to choose from – select the appropriate one from the sequence and click Open in Colab.\nYou will need to trust the notebook in order to run it.\n\nWhen you are done for the day you can save the notebook to your Google Drive – to re-run that notebook you can just load it from Google Drive, rather than going back to GitHub, but remember that you need to re-run all the cells up to the point where you saved the notebook. Being able to save and re-run a notebook is the main difference from Binder."
+    "objectID": "setup/problems.html#errors-installing-docker",
+    "href": "setup/problems.html#errors-installing-docker",
+    "title": "Dealing with Problems",
+    "section": "Errors Installing Docker",
+    "text": "Errors Installing Docker\n\nUnsupported Version\nThe only problem that is common to both Windows and macOS machines is the ‘unsupported version’ (or similar wording) error. This happens when you are running an older version of the Operating System that is no longer supported by Docker’s most recent installer.\nIf you are not able to update your computer’s operating system to a more recent release, then your only option is to use an older version of Docker. You can find older versions of Docker to install, though for very old machines this may still not resolve the ‘unsupported version’ problem.\n\n\nProblems with WSL2\nIf you have problems that mention WSL/WSL2 (this could be errors installing or updating this system) and you are sure that you’ve installed and updated WSL, then you may need to try using ‘Hyper-V’ instead. This is a ‘second-best’ workaround that has worked for some people.\n\nEnabling Hyper-V\nMicrosoft has instructions here on how to enable Hyper-V on your Windows machine. You will need to restart your computer after enabling Hyper-V. These instructions may also help.\nYou will then need to look at the Docker settings and change the Use the WSL2 based engine to Use the Hyper-V based engine.\n\n\n\nProblems with Admin Rights\nIf you are unable to install Docker on your computer (e.g. because you are an apprentice with a corporate laptop), you may wish to try using Podman instead. Podman is runs in ‘user space’, which means that it does not need admin rights to run. You can find out more about Podman here. Our limited testing suggests that it works well with the SDS environment.\nYou will need to:\n\nDownload and install the Podman CLI and Desktop from here.\nRun the following command in the PowerShell or Terminal: podman machine initpodman machine start\nAnd then run this command in PowerShell or Terminal to download the SDS image with podman pull jreades/sparc:2025-intel (or jreades/sparc:2025-silicon for M-chip Macs)"
   },
   {
-    "objectID": "setup/no_install.html#binder",
-    "href": "setup/no_install.html#binder",
-    "title": "No Install Options",
-    "section": "Binder",
-    "text": "Binder\nWhile we support Binder for Code Camp, this is not a platform that we are supporting as part of our masters programme since it is impossible to save your work without downloading the notebook each time."
+    "objectID": "setup/problems.html#errors-running-docker",
+    "href": "setup/problems.html#errors-running-docker",
+    "title": "Dealing with Problems",
+    "section": "Errors Running Docker",
+    "text": "Errors Running Docker\nIf you have managed to install Docker (or Podman, if it came to that) and have managed to ‘pull’ a disk image then the last remaining obstacle to running Docker is, typically, running out of disk space.\n\nDealing with Disk Space\nSome Windows PCs (especially those sold with Windows10) have two drives (C and D). The C drive may fill up very quickly once you start installing and running software or processing data. In that case you may want to store your Docker images on the D drive.\nThis is a complex process, and you may need assistance, so there is a Moving to the D Drive page to try to talk you through the process.\n\n\nOther Disk Space Issues\nIf you don’t have separate C and D drives but still have very little space left on your hard drive then it’s worth remembering that Docker is storing all of the images and containers that you have downloaded and run. You can see how much space Docker is using by running the following command in the PowerShell or Terminal:\ndocker system df\n\nDeleting an Image\nThe most ‘intuitive’ way is to delete each image by it’s unique ID:\ndocker ps -aq # Get list of running processes and work out container IDs to remove\ndocker rm -f &lt;list of container IDs&gt;\ndocker images # Get list of available images and work out image IDs to remove\ndocker rmi -f &lt;list of image IDs&gt;\n\n\nDeleting by Filter\nA more ‘direct’ approach that should be used with some care is to looking for the name of the image and delete that way:\ndocker ps -aqf \"name=sds\" --format=\"{{.Image}} {{.Names}} {{.ID}}\" | grep \"2025\" | cut -d' ' -f3 | xargs docker rm -f\ndocker images --format=\"{{.Repository}} {{.Tag}} {{.ID}}\" | grep \"sds\" | cut -d' ' -f3 | xargs docker rmi"
+  },
+  {
+    "objectID": "setup/problems.html#the-last-resort",
+    "href": "setup/problems.html#the-last-resort",
+    "title": "Dealing with Problems",
+    "section": "The Last Resort",
+    "text": "The Last Resort\n\n\n\n\n\n\nWarning\n\n\n\nWe only support Anaconda Python as a fallback for students who would otherwise be unable to complete the module because their computer does not support Docker. If you choose to use Anaconda (but could run Docker) then we will not be able to support you.\n\n\nA very small number of students are unable to run Docker or Podman at all on computers running Windows 10 Home (in 23/24 there were none), in which case Anaconda Python can be used with the configuration that we provide. We don’t recommend this as Podman and Docker isolate the programming environment from your computer, ensuring that nothing is clobbered by accident, and guaranteeing that you are working with the same version of every Python library as the rest of the class (and the versions for which the practicals are tested).\nAnaconda is only supported as a last resort.\nHowever you are always free to install Anaconda Python and to use our YAML configuration script to install the sparc environment, but you should do this in your own time: in previous years students have encountered difficult-to-diagnose bugs in their code (and lost marks in the Assessments!) because they had installed an older or more recent version of a Python library than the one configured and tested in the sparc environment.\nWe believe that the replication advantages of virtualisation outweigh the disbenefits in terms of performance. It also means that you will spend less time installing libraries and more time running code, which is where your attention should really be when you are familiarising yourself with the foundations of data science.\nEventually you will, of course, want to install and manage your own programming environment (possibly even by building and sharing Podman/Docker images!) but this can be left for later when you have developed an appreciation of how and when virtualisation is (or is not) an appropriate solution to your needs."
   },
   {
     "objectID": "setup/jupyter_hub.html",
@@ -56,466 +63,25 @@
     "text": "Tweaks to environyment_py.yml\nTwo shortcomings in the existing approach of generating environment_py.yml were identified and need to be tweaked in the Makefile:\n\nRemove anything with linux in it\nRemove version from gitpython.\nRemove python-graphviz entirely.\n\nAdditional issues may exist with replication to non-Linux systems."
   },
   {
-    "objectID": "setup/index.html",
-    "href": "setup/index.html",
-    "title": "Setup",
-    "section": "",
-    "text": "Once you’ve ticked off the Requirements, you can start installing the tools that you will use to write and run both code and documentation. You will need set up Git and GitHub in order to manage, share, and version code. To write documentation and comments on code you will be want a Markdown editor and to familiarise yourself with Markdown’s syntax. And, finally, you will need to install the programming tools."
-  },
-  {
-    "objectID": "setup/index.html#installation",
-    "href": "setup/index.html#installation",
-    "title": "Setup",
-    "section": "",
-    "text": "Once you’ve ticked off the Requirements, you can start installing the tools that you will use to write and run both code and documentation. You will need set up Git and GitHub in order to manage, share, and version code. To write documentation and comments on code you will be want a Markdown editor and to familiarise yourself with Markdown’s syntax. And, finally, you will need to install the programming tools."
-  },
-  {
-    "objectID": "setup/index.html#no-install",
-    "href": "setup/index.html#no-install",
-    "title": "Setup",
-    "section": "No Install",
-    "text": "No Install\nIf you are unable to get your hands on a machine that meets the basic requirements or on to which you can install the necessary tools, then you should look at the no install options. These are generally cloud-based options and are necessarily a ‘second best’ since limitations imposed by the provider mean that you probably won’t be able to process the full data set with which we’ll be working, but as a stop-gap they are perfectly useable."
-  },
-  {
-    "objectID": "setup/env.html",
-    "href": "setup/env.html",
-    "title": "Installation",
-    "section": "",
-    "text": "Over the years, we have experimented with a range of approaches to setting you up with a programming environment, and we have come to the conclusion that Podman1 is the most robust way to ensure a consistent experience. This guarantees that all students end up with the same versions of each library, that difficult-to-diagnose hardware/OS issues are minimised, and that running/recovery is the most straightforward.",
-    "crumbs": [
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "setup/env.html#downloading",
-    "href": "setup/env.html#downloading",
-    "title": "Installation",
-    "section": "Downloading",
-    "text": "Downloading\n\nWhat Kind of Computer?\n\nApple Intel or Silicon/M-chip?\nApple has stopped using Intel computer chips and now uses its own ‘Silicon’ (aka ‘M’) chips instead. Confusingly, these are often also referred to by their technical specification as AMD64 (Intel) and ARM64 (Apple), respectively. To find out which you have, click on the Apple icon () and select About this Mac. Look at the Processor section and you should see which type of computer you have. If you see the word Intel then you have an Intel computer, if you see M1, M2, M3, etc. then you have an Apple Silicon computer.\n\n\nWindows 32- or 64-bit?\nIt is highly unlikely that you have a 32-bit machine, so if in doubt download the 64-bit version. It is also unlikely that you have an ARM device if you have an off-the-shelf Windows computer.\nPlease download all of the Essential packages for your type of computer (Apple Intel, Apple Silicon, Windows). The rest are listed for your convenience and you can install them as you see fit.\n\nApple IntelApple Silicon (M-chips)Windows PCs\n\n\n\nEssential:\n\nDocker Desktop for Mac with Intel chip\n\nOptional:\n\niTerm2\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\n\n\n\n\nEssential:\n\nDocker Desktop for Mac with Apple silicon\n\nOptional:\n\niTerm2\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\n\n\n\n\nEssential:\n\nDocker Desktop for Windows\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGit\nGitHub Desktop",
-    "crumbs": [
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "setup/env.html#next-steps",
-    "href": "setup/env.html#next-steps",
-    "title": "Preparation",
-    "section": "Next Steps",
-    "text": "Next Steps\nR and R-Studio can be installed fairly easily by double-clicking on the downloaded files and following the instructions. Docker is a bit more complex, so please follow the instructions below.",
-    "crumbs": [
-      "Preparation"
-    ]
-  },
-  {
-    "objectID": "setup/env.html#installing-docker",
-    "href": "setup/env.html#installing-docker",
-    "title": "Preparation",
-    "section": "Installing Docker",
-    "text": "Installing Docker\n\n\n\n\n\n\nEssential Topic\n\n\n\nThis next section is essential to running the pod environment.\n\n\nDocker is a complex application doing very complex things. It’s not surprising that it can be a bit of a pain to install. But once installed, it’s a very powerful platform for ‘doing (spatial) data science’ that’s widely used in industry and, increasingly, academia.\nOne way to think of it as a ‘library’ of ready-made virtual computers that you can copy and use free-of-charge. If you’d like to know more about what Docker is and how it works, you can read more in the Understanding Docker section.\n\n\n\n\n\n\nWindows Users\n\n\n\nPlease ensure that you have installed WSL2 before installing Docker! If you cannot install WSL2 then please have a look at the ‘dealing with errors’ section.\n\n\nAfter you’ve downloaded Docker, you need to:\n\nInstall it – usually this will mean opening the image and either dragging it your Application folder (Mac) or running the installer (Windows)\nStart it up – double-click the Docker icon in your Applications folder to start Docker running.\nFinish setup – once Docker is finished starting up, you should see the login screen below. You do not need to create an account (notice Continue without signing in)\nOn all the subsequent questions you can Skip (upper-right corner) answering as well.\n\n\n\n\nDocker trying to trick you into creating an account\n\n\nYou must finish setting up before proceeding to the next step. You’ll know that you’re ready to move on when you see the ‘Docker Desktop’ window appear listing ‘downloaded images’ and ‘running containers’:\n\n\n\nDocker Desktop\n\n\nIf you didn’t see this then you will need to have a look at the ‘dealing with errors’ section.",
-    "crumbs": [
-      "Preparation"
-    ]
-  },
-  {
-    "objectID": "setup/env.html#testing-docker",
-    "href": "setup/env.html#testing-docker",
-    "title": "Installation",
-    "section": "Testing Docker",
-    "text": "Testing Docker\nTo test if Docker is installed correctly, you will need either the Terminal (macOS) or the Power Shell (Windows).\n\n\n\n\n\n\nCopy Code to Clipboard\n\n\n\nWhenever you see a ‘code block’ below, you will also see a ‘clipboard’ icon () in the right. Click that, and the code will be copied to your computer’s ‘clipboard’ so that you can then paste it into the Terminal or Power Shell. That will save you a lot of time and effort.\n\n\nDocker has provided a simple way to test if your installation is working correctly. You can run the following command in the Terminal or Power Shell:\ndocker run hello-world\nThis should output something like:\nUnable to find image 'hello-world:latest' locally\nlatest: Pulling from library/hello-world\n478afc919002: Pull complete\nDigest: sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2\nStatus: Downloaded newer image for hello-world:latest\n\nHello from Docker!\nThis message shows that your installation appears to be working correctly.\n\nTo generate this message, Docker took the following steps:\n 1. The Docker client contacted the Docker daemon.\n 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub.\n    (arm64v8)\n 3. The Docker daemon created a new container from that image which runs the\n    executable that produces the output you are currently reading.\n 4. The Docker daemon streamed that output to the Docker client, which sent it\n    to your terminal.\n\nTo try something more ambitious, you can run an Ubuntu container with:\n $ docker run -it ubuntu bash\n\nShare images, automate workflows, and more with a free Docker ID:\n https://hub.docker.com/\n\nFor more examples and ideas, visit:\n https://docs.docker.com/get-started/\nIf you see this message, then Docker is installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the ‘dealing with errors’ section. Notice how there are several things happening:\n\nUnable to find image... locally – this is because the hello-world image is not (yet) stored on your computer.\nlatest: Pulling from library/hello-world – this is Docker downloading the hello-world image from the internet.\nPull complete – this is Docker telling you that it has finished downloading the image.\nHello from Docker! – this is the hello-world image running and telling you that Docker is working correctly.\n\nThere’s obviously a lot more to that message, but that’s the basic idea.",
-    "crumbs": [
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "setup/env.html#installing",
-    "href": "setup/env.html#installing",
-    "title": "Installation",
-    "section": "Installing pod",
-    "text": "Installing pod\nWe now need to download the pod image that we use for teaching Foundations and Quantitative Methods. The image is the ‘template’ for running virtual machines (i.e. computers) on our ‘host’ computer and it comes complete with all of the Python libraries and other tools that you’ll need to complete the module (and a good deal more besides!). Installing the image will take a while as it’s quite large (2-5GB) and so will depend on the speed of your internet connection.\n\nIntel Macs and WindowsSilicon/M-Chip Macs\n\n\nIf your Apple computer has an Intel chipset (see:  -&gt; About this Mac -&gt; Processor) or is running Windows:\ndocker pull jreades/pod:2024-intel\n\n\nIf your Apple computer has an M1 or M2 ‘Silicon’ chipset (see:  -&gt; About this Mac -&gt; Processor):\ndocker pull jreades/pod:2024-silicon",
-    "crumbs": [
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "setup/env.html#using",
-    "href": "setup/env.html#using",
-    "title": "Installation",
-    "section": "Using jreades/pod:2024",
-    "text": "Using jreades/pod:2024\nNow that you have the image downloaded, you can start an pod container by copying the following command into the Terminal or Power Shell (this does not work in the Command Prompt/cmd):\n\nFor Intel MacsFor M-Chip MacsFor Windows\n\n\ndocker run --rm -d --name pod -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/pod:2024-intel start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name pod -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/pod:2024-silicon start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name pod -p 8888:8888 -v \"$(pwd):/home/jovyan/work\" jreades/pod:2024-intel start.sh jupyter lab --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''",
-    "crumbs": [
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "setup/env.html#success",
-    "href": "setup/env.html#success",
-    "title": "Installation",
-    "section": "Success!",
-    "text": "Success!\nHowever, most of you should now be able to connect to the virtual machine by pointing your browser at: localhost:8888 where you should see something like this:\n\n\n\nJupyter Lab Success",
-    "crumbs": [
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "setup/env.html#when-things-go-wrong",
-    "href": "setup/env.html#when-things-go-wrong",
-    "title": "Installation",
-    "section": "When Things Go Wrong",
-    "text": "When Things Go Wrong\nIf you encounter any problems with the installation, please have a look at the Dealing with Docker Problems page.",
-    "crumbs": [
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "setup/env.html#footnotes",
-    "href": "setup/env.html#footnotes",
-    "title": "Installation",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nAnd Docker, which is basically the same thing.↩︎",
-    "crumbs": [
-      "Installation"
-    ]
-  },
-  {
-    "objectID": "req/index.html",
-    "href": "req/index.html",
-    "title": "Requirements",
-    "section": "",
-    "text": "Before trying to do anything else please complete the basic health check, which also includes our recommendations if you are considering buying a new computer when you start your studies. Once you know that your machine and operating system are up-to-date, you should install the basic utilities that will enable you to complete installation of the programming environment. We also provide information about Code Camp which is a self-paced introduction to the fundamentals of programming in Python."
-  },
-  {
-    "objectID": "req/code_camp.html",
-    "href": "req/code_camp.html",
-    "title": "Code Camp",
-    "section": "",
-    "text": "Prior to (re)joining CASA from the Department of Geography at King’s College London, Dr. Mic Ferretti, Dr. Zara Shabrina, Dr. James Millington, and I developed Code Camp.\nCode Camp provides a gentle introduction to the basics of programming in Python. Across ten sessions you will learn about syntax, variables, ‘simple’ data structures such as lists and dictionaries, and about the fundamentals of writing functions for reusable code. The sessions are entirely self-led: you should follow along at your own pace and remember that ‘it’s a marathon, not a sprint’. Don’t cram it all into the last week of summer holidays!\nStudents from previous years have repeatedly said that completing Code Camp helped them to feel more ready for the Foundations of Spatial Data Science module, enabling them to do better on assessments and on the programme as a whole.\nSo please, complete Code Camp by the start of term and, if possible, go through the materials more than once!\nYou should have received instructions via email for running Code Camp, but here they are again…",
-    "crumbs": [
-      "Code Camp"
-    ]
-  },
-  {
-    "objectID": "req/code_camp.html#options",
-    "href": "req/code_camp.html#options",
-    "title": "Code Camp",
-    "section": "Options",
-    "text": "Options\nCode Camp is publicly accessible through a code-sharing web site called GitHub and can be run using either:\n\nGoogle’s ‘Collaboratory’, or\nThe Open Source Binder tool.\n\nIn both cases there is nothing to install on your computer. You could even use a tablet or phone, though we wouldn't really recommend it. There are two main differences: ‘Colab’ notebooks require an account but can be saved into Google Drive; Binder does not require any registration, but you won’t be able to save anything.",
-    "crumbs": [
-      "Code Camp"
-    ]
-  },
-  {
-    "objectID": "req/code_camp.html#using-google-colab",
-    "href": "req/code_camp.html#using-google-colab",
-    "title": "Code Camp",
-    "section": "Using Google Colab",
-    "text": "Using Google Colab\n\nHow to get started:\n\nGo to Google’s Colab site and sign in using your Google account details (or create an account if you don’t already have one).\nChoose File then Open and select the GitHub tab from the open options (it’s between Google Drive and Upload).\nEnter the following URL: https://github.com/kingsgeocomp/code-camp (Jon was with King’s when he helped to create this resource)\nYou should now see a list of notebooks to choose from – the first few are fairly quick to complete, but they get harder as you go along – select the first on in the sequence and click Open in Colab.\nYou will need to trust the notebook in order to run it.\n\nNow you can run code in your web browser! When you are done for the day you can save the notebook to your Google Drive – to re-run that notebook you can just load it from Google Drive, rather than going back to GitHub, but remember that you need to re-run all the cells up to the point where you saved the notebook. Being able to save and re-run a notebook is the main difference from Binder.",
-    "crumbs": [
-      "Code Camp"
-    ]
-  },
-  {
-    "objectID": "req/code_camp.html#using-binder",
-    "href": "req/code_camp.html#using-binder",
-    "title": "Code Camp",
-    "section": "Using Binder",
-    "text": "Using Binder\nAll you need to do to get started is click the image below: \nThat’s it! But in case clicking that image doesn’t work, you can also go to: https://bit.ly/33Rc5QD. When Binder starts, you will be able to run the notebooks! The main difference from Colab is that you have to download a notebook from Binder to your local computer in order to save it. To re-run the same notebook, you’d need to upload the notebook to Binder again. So Binder has no ‘memory’ of your work between interactions.",
-    "crumbs": [
-      "Code Camp"
-    ]
-  },
-  {
-    "objectID": "req/base.html",
-    "href": "req/base.html",
-    "title": "Base Utilities",
-    "section": "",
-    "text": "In order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:"
-  },
-  {
-    "objectID": "req/base.html#windows-linux-shell",
-    "href": "req/base.html#windows-linux-shell",
-    "title": "Base Utilities",
-    "section": "Windows + Linux + Shell",
-    "text": "Windows + Linux + Shell\n\n\n\n\n\n\nCreating a Linux User\n\n\n\nIf you want to install a full Linux distribution (e.g. because you want to do more than just run Docker) then make sure you set up a new Linux user and do not end up running everything as root.\n\n\nTo make full use of WSL2 and Linux (if you want to do more than just use Docker) you will need to familiarise yourself with how having two operating systems that can talk to each other works. That is covered in the next section. This will actually be useful for understanding how Docker works, as it can be profoundly confusing.\nThe behaviour of the ‘shell’ (command line) is quite confusing because, with WSL2, you effectively end up with two ‘home’ directories: one for your Windows user, and one for your new Ubuntu user. Starting a Linux shell/command line puts you in your Linux home directory (the username may be completely different from your Windows username). Starting a Windows shell/command line puts you in your Windows home directory (again, the username may be completely different from your Linux username).\nSo the first, and perhaps most important, thing is understanding where ‘data’ is being stored:\n\nUnder Linux the user directory is apparently something like: \\\\wsl$\\&lt;DistroName&gt;\\home\\&lt;UserName&gt;\\ but you can usually get it by simply typing cd $HOME and then pwd when starting a new Linux shell.\nUnder Windows the user directory is: C:\\Users\\&lt;UserName&gt;\\ or /mnt/c/Users/&lt;UserName&gt;/, and you can often simply type pwd when opening a new Windows shell.\n\nSo these are different locations on your computer’s hard drive, and you will not see your Linux files in your Windows Home Directory and vice versa. To make it easy to switch between the two, I found this page on Microsoft’s web site that goes through some of the post-WSL2 installation steps, but see especially the additional page on Windows Terminal configuration.\nSlightly confusingly, you can run Linux commands directly from Windows, usually be adding wsl in front of the Linux command (e.g. wsl ls *.csv from Windows, where in Linux the command would be ls *.csv).\nTo make it easy to move from the Linux side of your machine to the Windows machine you can also do this:\n\nWork out where your CASA files are stored on the Windows side (see above: /mnt/c/Users/&lt;UserName&gt;/My\\ Documents/CASA/... where &lt;UserName&gt; is your Windows user name).\ncd to this location and type pwd to output the full path to the CASA directory.\nCopy this.\nNow start a Linux shell and run the following command once (you do not need to do it ever again): echo \"export WIN_HOME=\\\"/mnt/c/Users/.../CASA/\\\"\" &gt;&gt; $HOME/.bashrc. Replace the ... with the rest of the actual path! The \\\" is very important, don’t try to change those!\nNow run source .bashrc and you should see no errors.\n\nOnce you have done this you will have added a single line to your .bashrc file in Linux. This will create a ‘shortcut’ for bash in Linux. From here on out you should be able to type cd $WIN_HOME and move immediately over to the CASA directory on the Windows side. This will save having to remember (and type) the Windows path each time."
-  },
-  {
-    "objectID": "req/health.html",
-    "href": "req/health.html",
-    "title": "Health Check",
-    "section": "",
-    "text": "When answering the questions below, ‘your computer’ is the machine on which you plan to do the programming.",
-    "crumbs": [
-      "Health Check"
-    ]
-  },
-  {
-    "objectID": "req/health.html#hardware-requirements",
-    "href": "req/health.html#hardware-requirements",
-    "title": "Health Check",
-    "section": "Hardware Requirements",
-    "text": "Hardware Requirements\nWe try to support as many different configurations as possible, but there is no programming environment that installs and runs seamlessly on all computers. However, in our experience the students most likely to encounter problems share one or more of the following:\n\nYour computer 8GB or less of RAM.\nYour computer has less than 20GB of free disk space remaining.\n\nRead on below to check what specification you have…\n\nMacOSWindowsLinux\n\n\nYou will need to look up:\n\nHow much RAM does your computer have? Help for Mac.\nHow much free disk space does your computer have? Help for Mac.\n\n\n\nYou will need to look up:\n\nHow much RAM does your computer have? Help for Windows.\nHow much free disk space does your computer have? Help for Windows.\n\n\n\nWe’re going to assume that you know what you’re doing. If you want a recommendation, we’d probably go with the latest Ubuntu desktop release.\n\n\n\nIf your computer has less than 8GB of RAM and/or less than 20GB of free disk space you are likely to have issues with Docker and (on Windows) WSL2. Your options are: 1) add more RAM (possible on Windows); 2) back up and remove unnecessary files (Movies, Photos, and Applications are particularly big ‘hogs’).",
-    "crumbs": [
-      "Health Check"
-    ]
-  },
-  {
-    "objectID": "req/health.html#software-requirements",
-    "href": "req/health.html#software-requirements",
-    "title": "Health Check",
-    "section": "Software Requirements",
-    "text": "Software Requirements\nWe try to support as many different configurations as possible, but there is no programming environment that installs and runs seamlessly on all computers. However, in our experience the students most likely to encounter problems share one or more of the following:\n\nYour computer runs Windows 10 Home or older, or\nYour computer runs MacOS 10.13 (High Sierra) or older.\n\nAs long as your computer is running one of the last two major releases of the Operating System you should encounter few issues.\n\nMacOS\nYou will need to look up:\n\nWhat Operating System and Version is your computer running? Help for Mac.\n\n\n\nWindows\nYou will need to look up:\n\nWhat Operating System and Version is your computer running? Help for Windows.\n\n\n\nRecommendations\nIf you are using a Mac then your system should have the option to update to the latest version of the MacOS at no charge. If you are unable to update then it is likely that you have an older machine that is not fully supported by the most recent Operating System and, in all probability, you will also encounter issues running the programming environment.\nIf you are using a Windows PC then try to update to either Windows 11 or to Windows 10 Pro as this will ‘unlock’ additional features that are useful for supporting the programming environment. As a student you are likely to qualify for significantly cheaper/free updates, so make sure you do this when you have access to a discount.",
-    "crumbs": [
-      "Health Check"
-    ]
-  },
-  {
-    "objectID": "req/health.html#system-updates",
-    "href": "req/health.html#system-updates",
-    "title": "Health Check",
-    "section": "System Updates",
-    "text": "System Updates\nNow that you know your computer is ‘up-to-spec’, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the other steps in this brief guide to getting started.",
-    "crumbs": [
-      "Health Check"
-    ]
-  },
-  {
-    "objectID": "req/wsl.html",
-    "href": "req/wsl.html",
-    "title": "CASA Jaipur Training",
-    "section": "",
-    "text": "MacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post."
-  },
-  {
     "objectID": "setup/git.html",
     "href": "setup/git.html",
     "title": "Git & GitHub",
     "section": "",
-    "text": "Git is a ‘version control system’, which is a fancy way of saying that it has the potential to store a complete, line-by-line history of your work… so long as it’s in a plain-text format like Markdown or Python/R code files. Git updates all of this history on your computer every time you ‘commit’ the changes you’ve told it about by ‘adding’ a file. With GitHub you can then synchronise these changes so that you have a full backup (code and content are no longer just on your computer), publish a web site (via github.io), or collaborate with other people (via public, shared ‘repositories’).\nWhile it is not necessary that you learn all about how GitHub works now, it will be really helpful if you can get yourself set up with a GitHub account and install Git locally so that you’re ready to get when we start the term.",
-    "crumbs": [
-      "Git & GitHub"
-    ]
+    "text": "Git is a ‘version control system’, which is a fancy way of saying that it has the potential to store a complete, line-by-line history of your work… so long as it’s in a plain-text format like Markdown or Python/R code files. Git updates all of this history on your computer every time you ‘commit’ the changes you’ve told it about by ‘adding’ a file. With GitHub you can then synchronise these changes so that you have a full backup (code and content are no longer just on your computer), publish a web site (via github.io), or collaborate with other people (via public, shared ‘repositories’).\nWhile it is not necessary that you learn all about how GitHub works now, it will be really helpful if you can get yourself set up with a GitHub account and install Git locally so that you’re ready to get when we start the term."
   },
   {
     "objectID": "setup/git.html#get-a-github-account",
     "href": "setup/git.html#get-a-github-account",
     "title": "Git & GitHub",
     "section": "Get a GitHub Account",
-    "text": "Get a GitHub Account\nYou will need to go to GitHub.com and then click the Sign up button at the top right. Follow the instructions for creating a new account from there.\n\n\n\n\n\n\nUse Your Personal Account\n\n\n\nAlthough you can always change it later (so if you’ve opened your GitHub account using your UCL email don’t panic!), you may find it easier to:\n\nOpen a GitHub account using a personal email address to which you expect to always have access.\nThen associate your UCL email address to this GitHub account so that you gain from any educational benefits offered by GitHub (there are some around private respositories and so on).",
-    "crumbs": [
-      "Git & GitHub"
-    ]
+    "text": "Get a GitHub Account\nYou will need to go to GitHub.com and then click the Sign up button at the top right. Follow the instructions for creating a new account from there.\n\n\n\n\n\n\nUse Your Personal Account\n\n\n\nAlthough you can always change it later (so if you’ve opened your GitHub account using your UCL email don’t panic!), you may find it easier to:\n\nOpen a GitHub account using a personal email address to which you expect to always have access.\nThen associate your UCL email address to this GitHub account so that you gain from any educational benefits offered by GitHub (there are some around private respositories and so on)."
   },
   {
     "objectID": "setup/git.html#install-git-locally",
     "href": "setup/git.html#install-git-locally",
     "title": "Git & GitHub",
     "section": "Install Git Locally",
-    "text": "Install Git Locally\nYou can follow along with GitHub’s own instructions for installing Git on your own computer. In many cases (especially if you use a Mac) you may find that Git is already installed, you just didn’t know it.",
-    "crumbs": [
-      "Git & GitHub"
-    ]
-  },
-  {
-    "objectID": "setup/install_fest.html",
-    "href": "setup/install_fest.html",
-    "title": "Installation ‘Fest’",
-    "section": "",
-    "text": "This page is intended to get you up and running with most of the programming tools that you’ll need for the year during Induction Week. This way, you are ready to begin your studies in Week 1."
-  },
-  {
-    "objectID": "setup/install_fest.html#base-utilities",
-    "href": "setup/install_fest.html#base-utilities",
-    "title": "Installation ‘Fest’",
-    "section": "Base Utilities",
-    "text": "Base Utilities\n\nMacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post."
-  },
-  {
-    "objectID": "setup/install_fest.html#downloading",
-    "href": "setup/install_fest.html#downloading",
-    "title": "Installation ‘Fest’",
-    "section": "Downloading",
-    "text": "Downloading\n\nWhat Kind of Computer?\n\nApple Intel or Silicon/M-chip?\nApple has stopped using Intel computer chips and now uses its own ‘Silicon’ (aka ‘M’) chips instead. Confusingly, these are often also referred to by their technical specification as AMD64 (Intel) and ARM64 (Apple), respectively. To find out which you have, click on the Apple icon () and select About this Mac. Look at the Processor section and you should see which type of computer you have. If you see the word Intel then you have an Intel computer, if you see M1, M2, M3, etc. then you have an Apple Silicon computer.\n\n\nWindows 32- or 64-bit?\nIt is highly unlikely that you have a 32-bit machine, so if in doubt download the 64-bit version. It is also unlikely that you have an ARM device if you have an off-the-shelf Windows computer.\nWhile you’re waiting for the packages below to finish downloading, you can also have a look at the information about getting set up on GitHub…\nPlease download all of the Essential packages for your type of computer (Apple Intel, Apple Silicon, Windows). The rest are listed for your convenience and you can install them as you see fit.\n\nApple IntelApple Silicon (M-chips)Windows PCs\n\n\n\nEssential:\n\nDocker Desktop for Mac with Intel chip\nR-4.4.1 for x86-64/AMD64\nR Studio Desktop\n\nGood to have:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nCompletely optional:\n\nVS Code (Universal)\nQuarto\niTerm2\n\n\n\n\n\nEssential:\n\nDocker Desktop for Mac with Apple silicon\nR-4.4.1 for ARM64\nR Studio Desktop\n\nGood to have:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nCompletely optional:\n\nVS Code (ARM64)\nQuarto\niTerm2\n\n\n\n\n\nEssential:\n\nDocker Desktop for Windows\nR-4.4.1\nR Studio Desktop\nGit\n\nGood to have:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nCompletely optional:\n\nVS Code\nQuarto"
-  },
-  {
-    "objectID": "setup/install_fest.html#next-steps",
-    "href": "setup/install_fest.html#next-steps",
-    "title": "Installation ‘Fest’",
-    "section": "Next Steps",
-    "text": "Next Steps\nR and R-Studio can be installed fairly easily by double-clicking on the downloaded files and following the instructions. Docker is a bit more complex, so please follow the instructions below."
-  },
-  {
-    "objectID": "setup/install_fest.html#installing-docker",
-    "href": "setup/install_fest.html#installing-docker",
-    "title": "Installation ‘Fest’",
-    "section": "Installing Docker",
-    "text": "Installing Docker\n\n\n\n\n\n\nEssential Topic\n\n\n\nThis next section is essential to running the pod environment.\n\n\nDocker is a complex application doing very complex things. It’s not surprising that it can be a bit of a pain to install. But once installed, it’s a very powerful platform for ‘doing (spatial) data science’ that’s widely used in industry and, increasingly, academia.\nOne way to think of it as a ‘library’ of ready-made virtual computers that you can copy and use free-of-charge. If you’d like to know more about what Docker is and how it works, you can read more in the Understanding Docker section.\n\n\n\n\n\n\nWindows Users\n\n\n\nPlease ensure that you have installed WSL2 before installing Docker! If you cannot install WSL2 then please have a look at the ‘dealing with errors’ section.\n\n\nAfter you’ve downloaded Docker, you need to:\n\nInstall it – usually this will mean opening the image and either dragging it your Application folder (Mac) or running the installer (Windows)\nStart it up – double-click the Docker icon in your Applications folder to start Docker running.\nFinish setup – once Docker is finished starting up, you should see the login screen below. You do not need to create an account (notice Continue without signing in)\nOn all the subsequent questions you can Skip (upper-right corner) answering as well.\n\n\n\n\nDocker trying to trick you into creating an account\n\n\nYou must finish setting up before proceeding to the next step. You’ll know that you’re ready to move on when you see the ‘Docker Desktop’ window appear listing ‘downloaded images’ and ‘running containers’:\n\n\n\nDocker Desktop\n\n\nIf you didn’t see this then you will need to have a look at the ‘dealing with errors’ section."
-  },
-  {
-    "objectID": "setup/install_fest.html#testing-docker",
-    "href": "setup/install_fest.html#testing-docker",
-    "title": "Installation ‘Fest’",
-    "section": "Testing Docker",
-    "text": "Testing Docker\nTo test if Docker is installed correctly, you will need either the Terminal (macOS) or the Power Shell (Windows).\n\n\n\n\n\n\nCopy Code to Clipboard\n\n\n\nWhenever you see a ‘code block’ below, you will also see a ‘clipboard’ icon () in the right. Click that, and the code will be copied to your computer’s ‘clipboard’ so that you can then paste it into the Terminal or Power Shell. That will save you a lot of time and effort.\n\n\nDocker has provided a simple way to test if your installation is working correctly. You can run the following command in the Terminal or Power Shell:\ndocker run hello-world\nThis should output something like:\nUnable to find image 'hello-world:latest' locally\nlatest: Pulling from library/hello-world\n478afc919002: Pull complete\nDigest: sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2\nStatus: Downloaded newer image for hello-world:latest\n\nHello from Docker!\nThis message shows that your installation appears to be working correctly.\n\nTo generate this message, Docker took the following steps:\n 1. The Docker client contacted the Docker daemon.\n 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub.\n    (arm64v8)\n 3. The Docker daemon created a new container from that image which runs the\n    executable that produces the output you are currently reading.\n 4. The Docker daemon streamed that output to the Docker client, which sent it\n    to your terminal.\n\nTo try something more ambitious, you can run an Ubuntu container with:\n $ docker run -it ubuntu bash\n\nShare images, automate workflows, and more with a free Docker ID:\n https://hub.docker.com/\n\nFor more examples and ideas, visit:\n https://docs.docker.com/get-started/\nIf you see this message, then Docker is installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the ‘dealing with errors’ section. Notice how there are several things happening:\n\nUnable to find image... locally – this is because the hello-world image is not (yet) stored on your computer.\nlatest: Pulling from library/hello-world – this is Docker downloading the hello-world image from the internet.\nPull complete – this is Docker telling you that it has finished downloading the image.\nHello from Docker! – this is the hello-world image running and telling you that Docker is working correctly.\n\nThere’s obviously a lot more to that message, but that’s the basic idea."
-  },
-  {
-    "objectID": "setup/install_fest.html#installing",
-    "href": "setup/install_fest.html#installing",
-    "title": "Installation ‘Fest’",
-    "section": "Installing pod",
-    "text": "Installing pod\nWe now need to download the pod image that we use for teaching Foundations and Quantitative Methods. The image is the ‘template’ for running virtual machines (i.e. computers) on our ‘host’ computer and it comes complete with all of the Python libraries and other tools that you’ll need to complete the module (and a good deal more besides!). Installing the image will take a while as it’s quite large (2-5GB) and so will depend on the speed of your internet connection.\n\nIntel Macs and WindowsSilicon/M-Chip Macs\n\n\nIf your Apple computer has an Intel chipset (see:  -&gt; About this Mac -&gt; Processor) or is running Windows:\ndocker pull jreades/pod:2024-intel\n\n\nIf your Apple computer has an M1 or M2 ‘Silicon’ chipset (see:  -&gt; About this Mac -&gt; Processor):\ndocker pull jreades/pod:2024-silicon"
-  },
-  {
-    "objectID": "setup/install_fest.html#using",
-    "href": "setup/install_fest.html#using",
-    "title": "Installation ‘Fest’",
-    "section": "Using jreades/pod:2024",
-    "text": "Using jreades/pod:2024\nNow that you have the image downloaded, you can start an pod container by copying the following command into the Terminal or Power Shell (this does not work in the Command Prompt/cmd):\n\nFor Intel MacsFor M-Chip MacsFor Windows\n\n\ndocker run --rm -d --name pod -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/pod:2024-intel start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name pod -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/pod:2024-silicon start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name pod -p 8888:8888 -v \"$(pwd):/home/jovyan/work\" jreades/pod:2024-intel start.sh jupyter lab --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''"
-  },
-  {
-    "objectID": "setup/install_fest.html#success",
-    "href": "setup/install_fest.html#success",
-    "title": "Installation ‘Fest’",
-    "section": "Success!",
-    "text": "Success!\nHowever, most of you should now be able to connect to the virtual machine by pointing your browser at: localhost:8888 where you should see something like this:\n\n\n\nJupyter Lab Success"
-  },
-  {
-    "objectID": "setup/install_fest.html#when-things-go-wrong",
-    "href": "setup/install_fest.html#when-things-go-wrong",
-    "title": "Installation ‘Fest’",
-    "section": "When Things Go Wrong",
-    "text": "When Things Go Wrong\nIf you encounter any problems with the installation, please have a look at the Dealing with Docker Problems page."
-  },
-  {
-    "objectID": "setup/install_fest.html#get-a-github-account",
-    "href": "setup/install_fest.html#get-a-github-account",
-    "title": "Installation ‘Fest’",
-    "section": "Get a GitHub Account",
-    "text": "Get a GitHub Account\nYou will need to go to GitHub.com and then click the Sign up button at the top right. Follow the instructions for creating a new account from there.\n\n\n\n\n\n\nUse Your Personal Account\n\n\n\nAlthough you can always change it later (so if you’ve opened your GitHub account using your UCL email don’t panic!), you may find it easier to:\n\nOpen a GitHub account using a personal email address to which you expect to always have access.\nThen associate your UCL email address to this GitHub account so that you gain from any educational benefits offered by GitHub (there are some around private respositories and so on)."
-  },
-  {
-    "objectID": "setup/markdown.html",
-    "href": "setup/markdown.html",
-    "title": "Markdown",
-    "section": "",
-    "text": "Markdown is a ‘markup language’ for documents that is compatible with a lot of different tools (including GitHub and Jupyter) that we use day-in and day-out for doing our research and teaching. Many of us have now largely stopped using Word (and even LaTeX) except for the final polishing of a document. Why? Because Markdown is faster, simpler, and just gets out of the way when we’re writing. So rather than fiddling about with Word’s styles (or, worse, discovering that you should have been using styles all along) or with LaTeX’s painful table layout, you can just get on with writing in Markdown and then export to Word or LaTeX for the final steps. Best of both worlds!\nIn fact, Markdown is so handy that it’s become the default for writing content for the web. This web site was actually written in Markdown and then ‘rendered’ (i.e. turned into a functional web page) using Quarto. We’ve included Quarto on the SDS2022 Docker image that we’ve recommended you use.",
-    "crumbs": [
-      "Markdown"
-    ]
-  },
-  {
-    "objectID": "setup/markdown.html#markdown-editors",
-    "href": "setup/markdown.html#markdown-editors",
-    "title": "Markdown",
-    "section": "Markdown Editors",
-    "text": "Markdown Editors\nOver time you will undoubtedly learn how to write markdwon without need to think much (if at all) about how to type the formatting ‘codes’, but a simple markdown editor can make your life much, much easier. Even when you’re highly experienced!\n\nFor MacOSFor WindowsFor Linux\n\n\nThere’s a good overview of ‘free’1 editors for the Mac which highlights a few in particular:\n\nMacDown – I’ve not used this, but it seems determinedly FOSS so is probably a good choice.\nHaroopad – this looks like a more powerful, but less immediatley user-friendly editor.\nAtom – I’ve used Atom for editing Python code but believe it’s largely plugin-based so it clearly supports markdown too.\n\nTypora was free while in beta, but I thought it was worth the modest amount of money asked for something that was super-fast and gave me a tool with which to write up my research, not just my code and teaching content. iA Writer is another good (paid for) option because it runs on iPad and iPhone as well! Together with the Working Copy Git client for iOS I’ve used iA Writer to draft articles, make notes directly in my codebase, and correct errors found at the last minute in my teaching materials. Like Typora, iA Writer is probably intended more for writing text, not writing complex Reveal.js presentations or non-standard markdown.\n\n\nI don’t have access to a Windows machine to test this out, but there are plenty of opinions to be found by Googling ‘best Windows Markdown editors’ or ‘best free Windows Markdown editors’. There’s one for writers and a more generic set of recommendations. Have a look around and see what you like!\n\n\nIf you use Linux already do you really need a recommendation? How about vim or vi?",
-    "crumbs": [
-      "Markdown"
-    ]
-  },
-  {
-    "objectID": "setup/markdown.html#using-markdown",
-    "href": "setup/markdown.html#using-markdown",
-    "title": "Markdown",
-    "section": "Using Markdown",
-    "text": "Using Markdown\nFor Markdown to be useful as more than just a lightweight way to write notes, we want to be able to render it into new output formats/contexts. Here are three…",
-    "crumbs": [
-      "Markdown"
-    ]
-  },
-  {
-    "objectID": "setup/markdown.html#markdown-github",
-    "href": "setup/markdown.html#markdown-github",
-    "title": "Markdown",
-    "section": "Markdown & GitHub",
-    "text": "Markdown & GitHub\nMarkdown is the ‘default’ language of GitHub, which means it’s worth your while to familiarise yourself with how it works. However, there are different ‘flavours’ of markdown, which also means that just because something works on GitHub it will work everywhere else in the same way. This is particularly common when dealing with optional parameters that try to give the ‘renderer’ (the thing that converts markdown to HTML, or LaTeX, or any other format) hints about how the content should look.",
-    "crumbs": [
-      "Markdown"
-    ]
-  },
-  {
-    "objectID": "setup/markdown.html#markdown-notebooks",
-    "href": "setup/markdown.html#markdown-notebooks",
-    "title": "Markdown",
-    "section": "Markdown & Notebooks",
-    "text": "Markdown & Notebooks\nMarkdown is also the language of plain-text cells in Jupyter notebooks, which makes it doubly worth your while to familiarise yourself with how it works.",
-    "crumbs": [
-      "Markdown"
-    ]
-  },
-  {
-    "objectID": "setup/markdown.html#quarto",
-    "href": "setup/markdown.html#quarto",
-    "title": "Markdown",
-    "section": "Quarto",
-    "text": "Quarto\nQuarto builds on RMarkdown to make the power of Markdown+Code available to other languages than R. In our Foundations of Spatial Data Science module we use Quarto to do submissions but that’s largely because it demonstrates how we can Quarto to write whole articles or dissertation!\nIn many cases, it is as straightforward as installing Quarto and then running quarto render ..., but there are some tricks. In particular, to ‘render’ Markdown files to PDF, you will need to have some flabour to TeX installed. The default suggested by Quarto is TinyTex, and this can be installed using:\nquarto install tool tinytex\nBut on some platforms there are additional issues:\n\nMacWindows\n\n\nYou will probably be able to successfully install tinytex, but then be told that no TeX installation could be found when trying to render. The issue relates to the $PATH where Quarto searches for a valid TeX installation and when completing the installation you may have seen a warning to the effect of “To complete the installation, please run the following…”\nSo that’s basically what we need to do. The first thing you need to do is find the TinyTeX binaries, in the cases that I’ve been able to fix these were found under something like $HOME/Library/TinyTex/bin/, but you may need to look further under $HOME/Library/ to find the TinyTex directory.\nOnce you know where TinyTeX is (adjust the cd command below as necessary), you can then follow the suggestion given:\ncd $HOME/Library/TinyTeX/bin/\n./universal-darwin/tlmgr option sys_bin $HOME/Library/TinyTeX/bin\n./universal-darwin/tlmgr path add\nThat should do it, but in case you are still getting errors, then the following might be necessary (again, adjust the path if necessary):\necho \"export PATH=\\\"/Users/$(whoami)/Library/TinyTeX/bin:\\$PATH\\\"\" &gt;&gt; $HOME/.zshrc\nThe command above uses whoami to set the username and assumes that’s how things should be set up, but don’t blindly copy+paste and assume this will work! You could, for instance, check this location exists first using: ls /Users/$(whoami)/Library/TinyTeX/bin/ That will show if the path exists! The above command then updates the $PATH variable used by your Terminal to look for binaries, enabling Quarto to find TinyTeX once you close and then re-open a new Shell.\n\n\nMost commands seem to require replacing quarto with quarto.exe to run correctly. So quarto render Template.qmd becaomes quarto.exe render Template.qmd.\nHowever, if you are still getting errors to the effect that Quarto cannot be found then you may need to make additional edites to your .bashrc file (this is the configuration file for bash):\n\nCheck where Quarto is installed, it is most likely under /mnt/c/Users/&lt;Your Username&gt;/AppData/Local/Programs/Quarto/bin (replace &lt;Your Username&gt; as appropriate.\nEdit the .bashrc file in your $HOME directory. On Windows I would Google search for the best way to do this: “edit .bashrc file Windows”.\nAdd the following line at the end of the file: export PATH=/mnt/c/Users/&lt;Your Username&gt;/AppData/Local/Programs/Quarto/bin:$PATH\nSave the file and run source .bashrc in the Terminal.\nYou should now be able to run the following command successfully: quarto.exe --help",
-    "crumbs": [
-      "Markdown"
-    ]
-  },
-  {
-    "objectID": "setup/markdown.html#footnotes",
-    "href": "setup/markdown.html#footnotes",
-    "title": "Markdown",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nNot all of these are still free.↩︎",
-    "crumbs": [
-      "Markdown"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "CASA’s Jaipur Training",
-    "section": "",
-    "text": "Code Camp\n\n\n\nIf you have the time, then Code Camp is a short, self-paced introduction to the fundamentals of programming in Python that you can run in your web browser.\nIn order to get you started on your spatial and data science ‘journey’ you will need to follow the guidance provided on the pages we’ve linked to below."
-  },
-  {
-    "objectID": "index.html#requirements",
-    "href": "index.html#requirements",
-    "title": "CASA’s Jaipur Training",
-    "section": "Requirements",
-    "text": "Requirements\nBefore trying to install the software, please complete the basic health check to ensure that your computer is up-to-date and able to run the software we use."
-  },
-  {
-    "objectID": "index.html#setup",
-    "href": "index.html#setup",
-    "title": "CASA’s Jaipur Training",
-    "section": "Setup",
-    "text": "Setup\nThe Setup section will help you to get your computer ready for the workshop."
-  },
-  {
-    "objectID": "index.html#soft-skills",
-    "href": "index.html#soft-skills",
-    "title": "CASA’s Urban Spatial Science Platform",
-    "section": "Soft-Skills",
-    "text": "Soft-Skills\nIt might seem strange to have a section on soft-skills as part of our ‘preparing to run the Urban Spatial Science platform web site, but MSc programmes are a ’step up’ in terms of independent study, and so knowing how to read, how to think, how to ask for help and how to study effectively is almost as important as being able to run the code. Almost. Moreover, the skills we discuss here aren’t specific to any one module so we’ve put them here as part of your orientation."
-  },
-  {
-    "objectID": "index.html#to-dos",
-    "href": "index.html#to-dos",
-    "title": "CASA’s Urban Spatial Science Platform",
-    "section": "To Dos",
-    "text": "To Dos\nNone outstanding."
-  },
-  {
-    "objectID": "index.html#citing",
-    "href": "index.html#citing",
-    "title": "CASA’s Jaipur Training",
-    "section": "Citing",
-    "text": "Citing\n@software{jaipur:2025,\n  author = {Reades, Jon},\n  title = {\\texttt{jaipur_env}: A containerised platform for Urban Spatial Science},\n  url = {https://github.com/jreades/jaipur/},\n  version = {2025},\n  date = {2025-08-11},\n}"
-  },
-  {
-    "objectID": "index.html#preparation",
-    "href": "index.html#preparation",
-    "title": "CASA’s Jaipur Training",
-    "section": "Preparation",
-    "text": "Preparation\n\n\n\n\n\n\nCode Camp\n\n\n\nWe also provide information about Code Camp which is a self-paced introduction to the fundamentals of programming in Python."
-  },
-  {
-    "objectID": "setup/wsl.html",
-    "href": "setup/wsl.html",
-    "title": "CASA Jaipur Training",
-    "section": "",
-    "text": "MacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post."
+    "text": "Install Git Locally\nYou can follow along with GitHub’s own instructions for installing Git on your own computer. In many cases (especially if you use a Mac) you may find that Git is already installed, you just didn’t know it."
   },
   {
     "objectID": "setup/code_camp.html",
@@ -558,6 +124,91 @@
     ]
   },
   {
+    "objectID": "sessions/index.html",
+    "href": "sessions/index.html",
+    "title": "Session Overview",
+    "section": "",
+    "text": "Goal\n\n\n\nA basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.\n\n\nIntroductory session:\n\nFormat for the week\n\nPoll: how many people have used GIS? If so, which one?\nPoll: how many people have learned a programming language? If so, which one?\n\nWhy use (open source) code?\nWhy use (open) data?\nWhy use virtualisation?\nWhy care about reproducibility?\nWhy share your code?\nWhy share your data?\n\nApplied session:\n\nSetting up Podman\nRunning Podman\nRunning a Python Notebook",
+    "crumbs": [
+      "Session Overview"
+    ]
+  },
+  {
+    "objectID": "sessions/index.html#day-1-getting-started",
+    "href": "sessions/index.html#day-1-getting-started",
+    "title": "Session Overview",
+    "section": "",
+    "text": "Goal\n\n\n\nA basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.\n\n\nIntroductory session:\n\nFormat for the week\n\nPoll: how many people have used GIS? If so, which one?\nPoll: how many people have learned a programming language? If so, which one?\n\nWhy use (open source) code?\nWhy use (open) data?\nWhy use virtualisation?\nWhy care about reproducibility?\nWhy share your code?\nWhy share your data?\n\nApplied session:\n\nSetting up Podman\nRunning Podman\nRunning a Python Notebook",
+    "crumbs": [
+      "Session Overview"
+    ]
+  },
+  {
+    "objectID": "sessions/index.html#day-2-exploring-code",
+    "href": "sessions/index.html#day-2-exploring-code",
+    "title": "Session Overview",
+    "section": "Day 2: Exploring Code",
+    "text": "Day 2: Exploring Code\n\n\n\n\n\n\nGoal\n\n\n\nDiscussion of data issues in planning and where code can help (or hinder) our work.\n\n\nIntroductory session:\n\nThink data\nSources of data\nReading data\nCode vs. GIS\n\nApplied session:\n\nLinking data\nData tables\nData maps\nSimple analysis",
+    "crumbs": [
+      "Session Overview"
+    ]
+  },
+  {
+    "objectID": "sessions/index.html#day-3-reproducible-analysis",
+    "href": "sessions/index.html#day-3-reproducible-analysis",
+    "title": "Session Overview",
+    "section": "Day 3: Reproducible Analysis",
+    "text": "Day 3: Reproducible Analysis\n\n\n\n\n\n\nGoal\n\n\n\nHow tools like Quarto and Python can make report-writing ‘easy’.\n\n\nIntroductory session:\n\nWhat is reproducible analysis and why care about it?\nA brief introduction to version control and github.io (Git / GitHub)\nAn introduction to Quarto\n\nApplied session:\n\nCreating a report in Quarto:",
+    "crumbs": [
+      "Session Overview"
+    ]
+  },
+  {
+    "objectID": "sessions/index.html#day-4-reinforcement",
+    "href": "sessions/index.html#day-4-reinforcement",
+    "title": "Session Overview",
+    "section": "Day 4: Reinforcement",
+    "text": "Day 4: Reinforcement\n\n\n\n\n\n\nGoal\n\n\n\nTo get you using the tools and seeing the advantages by working in small groups on a report that uses the data already loaded plus (if available) data provided either online or via download.\n\n\nApplied session:\n\nApplying what has been learned over the preceding days.\nAdding new data to your map\nWorking on a report — choosing a topic of interest (continuation of Day 3)",
+    "crumbs": [
+      "Session Overview"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Over the course of the week we will be exploring a little bit of what is possible using code (Python, in this case) to process and analyse spatial data. Along the way we’ll touch both on the practical benefits of coding (instead of using only point-and-click software like ArcGIS or QGIS) as well as the more subtle philosophical advantages of using open source software and code.\nEach day we will have about 90 minutes of lecture and discussion, then a short break, and then about 90 minutes of an ‘applied’ workshop using the techniques and principles discussed earlier. Because we only have a week, we will be focussing on understanding the why we do something in a particular way, and a general understanding of what is happening, rather than digging into how to code.\nThese days, AI can help you a lot with the basics of coding, but it is important to recognise that AI is only as good as the problems it was trained on, and you’ll likely find that it knows a lot less about Indian geo-data than it does British or American data. Treat the AI as a personal tutor that is endlessly patient and can offer you 1:1 time, but it cannot answer questions of ethics or purpose.\nNow,in order to get you started on your spatial and data science ‘journey’, you will need to follow the guidance provided on the pages we’ve linked to below to check that you’re able to run the programming environment and get everything (or as much as you can!) set up and ready to go on Day 1.."
+  },
+  {
+    "objectID": "index.html#requirements",
+    "href": "index.html#requirements",
+    "title": "Welcome",
+    "section": "Requirements",
+    "text": "Requirements\nBefore trying to install the software, please complete the basic health check to ensure that your computer is up-to-date and able to run the software we use."
+  },
+  {
+    "objectID": "index.html#updates",
+    "href": "index.html#updates",
+    "title": "Welcome",
+    "section": "Updates",
+    "text": "Updates\nOnce you know that your machine and operating system are up-to-date, you should install the basic utilities that will enable you to complete installation of the programming environment."
+  },
+  {
+    "objectID": "index.html#installation",
+    "href": "index.html#installation",
+    "title": "Welcome",
+    "section": "Installation",
+    "text": "Installation\nThe Installation Guide section will help you to get your computer ready for the workshop sessions."
+  },
+  {
+    "objectID": "index.html#citing",
+    "href": "index.html#citing",
+    "title": "Welcome",
+    "section": "Citing",
+    "text": "Citing\n@software{jaipur:2025,\n  author = {Reades, Jon},\n  title = {\\texttt{jaipur_env}: A containerised platform for Urban Spatial Science},\n  url = {https://github.com/jreades/jaipur/},\n  version = {2025},\n  date = {2025-08-11},\n}"
+  },
+  {
     "objectID": "setup/base.html",
     "href": "setup/base.html",
     "title": "Updates",
@@ -568,13 +219,123 @@
     ]
   },
   {
-    "objectID": "setup/base.html#windows-linux-shell",
-    "href": "setup/base.html#windows-linux-shell",
+    "objectID": "setup/base.html#system-updates",
+    "href": "setup/base.html#system-updates",
     "title": "Updates",
-    "section": "Windows + Linux + Shell",
-    "text": "Windows + Linux + Shell\n\n\n\n\n\n\nCreating a Linux User\n\n\n\nIf you want to install a full Linux distribution (e.g. because you want to do more than just run Docker) then make sure you set up a new Linux user and do not end up running everything as root.\n\n\nTo make full use of WSL2 and Linux (if you want to do more than just use Docker) you will need to familiarise yourself with how having two operating systems that can talk to each other works. That is covered in the next section. This will actually be useful for understanding how Docker works, as it can be profoundly confusing.\nThe behaviour of the ‘shell’ (command line) is quite confusing because, with WSL2, you effectively end up with two ‘home’ directories: one for your Windows user, and one for your new Ubuntu user. Starting a Linux shell/command line puts you in your Linux home directory (the username may be completely different from your Windows username). Starting a Windows shell/command line puts you in your Windows home directory (again, the username may be completely different from your Linux username).\nSo the first, and perhaps most important, thing is understanding where ‘data’ is being stored:\n\nUnder Linux the user directory is apparently something like: \\\\wsl$\\&lt;DistroName&gt;\\home\\&lt;UserName&gt;\\ but you can usually get it by simply typing cd $HOME and then pwd when starting a new Linux shell.\nUnder Windows the user directory is: C:\\Users\\&lt;UserName&gt;\\ or /mnt/c/Users/&lt;UserName&gt;/, and you can often simply type pwd when opening a new Windows shell.\n\nSo these are different locations on your computer’s hard drive, and you will not see your Linux files in your Windows Home Directory and vice versa. To make it easy to switch between the two, I found this page on Microsoft’s web site that goes through some of the post-WSL2 installation steps, but see especially the additional page on Windows Terminal configuration.\nSlightly confusingly, you can run Linux commands directly from Windows, usually be adding wsl in front of the Linux command (e.g. wsl ls *.csv from Windows, where in Linux the command would be ls *.csv).\nTo make it easy to move from the Linux side of your machine to the Windows machine you can also do this:\n\nWork out where your CASA files are stored on the Windows side (see above: /mnt/c/Users/&lt;UserName&gt;/My\\ Documents/CASA/... where &lt;UserName&gt; is your Windows user name).\ncd to this location and type pwd to output the full path to the CASA directory.\nCopy this.\nNow start a Linux shell and run the following command once (you do not need to do it ever again): echo \"export WIN_HOME=\\\"/mnt/c/Users/.../CASA/\\\"\" &gt;&gt; $HOME/.bashrc. Replace the ... with the rest of the actual path! The \\\" is very important, don’t try to change those!\nNow run source .bashrc and you should see no errors.\n\nOnce you have done this you will have added a single line to your .bashrc file in Linux. This will create a ‘shortcut’ for bash in Linux. From here on out you should be able to type cd $WIN_HOME and move immediately over to the CASA directory on the Windows side. This will save having to remember (and type) the Windows path each time.",
+    "section": "System Updates",
+    "text": "System Updates\nBefore going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the other steps in this brief guide to getting started.",
     "crumbs": [
       "Updates"
+    ]
+  },
+  {
+    "objectID": "setup/base.html#base-utilities",
+    "href": "setup/base.html#base-utilities",
+    "title": "Updates",
+    "section": "Base Utilities",
+    "text": "Base Utilities\nIn order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:\n\nMacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post.",
+    "crumbs": [
+      "Updates"
+    ]
+  },
+  {
+    "objectID": "setup/base.html#windows-only",
+    "href": "setup/base.html#windows-only",
+    "title": "Updates",
+    "section": "Windows Only",
+    "text": "Windows Only\n\n\n\n\n\n\nCreating a Linux User\n\n\n\nIf you want to install a full Linux distribution (e.g. because you want to do more than just run Docker) then make sure you set up a new Linux user and do not end up running everything as root.\n\n\nTo make full use of WSL2 and Linux (if you want to do more than just use Docker) you will need to familiarise yourself with how having two operating systems that can talk to each other works. That is covered in the next section. This will actually be useful for understanding how Docker works, as it can be profoundly confusing.\nThe behaviour of the ‘shell’ (command line) is quite confusing because, with WSL2, you effectively end up with two ‘home’ directories: one for your Windows user, and one for your new Ubuntu user. Starting a Linux shell/command line puts you in your Linux home directory (the username may be completely different from your Windows username). Starting a Windows shell/command line puts you in your Windows home directory (again, the username may be completely different from your Linux username).\nSo the first, and perhaps most important, thing is understanding where ‘data’ is being stored:\n\nUnder Linux the user directory is apparently something like: \\\\wsl$\\&lt;DistroName&gt;\\home\\&lt;UserName&gt;\\ but you can usually get it by simply typing cd $HOME and then pwd when starting a new Linux shell.\nUnder Windows the user directory is: C:\\Users\\&lt;UserName&gt;\\ or /mnt/c/Users/&lt;UserName&gt;/, and you can often simply type pwd when opening a new Windows shell.\n\nSo these are different locations on your computer’s hard drive, and you will not see your Linux files in your Windows Home Directory and vice versa. To make it easy to switch between the two, I found this page on Microsoft’s web site that goes through some of the post-WSL2 installation steps, but see especially the additional page on Windows Terminal configuration.\nSlightly confusingly, you can run Linux commands directly from Windows, usually be adding wsl in front of the Linux command (e.g. wsl ls *.csv from Windows, where in Linux the command would be ls *.csv).\nTo make it easy to move from the Linux side of your machine to the Windows machine you can also do this:\n\nWork out where your CASA files are stored on the Windows side (see above: /mnt/c/Users/&lt;UserName&gt;/My\\ Documents/CASA/... where &lt;UserName&gt; is your Windows user name).\ncd to this location and type pwd to output the full path to the CASA directory.\nCopy this.\nNow start a Linux shell and run the following command once (you do not need to do it ever again): echo \"export WIN_HOME=\\\"/mnt/c/Users/.../CASA/\\\"\" &gt;&gt; $HOME/.bashrc. Replace the ... with the rest of the actual path! The \\\" is very important, don’t try to change those!\nNow run source .bashrc and you should see no errors.\n\nOnce you have done this you will have added a single line to your .bashrc file in Linux. This will create a ‘shortcut’ for bash in Linux. From here on out you should be able to type cd $WIN_HOME and move immediately over to the CASA directory on the Windows side. This will save having to remember (and type) the Windows path each time.",
+    "crumbs": [
+      "Updates"
+    ]
+  },
+  {
+    "objectID": "setup/env.html",
+    "href": "setup/env.html",
+    "title": "Installation",
+    "section": "",
+    "text": "Over the years, we have experimented with a range of approaches to setting you up with a programming environment, and we have come to the conclusion that Podman1 is the most robust way to ensure a consistent experience. This guarantees that all students end up with the same versions of each library, that difficult-to-diagnose hardware/OS issues are minimised, and that running/recovery is the most straightforward.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/env.html#what-kind-of-computer",
+    "href": "setup/env.html#what-kind-of-computer",
+    "title": "Installation",
+    "section": "What Kind of Computer?",
+    "text": "What Kind of Computer?\n\nApple Intel or Silicon/M-chip?\nApple has stopped using Intel computer chips and now uses its own ‘Silicon’ (aka ‘M’) chips instead. Confusingly, these are often also referred to by their technical specification as AMD64 (Intel) and ARM64 (Apple), respectively. To find out which you have, click on the Apple icon () and select About this Mac. Look at the Processor section and you should see which type of computer you have. If you see the word Intel then you have an Intel computer, if you see M1, M2, M3, etc. then you have an Apple Silicon computer.\n\n\nWindows 32- or 64-bit?\nIt is highly unlikely that you have a 32-bit machine, so if in doubt download the 64-bit version. It is also unlikely that you have an ARM device if you have an off-the-shelf Windows computer.\nPlease download all of the Essential packages for your type of computer (Apple Intel, Apple Silicon, Windows). The rest are listed for your convenience and you can install them as you see fit.\n\nApple IntelApple Silicon (M-chips)Windows PCs\n\n\n\nEssential:\n\nPodman for ARM64\n\nOptional:\n\niTerm2\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Intel chip\n\n\n\n\n\nEssential:\n\nPodman for AMD64\n\nOptional:\n\niTerm2\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Apple silicon\n\n\n\n\n\nEssential:\n\nPodman for AMD64 (it’s highly unlikely that you need the ARM64 installer)\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGit\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Windows",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/env.html#installing-podman-or-docker",
+    "href": "setup/env.html#installing-podman-or-docker",
+    "title": "Installation",
+    "section": "Installing Podman or Docker",
+    "text": "Installing Podman or Docker\n\n\n\n\n\n\nEssential Topic\n\n\n\nThis next section is essential to running the sparc environment.\n\n\nPodman and Docker are complex applications doing very complex things. It’s not surprising that they can be a bit of a pain to install. But once installed, they are very powerful platforms for ‘doing (spatial) data science’. It’s an approach that’s widely used in industry and, increasingly, academia.\nOne way to think of these is as a ‘library’ of ready-made virtual computers that you can copy and use free-of-charge. If you’d like to know more about what Podman/Docker are and how they work, you can read more in the Understanding Virtualisation section.\n\n\n\n\n\n\nWindows Users\n\n\n\nPlease ensure that you have installed WSL2 before installing Docker! If you cannot install WSL2 then please have a look at the ‘dealing with errors’ section.\n\n\nAfter you’ve downloaded Docker, you need to:\n\nInstall it – usually this will mean opening the image and either dragging it your Application folder (Mac) or running the installer (Windows)\nStart it up – double-click the Docker icon in your Applications folder to start Docker running.\nFinish setup – once Docker is finished starting up, you should see the login screen below. You do not need to create an account (notice Continue without signing in)\nOn all the subsequent questions you can Skip (upper-right corner) answering as well.\n\n\n\n\nDocker trying to trick you into creating an account\n\n\nYou must finish setting up before proceeding to the next step. You’ll know that you’re ready to move on when you see the ‘Docker Desktop’ window appear listing ‘downloaded images’ and ‘running containers’:\n\n\n\nDocker Desktop\n\n\nIf you didn’t see this then you will need to have a look at the ‘dealing with errors’ section.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/env.html#testing-docker",
+    "href": "setup/env.html#testing-docker",
+    "title": "Installation",
+    "section": "Testing Docker",
+    "text": "Testing Docker\nTo test if Docker is installed correctly, you will need either the Terminal (macOS) or the Power Shell (Windows).\n\n\n\n\n\n\nCopy Code to Clipboard\n\n\n\nWhenever you see a ‘code block’ below, you will also see a ‘clipboard’ icon () in the right. Click that, and the code will be copied to your computer’s ‘clipboard’ so that you can then paste it into the Terminal or Power Shell. That will save you a lot of time and effort.\n\n\nDocker has provided a simple way to test if your installation is working correctly. You can run the following command in the Terminal or Power Shell:\ndocker run hello-world\nThis should output something like:\nUnable to find image 'hello-world:latest' locally\nlatest: Pulling from library/hello-world\n478afc919002: Pull complete\nDigest: sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2\nStatus: Downloaded newer image for hello-world:latest\n\nHello from Docker!\nThis message shows that your installation appears to be working correctly.\n\nTo generate this message, Docker took the following steps:\n 1. The Docker client contacted the Docker daemon.\n 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub.\n    (arm64v8)\n 3. The Docker daemon created a new container from that image which runs the\n    executable that produces the output you are currently reading.\n 4. The Docker daemon streamed that output to the Docker client, which sent it\n    to your terminal.\n\nTo try something more ambitious, you can run an Ubuntu container with:\n $ docker run -it ubuntu bash\n\nShare images, automate workflows, and more with a free Docker ID:\n https://hub.docker.com/\n\nFor more examples and ideas, visit:\n https://docs.docker.com/get-started/\nIf you see this message, then Docker is installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the ‘dealing with errors’ section. Notice how there are several things happening:\n\nUnable to find image... locally – this is because the hello-world image is not (yet) stored on your computer.\nlatest: Pulling from library/hello-world – this is Docker downloading the hello-world image from the internet.\nPull complete – this is Docker telling you that it has finished downloading the image.\nHello from Docker! – this is the hello-world image running and telling you that Docker is working correctly.\n\nThere’s obviously a lot more to that message, but that’s the basic idea.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/env.html#installing",
+    "href": "setup/env.html#installing",
+    "title": "Installation",
+    "section": "Installing",
+    "text": "Installing\nWe now need to download the sparc image that we use for teaching Foundations and Quantitative Methods. The image is the ‘template’ for running virtual machines (i.e. computers) on our ‘host’ computer and it comes complete with all of the Python libraries and other tools that you’ll need to complete the module (and a good deal more besides!). Installing the image will take a while as it’s quite large (2-5GB) and so will depend on the speed of your internet connection.\n\nIntel Macs and WindowsSilicon/M-Chip Macs\n\n\nIf your Apple computer has an Intel chipset (see:  -&gt; About this Mac -&gt; Processor) or is running Windows:\ndocker pull jreades/sparc:2025-intel\n\n\nIf your Apple computer has an M1 or M2 ‘Silicon’ chipset (see:  -&gt; About this Mac -&gt; Processor):\ndocker pull jreades/sparc:2025-silicon",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/env.html#using",
+    "href": "setup/env.html#using",
+    "title": "Installation",
+    "section": "Using jreades/sparc:2025",
+    "text": "Using jreades/sparc:2025\nNow that you have the image downloaded, you can start an sparc container by copying the following command into the Terminal or Power Shell (this does not work in the Command Prompt/cmd):\n\nFor Intel MacsFor M-Chip MacsFor Windows\n\n\ndocker run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-intel start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-silicon start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name sparc -p 8888:8888 -v \"$(pwd):/home/jovyan/work\" jreades/sparc:2025-intel start.sh jupyter lab --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/env.html#success",
+    "href": "setup/env.html#success",
+    "title": "Installation",
+    "section": "Success!",
+    "text": "Success!\nHowever, most of you should now be able to connect to the virtual machine by pointing your browser at: localhost:8888 where you should see something like this:\n\n\n\nJupyter Lab Success",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/env.html#when-things-go-wrong",
+    "href": "setup/env.html#when-things-go-wrong",
+    "title": "Installation",
+    "section": "When Things Go Wrong",
+    "text": "When Things Go Wrong\nIf you encounter any problems with the installation, please have a look at the Dealing with Docker Problems page.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/env.html#footnotes",
+    "href": "setup/env.html#footnotes",
+    "title": "Installation",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAnd Docker, which is basically the same thing.↩︎",
+    "crumbs": [
+      "Installation"
     ]
   },
   {
@@ -608,165 +369,189 @@
     ]
   },
   {
-    "objectID": "setup/health.html#system-updates",
-    "href": "setup/health.html#system-updates",
-    "title": "Requirements",
-    "section": "System Updates",
-    "text": "System Updates\nNow that you know your computer is ‘up-to-spec’, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the other steps in this brief guide to getting started.",
-    "crumbs": [
-      "Requirements"
-    ]
-  },
-  {
-    "objectID": "sessions/index.html",
-    "href": "sessions/index.html",
-    "title": "Session Overview",
+    "objectID": "setup/markdown.html",
+    "href": "setup/markdown.html",
+    "title": "Markdown",
     "section": "",
-    "text": "Goal\n\n\n\nA basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.\n\n\nIntroductory session:\n\nFormat for the week\n\nPoll: how many people have used GIS? If so, which one?\nPoll: how many people have learned a programming language? If so, which one?\n\nWhy use (open source) code?\nWhy use (open) data?\nWhy use virtualisation?\nWhy care about reproducibility?\nWhy share your code?\nWhy share your data?\n\nApplied session:\n\nSetting up Podman\nRunning Podman\nRunning a Python Notebook",
-    "crumbs": [
-      "Session Overview"
-    ]
+    "text": "Markdown is a ‘markup language’ for documents that is compatible with a lot of different tools (including GitHub and Jupyter) that we use day-in and day-out for doing our research and teaching. Many of us have now largely stopped using Word (and even LaTeX) except for the final polishing of a document. Why? Because Markdown is faster, simpler, and just gets out of the way when we’re writing. So rather than fiddling about with Word’s styles (or, worse, discovering that you should have been using styles all along) or with LaTeX’s painful table layout, you can just get on with writing in Markdown and then export to Word or LaTeX for the final steps. Best of both worlds!\nIn fact, Markdown is so handy that it’s become the default for writing content for the web. This web site was actually written in Markdown and then ‘rendered’ (i.e. turned into a functional web page) using Quarto. We’ve included Quarto on the SDS2022 Docker image that we’ve recommended you use."
   },
   {
-    "objectID": "sessions/index.html#day-1-getting-started",
-    "href": "sessions/index.html#day-1-getting-started",
-    "title": "Session Overview",
-    "section": "",
-    "text": "Goal\n\n\n\nA basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.\n\n\nIntroductory session:\n\nFormat for the week\n\nPoll: how many people have used GIS? If so, which one?\nPoll: how many people have learned a programming language? If so, which one?\n\nWhy use (open source) code?\nWhy use (open) data?\nWhy use virtualisation?\nWhy care about reproducibility?\nWhy share your code?\nWhy share your data?\n\nApplied session:\n\nSetting up Podman\nRunning Podman\nRunning a Python Notebook",
-    "crumbs": [
-      "Session Overview"
-    ]
+    "objectID": "setup/markdown.html#markdown-editors",
+    "href": "setup/markdown.html#markdown-editors",
+    "title": "Markdown",
+    "section": "Markdown Editors",
+    "text": "Markdown Editors\nOver time you will undoubtedly learn how to write markdwon without need to think much (if at all) about how to type the formatting ‘codes’, but a simple markdown editor can make your life much, much easier. Even when you’re highly experienced!\n\nFor MacOSFor WindowsFor Linux\n\n\nThere’s a good overview of ‘free’1 editors for the Mac which highlights a few in particular:\n\nMacDown – I’ve not used this, but it seems determinedly FOSS so is probably a good choice.\nHaroopad – this looks like a more powerful, but less immediatley user-friendly editor.\nAtom – I’ve used Atom for editing Python code but believe it’s largely plugin-based so it clearly supports markdown too.\n\nTypora was free while in beta, but I thought it was worth the modest amount of money asked for something that was super-fast and gave me a tool with which to write up my research, not just my code and teaching content. iA Writer is another good (paid for) option because it runs on iPad and iPhone as well! Together with the Working Copy Git client for iOS I’ve used iA Writer to draft articles, make notes directly in my codebase, and correct errors found at the last minute in my teaching materials. Like Typora, iA Writer is probably intended more for writing text, not writing complex Reveal.js presentations or non-standard markdown.\n\n\nI don’t have access to a Windows machine to test this out, but there are plenty of opinions to be found by Googling ‘best Windows Markdown editors’ or ‘best free Windows Markdown editors’. There’s one for writers and a more generic set of recommendations. Have a look around and see what you like!\n\n\nIf you use Linux already do you really need a recommendation? How about vim or vi?"
   },
   {
-    "objectID": "sessions/index.html#day-4-reinforcement",
-    "href": "sessions/index.html#day-4-reinforcement",
-    "title": "Session Overview",
-    "section": "Day 4: Reinforcement",
-    "text": "Day 4: Reinforcement\n\n\n\n\n\n\nGoal\n\n\n\nTo get you using the tools and seeing the advantages by working in small groups on a report that uses the data already loaded plus (if available) data provided either online or via download.\n\n\nApplied session:\n\nApplying what has been learned over the preceding days.\nAdding new data to your map\nWorking on a report — choosing a topic of interest (continuation of Day 3)",
-    "crumbs": [
-      "Session Overview"
-    ]
+    "objectID": "setup/markdown.html#using-markdown",
+    "href": "setup/markdown.html#using-markdown",
+    "title": "Markdown",
+    "section": "Using Markdown",
+    "text": "Using Markdown\nFor Markdown to be useful as more than just a lightweight way to write notes, we want to be able to render it into new output formats/contexts. Here are three…"
   },
   {
-    "objectID": "sessions/index.html#day-3-reproducible-analysis",
-    "href": "sessions/index.html#day-3-reproducible-analysis",
-    "title": "Session Overview",
-    "section": "Day 3: Reproducible Analysis",
-    "text": "Day 3: Reproducible Analysis\n\n\n\n\n\n\nGoal\n\n\n\nHow tools like Quarto and Python can make report-writing ‘easy’.\n\n\nIntroductory session:\n\nWhat is reproducible analysis and why care about it?\nA brief introduction to version control and github.io (Git / GitHub)\nAn introduction to Quarto\n\nApplied session:\n\nCreating a report in Quarto:",
-    "crumbs": [
-      "Session Overview"
-    ]
+    "objectID": "setup/markdown.html#markdown-github",
+    "href": "setup/markdown.html#markdown-github",
+    "title": "Markdown",
+    "section": "Markdown & GitHub",
+    "text": "Markdown & GitHub\nMarkdown is the ‘default’ language of GitHub, which means it’s worth your while to familiarise yourself with how it works. However, there are different ‘flavours’ of markdown, which also means that just because something works on GitHub it will work everywhere else in the same way. This is particularly common when dealing with optional parameters that try to give the ‘renderer’ (the thing that converts markdown to HTML, or LaTeX, or any other format) hints about how the content should look."
   },
   {
-    "objectID": "sessions/index.html#day-2-exploring-code",
-    "href": "sessions/index.html#day-2-exploring-code",
-    "title": "Session Overview",
-    "section": "Day 2: Exploring Code",
-    "text": "Day 2: Exploring Code\n\n\n\n\n\n\nGoal\n\n\n\nDiscussion of data issues in planning and where code can help (or hinder) our work.\n\n\nIntroductory session:\n\nThink data\nSources of data\nReading data\nCode vs. GIS\n\nApplied session:\n\nLinking data\nData tables\nData maps\nSimple analysis",
-    "crumbs": [
-      "Session Overview"
-    ]
+    "objectID": "setup/markdown.html#markdown-notebooks",
+    "href": "setup/markdown.html#markdown-notebooks",
+    "title": "Markdown",
+    "section": "Markdown & Notebooks",
+    "text": "Markdown & Notebooks\nMarkdown is also the language of plain-text cells in Jupyter notebooks, which makes it doubly worth your while to familiarise yourself with how it works."
   },
   {
-    "objectID": "index.html#installation",
-    "href": "index.html#installation",
-    "title": "CASA’s Jaipur Training",
-    "section": "Installation",
-    "text": "Installation\nThe Installation Guide section will help you to get your computer ready for the workshop."
+    "objectID": "setup/markdown.html#quarto",
+    "href": "setup/markdown.html#quarto",
+    "title": "Markdown",
+    "section": "Quarto",
+    "text": "Quarto\nQuarto builds on RMarkdown to make the power of Markdown+Code available to other languages than R. In our Foundations of Spatial Data Science module we use Quarto to do submissions but that’s largely because it demonstrates how we can Quarto to write whole articles or dissertation!\nIn many cases, it is as straightforward as installing Quarto and then running quarto render ..., but there are some tricks. In particular, to ‘render’ Markdown files to PDF, you will need to have some flabour to TeX installed. The default suggested by Quarto is TinyTex, and this can be installed using:\nquarto install tool tinytex\nBut on some platforms there are additional issues:\n\nMacWindows\n\n\nYou will probably be able to successfully install tinytex, but then be told that no TeX installation could be found when trying to render. The issue relates to the $PATH where Quarto searches for a valid TeX installation and when completing the installation you may have seen a warning to the effect of “To complete the installation, please run the following…”\nSo that’s basically what we need to do. The first thing you need to do is find the TinyTeX binaries, in the cases that I’ve been able to fix these were found under something like $HOME/Library/TinyTex/bin/, but you may need to look further under $HOME/Library/ to find the TinyTex directory.\nOnce you know where TinyTeX is (adjust the cd command below as necessary), you can then follow the suggestion given:\ncd $HOME/Library/TinyTeX/bin/\n./universal-darwin/tlmgr option sys_bin $HOME/Library/TinyTeX/bin\n./universal-darwin/tlmgr path add\nThat should do it, but in case you are still getting errors, then the following might be necessary (again, adjust the path if necessary):\necho \"export PATH=\\\"/Users/$(whoami)/Library/TinyTeX/bin:\\$PATH\\\"\" &gt;&gt; $HOME/.zshrc\nThe command above uses whoami to set the username and assumes that’s how things should be set up, but don’t blindly copy+paste and assume this will work! You could, for instance, check this location exists first using: ls /Users/$(whoami)/Library/TinyTeX/bin/ That will show if the path exists! The above command then updates the $PATH variable used by your Terminal to look for binaries, enabling Quarto to find TinyTeX once you close and then re-open a new Shell.\n\n\nMost commands seem to require replacing quarto with quarto.exe to run correctly. So quarto render Template.qmd becaomes quarto.exe render Template.qmd.\nHowever, if you are still getting errors to the effect that Quarto cannot be found then you may need to make additional edites to your .bashrc file (this is the configuration file for bash):\n\nCheck where Quarto is installed, it is most likely under /mnt/c/Users/&lt;Your Username&gt;/AppData/Local/Programs/Quarto/bin (replace &lt;Your Username&gt; as appropriate.\nEdit the .bashrc file in your $HOME directory. On Windows I would Google search for the best way to do this: “edit .bashrc file Windows”.\nAdd the following line at the end of the file: export PATH=/mnt/c/Users/&lt;Your Username&gt;/AppData/Local/Programs/Quarto/bin:$PATH\nSave the file and run source .bashrc in the Terminal.\nYou should now be able to run the following command successfully: quarto.exe --help"
   },
   {
-    "objectID": "index.html#updates",
-    "href": "index.html#updates",
-    "title": "CASA’s Jaipur Training",
-    "section": "Updates",
-    "text": "Updates\nOnce you know that your machine and operating system are up-to-date, you should install the basic utilities that will enable you to complete installation of the programming environment."
+    "objectID": "setup/markdown.html#footnotes",
+    "href": "setup/markdown.html#footnotes",
+    "title": "Markdown",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nNot all of these are still free.↩︎"
   },
   {
     "objectID": "setup/virtualisation.html",
     "href": "setup/virtualisation.html",
     "title": "Understanding Virtualisation",
     "section": "",
-    "text": "You’ll see below that we talk about both Podman and Docker interchangeably. You may have heard of one, but not the other. Is there a difference? In terms of what they do there is no difference that you need to care about at the moment: both allow you to build images of virtual machines, share them with other users, and run any image you find as a container. All of these words are explained below. The point being, they aim to do the same thing.\nHowever, how they do this is quite different. Docker is/was the market leader in this kind of image/container sharing system and is very stable and well-supported; however, to be installed and run Docker requires administrator access (also known as root).\nPodman is a more recent, open source tool: it is slightly less stable and widely supported than Docker, and to make the most of it you need to change quite a few things. However, the biggest benefit is that you can run it as a user: this makes installation and execution much easier.\nWe are trying to move over to Podman because it will make everyone’s life easier, but sometimes we run into issues that cause us to fall back to using Docker instead. Hope that makes sense!"
+    "text": "You’ll see below that we talk about both Podman and Docker interchangeably. You may have heard of one, but not the other. Is there a difference? In terms of what they do there is no difference that you need to care about at the moment: both allow you to build images of virtual machines, share them with other users, and run any image you find as a container. All of these words are explained below. The point being, they aim to do the same thing.\nHowever, how they do this is quite different. Docker is/was the market leader in this kind of image/container sharing system and is very stable and well-supported; however, to be installed and run Docker requires administrator access (also known as root).\nPodman is a more recent, open source tool: it is slightly less stable and widely supported than Docker, and to make the most of it you need to change quite a few things. However, the biggest benefit is that you can run it as a user: this makes installation and execution much easier.\nWe are trying to move over to Podman because it will make everyone’s life easier, but sometimes we run into issues that cause us to fall back to using Docker instead. Hope that makes sense!\n\n\n\n\n\n\nTL;DR\n\n\n\nChoose Podman unless you have a specific reason to choose Docker instead or you have been unable to successfully install and run Podman."
   },
   {
     "objectID": "setup/virtualisation.html#podman-or-docker",
     "href": "setup/virtualisation.html#podman-or-docker",
     "title": "Understanding Virtualisation",
     "section": "",
-    "text": "You’ll see below that we talk about both Podman and Docker interchangeably. You may have heard of one, but not the other. Is there a difference? In terms of what they do there is no difference that you need to care about at the moment: both allow you to build images of virtual machines, share them with other users, and run any image you find as a container. All of these words are explained below. The point being, they aim to do the same thing.\nHowever, how they do this is quite different. Docker is/was the market leader in this kind of image/container sharing system and is very stable and well-supported; however, to be installed and run Docker requires administrator access (also known as root).\nPodman is a more recent, open source tool: it is slightly less stable and widely supported than Docker, and to make the most of it you need to change quite a few things. However, the biggest benefit is that you can run it as a user: this makes installation and execution much easier.\nWe are trying to move over to Podman because it will make everyone’s life easier, but sometimes we run into issues that cause us to fall back to using Docker instead. Hope that makes sense!"
+    "text": "You’ll see below that we talk about both Podman and Docker interchangeably. You may have heard of one, but not the other. Is there a difference? In terms of what they do there is no difference that you need to care about at the moment: both allow you to build images of virtual machines, share them with other users, and run any image you find as a container. All of these words are explained below. The point being, they aim to do the same thing.\nHowever, how they do this is quite different. Docker is/was the market leader in this kind of image/container sharing system and is very stable and well-supported; however, to be installed and run Docker requires administrator access (also known as root).\nPodman is a more recent, open source tool: it is slightly less stable and widely supported than Docker, and to make the most of it you need to change quite a few things. However, the biggest benefit is that you can run it as a user: this makes installation and execution much easier.\nWe are trying to move over to Podman because it will make everyone’s life easier, but sometimes we run into issues that cause us to fall back to using Docker instead. Hope that makes sense!\n\n\n\n\n\n\nTL;DR\n\n\n\nChoose Podman unless you have a specific reason to choose Docker instead or you have been unable to successfully install and run Podman."
   },
   {
     "objectID": "setup/virtualisation.html#what-is-virtualisation",
     "href": "setup/virtualisation.html#what-is-virtualisation",
     "title": "Understanding Virtualisation",
     "section": "What is Virtualisation?",
-    "text": "What is Virtualisation?\nPodman and Docker are ‘virtualisation’ tools that allows you to run ‘virtual machines’ on your computer’s ‘host’ operating system. That’s a lot of new, probably meaningless words. If you’re one of those people who (understandably) likes to understand what’s going on then here’s how some people define it:\n\nGoogle on What is a virtual machine?\nVMWare on What is a virtual machine?\nMicrosoft on What is a virtual machine (VM)?\n\n\nPodman/Docker in a Nutshell\nSo in order to make use of Docker (and understand what’s happening when you get errors), it’s helpful to have some sense of what’s going on behind the scenes. You can click on the image below to make it larger, or you can download and print out a PDF version.\n\n\n\nSketch of Podman/Docker Usage\n\n\nHere’s what’s happening:\n\nStep 1. podman pull/docker pull\nYou issue the podman pull jreades/pod:2024 (or docker pull jreades/pod:2024) command to your computer, which turns around and asks Docker Hub for a copy of this image. Docker Hub responds by transferring a copy of the jreades/pod:2024 image to your computer. You now have a file containing all the instructions to set up and run a virtual machine on your computer.1\n\n\nStep 2, docker run\nYou issue the docker run ... jreades/pod:2024 ... command (which you’ll be running in a minute) from your computer, and this tells Docker to use the jreades/pod:2024 image as a template for creating a container called pod2. pod will do whatever it was told to do by its creator. This could be wait to run Python code, start up a database, serve web pages, the list is practically endless. But pod is read-only, although you can make changes to the container while it’s running, as soon as you shut it down those changes are lost. So you cannot break a Docker image, only a container. And if you do that, you delete the container and start a new one from the image… we can cover this if you ever do it.\nAs part of the docker run command, we also told Docker what resources the container could access. There are two main types of resources for our purposes:\n\nA mount point which is a part of your computer’s hard drive that Docker can use to write things down permanently. We use $(pwd), which is short-hand for print working directory and refers to the ‘place’ on your computer where we issued the docker run command. We tell Docker to connect this to a directory called work (which resides in /home/jovyan/) on the pod container. This allows you to share data between the container and your computer, and for changes to be saved when you shut down Docker.\nOne or more ports which are like channels on a radio where the container can talk to other computers (including yours). In this case, we connect port 8888 on pod to port 8888 on your computer. And that is why you have to tell your browser to go to localhost:8888 to access Jupyter Lab.\n\n\n\nStep 4. Interacting with the Container\nNow when you type things into the browser and tell code to ‘run’, what’s actually happening is that your computer is forwarding the request to the container, which does its thing, updates the web page, and this change is then forwarded back to you via the browser.\n\n\nStep 5. Anatomy of docker run\nIn the next section you’ll see the full Docker run command, here we just want to focus on the most important options (each -X is an option) for most users:\n\n-v: this specified the point on your hard drive that the pod can use. By default we use $(pwd) which means ‘use the location where the docker run command was executed. You can also ’hard code’ this to something like /Users/&lt;your username&gt;/Documents/casa/fsds/ if you always want to use the same location.\n-p: this specified the channel (or port) on which the web browser can talk to the pod.\njreades/pod:2024: this specified the image we wanted to use"
+    "text": "What is Virtualisation?\nPodman and Docker are ‘virtualisation’ tools that allows you to run ‘virtual machines’ on your computer’s ‘host’ operating system. That’s a lot of new, probably meaningless words. If you’re one of those people who (understandably) likes to understand what’s going on then here’s how some people define it:\n\nGoogle on What is a virtual machine?\nVMWare on What is a virtual machine?\nMicrosoft on What is a virtual machine (VM)?"
   },
   {
     "objectID": "setup/virtualisation.html#footnotes",
     "href": "setup/virtualisation.html#footnotes",
     "title": "Understanding Virtualisation",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nA virtual machine is just a computer that runs on your computer. So it ‘borrows’ resources like hard drive space, memory, and processor in order to behave like an independent computer that you can interact with in various ways.↩︎\nA container is the name Docker uses to refer to a running virtual machine. The image on its own does nothing until you tell docker to run it, at which point it becomes a container!↩︎"
+    "text": "Footnotes\n\n\nA virtual machine is just a computer that runs on your computer. So it ‘borrows’ resources like hard drive space, memory, and processor in order to behave like an independent computer that you can interact with in various ways.↩︎\nA container is the name Podman/Docker uses to refer to a running virtual machine. The image on its own does nothing until you tell docker to run it, at which point it becomes a container!↩︎"
   },
   {
-    "objectID": "setup/env.html#installing-podman-or-docker",
-    "href": "setup/env.html#installing-podman-or-docker",
+    "objectID": "index.html#sessions",
+    "href": "index.html#sessions",
+    "title": "Welcome",
+    "section": "Sessions",
+    "text": "Sessions\nThere are four sessions planned for the week. The sessions will make use of the tools installed above, so please try to install Podman on your laptop before the start of the first session as this will save quite a bit of time and also allow us to help you more quickly if there are any issues."
+  },
+  {
+    "objectID": "setup/virtualisation.html#testing-docker",
+    "href": "setup/virtualisation.html#testing-docker",
+    "title": "Understanding Virtualisation",
+    "section": "Testing Docker",
+    "text": "Testing Docker\nTo test if Docker is installed correctly, you will need either the Terminal (macOS) or the Power Shell (Windows).\n\n\n\n\n\n\nCopy Code to Clipboard\n\n\n\nWhenever you see a ‘code block’ below, you will also see a ‘clipboard’ icon () in the right. Click that, and the code will be copied to your computer’s ‘clipboard’ so that you can then paste it into the Terminal or Power Shell. That will save you a lot of time and effort.\n\n\nDocker has provided a simple way to test if your installation is working correctly. You can run the following command in the Terminal or Power Shell:\ndocker run hello-world\nThis should output something like:\nUnable to find image 'hello-world:latest' locally\nlatest: Pulling from library/hello-world\n478afc919002: Pull complete\nDigest: sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2\nStatus: Downloaded newer image for hello-world:latest\n\nHello from Docker!\nThis message shows that your installation appears to be working correctly.\n\nTo generate this message, Docker took the following steps:\n 1. The Docker client contacted the Docker daemon.\n 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub.\n    (arm64v8)\n 3. The Docker daemon created a new container from that image which runs the\n    executable that produces the output you are currently reading.\n 4. The Docker daemon streamed that output to the Docker client, which sent it\n    to your terminal.\n\nTo try something more ambitious, you can run an Ubuntu container with:\n $ docker run -it ubuntu bash\n\nShare images, automate workflows, and more with a free Docker ID:\n https://hub.docker.com/\n\nFor more examples and ideas, visit:\n https://docs.docker.com/get-started/\nIf you see this message, then Docker is installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the ‘dealing with errors’ section. Notice how there are several things happening:\n\nUnable to find image... locally – this is because the hello-world image is not (yet) stored on your computer.\nlatest: Pulling from library/hello-world – this is Docker downloading the hello-world image from the internet.\nPull complete – this is Docker telling you that it has finished downloading the image.\nHello from Docker! – this is the hello-world image running and telling you that Docker is working correctly.\n\nThere’s obviously a lot more to that message, but that’s the basic idea."
+  },
+  {
+    "objectID": "setup/virtualisation.html#installing",
+    "href": "setup/virtualisation.html#installing",
+    "title": "Understanding Virtualisation",
+    "section": "Installing sparc",
+    "text": "Installing sparc\nWe now need to download the sparc image that we use for teaching Foundations and Quantitative Methods. The image is the ‘template’ for running virtual machines (i.e. computers) on our ‘host’ computer and it comes complete with all of the Python libraries and other tools that you’ll need to complete the module (and a good deal more besides!). Installing the image will take a while as it’s quite large (2-5GB) and so will depend on the speed of your internet connection.\n\nIntel Macs and WindowsSilicon/M-Chip Macs\n\n\nIf your Apple computer has an Intel chipset (see:  -&gt; About this Mac -&gt; Processor) or is running Windows:\ndocker pull jreades/sparc:2025-intel\n\n\nIf your Apple computer has an M1 or M2 ‘Silicon’ chipset (see:  -&gt; About this Mac -&gt; Processor):\ndocker pull jreades/sparc:2025-silicon"
+  },
+  {
+    "objectID": "setup/virtualisation.html#using",
+    "href": "setup/virtualisation.html#using",
+    "title": "Understanding Virtualisation",
+    "section": "Using jreades/sparc:2025",
+    "text": "Using jreades/sparc:2025\nNow that you have the image downloaded, you can start an sparc container by copying the following command into the Terminal or Power Shell (this does not work in the Command Prompt/cmd):\n\nFor Intel MacsFor M-Chip MacsFor Windows\n\n\ndocker run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-intel start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-silicon start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name sparc -p 8888:8888 -v \"$(pwd):/home/jovyan/work\" jreades/sparc:2025-intel start.sh jupyter lab --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''"
+  },
+  {
+    "objectID": "setup/virtualisation.html#podmandocker-in-a-nutshell",
+    "href": "setup/virtualisation.html#podmandocker-in-a-nutshell",
+    "title": "Understanding Virtualisation",
+    "section": "Podman/Docker in a Nutshell",
+    "text": "Podman/Docker in a Nutshell\nSo in order to make use of Podman/Docker (and understand what’s happening when you get errors), it’s helpful to have some sense of what’s going on behind the scenes. You can click on the image below to make it larger, or you can download and print out a PDF version.\n\n\n\nSketch of Podman/Docker Usage\n\n\nHere’s what’s happening:\n\nStep 1. podman pull/docker pull\nYou issue the podman pull jreades/sparc:2025 (or docker pull jreades/sparc:2025) command to your computer, which turns around and asks the Hub for a copy of this image. The Hub responds by transferring a copy of the jreades/sparc:2025 image to your computer. You now have a file containing all the instructions to set up and run a virtual machine on your computer.1\n\n\nStep 2, docker run\nYou will issue the podman run ... jreades/sparc:2025 ... command (or docker run ...) from the command line (or terminal) of your computer, and this tells Docker/Podman to use the jreades/sparc:2025 image as a template for creating a container called sparc2. sparc will do whatever it was told to do by its creator. This could be wait to run Python code, start up a database, serve web pages, the list is practically endless. But sparc is read-only, although you can make changes to the container while it’s running, as soon as you shut it down those changes are lost. So you cannot break an image, only a container. And if you do that, you delete the container and start a new one from the image… we can cover this if you ever do it.\nAs part of the run command, we also told Docker/Podman what resources the container could access. There are two main types of resources for our purposes:\n\nA mount point which is a part of your computer’s hard drive that we can use to write things down permanently. We use $(pwd), which is short-hand for print working directory and refers to the ‘place’ on your computer where we issued the docker run command. We tell the platform to connect this to a directory called work (which resides in /home/jovyan/) on the sparc container. This allows you to share data between the container and your computer, and for changes to be saved when you shut down.\nOne or more ports which are like channels on a radio where the container can talk to other computers (including yours). In this case, we connect port 8888 on sparc to port 8888 on your computer. And that is why you have to tell your browser to go to localhost:8888 to access Jupyter Lab.\n\n\n\nStep 3. Interacting with the Container\nNow when you type things into the browser and tell code to ‘run’, what’s actually happening is that your computer is forwarding the request to the container, which does its thing, updates the web page, and this change is then forwarded back to you via the browser.\n\n\nStep 4. Anatomy of run\nAt the bottom of the Figure above you can see a full run command, here we just want to focus on the most important options (each -X is an option) for most users:\n\n-v: this specified the point on your hard drive that the sparc can use. By default we use $(pwd) which means ‘use the location where the docker run command was executed. You can also ’hard code’ this to something like /Users/&lt;your username&gt;/Documents/casa/ if you always want to use the same location.\n-p: this specified the channel (or port) on which the web browser can talk to the sparc.\njreades/sparc:2025: this specified the image we wanted to use"
+  },
+  {
+    "objectID": "setup/env.html#podman-or-docker",
+    "href": "setup/env.html#podman-or-docker",
     "title": "Installation",
-    "section": "Installing Podman or Docker",
-    "text": "Installing Podman or Docker\n\n\n\n\n\n\nEssential Topic\n\n\n\nThis next section is essential to running the pod environment.\n\n\nPodman and Docker are complex applications doing very complex things. It’s not surprising that it can be a bit of a pain to install. But once installed, they are a very powerful platform for ‘doing (spatial) data science’. It’s an approach that’s widely used in industry and, increasingly, academia.\nOne way to think of it as a ‘library’ of ready-made virtual computers that you can copy and use free-of-charge. If you’d like to know more about what Podman/Docker are and how they work, you can read more in the Understanding Virtualisation section.\n\n\n\n\n\n\nWindows Users\n\n\n\nPlease ensure that you have installed WSL2 before installing Docker! If you cannot install WSL2 then please have a look at the ‘dealing with errors’ section.\n\n\nAfter you’ve downloaded Docker, you need to:\n\nInstall it – usually this will mean opening the image and either dragging it your Application folder (Mac) or running the installer (Windows)\nStart it up – double-click the Docker icon in your Applications folder to start Docker running.\nFinish setup – once Docker is finished starting up, you should see the login screen below. You do not need to create an account (notice Continue without signing in)\nOn all the subsequent questions you can Skip (upper-right corner) answering as well.\n\n\n\n\nDocker trying to trick you into creating an account\n\n\nYou must finish setting up before proceeding to the next step. You’ll know that you’re ready to move on when you see the ‘Docker Desktop’ window appear listing ‘downloaded images’ and ‘running containers’:\n\n\n\nDocker Desktop\n\n\nIf you didn’t see this then you will need to have a look at the ‘dealing with errors’ section.",
+    "section": "Podman or Docker?",
+    "text": "Podman or Docker?\nYou’ll see below that we talk about both Podman and Docker interchangeably. You may have heard of one, but not the other. Is there a difference? In terms of what they do there is no difference that you need to care about at the moment: both allow you to build images of virtual machines, share them with other users, and run any image you find as a container. All of these words are explained below. The point being, they aim to do the same thing.\nHowever, how they do this is quite different. Docker is/was the market leader in this kind of image/container sharing system and is very stable and well-supported; however, to be installed and run Docker requires administrator access (also known as root).\nPodman is a more recent, open source tool: it is slightly less stable and widely supported than Docker, and to make the most of it you need to change quite a few things. However, the biggest benefit is that you can run it as a user: this makes installation and execution much easier.\nWe are trying to move over to Podman because it will make everyone’s life easier, but sometimes we run into issues that cause us to fall back to using Docker instead. Hope that makes sense!\n\n\n\n\n\n\nTL;DR\n\n\n\nChoose Podman unless you have a specific reason to choose Docker instead or you have been unable to successfully install and run Podman.\n\n\n## Installing\n\n\n\n\n\n\nHow They Work\n\n\n\nOne way to think of Podman/Docker is as a ‘library’ of ready-made virtual computers that you can copy and use free-of-charge. If you’d like to know more about what Podman/Docker are and how they work, you can read more in the Understanding Virtualisation section.\n\n\n\n\n\n\n\n\nWindows Users\n\n\n\nPlease ensure that you have installed WSL2 before installing Docker! If you cannot install WSL2 then please have a look at the ‘dealing with errors’ section.\n\n\nAfter you’ve downloaded Podman (first choice) or Docker (second choice), you need to:\n\nInstall it – usually this will mean opening the image and either dragging it your Application folder (Mac) or running the installer (Windows)\nStart it up – double-click the Podman/Docker icon in your Applications folder to start the application running.\nFinish setup – you may see a login screen like the one below, but you do not need to create an account (notice Continue without signing in)\nOn all the subsequent questions you can Skip (upper-right corner) answering as well.\n\n\n\n\nDocker trying to trick you into creating an account\n\n\nYou must finish setting up before proceeding to the next step. You’ll know that you’re ready to move on when you see either the ‘Podman Desktop’ or ‘Docker Desktop’ window appear listing ‘downloaded images’ and ‘running containers’:\n\n\n\nDocker Desktop\n\n\nIf you didn’t see this then you will need to have a look at the ‘dealing with errors’ section.",
     "crumbs": [
       "Installation"
     ]
   },
   {
-    "objectID": "setup/env.html#system-updates",
-    "href": "setup/env.html#system-updates",
+    "objectID": "setup/env.html#what-is-virtualisation",
+    "href": "setup/env.html#what-is-virtualisation",
     "title": "Installation",
-    "section": "System Updates",
-    "text": "System Updates\nBefore going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the other steps in this brief guide to getting started.",
+    "section": "What is Virtualisation?",
+    "text": "What is Virtualisation?\nPodman and Docker are ‘virtualisation’ tools that allows you to run ‘virtual machines’ on your computer’s ‘host’ operating system. That’s a lot of new, probably meaningless words. If you’re one of those people who (understandably) likes to understand what’s going on then here’s how some people define it:\n\nGoogle on What is a virtual machine?\nVMWare on What is a virtual machine?\nMicrosoft on What is a virtual machine (VM)?",
     "crumbs": [
       "Installation"
     ]
   },
   {
-    "objectID": "setup/env.html#base-utilities",
-    "href": "setup/env.html#base-utilities",
+    "objectID": "setup/env.html#podman-or-docker-1",
+    "href": "setup/env.html#podman-or-docker-1",
     "title": "Installation",
-    "section": "Base Utilities",
-    "text": "Base Utilities\nNext, you will need to install the Base Utilities for your Operating System and checked the other hardware and software requirements.\n:::",
+    "section": "Podman or Docker",
+    "text": "Podman or Docker\n\n\n\n\n\n\nEssential Topic\n\n\n\nThis next section is essential to running the sparc environment.\n\n\nPodman and Docker are complex applications doing very complex things. It’s not surprising that they can be a bit of a pain to install. But once installed, they are very powerful platforms for ‘doing (spatial) data science’. It’s an approach that’s widely used in industry and, increasingly, academia.\nOne way to think of these is as a ‘library’ of ready-made virtual computers that you can copy and use free-of-charge. If you’d like to know more about what Podman/Docker are and how they work, you can read more in the Understanding Virtualisation section.\n\n\n\n\n\n\nWindows Users\n\n\n\nPlease ensure that you have installed WSL2 before installing Docker! If you cannot install WSL2 then please have a look at the ‘dealing with errors’ section.\n\n\n\n\n\n\n\n\nWhich do I install?\n\n\n\nPlease try Podman first and only try Docker if Podman fails to run successfully on your machine.\n\n\nAfter you’ve downloaded Podman (first choice) or Docker (second choice), you need to:\n\nInstall it – usually this will mean opening the image and either dragging it your Application folder (Mac) or running the installer (Windows)\nStart it up – double-click the Podman/Docker icon in your Applications folder to start the application running.\nFinish setup – once the application has finished starting up, you may see the login screen below. You do not need to create an account (notice Continue without signing in)\nOn all the subsequent questions you can Skip (upper-right corner) answering as well.\n\n\n\n\nDocker trying to trick you into creating an account\n\n\nYou must finish setting up before proceeding to the next step. You’ll know that you’re ready to move on when you see the ‘Docker Desktop’ window appear listing ‘downloaded images’ and ‘running containers’:\n\n\n\nDocker Desktop\n\n\nIf you didn’t see this then you will need to have a look at the ‘dealing with errors’ section.",
     "crumbs": [
       "Installation"
     ]
   },
   {
-    "objectID": "setup/base.html#system-updates",
-    "href": "setup/base.html#system-updates",
-    "title": "Updates",
-    "section": "System Updates",
-    "text": "System Updates\nBefore going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the other steps in this brief guide to getting started.",
+    "objectID": "setup/env.html#testing",
+    "href": "setup/env.html#testing",
+    "title": "Installation",
+    "section": "Testing",
+    "text": "Testing\nTo test if the application (Docker or Podman) is installed correctly, you will need either the Terminal (macOS) or the Power Shell (Windows).\n\n\n\n\n\n\nCopy Code to Clipboard\n\n\n\nWhenever you see a ‘code block’ below, you will also see a ‘clipboard’ icon () in the right. Click that, and the code will be copied to your computer’s ‘clipboard’ so that you can then paste it into the Terminal or Power Shell. That will save you a lot of time and effort.\n\n\nDocker has provided a simple way to test if your installation is working correctly. You can run the following command in the Terminal or Power Shell:\ndocker run hello-world\nThis should output something like:\nUnable to find image 'hello-world:latest' locally\nlatest: Pulling from library/hello-world\n478afc919002: Pull complete\nDigest: sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2\nStatus: Downloaded newer image for hello-world:latest\n\nHello from Docker!\nThis message shows that your installation appears to be working correctly.\n\nTo generate this message, Docker took the following steps:\n 1. The Docker client contacted the Docker daemon.\n 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub.\n    (arm64v8)\n 3. The Docker daemon created a new container from that image which runs the\n    executable that produces the output you are currently reading.\n 4. The Docker daemon streamed that output to the Docker client, which sent it\n    to your terminal.\n\nTo try something more ambitious, you can run an Ubuntu container with:\n $ docker run -it ubuntu bash\n\nShare images, automate workflows, and more with a free Docker ID:\n https://hub.docker.com/\n\nFor more examples and ideas, visit:\n https://docs.docker.com/get-started/\nIf you see this message, then Docker is installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the ‘dealing with errors’ section. Notice how there are several things happening:\n\nUnable to find image... locally – this is because the hello-world image is not (yet) stored on your computer.\nlatest: Pulling from library/hello-world – this is Docker downloading the hello-world image from the internet.\nPull complete – this is Docker telling you that it has finished downloading the image.\nHello from Docker! – this is the hello-world image running and telling you that Docker is working correctly.\n\nThere’s obviously a lot more to that message, but that’s the basic idea.",
     "crumbs": [
-      "Updates"
+      "Installation"
     ]
   },
   {
-    "objectID": "setup/base.html#base-utilities",
-    "href": "setup/base.html#base-utilities",
-    "title": "Updates",
-    "section": "Base Utilities",
-    "text": "Base Utilities\nIn order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:\n\nMacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post.",
+    "objectID": "setup/env.html#running",
+    "href": "setup/env.html#running",
+    "title": "Installation",
+    "section": "Running",
+    "text": "Running\nWe now need to download and run the sparc image that we created for the workshop. The image is the ‘template’ for running containers (i.e. virtual computers) on our ‘host’ computer and it comes complete with all of the Python libraries and other tools that you’ll need to complete the module (and a good deal more besides!). Installing the image will take a while as it’s quite large (1-5GB) and so will depend on the speed of your internet connection.\nYou can use a single command to download and start the sparc container by copying the following command into the Terminal or Power Shell (this does not work in the Command Prompt/cmd):\n\nFor Intel MacsFor M-Chip MacsFor Windows\n\n\ndocker run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-intel start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-silicon start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name sparc -p 8888:8888 -v \"$(pwd):/home/jovyan/work\" jreades/sparc:2025-intel start.sh jupyter lab --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''",
     "crumbs": [
-      "Updates"
+      "Installation"
     ]
   },
   {
-    "objectID": "setup/base.html#windows-only",
-    "href": "setup/base.html#windows-only",
-    "title": "Updates",
-    "section": "Windows Only",
-    "text": "Windows Only\n\n\n\n\n\n\nCreating a Linux User\n\n\n\nIf you want to install a full Linux distribution (e.g. because you want to do more than just run Docker) then make sure you set up a new Linux user and do not end up running everything as root.\n\n\nTo make full use of WSL2 and Linux (if you want to do more than just use Docker) you will need to familiarise yourself with how having two operating systems that can talk to each other works. That is covered in the next section. This will actually be useful for understanding how Docker works, as it can be profoundly confusing.\nThe behaviour of the ‘shell’ (command line) is quite confusing because, with WSL2, you effectively end up with two ‘home’ directories: one for your Windows user, and one for your new Ubuntu user. Starting a Linux shell/command line puts you in your Linux home directory (the username may be completely different from your Windows username). Starting a Windows shell/command line puts you in your Windows home directory (again, the username may be completely different from your Linux username).\nSo the first, and perhaps most important, thing is understanding where ‘data’ is being stored:\n\nUnder Linux the user directory is apparently something like: \\\\wsl$\\&lt;DistroName&gt;\\home\\&lt;UserName&gt;\\ but you can usually get it by simply typing cd $HOME and then pwd when starting a new Linux shell.\nUnder Windows the user directory is: C:\\Users\\&lt;UserName&gt;\\ or /mnt/c/Users/&lt;UserName&gt;/, and you can often simply type pwd when opening a new Windows shell.\n\nSo these are different locations on your computer’s hard drive, and you will not see your Linux files in your Windows Home Directory and vice versa. To make it easy to switch between the two, I found this page on Microsoft’s web site that goes through some of the post-WSL2 installation steps, but see especially the additional page on Windows Terminal configuration.\nSlightly confusingly, you can run Linux commands directly from Windows, usually be adding wsl in front of the Linux command (e.g. wsl ls *.csv from Windows, where in Linux the command would be ls *.csv).\nTo make it easy to move from the Linux side of your machine to the Windows machine you can also do this:\n\nWork out where your CASA files are stored on the Windows side (see above: /mnt/c/Users/&lt;UserName&gt;/My\\ Documents/CASA/... where &lt;UserName&gt; is your Windows user name).\ncd to this location and type pwd to output the full path to the CASA directory.\nCopy this.\nNow start a Linux shell and run the following command once (you do not need to do it ever again): echo \"export WIN_HOME=\\\"/mnt/c/Users/.../CASA/\\\"\" &gt;&gt; $HOME/.bashrc. Replace the ... with the rest of the actual path! The \\\" is very important, don’t try to change those!\nNow run source .bashrc and you should see no errors.\n\nOnce you have done this you will have added a single line to your .bashrc file in Linux. This will create a ‘shortcut’ for bash in Linux. From here on out you should be able to type cd $WIN_HOME and move immediately over to the CASA directory on the Windows side. This will save having to remember (and type) the Windows path each time.",
+    "objectID": "setup/env.html#if-things-go-wrong",
+    "href": "setup/env.html#if-things-go-wrong",
+    "title": "Installation",
+    "section": "If Things Go Wrong",
+    "text": "If Things Go Wrong\nIf you encounter any problems with the installation, please have a look at the Dealing with Problems page.",
     "crumbs": [
-      "Updates"
+      "Installation"
     ]
+  },
+  {
+    "objectID": "setup/problems.html#errors-installing",
+    "href": "setup/problems.html#errors-installing",
+    "title": "Dealing with Problems",
+    "section": "Errors Installing",
+    "text": "Errors Installing\n\nUnsupported Version\nThe only problem that is common to both Windows and macOS machines is the ‘unsupported version’ (or similar wording) error. This happens when you are running an older version of the Operating System that is no longer supported by the most recent installer.\nIf you are not able to update your computer’s operating system to a more recent release, then your only option is to use an older version of the application. You can find older versions of [Podman]() and Docker to install, though for very old machines this may still not resolve the ‘unsupported version’ problem.\n\n\nProblems with WSL2\nOn Windows, if you have problems that mention WSL/WSL2 (this could be errors installing or updating this system) and you are sure that you’ve installed and updated WSL, then you may need to try using ‘Hyper-V’ instead. This is a ‘second-best’ workaround that has worked for some people.\n\nEnabling Hyper-V\nMicrosoft has instructions here on how to enable Hyper-V on your Windows machine. You will need to restart your computer after enabling Hyper-V. These instructions may also help.\nYou will then need to look at the Podman or Docker settings and change the Use the WSL2 based engine to Use the Hyper-V based engine.\n\n\n\nProblems with Admin Rights\nIssues with administrator rights are the main reason that we are trying to swich from Docker to Podman. Podman does not require you to be an administrator of your machine. So if you are unable to install Docker on your computer (e.g. because you are using a secure corporate laptop), you may wish to try using Podman instead. Podman is runs in ‘user space’, which means that it does not need admin rights to run. You can find out more about Podman here. Our limited testing suggests that it works well with the sparc environment.\nYou will need to:\n\nDownload and install the Podman CLI and Desktop from here.\nRun the following command in the PowerShell or Terminal: podman machine initpodman machine start\nAnd then run this command in PowerShell or Terminal to download the sparc image with podman pull jreades/sparc:2025-intel (or jreades/sparc:2025-silicon for M-chip Macs)"
+  },
+  {
+    "objectID": "setup/problems.html#errors-running",
+    "href": "setup/problems.html#errors-running",
+    "title": "Dealing with Problems",
+    "section": "Errors Running",
+    "text": "Errors Running\nIf you have managed to install Docker (or Podman) and have managed to ‘pull’ a disk image then the last remaining obstacle to running Podman or Docker is, typically, running out of disk space.\n\nDealing with Disk Space\nSome Windows PCs (especially those sold with Windows10) have two drives (C and D). The C drive may fill up very quickly once you start installing and running software or processing data. In that case you may want to store your images on the D drive.\nThis is a complex process, and you may need assistance, so there is a Moving to the D Drive page to try to talk you through the process.\n\n\nOther Disk Space Issues\nIf you don’t have separate C and D drives but still have very little space left on your hard drive then it’s worth remembering that all of the images you’ve used and containers that you have run are saved on your computer. You can see how much space Docker (there’s a similar command for Podman) is using by running the following command in the PowerShell or Terminal:\ndocker system df\n\nDeleting an Image\nThe most ‘intuitive’ way is to delete each image by it’s unique ID:\ndocker ps -aq # Get list of running processes and work out container IDs to remove\ndocker rm -f &lt;list of container IDs&gt;\ndocker images # Get list of available images and work out image IDs to remove\ndocker rmi -f &lt;list of image IDs&gt;\n\n\nDeleting by Filter\nA more ‘direct’ approach that should be used with some care is to looking for the name of the image and delete that way:\ndocker ps -aqf \"name=sds\" --format=\"{{.Image}} {{.Names}} {{.ID}}\" | grep \"2025\" | cut -d' ' -f3 | xargs docker rm -f\ndocker images --format=\"{{.Repository}} {{.Tag}} {{.ID}}\" | grep \"sds\" | cut -d' ' -f3 | xargs docker rmi"
   }
 ]
