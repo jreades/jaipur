@@ -48,7 +48,7 @@ If you have managed to install Docker (or Podman) and have managed to 'pull' a d
 
 Some Windows PCs (especially those sold with Windows10) have two drives (`C` and `D`). The `C` drive may fill up very quickly once you start installing and running software or processing data. In that case you may want to store your images on the `D` drive. 
 
-This is a complex process, and you may need assistance, so there is a [Moving to the D Drive page](../docker/moving_to_d.qmd) to try to talk you through the process.
+This is a complex process, and you may need assistance, so there is a [Moving to the D Drive page](./moving_to_d.qmd) to try to talk you through the process.
 
 ### Other Disk Space Issues
 
@@ -80,13 +80,7 @@ docker images --format="{{.Repository}} {{.Tag}} {{.ID}}" | grep "sds" | cut -d'
 
 ## The Last Resort
 
-::: {.callout-warning}
-
-We *only* support Anaconda Python as a fallback for students who would otherwise be unable to complete the module because their computer does not support Docker. If you *choose* to use Anaconda (but could run Docker) then we will not be able to support you.
-
-:::
-
-A very small number of students are **unable to run Docker or Podman at all** on computers running Windows 10 Home (in 23/24 there were *none*), in which case **Anaconda Python** can be used with the configuration [that we provide](../conda/index.qmd). We don't recommend this as Podman and Docker isolate the programming environment from your computer, ensuring that nothing is clobbered by accident, and guaranteeing that you are working with the same version of every Python library as the rest of the class (and the versions for which the practicals are tested). 
+A very small number of students are **unable to run Docker or Podman at all** on computers running Windows 10 Home (in 23/24 there were *none*), in which case **Anaconda Python** can be used with a configuration based on the [Podman build file](../pod/Podman.master). We don't recommend this as Podman and Docker isolate the programming environment from your computer, ensuring that nothing is clobbered by accident, and guaranteeing that you are working with the same version of every Python library as the rest of the class (and the versions for which the practicals are tested). 
 
 **Anaconda is only supported as a last resort**.
 

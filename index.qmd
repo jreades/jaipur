@@ -33,7 +33,7 @@ The [Installation Guide](./setup/env.qmd) section will help you to get your comp
 
 ## Sessions
 
-There are [four sessions](./sessions/index.qmd) planned for the week. The sessions will make use of the tools installed above, so please try to install Podman on your laptop *before* the start of the first session as this will save quite a bit of time and also allow us to help you more quickly if there are any issues.
+There are four sessions planned for the week (see `Sessions` drop-down menu!). The sessions will make use of the tools installed above, so please try to install Podman on your laptop *before* the start of the first session as this will save quite a bit of time and also allow us to help you more quickly if there are any issues.
 
 ## Citing
 
