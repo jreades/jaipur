@@ -1,0 +1,24 @@
+---
+title: "Day 3: Reproducible Analysis"
+author: "Jon Reades"
+date: "11/8/2025"
+---
+
+::: {.callout-tip}
+
+### Goal
+
+How tools like Quarto and Python can make report-writing 'easy'.
+
+:::
+ 
+Introductory session:
+
+- What is reproducible analysis and why care about it?
+- A brief introduction to version control and github.io (Git / GitHub)
+- An introduction to Quarto
+ 
+Applied session:
+
+- Creating a report in Quarto:
+ 

@@ -1,7 +1,7 @@
 ---
 title: "Requirements"
 author: "Jon Reades"
-date: "8/11/2025"
+date: "7/11/2025"
 ---
 
 This guide will help you to perform a basic 'health check' on your computer to see if you're likely to run into problems running the programming environment. When answering the questions below, 'your computer' is the machine on which you plan to do the programming.

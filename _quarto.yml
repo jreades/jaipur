@@ -60,12 +60,11 @@ website:
       collapse-level: 2
       background: light
       contents:
-        - sessions/index.qmd
         - setup/code_camp.qmd
-#        - sessions/day1.qmd
-#        - sessions/day2.qmd
-#        - sessions/day3.qmd
-#        - sessions/day4.qmd
+        - sessions/day1.qmd
+        - sessions/day2.qmd
+        - sessions/day3.qmd
+        - sessions/day4.qmd
 
 highlight-style: pygments
 

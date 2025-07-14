@@ -19,7 +19,7 @@ You will need to install WSL2 but, strangely, you do not actually need to instal
 1. `wsl --install` should quickly install the subsystem that we need.
 2. `wsl --update` will ensure that the most up-to-date version is available.
 
-That *should* be it: Docker should now run without complaint.
+That *should* be it: Podman and Docker should now run without complaint.
 
 ::: {.callout-tip}
 ### If You Need More Help

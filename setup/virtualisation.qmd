@@ -1,7 +1,7 @@
 ---
 title: Understanding Virtualisation
 author: Jon Reades
-date: 8/11/25
+date: 7/11/25
 ---
 
 {{< include _which_one.qmd >}}

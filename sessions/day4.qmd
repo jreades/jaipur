@@ -1,0 +1,21 @@
+---
+title: "Day 4: Reinforcement"
+author: "Jon Reades"
+date: "11/8/2025"
+---
+
+::: {.callout-tip}
+
+### Goal
+
+To get you using the tools and seeing the advantages by working in small groups on a report that uses the data already loaded plus (if available) data provided either online or via download.
+
+:::
+
+Applied session:
+
+- Applying what has been learned over the preceding days.
+- Adding new data to your map
+- Working on a report — choosing a topic of interest (continuation of Day 3)
+
+

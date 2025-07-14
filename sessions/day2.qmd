@@ -1,0 +1,28 @@
+---
+title: "Day 2: Exploring Code"
+author: "Jon Reades"
+date: "11/8/2025"
+---
+
+::: {.callout-tip}
+
+### Goal
+
+Discussion of data issues in planning and where code can help (or hinder) our work.
+
+::: 
+ 
+Introductory session:
+
+- Think data 
+- Sources of data
+- Reading data
+- Code vs. GIS
+ 
+Applied session:
+
+- Linking data 
+- Data tables
+- Data maps
+- Simple analysis
+ 

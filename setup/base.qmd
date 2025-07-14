@@ -1,7 +1,7 @@
 ---
 title: "Updates"
 author: "Jon Reades"
-date: "9/7/2023"
+date: "14/7/2025"
 ---
 
 In order to get the machine ready to do virtualisation you need to install a few updates to the Operating System as well as some tools that help to interact with the programming platform. Things are a lot more complicated for Windows users here than for Mac (or Linux) users.
@@ -14,7 +14,7 @@ Before going any further, please ensure that your computer is fully up-to-date w
 
 In order to access the majority of the features that this module uses, you will need to install several 'base' utilities:
 
-{{< include wsl.qmd >}}
+{{< include _wsl.qmd >}}
 
 ## Windows Only
 
