@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dealing-with-disk-space" class="level3">
 <h3 class="anchored" data-anchor-id="dealing-with-disk-space">Dealing with Disk Space</h3>
 <p>Some Windows PCs (especially those sold with Windows10) have two drives (<code>C</code> and <code>D</code>). The <code>C</code> drive may fill up very quickly once you start installing and running software or processing data. In that case you may want to store your images on the <code>D</code> drive.</p>
-<p>This is a complex process, and you may need assistance, so there is a <a href="../docker/moving_to_d.qmd">Moving to the D Drive page</a> to try to talk you through the process.</p>
+<p>This is a complex process, and you may need assistance, so there is a <a href="../setup/moving_to_d.html">Moving to the D Drive page</a> to try to talk you through the process.</p>
 </section>
 <section id="other-disk-space-issues" class="level3">
 <h3 class="anchored" data-anchor-id="other-disk-space-issues">Other Disk Space Issues</h3>
@@ -306,20 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="the-last-resort" class="level2">
 <h2 class="anchored" data-anchor-id="the-last-resort">The Last Resort</h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We <em>only</em> support Anaconda Python as a fallback for students who would otherwise be unable to complete the module because their computer does not support Docker. If you <em>choose</em> to use Anaconda (but could run Docker) then we will not be able to support you.</p>
-</div>
-</div>
-<p>A very small number of students are <strong>unable to run Docker or Podman at all</strong> on computers running Windows 10 Home (in 23/24 there were <em>none</em>), in which case <strong>Anaconda Python</strong> can be used with the configuration <a href="../conda/index.qmd">that we provide</a>. We don’t recommend this as Podman and Docker isolate the programming environment from your computer, ensuring that nothing is clobbered by accident, and guaranteeing that you are working with the same version of every Python library as the rest of the class (and the versions for which the practicals are tested).</p>
+<p>A very small number of students are <strong>unable to run Docker or Podman at all</strong> on computers running Windows 10 Home (in 23/24 there were <em>none</em>), in which case <strong>Anaconda Python</strong> can be used with a configuration based on the <a href="../pod/Podman.master">Podman build file</a>. We don’t recommend this as Podman and Docker isolate the programming environment from your computer, ensuring that nothing is clobbered by accident, and guaranteeing that you are working with the same version of every Python library as the rest of the class (and the versions for which the practicals are tested).</p>
 <p><strong>Anaconda is only supported as a last resort</strong>.</p>
 <p>However you are always free to install Anaconda Python and to <a href="https://jreades.github.io/sds-env/">use our YAML configuration script</a> to install the sparc environment, but you should do this in your own time: in previous years students have encountered difficult-to-diagnose bugs in their code (and lost marks in the Assessments!) because they had installed an older or more recent version of a Python library than the one configured and tested in the sparc environment.</p>
 <p>We believe that the replication advantages of <em>virtualisation</em> outweigh the disbenefits in terms of <em>performance</em>. It also means that you will spend less time installing libraries and more time running code, which is where your attention should really be when you are familiarising yourself with the <em>foundations</em> of data science.</p>
