@@ -2,9 +2,9 @@
   {
     "objectID": "setup/wsl.html",
     "href": "setup/wsl.html",
-    "title": "CASA Jaipur Training",
+    "title": "CASA/MNIT Workshop",
     "section": "",
-    "text": "MacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post."
+    "text": "MacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Podman and Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post."
   },
   {
     "objectID": "setup/problems.html",
@@ -88,7 +88,7 @@
     "href": "setup/code_camp.html",
     "title": "Code Camp",
     "section": "",
-    "text": "Prior to (re)joining CASA from the Department of Geography at King’s College London, Dr. Mic Ferretti, Dr. Zara Shabrina, Dr. James Millington, and I developed Code Camp.\nCode Camp provides a gentle introduction to the basics of programming in Python. Across ten sessions you will learn about syntax, variables, ‘simple’ data structures such as lists and dictionaries, and about the fundamentals of writing functions for reusable code. The sessions are entirely self-led: you should follow along at your own pace and remember that ‘it’s a marathon, not a sprint’. Don’t cram it all into the last week of summer holidays!\nStudents from previous years have repeatedly said that completing Code Camp helped them to feel more ready for the Foundations of Spatial Data Science module, enabling them to do better on assessments and on the programme as a whole.\nSo please, complete Code Camp by the start of term and, if possible, go through the materials more than once!\nYou should have received instructions via email for running Code Camp, but here they are again…",
+    "text": "Code Camp provides a gentle introduction to the basics of programming in Python. Across about twelve sessions you will learn about syntax, variables, ‘simple’ data structures such as lists and dictionaries, and about the fundamentals of writing functions for reusable code. The sessions are entirely self-led: you should follow along at your own pace and remember that ‘it’s a marathon, not a sprint’.\nWe’ve tried to keep Code Camp as simple as possible so that you can get started as quickly as possible. We recommend that you simply run Code Camp in your browser since that will allow you to learn (and run) Python anywhere and any time. However, you are welcome to run Code Camp code on your own computer (see: install options).",
     "crumbs": [
       "Code Camp"
     ]
@@ -233,7 +233,7 @@
     "href": "setup/base.html#base-utilities",
     "title": "Updates",
     "section": "Base Utilities",
-    "text": "Base Utilities\nIn order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:\n\nMacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post.",
+    "text": "Base Utilities\nIn order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:\n\nMacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Podman and Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post.",
     "crumbs": [
       "Updates"
     ]
@@ -553,5 +553,55 @@
     "title": "Dealing with Problems",
     "section": "Errors Running",
     "text": "Errors Running\nIf you have managed to install Docker (or Podman) and have managed to ‘pull’ a disk image then the last remaining obstacle to running Podman or Docker is, typically, running out of disk space.\n\nDealing with Disk Space\nSome Windows PCs (especially those sold with Windows10) have two drives (C and D). The C drive may fill up very quickly once you start installing and running software or processing data. In that case you may want to store your images on the D drive.\nThis is a complex process, and you may need assistance, so there is a Moving to the D Drive page to try to talk you through the process.\n\n\nOther Disk Space Issues\nIf you don’t have separate C and D drives but still have very little space left on your hard drive then it’s worth remembering that all of the images you’ve used and containers that you have run are saved on your computer. You can see how much space Docker (there’s a similar command for Podman) is using by running the following command in the PowerShell or Terminal:\ndocker system df\n\nDeleting an Image\nThe most ‘intuitive’ way is to delete each image by it’s unique ID:\ndocker ps -aq # Get list of running processes and work out container IDs to remove\ndocker rm -f &lt;list of container IDs&gt;\ndocker images # Get list of available images and work out image IDs to remove\ndocker rmi -f &lt;list of image IDs&gt;\n\n\nDeleting by Filter\nA more ‘direct’ approach that should be used with some care is to looking for the name of the image and delete that way:\ndocker ps -aqf \"name=sds\" --format=\"{{.Image}} {{.Names}} {{.ID}}\" | grep \"2025\" | cut -d' ' -f3 | xargs docker rm -f\ndocker images --format=\"{{.Repository}} {{.Tag}} {{.ID}}\" | grep \"sds\" | cut -d' ' -f3 | xargs docker rmi"
+  },
+  {
+    "objectID": "setup/code_camp.html#tldr",
+    "href": "setup/code_camp.html#tldr",
+    "title": "Code Camp",
+    "section": "TL;DR",
+    "text": "TL;DR\nJust point your browser to Lesson 1 and get started because there’s nothing to install.",
+    "crumbs": [
+      "Code Camp"
+    ]
+  },
+  {
+    "objectID": "sessions/day4.html",
+    "href": "sessions/day4.html",
+    "title": "Day 4: Reinforcement",
+    "section": "",
+    "text": "Goal\n\n\n\nTo get you using the tools and seeing the advantages by working in small groups on a report that uses the data already loaded plus (if available) data provided either online or via download.\n\n\nApplied session:\n\nApplying what has been learned over the preceding days.\nAdding new data to your map\nWorking on a report — choosing a topic of interest (continuation of Day 3)",
+    "crumbs": [
+      "Day 4: Reinforcement"
+    ]
+  },
+  {
+    "objectID": "sessions/day2.html",
+    "href": "sessions/day2.html",
+    "title": "Day 2: Exploring Code",
+    "section": "",
+    "text": "Goal\n\n\n\nDiscussion of data issues in planning and where code can help (or hinder) our work.\n\n\nIntroductory session:\n\nThink data\nSources of data\nReading data\nCode vs. GIS\n\nApplied session:\n\nLinking data\nData tables\nData maps\nSimple analysis",
+    "crumbs": [
+      "Day 2: Exploring Code"
+    ]
+  },
+  {
+    "objectID": "sessions/day1.html",
+    "href": "sessions/day1.html",
+    "title": "Day 1: Getting Started",
+    "section": "",
+    "text": "Goal\n\n\n\nA basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.\n\n\nIntroductory session:\n\nFormat for the week\n\nPoll: how many people have used GIS? If so, which one?\nPoll: how many people have learned a programming language? If so, which one?\n\nWhy use (open source) code?\nWhy use (open) data?\nWhy use virtualisation?\nWhy care about reproducibility?\nWhy share your code?\nWhy share your data?\n\nApplied session:\n\nSetting up Podman\nRunning Podman\nRunning a Python Notebook",
+    "crumbs": [
+      "Day 1: Getting Started"
+    ]
+  },
+  {
+    "objectID": "sessions/day3.html",
+    "href": "sessions/day3.html",
+    "title": "Day 3: Reproducible Analysis",
+    "section": "",
+    "text": "Goal\n\n\n\nHow tools like Quarto and Python can make report-writing ‘easy’.\n\n\nIntroductory session:\n\nWhat is reproducible analysis and why care about it?\nA brief introduction to version control and github.io (Git / GitHub)\nAn introduction to Quarto\n\nApplied session:\n\nCreating a report in Quarto:",
+    "crumbs": [
+      "Day 3: Reproducible Analysis"
+    ]
   }
 ]
