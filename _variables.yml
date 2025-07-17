@@ -7,5 +7,5 @@ env:
 
 docker:
   base: "jreades/sparc:2025"
-  all: "jreades/sparc:2025-intel"
-  mac: "jreades/sparc:2025-silicon"
+  all: "jreades/sparc:2025-amd"
+  mac: "jreades/sparc:2025-arm"
