@@ -1,4 +1,6 @@
-
+---
+pversion: "1.20.1"
+---
 ## What Kind of Computer?
 
 ### Apple Intel or Silicon/M-chip?
@@ -16,9 +18,9 @@ Please download *all* of the *Essential* packages for your type of computer (App
 ### Apple Intel
 
 - Essential:
-  - [Podman for ARM64](https://github.com/containers/podman/releases/download/v5.5.2/podman-installer-macos-arm64.pkg)
+  - [Podman for AMD64](https://github.com/podman-desktop/podman-desktop/releases/download/v{{< meta pversion >}}/podman-desktop-{{< meta pversion >}}-x64.dmg)
+  - [iTerm2](https://iterm2.com/downloads/stable/iTerm2-3_5_14.zip)
 - Optional:
-  - [iTerm2](https://iterm2.com/downloads/stable/iTerm2-3_5_4.zip)
   - [QGIS Long-Term Release (LTR)](https://qgis.org/downloads/macos/qgis-macos-ltr.dmg) 
   - [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/darwin)
 - Only if Podman doesn't work:
@@ -27,9 +29,9 @@ Please download *all* of the *Essential* packages for your type of computer (App
 ### Apple Silicon (M-chips)
 
 - Essential: 
-  - [Podman for AMD64](https://github.com/containers/podman/releases/download/v5.5.2/podman-installer-macos-amd64.pkg)
+  - [Podman for ARM64](https://github.com/podman-desktop/podman-desktop/releases/download/v{{< meta pversion >}}/podman-desktop-{{< meta pversion >}}-arm64.dmg)
+  - [iTerm2](https://iterm2.com/downloads/stable/iTerm2-3_5_14.zip)
 - Optional:
-  - [iTerm2](https://iterm2.com/downloads/stable/iTerm2-3_5_4.zip)
   - [QGIS Long-Term Release (LTR)](https://qgis.org/downloads/macos/qgis-macos-ltr.dmg) 
   - [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/darwin-arm64)
 - Only if Podman doesn't work:
@@ -38,7 +40,8 @@ Please download *all* of the *Essential* packages for your type of computer (App
 ### Windows PCs
 
 - Essential:
-  - [Podman for AMD64](https://github.com/containers/podman/releases/download/v5.5.2/podman-installer-windows-amd64.exe) (it's highly unlikely that you need the [ARM64 installer](https://github.com/containers/podman/releases/download/v5.5.2/podman-installer-windows-arm64.exe))
+  - [Windows Terminal](https://github.com/containers/podman/blob/main/docs/tutorials/podman-for-windows.md#prerequisites) installed via either Windows Store or `winget`.
+  - [Podman for AMD64](https://github.com/podman-desktop/podman-desktop/releases/download/v{{< meta pversion >}}/podman-desktop-{{< meta pversion >}}-setup-x64.exe) (it's unlikely that you need the [ARM64 installer](https://github.com/podman-desktop/podman-desktop/releases/download/v{{< meta pversion >}}/podman-desktop-{{< meta pversion >}}-setup-arm64.exe))
 - Optional:
   - [QGIS Long-Term Release (LTR)](https://qgis.org/downloads/QGIS-OSGeo4W-3.34.10-1.msi)
   - [Git](https://git-scm.com/download/win)

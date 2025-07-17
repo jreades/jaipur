@@ -1,17 +1,54 @@
 ## Testing
 
-To test if the application (Docker or Podman) is installed correctly, you will need either the `Terminal` (macOS) or the `Power Shell` (Windows).
+To test if the application (Docker or Podman) is installed correctly, you will need either the `Terminal` (macOS) or the `` (Windows).
 
 ::: {.callout-tip}
 
 ## Copy Code to Clipboard 
 
-Whenever you see a 'code block' below, you will _also_ see a 'clipboard' icon (![Copy to Clipboard Icon](../img/copy-to-clipboard.png){height="18px"}) in the right. Click that, and the code will be copied to your computer's 'clipboard' so that you can then paste it into the `Terminal` or `Power Shell`. That will save you a lot of time and effort.
+Whenever you see a 'code block' below, you will _also_ see a 'clipboard' icon (![Copy to Clipboard Icon](../img/copy-to-clipboard.png){height="18px"}) in the right. Click that, and the code will be copied to your computer's 'clipboard' so that you can then paste it into the `Terminal` or `Windows Terminal` (see [Base Utilities](./base.qmd#base-utilities). That will save you a lot of time and effort.
 
 :::
 
-Docker has provided a simple way to test if your installation is working correctly. You can run the following command in the `Terminal` or `Power Shell`:
+Both Podman and Docker have provided a simple way to test if your installation is working correctly. You can run the following command:
 
+::: {.panel-tabset}
+
+## Podman 
+```bash
+podman run hello-world
+```
+This should output something like:
+
+```plaintext
+Resolved "hello-world" as an alias (/etc/containers/registries.conf.d/000-shortnames.conf)
+Trying to pull quay.io/podman/hello:latest...
+Getting image source signatures
+Copying blob sha256:1ff9adeff4443b503b304e7aa4c37bb90762947125f4a522b370162a7492ff47
+Copying config sha256:83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32
+Writing manifest to image destination
+!... Hello Podman World ...!
+
+         .--"--.
+       / -     - \
+      / (O)   (O) \
+   ~~~| -=(,Y,)=- |
+    .---. /`  \   |~~
+ ~/  o  o \~~~~.----. ~~
+  | =(X)= |~  / (O (O) \
+   ~~~~~~~  ~| =(Y_)=-  |
+  ~~~~    ~~~|   U      |~~
+
+Project:   https://github.com/containers/podman
+Website:   https://podman.io
+Desktop:   https://podman-desktop.io
+Documents: https://docs.podman.io
+YouTube:   https://youtube.com/@Podman
+X/Twitter: @Podman_io
+Mastodon:  @Podman_io@fosstodon.org
+```
+
+## Docker
 ```bash
 docker run hello-world
 ```
@@ -47,12 +84,12 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 ```
 
-If you see this message, then Docker is installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the '[dealing with errors](#dealing-with-errors)' section. Notice how there are several things happening:
+:::
 
-1. `Unable to find image... locally` -- this is because the `hello-world` image is not (yet) stored on your computer.
-2. `latest: Pulling from library/hello-world` -- this is Docker downloading the `hello-world` image from the internet.
-3. `Pull complete` -- this is Docker telling you that it has finished downloading the image.
-4. `Hello from Docker!` -- this is the `hello-world` image running and telling you that Docker is working correctly.
+If you see these messages, then Podman/Docker are installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the '[dealing with errors](#dealing-with-errors)' section. Notice how there are several things happening:
+
+1. `Trying to pull...` or `Pulling from library/hello-world` -- this is starting the process of downloading the `hello-world` image from the internet.
+2. `Pull complete` or `Writing manifest to image destination` -- this is telling you that it has finished downloading the image.
+3. `Hello from Docker!` or `Hello Podman World` -- this is the `hello-world` image running and telling you that the image now running as a container.
 
 There's obviously a *lot* more to that message, but that's the basic idea.
-
