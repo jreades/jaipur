@@ -1,7 +1,7 @@
 ---
 title: "Welcome"
 author: "Jon Reades"
-date: "11/8/2025"
+date: "7/17/2025"
 ---
 
 Over the course of the week we will be exploring a little bit of what is possible using code (Python, in this case) to process and analyse spatial data. Along the way we'll touch both on the practical benefits of coding (instead of using only point-and-click software like ArcGIS or QGIS) as well as the more subtle philosophical advantages of using open source software and code.

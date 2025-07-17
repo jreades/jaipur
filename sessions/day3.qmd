@@ -1,7 +1,7 @@
 ---
 title: "Day 3: Reproducible Analysis"
 author: "Jon Reades"
-date: "11/8/2025"
+date: "8/1/2025"
 ---
 
 ::: {.callout-tip}

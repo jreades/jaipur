@@ -1,6 +1,6 @@
 ## Testing
 
-To test if the application (Docker or Podman) is installed correctly, you will need either the `Terminal` (macOS) or the `` (Windows).
+To test if the application (Docker or Podman) is installed correctly, you will need either the `Terminal` (macOS) or the `Windows Terminal` (Windows).
 
 ::: {.callout-tip}
 
