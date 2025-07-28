@@ -1,0 +1,37 @@
+---
+# The value of '@reading1' should be replaced
+# with the citation key from your Bibtex file
+# (here it's Readings.bib). E.g. @reades:2022
+title: "Summary of Reading"
+author: "Jon Reades"
+date: "9/7/24"
+bibliography: Readings.bib
+csl: chicago-author-date.csl
+number-sections: true
+colorlinks: true
+format: 
+  html: 
+    shift-heading-level-by: 1
+    number-depth: 1
+    toc: true
+    toc-depth: 2
+    colorlinks: true
+    cap-location: top
+    highlight-style: github
+    mainfont: "Spectral"
+    sansfont: "Roboto Flex"
+---
+
+An inline citation looks like @Reades:2025. 
+
+An inline citation with details looks like @Reades:2025 [Ch.4].
+
+A parenthetical citation looks like [@Reades:2025] or [@Reades:2025, Ch.4].
+
+
+Multiple inline citations looks like @Reades:2025 and @Reades:2023. 
+
+Multiple inline citations with details looks like @Reades:2025 and @Reades:2023 [Ch.4].
+
+Multiple  parenthetical citations looks like [@Reades:2023; @Reades:2025, Ch.4].
+
