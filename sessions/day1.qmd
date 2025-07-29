@@ -8,12 +8,14 @@ date: "8/1/2025"
 ### Goal
 A basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.
 :::
- 
+
+- Poll: how many people have used GIS? If so, which one?
+- Poll: how many people have learned a programming language? If so, which one?
+
 Introductory session:
 
-- Format for the week
-  - Poll: how many people have used GIS? If so, which one?
-  - Poll: how many people have learned a programming language? If so, which one?
+- [1.1 Getting Started](../lectures/1.1-the_week.qmd)
+- [1.2 Our Principles](../lectures/1.2-principles.qmd)
 - Why use (open source) code?
 - Why use (open) data?
 - Why use virtualisation?

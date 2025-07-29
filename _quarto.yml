@@ -7,6 +7,7 @@ project:
     - "*.qmd"
   resources:
     - "img"
+    - "bib"
 
 execute:
   freeze: auto
@@ -82,3 +83,6 @@ format:
     toc_float: 
       collapsed: false
       smooth_scroll: true
+
+bibliography: bib/Readings.bib
+csl: bib/chicago-author-date.csl
