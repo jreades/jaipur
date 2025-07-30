@@ -233,7 +233,7 @@
     "href": "sessions/day1.html",
     "title": "Day 1: Getting Started",
     "section": "",
-    "text": "Goal\n\n\n\nA basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.\n\n\nIntroductory session:\n\nFormat for the week\n\nPoll: how many people have used GIS? If so, which one?\nPoll: how many people have learned a programming language? If so, which one?\n\nWhy use (open source) code?\nWhy use (open) data?\nWhy use virtualisation?\nWhy care about reproducibility?\nWhy share your code?\nWhy share your data?\n\nApplied session:\n\nSetting up Podman\nRunning Podman\nRunning a Python Notebook",
+    "text": "Goal\n\n\n\nA basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.\n\n\n\nPoll: how many people have used GIS? If so, which one?\nPoll: how many people have learned a programming language? If so, which one?\n\nIntroductory session:\n\n1.1 Getting Started\n1.2 What Do (Spatial) Data Scientists Do\n1.3 Our Principles\n1.4 Our Tools\n\nApplied session:\n\nSetting up Podman\nRunning Podman\nRunning a Python Notebook",
     "crumbs": [
       "Day 1: Getting Started"
     ]
@@ -417,5 +417,1244 @@
     "title": "Dealing with Problems",
     "section": "The Last Resort",
     "text": "The Last Resort\nA very small number of students are unable to run Docker or Podman at all on computers running Windows 10 Home (in 23/24 there were none), in which case Anaconda Python can be used with a configuration based on the Podman build file. We don’t recommend this as Podman and Docker isolate the programming environment from your computer, ensuring that nothing is clobbered by accident, and guaranteeing that you are working with the same version of every Python library as the rest of the class (and the versions for which the practicals are tested).\nAnaconda is only supported as a last resort.\nHowever you are always free to install Anaconda Python and to use our YAML configuration script to install the sparc environment, but you should do this in your own time: in previous years students have encountered difficult-to-diagnose bugs in their code (and lost marks in the Assessments!) because they had installed an older or more recent version of a Python library than the one configured and tested in the sparc environment.\nWe believe that the replication advantages of virtualisation outweigh the disbenefits in terms of performance. It also means that you will spend less time installing libraries and more time running code, which is where your attention should really be when you are familiarising yourself with the foundations of data science.\nEventually you will, of course, want to install and manage your own programming environment (possibly even by building and sharing Podman/Docker images!) but this can be left for later when you have developed an appreciation of how and when virtualisation is (or is not) an appropriate solution to your needs."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#useful-information",
+    "href": "lectures/1.1-the_week.html#useful-information",
+    "title": "The Week Ahead",
+    "section": "Useful Information",
+    "text": "Useful Information\nAll of the content will remain available to you after our workshop:\n\nThe main micro-site: jreades.github.io/jaipur/ – talks, applied sessions, and some suggested readings.\nA quick introduction to Python: jreades.github.io/code-camp/ – 12 self-paced sessions focussing on the basics of Python.\n\nThere are plenty of other resources online (Khan Academy, MIT Open Courseware, etc, etc) if you want to go further. And, of course, our Urban Spatial Science MSc and Connected Environments MSc."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#what-are-we-trying-to-do",
+    "href": "lectures/1.1-the_week.html#what-are-we-trying-to-do",
+    "title": "The Week Ahead",
+    "section": "What Are We Trying to Do?",
+    "text": "What Are We Trying to Do?\nThis workshop hopes to achieve four things:\n\nTo expose you to the power of spatial analysis in Python.\nTo expose you to a set of tools that support reproducible analysis.\nTo (hopefully) convince you that going further with this is worth your time.\nTo signpost resources that will support further learning.\n\nThis knowledge is intended to be transferrable."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#overall-structure",
+    "href": "lectures/1.1-the_week.html#overall-structure",
+    "title": "The Week Ahead",
+    "section": "Overall Structure",
+    "text": "Overall Structure\n\nDay 1: Getting Started: introducing open source, code and data.\nDay 2: Preparing: setting up, managing, and linking data.\nDay 3: Reproducing: making outputs and analysis reproducible.\nDay 4: Reinforcing: making maps and visualisations."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#week-to-week",
+    "href": "lectures/1.1-the_week.html#week-to-week",
+    "title": "The Week Ahead",
+    "section": "Week-to-Week",
+    "text": "Week-to-Week\nThe specific activities for each week can be found on the microsite: jreades.github.io/fsds/. These include:\n\nPreparation: readings, pre-recorded lectures, quizzes/feedback.\nIn-Person: discussing readings and lectures; responding to assessment requirements; discussing issues arising from the previous week’s practical, and some ‘live coding’.\nPracticals: working through a weekly ‘programming notebook’ with support from your PGTAs.\n\n\n\n\n\n\n\nBring Your Computer\n\n\nPlease remember to bring your own computer to the practical sessions! The tools we use are not installed on cluster systems."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#assessments",
+    "href": "lectures/1.1-the_week.html#assessments",
+    "title": "The Week Ahead",
+    "section": "Assessments",
+    "text": "Assessments\n\nTimed, Open Book Exam (?var:assess.quiz-weight of module grade): A quiz requiring a mix of numeric and textual answers to short data analysis questions for which you must write the code.\nGroup Report (?var:assess.group-weight of module grade; 2,500 words max): A structured, small-group submission in which students respond to set questions and develop an exploratory analysis of the assigned data set.\nSelf-Evaluation (?var:assess.peer-weight of module grade): A structured individual reflection combined with numerical scoring of peers on their contribution to the group’s outcomes.\n\n\nAssessment logic:\n\nTeach and test the most challenging aspects of data science ‘work’ without mastery of Python.\nDiscover transferrability of skills and tools across projects, disciplines, and industries.\nBuild on content from QM (e.g. setting quantitative research questions) and GIS (e.g. spatial statistics).\nDevelop experience with non-academic research formats and writing.\n\nSo,\n\nIs a Moodule quiz due ?var:assess.quiz-date (after Reading Week) and it will focus on the effective use of the pandas library.\nIs a Quarto document due ?var:assess.group-date (immediately after the end of term) that combines the analysis and outputs in one document with a set of specified questions upon which randomly-selected groups will receive feedback throughout the term.\nIs a reflection and ranking exercise due ?var:assess.peer-date (the day after the Quarto submission).\n\nWe will talk more about these over the course of the term."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#consequences",
+    "href": "lectures/1.1-the_week.html#consequences",
+    "title": "The Week Ahead",
+    "section": "Consequences…",
+    "text": "Consequences…\nSo…\n\nIf you only code during the practical session then you will not learn how to code.\nIf you cram the night before then you will not learn how to code.\nIf you practice for 45 minutes a day then you will learn how to code.\n\nDon’t take my word for it, @prat:2020 in Nature link language learning to programming language learning!\n\nThis said, we do hope to convince you that:\n\nAnyone—and this includes you—can code.\nLearning to code does not require mathematical ability.\nLearning to code does not require linguistic ability.\nLearning to code does require practice. And more practice. And more again."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#actual-feedback",
+    "href": "lectures/1.1-the_week.html#actual-feedback",
+    "title": "The Week Ahead",
+    "section": "Actual Feedback…",
+    "text": "Actual Feedback…\n\nI was really struggling with the concepts of lists, dictionaries and iterations (I basically could not do any of Practical 3 without panicking) and I was telling  that it felt like Workshop 3 was all in a foreign language - I was so lost. \n But both yesterday and today, I have been over all the content, recordings and even code camp again and I’ve just had a penny drop moment, I could cry woohooo!!!!!! \nI really appreciate all the effort you’ve put into recording the concepts ahead of lectures and the way you’ve structured the module, although it is very fast-moving you have provided all the resources for us to do well."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#more-feedback",
+    "href": "lectures/1.1-the_week.html#more-feedback",
+    "title": "The Week Ahead",
+    "section": "More Feedback",
+    "text": "More Feedback\n\nI just wanted to update you on my progress. Since flipping the content round following your advice, I have been feeling much much better. I followed what you were doing in the workshop and also have completed the practical in about half the time than I usually do. Thanks so much for responding and for your effort with this module."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#the-old-challenges",
+    "href": "lectures/1.1-the_week.html#the-old-challenges",
+    "title": "The Week Ahead",
+    "section": "The (Old) Challenges",
+    "text": "The (Old) Challenges\n\nDifferent style of learning from what you might be used to (“I didn’t anticipate, or rather factor into my schedule, the amount of out-of-hours practice that was required to stay up to date.”).\nDoing stats and programming at the same time and connecting this all back to the bigger picture.\nDelayed gratification (you have to walk before you can run).\nEasy to fall behind, but hard to catch up (“the pace is relentless”)."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#the-new-challenges",
+    "href": "lectures/1.1-the_week.html#the-new-challenges",
+    "title": "The Week Ahead",
+    "section": "The (New) Challenges",
+    "text": "The (New) Challenges\n\nChatGPT (you’re going to learn when not to trust it)\nClose reading 101 (you’re going to be asked to really read)\nPublic speaking (yes, you’re going to have do a bit of this too)\n\n\nThis is a new one for us too. We don’t want to pretend that ChatGPT doesn’t exist. It’s how you will do your work. Unquestionably. But it is also a trap. This year we’re hoping to show you that."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#the-rewards",
+    "href": "lectures/1.1-the_week.html#the-rewards",
+    "title": "The Week Ahead",
+    "section": "The Rewards",
+    "text": "The Rewards\n\nSkills that are highly transferrable and highly sought-after professionally.\nProblem-solving and practical skills that are valued by the private and public sectors.\nA whole new way of seeing the world and interacting with it.\nLots of support along the way… if you remember to ask for it!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#lots-of-help-out-there",
+    "href": "lectures/1.1-the_week.html#lots-of-help-out-there",
+    "title": "The Week Ahead",
+    "section": "Lots of Help ‘Out There’",
+    "text": "Lots of Help ‘Out There’\nYou will learn cope best if you treat this like learning a new language:\n\nStart simple and work up.\nGoogle is your friend (really).\nTalk with your friends (i.e. in-person or on Slack).\nImmerse yourself and practice regularly.\nPrint out the readings and annotate them.\nSubscribe to a ‘magazine’ or two (e.g. Medium or Pocket).\nLearn how to ask questions (i.e. Search Stack Overflow)."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#study-aids",
+    "href": "lectures/1.1-the_week.html#study-aids",
+    "title": "The Week Ahead",
+    "section": "Study Aids",
+    "text": "Study Aids\nWhen you need an answer right now:\n\nGoogle\nStack Overflow\nSlack\n\nWhen you want to learn more:\n\nMedium\nPocket\n\n\nGoogle will become more useful as you learn more and this is definitely one class in which “I Googled it” is a good answer.\nAs of early September 2020, Stack Overflow contains over 1.5 million Python questions alone! Chances are someone else has had your question before.\nWhere’s ChatGPT in this? We’ll get to that!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#before-you-ask-for-help",
+    "href": "lectures/1.1-the_week.html#before-you-ask-for-help",
+    "title": "The Week Ahead",
+    "section": "Before You Ask for Help",
+    "text": "Before You Ask for Help\nFrom the Computer Science Wiki:\n\nDraw a picture of the problem\nExplain the problem to a toy or inanimate object (really!)\nForget about a computer; how would you solve this with a pencil and paper?\nTalk it through out loud\nExplain the problem to a friend\n\nTo which we would add:\n\nUse print(variable) statements liberally in your code!\n\n\nWe’ll cover this last bit as we get more used to coding!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#where-to-ask-for-help",
+    "href": "lectures/1.1-the_week.html#where-to-ask-for-help",
+    "title": "The Week Ahead",
+    "section": "Where to Ask for Help",
+    "text": "Where to Ask for Help\nThere is no shame in asking for help. None. We are here to support your learning and we have chosen a range of tools to support that:\n\nSlack: use public #fsds channel for help with coding, practical, and related course questions.\nDrop-in Hours: use Booking Form\nOut-of-Hours: use email to raise personal circumstances and related issues for focussed support.\nEmergencies: contact Professional Services for support as-needed to preserve privacy.\n\n\nWe’ll talk about Slack more later, but we think that this is the best way to get help when you need it. Slack enables us to support you as a community of learners across computer / tablet / phone.\nI’ve tried to throw together some ideas on how you can study effectively that covers things relating to managing distractions when you’ve only got limited time, as well as how to read and how to think."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#when-to-ask-for-help",
+    "href": "lectures/1.1-the_week.html#when-to-ask-for-help",
+    "title": "The Week Ahead",
+    "section": "When to Ask for Help",
+    "text": "When to Ask for Help\n\nWhen you get warning messages from your computer’s Operating System.\nWhen you cannot get the coding environment to run at all.\nWhen even simple commands return line after line of error code.\nWhen you have no clue what is going on or why.\nWhen you have been wrestling with a coding question for more than 20 minutes (but see: How to Ask for Help!)\n\n\nIn order to learn you do need to struggle, but only up to a point! So we don’t think that giving you the answer to a coding question as soon as you get stuck is a good way for you to learn. At the same time, I remain sad to this day that one of the most insightful students I’ve ever taught in a lecture context dropped out of our module because they were having trouble with their computer and thought it was their fault nothing was working right. By we had realised what was going on it was too late: they were so far behind that they didn’t feel able to catch up. We’d rather that you asked and we said “Close, but try it again” than you didn’t ask and checked out thinking that you couldn’t ‘do’ programming."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#how-to-ask-for-help",
+    "href": "lectures/1.1-the_week.html#how-to-ask-for-help",
+    "title": "The Week Ahead",
+    "section": "How to Ask for Help",
+    "text": "How to Ask for Help\nIn addition to what we have provided, we like the “How to ask programming questions” page provided by ProPublica:\n\nDo some research first.\nBe specific.\nRepeat.\nDocument and share.\n\nIf you find yourself wanting to ask a question on Stack Exchange then they also have a guide, and there are plenty of checklists.\n\nThere’s also useful ideas on how to get help that covers things like ‘how to get a reply from your Prof’ and ‘where to look for help’."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#learn-from-your-mistakes",
+    "href": "lectures/1.1-the_week.html#learn-from-your-mistakes",
+    "title": "The Week Ahead",
+    "section": "Learn from Your Mistakes",
+    "text": "Learn from Your Mistakes"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#one-more-thing",
+    "href": "lectures/1.1-the_week.html#one-more-thing",
+    "title": "The Week Ahead",
+    "section": "One More Thing…",
+    "text": "One More Thing…\n\n\nYou will get things wrong.\nWe will get things wrong.\nWe will assume that you are trying your best.\nPlease assume the same about us!\nIt’s going to be messy, but we’re really excited about it!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#and-finally",
+    "href": "lectures/1.1-the_week.html#and-finally",
+    "title": "The Week Ahead",
+    "section": "And Finally…",
+    "text": "And Finally…\n\n\n\n\n\n\nAuto-Updates\n\n\nDo not allow your computer to auto-update during term. Inevitably, major upgrades will break developer tools. Do this by choice only when you have time. MacOS Sonoma is out 26 September, do not install it!\n\n\n\n\nMany students allowed their computer to update to Big Sur last year and it broke their entire computing environment. Some did this shortly before a submission was due. Do not do this!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#additional-resources",
+    "href": "lectures/1.1-the_week.html#additional-resources",
+    "title": "The Week Ahead",
+    "section": "Additional Resources",
+    "text": "Additional Resources\n\nSee the GIS&T Body of Knowledge (BoK) for quick overview of concepts, techniques, and tools: gistbok.ucgis.org.\nA degree of ‘plagiarism’ is acceptable in code since that’s how we learn; however, mindless copy+pasting of Stack Overflow code leads to sphagetti and, often, incorrect results or difficult-to-squash bugs. Think of it like paraphrasing.\nTo distinguish between plagiarism and paraphrasing here’s a nice tutorial that you can also use to help you with your ‘regular’ writing."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#principles",
+    "href": "lectures/1.1-the_week.html#principles",
+    "title": "The Week Ahead",
+    "section": "Principles",
+    "text": "Principles\n\nSoftware should be free (as far as practicable).\nSoftware should be open (as far as practicable).\nSoftware should run on all platforms (you get the idea).\nSoftware should reflect what you will encounter in the ‘real world’."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#tools-to-make-your-life-easier",
+    "href": "lectures/1.1-the_week.html#tools-to-make-your-life-easier",
+    "title": "The Week Ahead",
+    "section": "Tools to Make Your Life Easier",
+    "text": "Tools to Make Your Life Easier\n\nOneDrive (or Dropbox): keep your stuff backed up in the cloud.\nSlack: get help (or just tips and tricks) from peers and staff\nDocker: virtualisation platforms to ensure you don’t ‘hose’ your computer.\nPython: how we do ‘data science’.\nGitHub: manage your code, your data, even your essays/reports.\nMarkdown: focus on the right things while you write and treat your essays like code!\nQuarto: convert Markdown+Python to pretty documents/web pages.\nLLMs: assistance in sketching out code snippets/validation."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#onedrivedropbox",
+    "href": "lectures/1.1-the_week.html#onedrivedropbox",
+    "title": "The Week Ahead",
+    "section": "OneDrive/Dropbox",
+    "text": "OneDrive/Dropbox\n\n\n\n\n\n\nOneDrive and Dropbox are ‘cloud-based file synchronisation tools’: files placed in the special folder are automatically uploaded to servers, and automatically downloaded to any other computer on which you have set up the service. Changes are also synchronised ‘every time’ you save the file."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#why-use-it",
+    "href": "lectures/1.1-the_week.html#why-use-it",
+    "title": "The Week Ahead",
+    "section": "Why Use It?",
+    "text": "Why Use It?\nMany programmers are starting to use LLMs as part of their coding for three reasons:\n\nThey can help to spot bugs, redundancy, and other issues that impact the performance of large applications (i.e. feedback).\nThey can provide information about different libraries and strategies the developer can use, as well as completing code begun by the developer (i.e. guidance or training).\nThey can help to ‘translate’ code and design patterns between languages (i.e. re-use).\n\nThis is very much a ‘brave new world’ and we are all trying to figure it out on the fly."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#we-recommend",
+    "href": "lectures/1.1-the_week.html#we-recommend",
+    "title": "The Week Ahead",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nLLMs like ChatGPT can help you to learn to be a better coder by providing guidance and feedback, but for many applications a competent human being will be faster and have a better grasp of the purpose of the code.\n\n\n\n\n\n\nLLMs as co-authors\n\n\nUsing ChatGPT as your co-pilot is not the same as using ChatGPT as your co-author."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#slack",
+    "href": "lectures/1.1-the_week.html#slack",
+    "title": "The Week Ahead",
+    "section": "Slack",
+    "text": "Slack\n\nSlack is a “messaging app for teams” that is designed to reduce email, organise conversations & topics of discussion, and pull in relevant data from a host of other services in a flexible, fully-searchable way."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#why-use-it-1",
+    "href": "lectures/1.1-the_week.html#why-use-it-1",
+    "title": "The Week Ahead",
+    "section": "Why Use It?",
+    "text": "Why Use It?\nWe want you to use Slack for four reasons:\n\nMoodle is clunky and formal—it works well for one-to-many communication, but not so much for ‘chat’.\nSlack offers a searchable history1—you will have access to this archive for as long as you need it.\nYou (and we) can access Slack on every major OS (OSX, Windows, iOS, Android, and Windows Phone) and via a browser quickly.\nSlack is used in the ‘real world’ by everyone from Apple to PayPal and the JPL. This is how developers work.\n\nUp to a point, we don’t pay for the permanent history."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#we-recommend-1",
+    "href": "lectures/1.1-the_week.html#we-recommend-1",
+    "title": "The Week Ahead",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nInstall the Slack client on your phone and on your personal computer and start using it as the way to ask questions, share answers, and generally keep ‘up to date’ on things across the entire MSc.\nWorkspace: ?var:module.slack\nP.S. Unless a question is personal it should normally be asked in the appropriate module channel."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#docker",
+    "href": "lectures/1.1-the_week.html#docker",
+    "title": "The Week Ahead",
+    "section": "Docker",
+    "text": "Docker\n\nDocker “makes development efficient and predictable” because it is “used through the development lifecycle for fast, easy and portable application development”."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#why-use-it-2",
+    "href": "lectures/1.1-the_week.html#why-use-it-2",
+    "title": "The Week Ahead",
+    "section": "Why Use It?",
+    "text": "Why Use It?\nDocker is a ‘virtualisation platform’ that allows you to run a second (virtual) computer on your personal computer. We use it for four reasons:\n\nEasier installation than Anaconda Python and everyone has the same versions of every library.\nNo spillover effects since each container is isolated.\nEasy to tidy up when you’re done or add new containers when you start something new (e.g. PostgreSQL).\nUsed in the ‘real world’ by many companies (JP Morgan Chase, GSK, PayPal, Twitter, Spotify, Uber…)."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#we-recommend-2",
+    "href": "lectures/1.1-the_week.html#we-recommend-2",
+    "title": "The Week Ahead",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nUsing Docker because configuring a development machine is hard, this makes it simple. If a Docker image works for us then we know 1 it works for you.\nDocker Desktop with either:\n\njreades/sparc:2025-amd (Windows and Older Macs)\njreades/sparc:2025-arm (Newer Macs)\n\n\nNot always true, alas."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#large-language-models-llms",
+    "href": "lectures/1.1-the_week.html#large-language-models-llms",
+    "title": "The Week Ahead",
+    "section": "Large Language Models (LLMs)",
+    "text": "Large Language Models (LLMs)\n\nChatGPT from OpenAI (an increasingly ‘ironic’ name) is simply the most famous of a growing number of Large Language Models that draw on information found on the web and in open texts to perform sophisticated summarisation tasks."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#why-use-it-3",
+    "href": "lectures/1.1-the_week.html#why-use-it-3",
+    "title": "The Week Ahead",
+    "section": "Why Use It?",
+    "text": "Why Use It?\nMany programmers are starting to use LLMs as part of their coding for three reasons:\n\nThey can help to spot bugs, redundancy, and other issues that impact the performance of large applications (i.e. feedback).\nThey can provide information about different libraries and strategies the developer can use, as well as completing code begun by the developer (i.e. guidance or training).\nThey can help to ‘translate’ code and design patterns between languages (i.e. re-use).\n\nThis is very much a ‘brave new world’ and we are all trying to figure it out on the fly."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#danger-will-robinson",
+    "href": "lectures/1.1-the_week.html#danger-will-robinson",
+    "title": "The Week Ahead",
+    "section": "Danger, Will Robinson!",
+    "text": "Danger, Will Robinson!\nHere’s what we’ve noticed about ChatGPT’s output so far:\n\nOver-use of flowery language (e.g. ‘intricate methodologies’, ‘exhaustive reviews’, …).\nLack of overall structure/coherence (i.e. individual paragraphs seem reasonable but the whole doesn’t ‘work’ as a single output).\nPoor referencing, including the use of non-existent or irrelevant references (i.e. papers that don’t actually exist, or that seem superficially useful but are not relevant in practice).\nThe more specific the information, the less likely it is to be correct (e.g. Who is Jon Reades? vs. What are the main areas where NLP is useful in built environment research?)"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#over-confidence-in-action",
+    "href": "lectures/1.1-the_week.html#over-confidence-in-action",
+    "title": "The Week Ahead",
+    "section": "Over-Confidence in Action",
+    "text": "Over-Confidence in Action\nIn fact, the more specific the information, the less likely it is to be correct: who is Jon Reades?1\n\nJon Reades is a Senior Lecturer in the Department of Geography at University College London (UCL). He is also the director of the MSc in Smart Cities and Urban Analytics program at UCL.\nReades’ research focuses on the intersection of cities, data, and technology, with a particular emphasis on the use of spatial data and analytics to understand urban processes and support decision-making in cities. He has published widely on topics such as spatial analysis, urban data science, and the use of smart technologies in urban planning and governance.\nIn addition to his academic work, Reades is actively involved in a number of professional organizations and initiatives related to urban analytics and smart cities. He is a co-founder of the Urban Dynamics Institute at UCL and has served on the editorial board of several academic journals in the fields of geography and urban studies.\n\nAnd, by the way, there’s only one of me!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#read-the-fine-print",
+    "href": "lectures/1.1-the_week.html#read-the-fine-print",
+    "title": "The Week Ahead",
+    "section": "Read the Fine Print",
+    "text": "Read the Fine Print"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#we-recommend-3",
+    "href": "lectures/1.1-the_week.html#we-recommend-3",
+    "title": "The Week Ahead",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nLLMs like ChatGPT can help you to learn to be a better coder by providing guidance and feedback, but for many applications a competent human being will be faster and have a better grasp of the purpose of the code.\n\n\n\n\n\n\nLLMs as co-authors\n\n\nUsing ChatGPT as your co-pilot is not the same as using ChatGPT as your co-author. In this module the latter is still considered plagiarism.\n\n\n\nThe people making the best use of LLMs are people who already know how to code or write."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#recap",
+    "href": "lectures/1.1-the_week.html#recap",
+    "title": "The Week Ahead",
+    "section": "Recap",
+    "text": "Recap\n\nWith Docker we have a way to create a coding environment that is isolated from the computer and highly portable across machines.\nWith OneDrive and/or Dropbox we have a place to store, backup, and share files (size limits apply).\nWith Slack we have a place to ask for/provide help.\nWith LLMs we have a personal ‘tutor’ who can help us to learn more quickly and effectively.\n\nLet’s turn to the rest in part 2: Writing Code!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#resources",
+    "href": "lectures/1.1-the_week.html#resources",
+    "title": "The Week Ahead",
+    "section": "Resources",
+    "text": "Resources\n\nWhat is Python?\nWhy Python?\nProgramming Foundations: Fundamentals\nPython is eating the world\nWhat can you do with Python?\nProgram-Aided Language Models\nChain of Thought Prompting\nChatGPT is a blurry JPEG of the Internet 1\nWhy Meta’s latest large language model survived only three days online 2\nGit for Decolonisation3\n\n\n\n\n\nPrat, Chantel S, Tara M Madhyastha, Malayka J Mottarella, and Chu-Hsuan Kuo. 2020. “Relating Natural Language Aptitude to Individual Differences in Learning Programming Languages.” Scientific Reports 10 (1). Nature Publishing Group UK London:3817.\n\n\nProbably the best ‘lay person’s’ explanation of how LLMs work/fall apart you’ll ever read.And this one was trained on scientific articles!Part art, part activism, part tech!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#study-like-youre-learning-a-new-language.-do-the-readings.-talk-to-other-students-especially-in-your-group.-ask-for-help-when-you-need-it",
+    "href": "lectures/1.1-the_week.html#study-like-youre-learning-a-new-language.-do-the-readings.-talk-to-other-students-especially-in-your-group.-ask-for-help-when-you-need-it",
+    "title": "The Week Ahead",
+    "section": "> Study like you’re learning a new language. Do the readings. Talk to other students (especially in your group). Ask for help when you need it!1",
+    "text": "&gt; Study like you’re learning a new language. Do the readings. Talk to other students (especially in your group). Ask for help when you need it!1\n\nSo…\n\nIf you only code during the practical session then you will not learn how to code.\nIf you cram the night before then you will not learn how to code.\nIf you practice for 45 minutes a day then you will learn how to code.\n\nThis said, we do hope to convince you that:\n\nAnyone—and this includes you—can code.\nLearning to code does not require mathematical ability.\nLearning to code does not require linguistic ability.\nLearning to code does require practice. And more practice. And more again.\n\n\nDon’t take my word for it, Prat et al. (2020) in Nature link language learning to programming language learning!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#study-like-youre-learning-a-new-language.-recognise-you-are-all-starting-at-different-levels.-talk-to-other-students.-ask-for-help-when-you-need-it",
+    "href": "lectures/1.1-the_week.html#study-like-youre-learning-a-new-language.-recognise-you-are-all-starting-at-different-levels.-talk-to-other-students.-ask-for-help-when-you-need-it",
+    "title": "The Week Ahead",
+    "section": "Study like you’re learning a new language. Recognise you are all starting at different levels. Talk to other students. Ask for help when you need it!1",
+    "text": "Study like you’re learning a new language. Recognise you are all starting at different levels. Talk to other students. Ask for help when you need it!1\n\nSo… we do hope to convince you that:\n\nAnyone—and this includes you—can code.\nLearning to code does not require mathematical ability.\nLearning to code does not require linguistic ability.\nLearning to code does require practice. And more practice. And more again.\n\n\nDon’t take my word for it, Prat et al. (2020) in Nature link language learning to programming language learning!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#the-challenges",
+    "href": "lectures/1.1-the_week.html#the-challenges",
+    "title": "The Week Ahead",
+    "section": "The Challenges",
+    "text": "The Challenges\n\nTo learn a bit of programming and to connect it to the bigger picture.\nTo be ok with learning to walk before you run.\nTo learn not to rely (too much) on ChatGPT.\nTo communicate your thoughts through code and text.\n\n\nThis is a new one for us too. We don’t want to pretend that ChatGPT doesn’t exist. It’s how you will do your work. Unquestionably. But it is also a trap. This year we’re hoping to show you that."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#when-to-use-ai",
+    "href": "lectures/1.1-the_week.html#when-to-use-ai",
+    "title": "The Week Ahead",
+    "section": "When to use AI",
+    "text": "When to use AI\n\n\nDo not use AI like the font of all knowledge.\nUse AI like a patient, but scatty mentor.\nAsk it to explain. Then ask it again."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#references",
+    "href": "lectures/1.1-the_week.html#references",
+    "title": "The Week Ahead",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\nChiang, T. 2023. “ChatGPT Is a Blurry JPEG of the Web.” The New Yorker. https://www.newyorker.com/tech/annals-of-technology/chatgpt-is-a-blurry-jpeg-of-the-web.\n\n\nHeaven, W. D. 2022. “Why Meta’s Latest Large Language Model Survived Only Three Days Online.” MIT Technology Review. https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science/.\n\n\nPrat, Chantel S, Tara M Madhyastha, Malayka J Mottarella, and Chu-Hsuan Kuo. 2020. “Relating Natural Language Aptitude to Individual Differences in Learning Programming Languages.” Scientific Reports 10 (1). Nature Publishing Group UK London:3817. https://www.nature.com/articles/s41598-020-60661-8.\n\n\nWolfe, C. R. 2023b. “Program-Aided Language Models.” https://cameronrwolfe.substack.com/p/chain-of-thought-prompting-for-llms.\n\n\n———. 2023a. “Program-Aided Language Models.” https://medium.com/data-science/program-aided-language-models-93d226c7d9a0."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#principles",
+    "href": "lectures/1.2-principles.html#principles",
+    "title": "Our Principles",
+    "section": "Principles",
+    "text": "Principles\n\nSoftware should be free (as far as practicable).\nSoftware should be open (as far as practicable).\nSoftware should run on all platforms (you get the idea).\nSoftware should reflect what you will encounter in the ‘real world’."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#tools-to-make-your-life-easier",
+    "href": "lectures/1.2-principles.html#tools-to-make-your-life-easier",
+    "title": "Opening Up",
+    "section": "Tools to Make Your Life Easier",
+    "text": "Tools to Make Your Life Easier\n\nPodman: separate your computer from your coding environment.\nPython: how we do ‘data science’.\nGitHub: manage your code, your data, even your reports.\nMarkdown: focus on the right things while you write and treat your essays like code!\nQuarto: convert Markdown+Python to pretty documents/web pages."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#onedrivedropbox",
+    "href": "lectures/1.2-principles.html#onedrivedropbox",
+    "title": "Our Principles",
+    "section": "OneDrive/Dropbox",
+    "text": "OneDrive/Dropbox\n\n\n\n\n\n\nOneDrive and Dropbox are ‘cloud-based file synchronisation tools’: files placed in the special folder are automatically uploaded to servers, and automatically downloaded to any other computer on which you have set up the service. Changes are also synchronised ‘every time’ you save the file."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#why-use-it",
+    "href": "lectures/1.2-principles.html#why-use-it",
+    "title": "Opening Up",
+    "section": "Why Use It?",
+    "text": "Why Use It?\nPodman is a ‘virtualisation platform’ that allows you to run one more more virtual computers on your personal computer. We use it for four reasons:\n\nEasier installation and everyone has the same versions of the code.\nEach container is isolated and read-only.\nEasy to tidy up when you’re done.\nUsed in the ‘real world’ by many companies (JP Morgan Chase, GSK, PayPal, Twitter, Spotify, Uber…)."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#we-recommend",
+    "href": "lectures/1.2-principles.html#we-recommend",
+    "title": "Opening Up",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nUsing Podman because configuring a development machine is hard and this makes it (fairly) simple. If a Podman image works for us then we know1 it works for you.\nUse either:\n\njreades/sparc:2025-amd (Windows and Older Macs)\njreades/sparc:2025-arm (Newer Macs)\n\nNot always true, alas."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#slack",
+    "href": "lectures/1.2-principles.html#slack",
+    "title": "Our Principles",
+    "section": "Slack",
+    "text": "Slack\n\nSlack is a “messaging app for teams” that is designed to reduce email, organise conversations & topics of discussion, and pull in relevant data from a host of other services in a flexible, fully-searchable way."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#why-use-it-1",
+    "href": "lectures/1.2-principles.html#why-use-it-1",
+    "title": "Our Principles",
+    "section": "Why Use It?",
+    "text": "Why Use It?\nMany programmers are starting to use LLMs as part of their coding for three reasons:\n\nThey can help to spot bugs, redundancy, and other issues that impact the performance of large applications (i.e. feedback).\nThey can provide information about different libraries and strategies the developer can use, as well as completing code begun by the developer (i.e. guidance or training).\nThey can help to ‘translate’ code and design patterns between languages (i.e. re-use).\n\nThis is very much a ‘brave new world’ and we are all trying to figure it out on the fly."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#we-recommend-1",
+    "href": "lectures/1.2-principles.html#we-recommend-1",
+    "title": "Our Principles",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nLLMs like ChatGPT can help you to learn to be a better coder by providing guidance and feedback, but for many applications a competent human being will be faster and have a better grasp of the purpose of the code.\n\n\n\n\n\n\nLLMs as co-authors\n\n\nUsing ChatGPT as your co-pilot is not the same as using ChatGPT as your co-author. In this module the latter is still considered plagiarism.\n\n\n\nThe people making the best use of LLMs are people who already know how to code or write.\nLet’s turn to the rest in part 2: Writing Code!"
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#docker",
+    "href": "lectures/1.2-principles.html#docker",
+    "title": "Our Principles",
+    "section": "Docker",
+    "text": "Docker\n\nDocker “makes development efficient and predictable” because it is “used through the development lifecycle for fast, easy and portable application development”."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#why-use-it-2",
+    "href": "lectures/1.2-principles.html#why-use-it-2",
+    "title": "Our Principles",
+    "section": "Why Use It?",
+    "text": "Why Use It?\nDocker is a ‘virtualisation platform’ that allows you to run a second (virtual) computer on your personal computer. We use it for four reasons:\n\nEasier installation than Anaconda Python and everyone has the same versions of every library.\nNo spillover effects since each container is isolated.\nEasy to tidy up when you’re done or add new containers when you start something new (e.g. PostgreSQL).\nUsed in the ‘real world’ by many companies (JP Morgan Chase, GSK, PayPal, Twitter, Spotify, Uber…)."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#we-recommend-2",
+    "href": "lectures/1.2-principles.html#we-recommend-2",
+    "title": "Our Principles",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nUsing Docker because configuring a development machine is hard, this makes it simple. If a Docker image works for us then we know 1 it works for you.\nDocker Desktop with either:\n\njreades/sparc:2025-amd (Windows and Older Macs)\njreades/sparc:2025-arm (Newer Macs)\n\n\nNot always true, alas."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#large-language-models-llms",
+    "href": "lectures/1.2-principles.html#large-language-models-llms",
+    "title": "Our Principles",
+    "section": "Large Language Models (LLMs)",
+    "text": "Large Language Models (LLMs)\n\nChatGPT from OpenAI (an increasingly ‘ironic’ name) is simply the most famous of a growing number of Large Language Models that draw on information found on the web and in open texts to perform sophisticated summarisation tasks."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#why-use-it-3",
+    "href": "lectures/1.2-principles.html#why-use-it-3",
+    "title": "Our Principles",
+    "section": "Why Use It?",
+    "text": "Why Use It?\nMany programmers are starting to use LLMs as part of their coding for three reasons:\n\nThey can help to spot bugs, redundancy, and other issues that impact the performance of large applications (i.e. feedback).\nThey can provide information about different libraries and strategies the developer can use, as well as completing code begun by the developer (i.e. guidance or training).\nThey can help to ‘translate’ code and design patterns between languages (i.e. re-use).\n\nThis is very much a ‘brave new world’ and we are all trying to figure it out on the fly."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#danger-will-robinson",
+    "href": "lectures/1.2-principles.html#danger-will-robinson",
+    "title": "Our Principles",
+    "section": "Danger, Will Robinson!",
+    "text": "Danger, Will Robinson!\nHere’s what we’ve noticed about ChatGPT’s output so far:\n\nOver-use of flowery language (e.g. ‘intricate methodologies’, ‘exhaustive reviews’, …).\nLack of overall structure/coherence (i.e. individual paragraphs seem reasonable but the whole doesn’t ‘work’ as a single output).\nPoor referencing, including the use of non-existent or irrelevant references (i.e. papers that don’t actually exist, or that seem superficially useful but are not relevant in practice).\nThe more specific the information, the less likely it is to be correct (e.g. Who is Jon Reades? vs. What are the main areas where NLP is useful in built environment research?)"
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#over-confidence-in-action",
+    "href": "lectures/1.2-principles.html#over-confidence-in-action",
+    "title": "Our Principles",
+    "section": "Over-Confidence in Action",
+    "text": "Over-Confidence in Action\nWho is Jon Reades?1\n\nJon Reades is a Senior Lecturer in the Department of Geography at University College London (UCL). He is also the director of the MSc in Smart Cities and Urban Analytics program at UCL.\nReades’ research focuses on the intersection of cities, data, and technology, with a particular emphasis on the use of spatial data and analytics to understand urban processes and support decision-making in cities. He has published widely on topics such as spatial analysis, urban data science, and the use of smart technologies in urban planning and governance.\nIn addition to his academic work, Reades is actively involved in a number of professional organizations and initiatives related to urban analytics and smart cities. He is a co-founder of the Urban Dynamics Institute at UCL and has served on the editorial board of several academic journals in the fields of geography and urban studies.\n\nAnd, by the way, there’s only one of me!"
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#read-the-fine-print",
+    "href": "lectures/1.2-principles.html#read-the-fine-print",
+    "title": "Our Principles",
+    "section": "Read the Fine Print",
+    "text": "Read the Fine Print"
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#we-recommend-3",
+    "href": "lectures/1.2-principles.html#we-recommend-3",
+    "title": "Our Principles",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nLLMs like ChatGPT can help you to learn to be a better coder by providing guidance and feedback, but for many applications a competent human being will be faster and have a better grasp of the purpose of the code.\n\n\n\n\n\n\nLLMs as co-authors\n\n\nUsing ChatGPT as your co-pilot is not the same as using ChatGPT as your co-author. In this module the latter is still considered plagiarism.\n\n\n\nThe people making the best use of LLMs are people who already know how to code or write."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#recap",
+    "href": "lectures/1.2-principles.html#recap",
+    "title": "Our Principles",
+    "section": "Recap",
+    "text": "Recap\n\nWith Docker we have a way to create a coding environment that is isolated from the computer and highly portable across machines.\nWith OneDrive and/or Dropbox we have a place to store, backup, and share files (size limits apply).\nWith Slack we have a place to ask for/provide help.\nWith LLMs we have a personal ‘tutor’ who can help us to learn more quickly and effectively.\n\nLet’s turn to the rest in part 2: Writing Code!"
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#resources",
+    "href": "lectures/1.2-principles.html#resources",
+    "title": "Opening Up",
+    "section": "Resources",
+    "text": "Resources\n\nWhat is Python?\nWhy Python?\nProgramming Foundations: Fundamentals\nPython is eating the world\nWhat can you do with Python?\nGit for Decolonisation1\n\nPart art, part activism, part tech!"
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#references",
+    "href": "lectures/1.2-principles.html#references",
+    "title": "Opening Up",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\nOpen Data Institute. n.d. “SOD0009 - Evidence on Statistics and Open Data.” https://committees.parliament.uk/writtenevidence/45220/pdf/.\n\n\nWilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3 (1):160018. https://doi.org/10.1038/sdata.2016.18."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#podman",
+    "href": "lectures/1.2-principles.html#podman",
+    "title": "Opening Up",
+    "section": "Podman",
+    "text": "Podman\n\n\nPodman is an open source container, pod, and container image management engine. Podman makes it easy to find, run, build, and share containers."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#so-study-like-youre-learning-a-new-language.-recognise-you-are-all-starting-at-different-levels.-talk-to-other-students.-ask-for-help-when-you-need-it",
+    "href": "lectures/1.1-the_week.html#so-study-like-youre-learning-a-new-language.-recognise-you-are-all-starting-at-different-levels.-talk-to-other-students.-ask-for-help-when-you-need-it",
+    "title": "The Week Ahead",
+    "section": "So… Study like you’re learning a new language. Recognise you are all starting at different levels. Talk to other students. Ask for help when you need it!1",
+    "text": "So… Study like you’re learning a new language. Recognise you are all starting at different levels. Talk to other students. Ask for help when you need it!1\n\nSo… we do hope to convince you that:\n\nAnyone—and this includes you—can code.\nLearning to code does not require mathematical ability.\nLearning to code does not require linguistic ability.\nLearning to code does require practice. And more practice. And more again.\n\n\nDon’t take my word for it, Prat et al. (2020) in Nature link language learning to programming language learning!"
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#why-use-them",
+    "href": "lectures/1.1-the_week.html#why-use-them",
+    "title": "The Week Ahead",
+    "section": "Why Use Them?",
+    "text": "Why Use Them?\nMany programmers use LLMs as part of their coding for three reasons:\n\nThey can help to spot bugs, redundancy, and other issues that impact the performance of large applications (i.e. feedback).\nThey can provide information about different libraries and strategies the developer can use, as well as completing code begun by the developer (i.e. guidance or training).\nThey can help to ‘translate’ code and design patterns between languages (i.e. re-use).\n\nThis is very much a ‘brave new world’ and we are all trying to figure it out on the fly."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#how-not-to-use-them",
+    "href": "lectures/1.1-the_week.html#how-not-to-use-them",
+    "title": "The Week Ahead",
+    "section": "How (Not) to Use Them",
+    "text": "How (Not) to Use Them\nHere’s what we’ve noticed so far:\n\nDon’t delegate learning to the LLM, it doesn’t work.\nDon’t let it write paragraphs for you because LLMs like flowery language (e.g. ‘intricate methodologies’, ‘exhaustive reviews’, …).\nDon’t expect LLMs to come up with an argument for you because they strugle with structure/coherence.\nDon’t expect LLMs to get the details right (they don’t ‘like’ referencing!)."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#how-to-use-them",
+    "href": "lectures/1.1-the_week.html#how-to-use-them",
+    "title": "The Week Ahead",
+    "section": "How to Use THem",
+    "text": "How to Use THem\nLLMs like ChatGPT can help you to learn to be a better coder by providing guidance and feedback:\n\nUse AI like a patient, but scatty tutor.\nAsk it to explain. Then ask it again.\nAlways test its suggestions against reality and logic.\n\n\n\n\n\n\n\nLLMs as co-authors\n\n\nUsing ChatGPT as your co-pilot is not the same as using ChatGPT as your co-author."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#so",
+    "href": "lectures/1.1-the_week.html#so",
+    "title": "The Week Ahead",
+    "section": "So…",
+    "text": "So…\n\n\nDo not use AI like the font of all knowledge.\nUse AI like a patient, but scatty mentor.\nAsk it to explain. Then ask it again."
+  },
+  {
+    "objectID": "lectures/1.1-the_week.html#own-your-mistakes",
+    "href": "lectures/1.1-the_week.html#own-your-mistakes",
+    "title": "The Week Ahead",
+    "section": "Own Your Mistakes",
+    "text": "Own Your Mistakes"
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#what-is-open-source",
+    "href": "lectures/1.2-principles.html#what-is-open-source",
+    "title": "Opening Up",
+    "section": "What is Open Source?",
+    "text": "What is Open Source?\n\nGenerally, open source refers to a computer program in which the source code is available to the general public for usage, modification from its original design, and publication of their version (fork) back to the community.\nSource: Wikipedia"
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#how-is-this-helpful",
+    "href": "lectures/1.2-principles.html#how-is-this-helpful",
+    "title": "Opening Up",
+    "section": "How is this Helpful?",
+    "text": "How is this Helpful?\n\n\nIf you can think of it, someone has probably built it.\nMany hands make light work / With many eyes all bugs are shallow.\n‘Free as in speech’.\n‘Free as in beer’.1\n\n\n\n\nBy this I mean that, if you use Microsoft to do everything then you are dependent on their tools, even when they aren’t appropriate. There are many small, open source applications that do really useful but narrow things.\nWhen you have many people involved and they are working in the open\n\n\nOr chai, thalis, etc."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#how-is-open-source-helpful",
+    "href": "lectures/1.2-principles.html#how-is-open-source-helpful",
+    "title": "Opening Up",
+    "section": "How is Open Source Helpful?",
+    "text": "How is Open Source Helpful?\n\n\nIf you can think of it, someone has probably built it.\nGiven enough eyeballs all bugs are shallow.1\n‘Free as in speech’ (always).\n‘Free as in beer’ (often).2\n\n\n\nAll of the tools used this week are open source and free.\n\n\nBy this I mean that, if you use Microsoft to do everything then you are dependent on their tools, even when they aren’t appropriate. There are many small, open source applications that do really useful but narrow things.\nWhen you have many people involved and they are working in an open environment then issues are often spotted spotted and solved more quickly. While this claim is open to some debate, there’s certainly no evidence that closed source code is any better than open source.\nA more interesting claim has to do with the potential for interested people to get involved in making code better – for instance, for some languages there may be very few translators available, leading private companies to simply ignore localisation; whereas for open source you can contribute the translation yourself! Or if you really think something isn’t working the way it should then you can offer up a solution that will make it better and, if the people running the project don’t agree, you can still do it and launch your own, competing project.\nFinally, many (though by no means all) open source projects are also free as free food, beer, or rides. If you have been taught to use ESRI’s ArcGIS or Microsoft Excel this seems crazy: how can you have free competition to those? Well, why not give QGIS and LibreOffice a try!\n\n\n\nAlso known as Linus’ law via Eric Raymond’s The Cathedral and the Bazaar.Or chai, thalis, etc."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#tools-to-make-your-life-easier",
+    "href": "lectures/1.3-tools.html#tools-to-make-your-life-easier",
+    "title": "Our Tools",
+    "section": "Tools to Make Your Life Easier",
+    "text": "Tools to Make Your Life Easier\n\nVirtualisation: separate your computer from your coding environment.\nVersion Control: manage your code, your data, and even your reports.\nCode: how we do ‘data science’.\nMarkup: focus on the structure while you write!\nRender: creating documents and web pages from code and markup."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#podman",
+    "href": "lectures/1.3-tools.html#podman",
+    "title": "Our Tools",
+    "section": "Podman",
+    "text": "Podman\n\n\nPodman is an open source container and image management engine. Podman makes it easy to find, run, build, and share containers."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#why-use-it",
+    "href": "lectures/1.3-tools.html#why-use-it",
+    "title": "Our Tools",
+    "section": "Why Use It?",
+    "text": "Why Use It?\nPodman is a ‘virtualisation platform’ that allows you to run one more more virtual computers on your personal computer. We use it for four reasons:\n\nEasier installation and everyone has the same versions of the code.\nEach container is isolated and read-only.\nEasy to tidy up when you’re done.\nUsed in the ‘real world’ by many companies (JP Morgan Chase, GSK, PayPal, Twitter, Spotify, Uber…)."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#we-recommend",
+    "href": "lectures/1.3-tools.html#we-recommend",
+    "title": "Our Tools",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nUsing Podman because configuring a development machine is hard and this makes it (fairly) simple. If a Podman image works for us then we know1 it works for you.\nUse either:\n\njreades/sparc:2025-amd (Windows and Older Macs)\njreades/sparc:2025-arm (Newer Macs)\n\nUsually, but not always, true."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#resources",
+    "href": "lectures/1.3-tools.html#resources",
+    "title": "Our Tools",
+    "section": "Resources",
+    "text": "Resources\n\nWhat is Python?\nWhy Python?\nProgramming Foundations: Fundamentals\nPython is eating the world\nWhat can you do with Python?\nGit for Decolonisation1\n\nPart art, part activism, part tech!"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#references",
+    "href": "lectures/1.3-tools.html#references",
+    "title": "Our Tools",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\nKnuth, Donald Ervin. 1984. “Literate Programming.” The Computer Journal 27 (2). Oxford University Press:97–111.\n\n\nSusnjara, S., and I. Smalley. 2025. “What Is Virtualization?” 2025. https://www.ibm.com/think/topics/virtualization."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#fair-play",
+    "href": "lectures/1.2-principles.html#fair-play",
+    "title": "Opening Up",
+    "section": "FAIR Play",
+    "text": "FAIR Play\nWilkinson et al. (2016) set out the following principles:\n\nFindable: data and metadata should be easy to find for computers and humans.\nAccessible: it should be clear how the data found can be accessed.\nInteroperable: data should work for range of analyses, storage, and processing needs.1\nReusable: metadata and data should be well-described so they can be used/combined easily.\n\n\nThere are strict and loose versions of these principles. Many governments truggle with the ‘R’ part because of licensing restrictions.\n\nShape files fail this test."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#how-is-open-data-helpful",
+    "href": "lectures/1.2-principles.html#how-is-open-data-helpful",
+    "title": "Opening Up",
+    "section": "How is Open Data Helpful?",
+    "text": "How is Open Data Helpful?\nAccording to Open Data Institute (n.d.) (amongst others):\n\n\nPromotes transparency and accountability in government and services.\nPromotes efficiency and service delivery.\nPromotes innovation and economic growth.\nEmpowers citizens.\nReduces costs.\n\n\n\nOpen data is valuable!\n\n\nThis can be scary for many, especially those in government; however, making data open can help to debunk conspiracies and demonstrate that government is not corrupt! It can also help government to spot where there are problems.\nWe get increased efficiency and better service delivery if governments can look across departments or states to compare performance or enable others to turn up opportunities for improvement.\nCompanies can innovate off of government data: Land Registry and EPC data in the UK, for instance, give companies certainty that they won’t have to pay for this data and can build commercial products using it. The biggest gain here is in making government mapping data available.\nThere’s a strong assumption here that citizens are data literate, which I think doesn’t always hold; however, crime mapping, bus route mapping, and so on can help citizens to advocate for resources and support.\nGovernments can also save by not having to constantly respond to FOI requests or rebut other access requests from citizens and companies."
+  },
+  {
+    "objectID": "lectures/1.2-principles.html#how-is-open-code-helpful",
+    "href": "lectures/1.2-principles.html#how-is-open-code-helpful",
+    "title": "Opening Up",
+    "section": "How is Open Code Helpful?",
+    "text": "How is Open Code Helpful?\n\n\nAllow others to build on your work (reuse, collaboration).\nAllow others to learn from your work (speed, bug detection).\nA way to attract contributors to your project (visibility, collaboration).\nA mechanism for perpetuating a potlatch ecosystem (community building, recognition, visibility).1\n\n\n\nThere are many ways to share code, including contributing questions and answers to public fora like Stack Overflow,\n\nWhere ‘knowledge is power’, not ‘power is right’."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#two-basic-flavours",
+    "href": "lectures/1.3-tools.html#two-basic-flavours",
+    "title": "Our Tools",
+    "section": "Two Basic ‘Flavours’",
+    "text": "Two Basic ‘Flavours’\nBoth do the same thing: separate the platform from the hardware, but they do this in defferent ways for different reasons.\n\nA ‘full’ Virtual Machine (VM) includes the Operating System and behaves like a separate computer even though it may share hardware with other VMs.\nA ‘container’ is a ‘lightweight’ VM running only the application and its dependencies; everything else is managed by the host Operating SYstem so the resulting ‘image’ is small and easy to distribute.\n\nShort version: if you have to install an Operating System you are using a full VM; otherwise you are probably using a containerisation tool/\nMany things, including storage, networks, CPUs, GPUs, etc. can be virtualised."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#why-containerise",
+    "href": "lectures/1.3-tools.html#why-containerise",
+    "title": "Our Tools",
+    "section": "Why Containerise?",
+    "text": "Why Containerise?\nWe gain quite a few benefits:\n\nEasier installation and ‘everyone’ has the same versions of the code.\nEach container is isolated and read-only.\nEasy to tidy up when you’re done.\nEasy to scale up and scale down, or to link them together via ‘microservices’.\nUsed in the ‘real world’ by many companies (JP Morgan Chase, GSK, PayPal, Twitter, Spotify, Uber…)."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#change-of-view",
+    "href": "lectures/1.3-tools.html#change-of-view",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nRather than having one environment for every project, we have one environment for each project.\n\n\n‘Computing contexts’ are disposable, while data and code are persistent when I need them.\nI don’t care where my code and data are, so long as they’re accessible when I need them.\nI don’t care if containers are created or destroyed, so long as they’re available when I need them.\nI rebuild or update the computing context when I am ready to do so."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#why-version-control",
+    "href": "lectures/1.3-tools.html#why-version-control",
+    "title": "Our Tools",
+    "section": "Why Version Control?",
+    "text": "Why Version Control?"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#change-of-view-1",
+    "href": "lectures/1.3-tools.html#change-of-view-1",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nIn open source projects there may be no one view of what the ‘right’ solution/version of a project is, so differences need to be negotiated.\n\n\nEvery computer with version control might have the ‘right’ version of the code for a given user, so there is no ‘master’ view of a project.\nWe need to be able to choose whether to merge other people’s changes with our changes, rather than having everything forced on us.\nWe still want to be able to share our version of the code / outputs of the code with other people, and a web site is a good way to do that."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#gitgithub",
+    "href": "lectures/1.3-tools.html#gitgithub",
+    "title": "Our Tools",
+    "section": "Git/GitHub",
+    "text": "Git/GitHub"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#we-recommend-1",
+    "href": "lectures/1.3-tools.html#we-recommend-1",
+    "title": "Our Tools",
+    "section": "We recommend…",
+    "text": "We recommend…"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#why-code",
+    "href": "lectures/1.3-tools.html#why-code",
+    "title": "Our Tools",
+    "section": "Why Code?",
+    "text": "Why Code?\nCoding has a number of advantages over ‘point-and-click’:\n\n\nThe computer requires our instructions to be unambiguous and logical.1\nComputers are infinitely patient so a process can be re-run as many times as necessary to get it ‘right’.\nWe can add complexity iteratively, but successful programming requires us to break a problem down into small steps.\n\n\nThis does not guarantee that they’ll be correct."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#change-of-view-2",
+    "href": "lectures/1.3-tools.html#change-of-view-2",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nIf we can’t explain it simply enough that a computer can do it, perhaps we don’t actually understand it? Conversely, perhaps the real value of humans over AI lies in what cannot be explained to the computer.\n\n\nIt’s easy to forget how you obtained a particular result when you are clicking around inside software like ArcGIS; this is much harder when using code.\nIn analysing the problem so that we can submit it to the computer we often develop a better understanding of the problem ourselves!\nWhy spend your time doing the boring stuff???"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#python",
+    "href": "lectures/1.3-tools.html#python",
+    "title": "Our Tools",
+    "section": "Python",
+    "text": "Python"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#we-recommend-2",
+    "href": "lectures/1.3-tools.html#we-recommend-2",
+    "title": "Our Tools",
+    "section": "We recommend…",
+    "text": "We recommend…"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#why-use-markup",
+    "href": "lectures/1.3-tools.html#why-use-markup",
+    "title": "Our Tools",
+    "section": "Why use Markup?",
+    "text": "Why use Markup?\n\n\nQuickly sketch out the structure of a document.\nWorks well with version control (line-by-line changes + GitHub.io web site).\nWorks well with JupyterLab and other coding environments."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#change-of-view-3",
+    "href": "lectures/1.3-tools.html#change-of-view-3",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nThe way you interact with your code can be the same whether you are running it on your computer or on a cluster half-way round the world!\n\n\nTogether with VMs and Version Control, this allows us to largely stop worrying about where code is running.\nThe web browser has become the ‘app’ of choice for many developers, though it’s not without challenges."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#markdown",
+    "href": "lectures/1.3-tools.html#markdown",
+    "title": "Our Tools",
+    "section": "Markdown",
+    "text": "Markdown"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#we-recommend-3",
+    "href": "lectures/1.3-tools.html#we-recommend-3",
+    "title": "Our Tools",
+    "section": "We recommend…",
+    "text": "We recommend…"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#why-render",
+    "href": "lectures/1.3-tools.html#why-render",
+    "title": "Our Tools",
+    "section": "Why Render?",
+    "text": "Why Render?\n\n\nOutputs can be: web pages, Jupyter notebooks, Word documents, PDFs, presentations…\nIt can be really useful to have a single input and multiple outputs because requirements and needs always change.\nIt teaches you to focus on the process, not the minutiae."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#change-of-view-4",
+    "href": "lectures/1.3-tools.html#change-of-view-4",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nI spend a lot less time ‘faffing’ when writing than I used to. Spend more time on what you want to say and worry about the how later."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#quarto",
+    "href": "lectures/1.3-tools.html#quarto",
+    "title": "Our Tools",
+    "section": "Quarto",
+    "text": "Quarto"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#we-recommend-4",
+    "href": "lectures/1.3-tools.html#we-recommend-4",
+    "title": "Our Tools",
+    "section": "We recommend…",
+    "text": "We recommend…"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#why-use-containers",
+    "href": "lectures/1.3-tools.html#why-use-containers",
+    "title": "Our Tools",
+    "section": "Why Use Containers?",
+    "text": "Why Use Containers?\nWe gain quite a few benefits:\n\nEasier installation and ‘everyone’ has the same versions of the code.\nEach container is isolated and read-only.\nEasy to tidy up when you’re done.\nEasy to scale up and scale down, or to link them together via ‘microservices’.\nUsed in the ‘real world’ by many companies (JP Morgan Chase, GSK, PayPal, Twitter, Spotify, Uber…)."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#why-use-version-control",
+    "href": "lectures/1.3-tools.html#why-use-version-control",
+    "title": "Our Tools",
+    "section": "Why use Version Control?",
+    "text": "Why use Version Control?\n\n… If a mistake is made, developers can turn back the clock and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.\nSource: Altassian\n\nIn addition:\n\n\nWe can share code with others (directly) as source code or (indirectly) as the product of compiling that source code.\nWe can rewind, fast forward, and combine changes by different people working on different features.\nWe gain detailed, incremental backups that help us tro track down the changes that introduced a bug when something goes wrong.\n\n\n\nDiscuss comparison with Dropbox or OneDrive. How are they similar, how are they different? File level vs. row-level views."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#git",
+    "href": "lectures/1.3-tools.html#git",
+    "title": "Our Tools",
+    "section": "Git",
+    "text": "Git\n\n\n\n\nVersion control allows us to:\n\nTrack changes to files with a high level of detail using commit.\npush these changes out to others.\npull down changes made by others.\nmerge and resolve conflicting changes.\nCreate a tag when a ‘milestones’ is reached.\nCreate a branch to add a feature.\nRetrieve specific versions or branches with a checkout."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#github",
+    "href": "lectures/1.3-tools.html#github",
+    "title": "Our Tools",
+    "section": "GitHub",
+    "text": "GitHub\n\n\n\n\nGit is distributed, meaning that every computer is a potential server and a potential authority. Result: commits on a plane!\nBut how do people find and access your code if your ‘server’ is a home machine that goes to sleep at night? Result: GitHub.\nGitHub is ‘just’ a very large Git server with a lot of nice web-friendly features tacked on: create a web site, issue/bug tracking, promote your project…"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#gitgithub-is-for-anything",
+    "href": "lectures/1.3-tools.html#gitgithub-is-for-anything",
+    "title": "Our Tools",
+    "section": "Git+GitHub is for… anything!",
+    "text": "Git+GitHub is for… anything!\n\n\nThis whole course is on GitHub."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#oh-my-git",
+    "href": "lectures/1.3-tools.html#oh-my-git",
+    "title": "Our Tools",
+    "section": "Oh My Git!",
+    "text": "Oh My Git!\n\n\nSource: OhMyGit"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#jupyterlab",
+    "href": "lectures/1.3-tools.html#jupyterlab",
+    "title": "Our Tools",
+    "section": "JupyterLab",
+    "text": "JupyterLab"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#why-use-jupyterlab",
+    "href": "lectures/1.3-tools.html#why-use-jupyterlab",
+    "title": "Our Tools",
+    "section": "Why use JupyterLab?",
+    "text": "Why use JupyterLab?\n\nNothing to install (runs in your web browser).\nRun code from anywhere (runs in your web browser).\nNatural way to interact with containers/VMs.\nLarge ecosystem of plugins/extensions.\nJupyter notebooks are compatible with VSCode."
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#markdown-1",
+    "href": "lectures/1.3-tools.html#markdown-1",
+    "title": "Our Tools",
+    "section": "Markdown",
+    "text": "Markdown"
+  },
+  {
+    "objectID": "lectures/1.3-tools.html#change-of-view-5",
+    "href": "lectures/1.3-tools.html#change-of-view-5",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nEverything we are seeing and doing this week passed through Quarto. It has transformed the way I teach, do research, and write! It embodies ‘literate programming’ (Knuth 1984)."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#the-pipeline",
+    "href": "lectures/1.2-what-do-we-do.html#the-pipeline",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "The ‘Pipeline’",
+    "text": "The ‘Pipeline’\n\nCode\nAnalyse\nUnderstand\nCommunicate\nReport\n\n\nHere are five things that we might imagine any data scientists, spatial or otherwise, does.\nDo we think they’re in the right order?\nI can tell you right now that this sequence of steps is how to get a mark of between 45 and 63 in your dissertation."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#the-pipeline-1",
+    "href": "lectures/1.2-what-do-we-do.html#the-pipeline-1",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "The ‘Pipeline’",
+    "text": "The ‘Pipeline’\n\nUnderstand\nCode\nReport\nAnalyse\nCommunicate\n\n\nHere’s a slightly better order, here’s why:\n\nYou can’t answer a question – from your boss, from an academic, from your friends even – if you don’t understand it. So before you run off and start writing some code, the first thing you need to do is understand the problem you’re trying to solve. That problem should not be technical, it should be practical.\nOnce you understand the problem you can start trying to code a solution.\nThe code will allow you to produce reports. These reports might be to do with data quality, they might be diagnostics from a Random Forest Machine Learning algorithm. At each stage in the development of your results you should be generating reports that help you to better-understand your problem and work out if your code is working.\nOnce the reports have given you confidence in your findings now you can actually write the analysis. Your analysis might lead you to realise that you need to go back and write more code and produce more reports, but that’s normal.\nFinally, you need to work out how to communicate your analysis. If you understand the problem then you’ll find this process rewarding. If you don’t then you’ll find it frustrating and want to brush it off quickly.\n\nSo the fact these are in a list is still rather misleading because at each point you get feedback effects, and it’s also a loop."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#another-way",
+    "href": "lectures/1.2-what-do-we-do.html#another-way",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "Another Way…",
+    "text": "Another Way…\nAnother way to think about all this is to write backwards:"
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#how-to-understand",
+    "href": "lectures/1.2-what-do-we-do.html#how-to-understand",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "How to Understand?",
+    "text": "How to Understand?\n\nHow should we do this?"
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#how-to-understand-1",
+    "href": "lectures/1.2-what-do-we-do.html#how-to-understand-1",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "How to Understand?",
+    "text": "How to Understand?\n\nHow should we do this?\n\n\nWhy are we doing this?"
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#how-to-report",
+    "href": "lectures/1.2-what-do-we-do.html#how-to-report",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "How to Report?",
+    "text": "How to Report?\n\nThis is the number."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#how-to-report-1",
+    "href": "lectures/1.2-what-do-we-do.html#how-to-report-1",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "How to Report?",
+    "text": "How to Report?\n\nThis is the number.\n\n\nThese are the takeaways."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#how-to-analyse",
+    "href": "lectures/1.2-what-do-we-do.html#how-to-analyse",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "How to Analyse?",
+    "text": "How to Analyse?\n\nThese are the methods we can use."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#how-to-analyse-1",
+    "href": "lectures/1.2-what-do-we-do.html#how-to-analyse-1",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "How to Analyse?",
+    "text": "How to Analyse?\n\nThese are the methods I can use.\n\n\nThis is the method that matches the need."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#how-to-communicate",
+    "href": "lectures/1.2-what-do-we-do.html#how-to-communicate",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "How to Communicate?",
+    "text": "How to Communicate?\n\nWhat do I need to say?"
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#how-to-communicate-1",
+    "href": "lectures/1.2-what-do-we-do.html#how-to-communicate-1",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "How to Communicate?",
+    "text": "How to Communicate?\n\nWhat do I need to say?\n\n\nWho needs to know?"
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#writing-thinking",
+    "href": "lectures/1.2-what-do-we-do.html#writing-thinking",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "Writing == Thinking",
+    "text": "Writing == Thinking\n\nIf writing down your ideas always makes them more precise and more complete, then no one who hasn’t written about a topic has fully formed ideas about it. And someone who never writes has no fully formed ideas about anything nontrivial. ~ Graham (2022)"
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#clarity-understanding",
+    "href": "lectures/1.2-what-do-we-do.html#clarity-understanding",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "Clarity == Understanding",
+    "text": "Clarity == Understanding\n\nWriting is thinking. To write well is to think clearly. That’s why it’s so hard. ~ McCullough (2002)"
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#i-dont-care",
+    "href": "lectures/1.2-what-do-we-do.html#i-dont-care",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "I Don’t Care",
+    "text": "I Don’t Care\n\nFocus on the ‘so what’."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#tell-me-a-story",
+    "href": "lectures/1.2-what-do-we-do.html#tell-me-a-story",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "Tell Me a Story",
+    "text": "Tell Me a Story\n\nAll data science is, ultimately, a story.\n\n\nA story of struggle. Frustration. Discovery. Learning. But you need to tell that story the right way.\nMany of you will have learned some ‘system’ for writing in school. The inverted pyramid or something like that. In university, in my literary theory class I picked up the pyramid approach: taking a single sentence and unpacking that into the themes of the entire book.\nThere are mystery novels. Romance novels. Economist articles. Teen Vogue articles. They are all telling stories. They all do this in different ways."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#resources",
+    "href": "lectures/1.2-what-do-we-do.html#resources",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "Resources",
+    "text": "Resources\n\nThe Most Undervalued Skill for Data Scientists\nOne Mindset Shift That Will Make You a Better Data Scientist\nSword, H. (2017). Air & light & time & space: How successful academics write. Harvard University Press.1\nGreene, A. E. (2013). Writing science in plain English. University of Chicago Press.2\n\n\n\n\n\nGraham, P. 2022. “Putting Ideas into Words.” 2022. https://paulgraham.com/words.html.\n\n\nXie, Tessa. 2024. “The Most Undervalued Skill for Data Scientists.” 2024. https://towardsdatascience.com/the-most-undervalued-skill-for-data-scientists-e0e0d7709321/.\n\n\nAvailable for free via JStor.Not seemingly available for free, but I found a nice little summary (with typos) here."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#tools-to-make-your-life-easier",
+    "href": "lectures/1.4-tools.html#tools-to-make-your-life-easier",
+    "title": "Our Tools",
+    "section": "Tools to Make Your Life Easier",
+    "text": "Tools to Make Your Life Easier\n\nVirtualisation: separate your computer from your coding environment.\nVersion Control: manage your code, your data, and even your reports.\nCode: how we do ‘data science’.\nMarkup: focus on the structure while you write!\nRender: creating documents and web pages from code and markup."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#two-basic-flavours",
+    "href": "lectures/1.4-tools.html#two-basic-flavours",
+    "title": "Our Tools",
+    "section": "Two Basic ‘Flavours’",
+    "text": "Two Basic ‘Flavours’\nBoth do the same thing: separate the platform from the hardware, but they do this in defferent ways for different reasons.\n\nA ‘full’ Virtual Machine (VM) includes the Operating System and behaves like a separate computer even though it may share hardware with other VMs.\nA ‘container’ is a ‘lightweight’ VM running only the application and its dependencies; everything else is managed by the host Operating System so the resulting ‘image’ is small and easy to distribute.\n\nShort version: if you have to install an Operating System you are using a full VM; otherwise you are probably using a containerisation tool/\nMany things, including storage, networks, CPUs, GPUs, etc. can be virtualised."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#why-use-containers",
+    "href": "lectures/1.4-tools.html#why-use-containers",
+    "title": "Our Tools",
+    "section": "Why Use Containers?",
+    "text": "Why Use Containers?\nWe gain quite a few benefits:\n\nEasier installation and ‘everyone’ has the same versions of the code.\nEach container is isolated and read-only.\nEasy to tidy up when you’re done.\nEasy to scale up and scale down, or to link them together via ‘microservices’.\nUsed in the ‘real world’ by many companies (JP Morgan Chase, GSK, PayPal, Twitter, Spotify, Uber…)."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#change-of-view",
+    "href": "lectures/1.4-tools.html#change-of-view",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nIf we can’t explain it simply enough that a computer can do it, perhaps we don’t actually understand it?\n\n\n\nTogether with the other tools in this talk, you can largely stop worrying about where code is running.\nIt’s easy to forget how you obtained a particular result when you are clicking around inside software like ArcGIS; this is much harder when using code.\nIn analysing the problem so that we can submit it to the computer we often develop a better understanding of the problem ourselves!\nWhy spend your time doing the boring stuff???\n\n\n\nConversely, perhaps the real value of humans over AI lies in what cannot be explained to the computer."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#podman",
+    "href": "lectures/1.4-tools.html#podman",
+    "title": "Our Tools",
+    "section": "Podman",
+    "text": "Podman\n\n\nPodman is an open source container and image management engine. Podman makes it easy to find, run, build, and share containers."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#we-recommend",
+    "href": "lectures/1.4-tools.html#we-recommend",
+    "title": "Our Tools",
+    "section": "We Recommend…",
+    "text": "We Recommend…\nUsing Podman because configuring a development machine is hard and this makes it (fairly) simple. If a Podman image works for us then we know1 it works for you.\nUse either:\n\njreades/sparc:2025-amd (Windows and Older Macs)\njreades/sparc:2025-arm (Newer Macs)\n\nUsually, but not always, true."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#why-use-version-control",
+    "href": "lectures/1.4-tools.html#why-use-version-control",
+    "title": "Our Tools",
+    "section": "Why use Version Control?",
+    "text": "Why use Version Control?\n\n… If a mistake is made, developers can turn back the clock and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.\nSource: Altassian\n\nIn addition:\n\n\nWe can share code with others (directly) as source code or (indirectly) as the product of compiling that source code.\nWe can rewind, fast forward, and combine changes by different people working on different features.\nWe gain detailed, incremental backups that help us tro track down the changes that introduced a bug when something goes wrong.\n\n\n\nDiscuss comparison with Dropbox or OneDrive. How are they similar, how are they different? File level vs. row-level views."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#change-of-view-1",
+    "href": "lectures/1.4-tools.html#change-of-view-1",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nRather than having one environment for every project, we have one environment for each project.\n\n\n‘Computing contexts’ are disposable, while data and code are persistent when I need them.\nI don’t care where my code and data are, so long as they’re accessible when I need them.\nI don’t care if containers are created or destroyed, so long as they’re available when I need them.\nI rebuild or update the computing context when I am ready to do so."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#git",
+    "href": "lectures/1.4-tools.html#git",
+    "title": "Our Tools",
+    "section": "Git",
+    "text": "Git\n\n\n\n\nVersion control allows us to:\n\nTrack changes to files with a high level of detail using commit.\npush these changes out to others.\npull down changes made by others.\nmerge and resolve conflicting changes.\nCreate a tag when a ‘milestones’ is reached.\nCreate a branch to add a feature.\nRetrieve specific versions or branches with a checkout."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#github",
+    "href": "lectures/1.4-tools.html#github",
+    "title": "Our Tools",
+    "section": "GitHub",
+    "text": "GitHub\n\n\n\n\nGit is distributed, meaning that every computer is a potential server and a potential authority. Result: commits on a plane!\nBut how do people find and access your code if your ‘server’ is a home machine that goes to sleep at night? Result: GitHub.\nGitHub is ‘just’ a very large Git server with a lot of nice web-friendly features tacked on: create a web site, issue/bug tracking, promote your project…"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#gitgithub-is-for-anything",
+    "href": "lectures/1.4-tools.html#gitgithub-is-for-anything",
+    "title": "Our Tools",
+    "section": "Git+GitHub is for… anything!",
+    "text": "Git+GitHub is for… anything!\n\n\nThis whole course is on GitHub."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#oh-my-git",
+    "href": "lectures/1.4-tools.html#oh-my-git",
+    "title": "Our Tools",
+    "section": "Oh My Git!",
+    "text": "Oh My Git!\n\n\nSource: OhMyGit"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#why-code",
+    "href": "lectures/1.4-tools.html#why-code",
+    "title": "Our Tools",
+    "section": "Why Code?",
+    "text": "Why Code?\nCoding has a number of advantages over ‘point-and-click’:\n\n\nThe computer requires our instructions to be unambiguous and logical.1\nComputers are infinitely patient so a process can be re-run as many times as necessary to get it ‘right’.\nWe can add complexity iteratively, but successful programming requires us to break a problem down into small steps.\n\n\nThis does not guarantee that they’ll be correct."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#change-of-view-2",
+    "href": "lectures/1.4-tools.html#change-of-view-2",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nIn open source projects there may be no one view of what the ‘right’ solution/version of a project is, so differences need to be negotiated.\n\n\nEvery computer with version control might have the ‘right’ version of the code for a given user, so there is no ‘master’ view of a project.\nWe need to be able to choose whether to merge other people’s changes with our changes, rather than having everything forced on us.\nWe still want to be able to share our version of the code / outputs of the code with other people, and a web site is a good way to do that."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#why-use-jupyterlab",
+    "href": "lectures/1.4-tools.html#why-use-jupyterlab",
+    "title": "Our Tools",
+    "section": "Why Use JupyterLab?",
+    "text": "Why Use JupyterLab?\nCoding in JupyterLab has a number of advantages over ‘point-and-click’:\n\n\nCoding requires our instructions to be unambiguous and logical.1\nComputers are infinitely patient so we can re-run as many times as necessary to get it ‘right’.\nThere is nothing to install (runs in your web browser).\nYou can run code from anywhere (runs in your web browser).\n\n\nThis does not guarantee that they’ll be correct."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#change-of-view-3",
+    "href": "lectures/1.4-tools.html#change-of-view-3",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nI spend a lot less time ‘faffing’ when writing than I used to. Spend more time on what you want to say and worry about the how later."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#why-use-markup",
+    "href": "lectures/1.4-tools.html#why-use-markup",
+    "title": "Our Tools",
+    "section": "Why use Markup?",
+    "text": "Why use Markup?\n\n\nQuickly sketch out the structure of a document.\nWorks well with version control (line-by-line changes + GitHub.io web site).\nWorks well with JupyterLab and other coding environments."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#change-of-view-4",
+    "href": "lectures/1.4-tools.html#change-of-view-4",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\n\nEverything this week was created using these basic tools and techniques. It has transformed the way I teach, do research, and write! It embodies the potential of ‘literate programming’ (Knuth 1984)."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#why-render",
+    "href": "lectures/1.4-tools.html#why-render",
+    "title": "Our Tools",
+    "section": "Why Render?",
+    "text": "Why Render?\n\n\nOutputs can be: web pages, Jupyter notebooks, Word documents, PDFs, presentations…\nIt can be really useful to have a single input and multiple outputs because requirements and needs always change.\nIt teaches you to focus on the process, not the minutiae."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#change-of-view-5",
+    "href": "lectures/1.4-tools.html#change-of-view-5",
+    "title": "Our Tools",
+    "section": "Change of View",
+    "text": "Change of View\n\nEverything this week was created using these basic tools and techniques. It has transformed the way I teach, do research, and write! It embodies the potential of ‘literate programming’ (Knuth 1984)."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#references",
+    "href": "lectures/1.4-tools.html#references",
+    "title": "Our Tools",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\nKnuth, D. E. 1984. “Literate Programming.” The Computer Journal 27 (2). Oxford University Press:97–111.\n\n\n———. 1996. Selected Papers on Computer Science. Cambridge University Press.\n\n\nSusnjara, S., and I. Smalley. 2025. “What Is Virtualization?” 2025. https://www.ibm.com/think/topics/virtualization."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#references",
+    "href": "lectures/1.2-what-do-we-do.html#references",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\nGraham, P. 2022. “Putting Ideas into Words.” 2022. https://paulgraham.com/words.html.\n\n\nMcCullough, D. 2002. “Interview with NEH chairman Bruce Cole.” Humanities Magazine.\n\n\nXie, Tessa. 2024. “The Most Undervalued Skill for Data Scientists.” 2024. https://towardsdatascience.com/the-most-undervalued-skill-for-data-scientists-e0e0d7709321/."
+  },
+  {
+    "objectID": "lectures/1.2-what-do-we-do.html#writing-coding-thinking",
+    "href": "lectures/1.2-what-do-we-do.html#writing-coding-thinking",
+    "title": "What Does a (Spatial) Data Scientist Do?",
+    "section": "Writing & Coding == Thinking",
+    "text": "Writing & Coding == Thinking\n\nIf writing down your ideas always makes them more precise and more complete, then no one who hasn’t written about a topic has fully formed ideas about it. And someone who never writes has no fully formed ideas about anything nontrivial. ~ Graham (2022)"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#markdown-examples",
+    "href": "lectures/1.4-tools.html#markdown-examples",
+    "title": "Our Tools",
+    "section": "Markdown Examples",
+    "text": "Markdown Examples\nSee CommonMark and the Markdown Guide for more:\n\n\n\n\n\n\n\nFormat\nOutput\n\n\nPlain text...\nPlain text\n\n\n## A Large Heading\nA Large Heading\n\n\n### A Medium Heading\nA Medium Heading\n\n\n- A list\n- More list\n\nA list\nMore list\n\n\n\n1. An ordered list\n2. More ordered list\n\nAn ordered list\nMore ordered list\n\n\n\n[A link](http://casa.ucl.ac.uk)\nA link\n\n\n\n\nThis guide is good for HTML entities, though Google will also give you them pretty easily if you type HTML entity code for copyright…"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#section",
+    "href": "lectures/1.4-tools.html#section",
+    "title": "Our Tools",
+    "section": "",
+    "text": "But why would we want this?"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#additional-resources",
+    "href": "lectures/1.4-tools.html#additional-resources",
+    "title": "Our Tools",
+    "section": "Additional Resources",
+    "text": "Additional Resources\nMarkdown:\n\nGetting Started\nAn online interactive tutorial\nCheatsheet\n\nAnd once you’re ready to get ‘serious’, check out this tutorial on Sustainable Authorship in Plain Text using Pandoc and Markdown from The Programming Historian! That’s what actually underpins Quarto, but you can do so much more…"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#literate-programming",
+    "href": "lectures/1.4-tools.html#literate-programming",
+    "title": "Our Tools",
+    "section": "Literate Programming",
+    "text": "Literate Programming\nIdeally, we want to ‘do’ data science in ways that are ‘literate’.\n\nThe best programs are written so that computing machines can perform them quickly and so that human beings can understand them clearly. A programmer is ideally an essayist who works with traditional aesthetic and literary forms as well as mathematical concepts, to communicate the way that an algorithm works and to convince a reader that the results will be correct. ~ Knuth (1996)"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#key-tenets",
+    "href": "lectures/1.4-tools.html#key-tenets",
+    "title": "Our Tools",
+    "section": "Key Tenets",
+    "text": "Key Tenets\nWhat we want:\n\nWeaving: the code and its documentation are together.\nTangling: the code can be run directly.\n\nIn ideal world, these are the same file…"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#but-why-do-we-want-this",
+    "href": "lectures/1.4-tools.html#but-why-do-we-want-this",
+    "title": "Our Tools",
+    "section": "But why do we want this?",
+    "text": "But why do we want this?"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#and-how-do-we-do-this",
+    "href": "lectures/1.4-tools.html#and-how-do-we-do-this",
+    "title": "Our Tools",
+    "section": "And how do we do this?",
+    "text": "And how do we do this?\nHint: it’s more than just one thing…\n\n\nJupyterLab: how we do ‘data science’.\nVirtualisation: separate your computer from your coding environment.\nVersion Control: manage your code, your data, and even your reports.\nMarkup: focus on the structure while you write!\nRender: creating documents and web pages from code and markup."
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#but-why-would-we-want-this",
+    "href": "lectures/1.4-tools.html#but-why-would-we-want-this",
+    "title": "Our Tools",
+    "section": "But why would we want this?",
+    "text": "But why would we want this?"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#section-1",
+    "href": "lectures/1.4-tools.html#section-1",
+    "title": "Our Tools",
+    "section": "",
+    "text": "Format\n\n\nOutput\n\n\n\n\n![Alt Text](casa_logo.jpg)\n\n\n\n\n\n\n\n`A code snippet`\n\n\nA code snippet\n\n\n\n\n```{python} A block of Python code ```\n\n\nA block of Python code\n\n\n\n\n$$\nf(a) = \\frac{1}{2\\pi i}     \\oint_{\\gamma} \\frac{f(z)}{z-a} dz\n$$\n\n\n\\[\nf(a) = \\frac{1}{2\\pi i} \\oint_{\\gamma} \\frac{f(z)}{z-a} dz\n\\]"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#jupyterlab",
+    "href": "lectures/1.4-tools.html#jupyterlab",
+    "title": "Our Tools",
+    "section": "JupyterLab",
+    "text": "JupyterLab\n\nJupyterLab is the latest web-based interactive development environment for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning.\nSource: Project Jupyter"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#using-podman",
+    "href": "lectures/1.4-tools.html#using-podman",
+    "title": "Our Tools",
+    "section": "Using Podman",
+    "text": "Using Podman\nPodman makes configuring a development environment (fairly) simple. If a Podman image works for us then we know1 it works for you.\nUse either:\n\njreades/sparc:2025-amd (Windows and Older Macs)\njreades/sparc:2025-arm (Newer Macs)\n\nUsually, but not always, true."
+  },
+  {
+    "objectID": "lectures/1.3-principles.html#how-is-open-source-helpful",
+    "href": "lectures/1.3-principles.html#how-is-open-source-helpful",
+    "title": "Our Principles",
+    "section": "How is Open Source Helpful?",
+    "text": "How is Open Source Helpful?\n\n\nIf you can think of it, someone has probably built it.\nGiven enough eyeballs all bugs are shallow.1\n‘Free as in speech’ (always).\n‘Free as in beer’ (often).2\n\n\n\nAll of the tools used this week are open source and free.\n\n\nBy this I mean that, if you use Microsoft to do everything then you are dependent on their tools, even when they aren’t appropriate. There are many small, open source applications that do really useful but narrow things.\nWhen you have many people involved and they are working in an open environment then issues are often spotted spotted and solved more quickly. While this claim is open to some debate, there’s certainly no evidence that closed source code is any better than open source.\nA more interesting claim has to do with the potential for interested people to get involved in making code better – for instance, for some languages there may be very few translators available, leading private companies to simply ignore localisation; whereas for open source you can contribute the translation yourself! Or if you really think something isn’t working the way it should then you can offer up a solution that will make it better and, if the people running the project don’t agree, you can still do it and launch your own, competing project.\nFinally, many (though by no means all) open source projects are also free as free food, beer, or rides. If you have been taught to use ESRI’s ArcGIS or Microsoft Excel this seems crazy: how can you have free competition to those? Well, why not give QGIS and LibreOffice a try!\n\n\n\nAlso known as Linus’ law via Eric Raymond’s The Cathedral and the Bazaar.Or chai, thalis, etc."
+  },
+  {
+    "objectID": "lectures/1.3-principles.html#fair-play",
+    "href": "lectures/1.3-principles.html#fair-play",
+    "title": "Our Principles",
+    "section": "FAIR Play",
+    "text": "FAIR Play\nWilkinson et al. (2016) set out the following principles:\n\n\nFindable: data and metadata should be easy to find for computers and humans.\nAccessible: it should be clear how the data found can be accessed.\nInteroperable: data should work for range of analyses, storage, and processing needs.1\nReusable: metadata and data should be well-described so they can be used/combined easily.\n\n\n\nThere are strict and loose versions of these principles. Many governments truggle with the ‘R’ part because of licensing restrictions.\n\nShape files fail this test."
+  },
+  {
+    "objectID": "lectures/1.3-principles.html#how-is-open-data-helpful",
+    "href": "lectures/1.3-principles.html#how-is-open-data-helpful",
+    "title": "Our Principles",
+    "section": "How is Open Data Helpful?",
+    "text": "How is Open Data Helpful?\nAccording to Open Data Institute (n.d.) (amongst others):\n\n\nPromotes transparency and accountability in government and services.\nPromotes efficiency and service delivery.\nPromotes innovation and economic growth.\nEmpowers citizens.\nReduces costs.\n\n\n\nOpen data is valuable!\n\n\nThis can be scary for many, especially those in government; however, making data open can help to debunk conspiracies and demonstrate that government is not corrupt! It can also help government to spot where there are problems.\nWe get increased efficiency and better service delivery if governments can look across departments or states to compare performance or enable others to turn up opportunities for improvement.\nCompanies can innovate off of government data: Land Registry and EPC data in the UK, for instance, give companies certainty that they won’t have to pay for this data and can build commercial products using it. The biggest gain here is in making government mapping data available.\nThere’s a strong assumption here that citizens are data literate, which I think doesn’t always hold; however, crime mapping, bus route mapping, and so on can help citizens to advocate for resources and support.\nGovernments can also save by not having to constantly respond to FOI requests or rebut other access requests from citizens and companies."
+  },
+  {
+    "objectID": "lectures/1.3-principles.html#how-is-open-code-helpful",
+    "href": "lectures/1.3-principles.html#how-is-open-code-helpful",
+    "title": "Our Principles",
+    "section": "How is Open Code Helpful?",
+    "text": "How is Open Code Helpful?\n\n\nAllow others to build on your work (reuse, collaboration).\nAllow others to learn from your work (speed, bug detection).\nA way to attract contributors to your project (visibility, collaboration).\nA mechanism for perpetuating a potlatch ecosystem (community building, recognition, visibility).1\n\n\n\nThere are many ways to share code, including contributing questions and answers to public fora like Stack Overflow,\n\nWhere ‘knowledge is power’, not ‘power is right’."
+  },
+  {
+    "objectID": "lectures/1.3-principles.html#references",
+    "href": "lectures/1.3-principles.html#references",
+    "title": "Our Principles",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\nOpen Data Institute. n.d. “SOD0009 - Evidence on Statistics and Open Data.” https://committees.parliament.uk/writtenevidence/45220/pdf/.\n\n\nWilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3 (1):160018. https://doi.org/10.1038/sdata.2016.18."
+  },
+  {
+    "objectID": "bib/Bibliography.html",
+    "href": "bib/Bibliography.html",
+    "title": "Bibliography",
+    "section": "",
+    "text": "Bibliography\n\n\nAlsudais, Abdulkareem. 2021. “Incorrect Data in the Widely Used Inside Airbnb Dataset.” Decision Support Systems 141:113453. https://doi.org/10.1016/j.dss.2020.113453.\n\n\nAmoore, L. 2019. “Doubt and the Algorithm: On the Partial Accounts of Machine Learning.” Theory, Culture, Society 36 (6):147–69. https://doi.org/10.1177/0263276419851846.\n\n\nAnderson, C. 2008. “The End of Theory: The Data Deluge Makes the Scientific Method Obsolete.” Wired. https://www.wired.com/2008/06/pb-theory/.\n\n\nArribas-Bel, Daniel. 2014. “Accidental, Open and Everywhere: Emerging Data Sources for the Understanding of Cities.” Applied Geography 49. Elsevier:45–53. https://doi.org/10.1016/j.apgeog.2013.09.012.\n\n\nArribas-Bel, D., and J. Reades. 2018. “Geography and Computers: Past, Present, and Future.” Geography Compass 12 (e12403). https://doi.org/10.1111/gec3.12403.\n\n\nBadger, E., Q. Bui, and R. Gebeloff. 2019. “Neighborhood Is Mostly Black. The Home Buyers Are Mostly White. New York Times.” New York Times. https://www.nytimes.com/interactive/2019/04/27/upshot/diversity-housing-maps-raleigh-gentrification.html.\n\n\nBarron, K., E. Kung, and D. Proserpio. 2018. “The Sharing Economy and Housing Affordability: Evidence from Airbnb.” https://static1.squarespace.com/static/5bb2d447a9ab951efbf6d10a/t/5bea6881562fa7934045a3f0/1542088837594/The+Sharing+Economy+and+Housing+Affordability.pdf.\n\n\nBemt, V. van den, J. Doornbos, L. Meijering, M. Plegt, and N. Theunissen. 2018. “Teaching Ethics When Working with Geocoded Data: A Novel Experiential Learning Approach.” Journal of Geography in Higher Education 42 (2):293–310. https://doi.org/10.1080/03098265.2018.1436534.\n\n\nBrockes, E. 2023. “Airbnb was wild, disruptive and cheap: we loved it. But it wasn’t a love strong enough to last.” The Guardian. https://www.theguardian.com/commentisfree/2023/mar/08/airbnb-wild-disruptive-cheap-lettings-agency.\n\n\nBunday, B. D. n.d. “A Final Tale or You Can Prove Anything with Figures.” https://www.ucl.ac.uk/~ucahhwi/AFinalTale.pdf.\n\n\nBurton, I. 1963. “The Quantitative Revolution and Theoretical Geography.” The Canadian Geographer/Le Géographe Canadien 7 (4):151–62. https://doi.org/10.1111/j.1541-0064.1963.tb00796.x.\n\n\nCheng, M., and C. Foley. 2018. “The Sharing Economy and Digital Discrimination: The Case of Airbnb.” International Journal of Hospitality Management 70:95–98. https://doi.org/10.1016/j.ijhm.2017.11.002.\n\n\nCheng, M., and X. Jin. 2018. “What Do Airbnb Users Care about? An Analysis of Online Review Comment.” International Journal of Hospitality Management, 76 (A):58–70. https://doi.org/10.1016/j.ijhm.2018.04.004.\n\n\nChiang, T. 2023. “ChatGPT Is a Blurry JPEG of the Web.” The New Yorker. https://www.newyorker.com/tech/annals-of-technology/chatgpt-is-a-blurry-jpeg-of-the-web.\n\n\nCima, R. n.d. “The Most and Least Diverse Cities in America.” Priceonomics. https://priceonomics.com/the-most-and-least-diverse-cities-in-america/.\n\n\nClark, J. 2023. “Bidding wars: inside the super-charged fight for rental properties.” The Guardian. https://www.theguardian.com/money/2023/apr/08/bidding-wars-inside-the-super-charged-fight-for-rental-properties.\n\n\nCocola-Gant, A., and A. Gago. 2019. “Airbnb, Buy-to-Let Investment and Tourism-Driven Displacement: A Case Study in Lisbon.” Environment and Planning A: Economy and Space 0 (0):1–18. https://doi.org/10.1177/0308518X19869012.\n\n\nCox, M., and T. Slee. 2016. “How Airbnb’s Data Hid the Facts in New York City.” Inside Airbnb. http://insideairbnb.com/reports/how-airbnbs-data-hid-the-facts-in-new-york-city.pdf.\n\n\nCrawford, K., and M. Finn. 2015. “The Limits of Crisis Data: Analytical and Ethical Challenges of Using Social and Mobile Data to Understand Disasters.” GeoJournal 80 (4):491–502. https://doi.org/10.1007/s10708-014-9597-z.\n\n\nD’Ignazio, Catherine, and Lauren F. Klein. 2020d. “Data Feminism.” In. MIT Press. https://data-feminism.mitpress.mit.edu/.\n\n\n———. 2020c. “Data Feminism.” In. MIT Press. https://data-feminism.mitpress.mit.edu/.\n\n\n———. 2020e. “Data Feminism.” In. MIT Press. https://data-feminism.mitpress.mit.edu/.\n\n\n———. 2020b. “Data Feminism.” In. MIT Press. https://data-feminism.mitpress.mit.edu/.\n\n\n———. 2020a. Data Feminism. MIT Press. https://data-feminism.mitpress.mit.edu/.\n\n\nDark Matter Labs. 2019. “A Smart Commons: A New Model for INvesting in the Commons.” Medium. https://provocations.darkmatterlabs.org/a-smart-commons-528f4e53cec2.\n\n\nDelmelle, Elizabeth C, and Isabelle Nilsson. 2021. “The Language of Neighborhoods: A Predictive-Analytical Framework Based on Property Advertisement Text and Mortgage Lending Data.” Computers, Environment and Urban Systems 88. Elsevier:101658. https://doi.org/10.1016/j.compenvurbsys.2021.101658.\n\n\nDonoho, D. 2017. “50 Years of Data Science.” Journal of Computational and Graphical Statistics 26 (4):745–66. https://doi.org/10.1007/978-3-642-23430-9_71.\n\n\nElwood, S., and A. Leszczynski. 2018. “Feminist Digital Geographies.” Gender, Place and Culture 25 (5):629–44. https://doi.org/10.1080/0966369X.2018.1465396.\n\n\nElwood, S., and M. Wilson. 2017. “Critical GIS Pedagogies Beyond ‘Week 10: Ethics‘.” International Journal of Geographical Information Science 31 (10):2098–2116. https://doi.org/10.1080/13658816.2017.1334892.\n\n\nErt, E., A. Fleischer, and N. Magen. 2016. “Trust and Reputation in the Sharing Economy: The Role of Personal Photos in Airbnb.” Tourism Management, 55:62–63. https://doi.org/10.1016/j.tourman.2016.01.013.\n\n\nEtherington, Thomas R. 2016. “Teaching introductory GIS programming to geographers using an open source Python approach.” Journal of Geography in Higher Education 40 (1). Taylor & Francis:117–30. https://doi.org/10.1080/03098265.2015.1086981.\n\n\nEugenio-Martin, J. L., J. M. Cazorla-Artiles, and C. Gonzàlez-Martel. 2019. “On the Determinants of Airbnb Location and Its Spatial Distribution.” Tourism Economics 25 (8):1224–24. https://doi.org/10.1177/1354816618825415.\n\n\nFerreri, Mara, and Romola Sanyal. 2018. “Platform Economies and Urban Planning: Airbnb and Regulated Deregulation in London.” Urban Studies 55 (15):3353–68. https://doi.org/10.1177/0042098017751982.\n\n\nFitzpatrick, B., and B. Collins-Sussman. n.d. “The Myth of the ’Genius Programmer’.” Google. https://www.youtube.com/watch?v=0SARbwvhupQ.\n\n\nFranklin, Rachel. 2024. “Quantitative methods III: Strength in numbers?” Progress in Human Geography 48 (2). SAGE Publications Sage UK: London, England:236–44. https://doi.org/10.1177/03091325231210512.\n\n\nGibbs, C., D. Guttentag, U. Gretzel, J. Morton, and A. Goodwill. 2017. “Pricing in the Sharing Economy: A Hedonic Pricing Model Applied to Airbnb Listings.” Journal of Travel & Tourism Marketing 35 (1):46–56. https://doi.org/10.1080/10548408.2017.1308292.\n\n\nGraham, P. 2022. “Putting Ideas into Words.” 2022. https://paulgraham.com/words.html.\n\n\nGurran, N., and P. Phibbs. 2017. “When Tourists Move in: How Should Urban Planners Respond to Airbnb?” Journal of the American Planning Association 83 (1):80–92. https://doi.org/10.1080/01944363.2016.1249011.\n\n\nGutiérrez, J., J. C. Garcı́a-Palomares, G. Romanillos, and M. H. Salas-Olmedo. 2017. “The Eruption of Airbnb in Tourist Cities: Comparing Spatial Patterns of Hotels and Peer-to-Peer Accommodation in Barcelona.” Tourism Management 62:278–91. https://doi.org/10.1016/j.tourman.2017.05.003.\n\n\nGuttentag, Daniel A., and Stephen L. J. Smith. 2017. “Assessing Airbnb as a Disruptive Innovation Relative to Hotels: Substitution and Comparative Performance Expectations.” International Journal of Hospitality Management 64:1–10. https://doi.org/10.1016/j.ijhm.2017.02.003.\n\n\nHarris, J. 2018. “Profiteers Make a Killing on Airbnb - and Erode Communities.” The Guardian. https://www.theguardian.com/commentisfree/2018/feb/12/profiteers-killing-airbnb-erode-communities.\n\n\nHarris, R. n.d. “The Certain Uncertainty of University Rankings.” RPubs. https://rpubs.com/profrichharris/uni-rankings.\n\n\nHeaven, W. D. 2022. “Why Meta’s Latest Large Language Model Survived Only Three Days Online.” MIT Technology Review. https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science/.\n\n\nHorn, K., and M. Merante. 2017. “Is Home Sharing Driving up Rents? Evidence from Airbnb in Boston.” Journal of Housing Economics 38:14–24. https://doi.org/10.1016/j.jhe.2017.08.002.\n\n\nIqbal, N., and A. Chakrabortty. 2023. “Why are London’s inner-city schools disappearing?” Edited by A. Bransbury. The Guardian. 2023. https://www.theguardian.com/news/audio/2023/apr/26/why-are-london-schools-disappearing-podcast.\n\n\nJolly, J. 2023. “Owners of 100,000 properties held by foreign shell companies unknown despite new UK laws.” The Guardian. https://www.theguardian.com/business/2023/sep/03/owners-of-100000-properties-held-by-foreign-shell-companies-unknown-despite-new-uk-laws.\n\n\nKitchin, R., T. P. Lauriault, and G. McArdie. 2016. “Smart Cities and the Politics of Urban Data.” In Smart Urbanism, edited by McFarlane Marvin Luque-Ayala.\n\n\nKnuth, D. E. 1984. “Literate Programming.” The Computer Journal 27 (2). Oxford University Press:97–111.\n\n\n———. 1996. Selected Papers on Computer Science. Cambridge University Press.\n\n\nLadd, John R. 2020. “Understanding and Using Common Similarity Measures for Text Analysis.” The Programming Historian, no. 9. https://doi.org/10.46430/phen0089.\n\n\nLansley, Guy. 2016. “Cars and Socio-Economics: Understanding Neighbourhood Variations in Car Characteristics from Administrative Data.” Regional Studies, Regional Science 3 (1). Taylor & Francis:264–85. https://doi.org/10.1080/21681376.2016.1177466.\n\n\nLavin, Matthew J. 2019. “Analyzing Documents with TF-IDF.” The Programming Historian, no. 8. https://doi.org/10.46430/phen0082.\n\n\nLee, D. 2016. “How Airbnb Short-Term Rentals Exacerbate Los Angeles’s Affordable Housing Crisis: Analysis and Policy Recommendations.” Harvard Law & Policy Review 10 (1):229–54. https://doi.org/https://heinonline.org/HOL/Page?handle=hein.journals/harlpolrv10&div=13&g_sent=1.\n\n\nLu, Yonggang, and Kevin SS Henning. 2013. “Are statisticians cold-blooded bosses? a new perspective on the ’old’ concept of statistical population.” Teaching Statistics 35 (1). Wiley Online Library:66–71. https://doi.org/10.1111/j.1467-9639.2012.00524.x.\n\n\nLutz, C., and G. Newlands. 2018. “Consumer Segmentation Within the Sharing Economy: The Case of Airbnb.” Journal of Business Research 88:187–96. https://doi.org/10.1016/j.jbusres.2018.03.019.\n\n\nMa, X., J. T. Hancock, K. L. Mingjie, and M. Naaman. 2017. “Self-Disclosure and Perceived Trustworthiness of Airbnb Host Profiles.” CSCW’17: Proceedings of the 2017 ACM Conference on Computer Supported Cooperative Work and Social Computation, 2397–2409. https://doi.org/10.1145/2998181.2998269.\n\n\nMassey, Doreen. 1996. “Politicising Space and Place.” Scottish Geographical Magazine 112 (2). Routledge:117–23. https://doi.org/10.1080/14702549608554458.\n\n\nMattern, Shannon. 2015. “Mission control: A history of the urban dashboard.” Places Journal. https://doi.org/10.22269/150309.\n\n\n———. 2017. “A City Is Not a Computer.” Places Journal. https://doi.org/10.22269/170207.\n\n\nMcCullough, D. 2002. “Interview with NEH chairman Bruce Cole.” Humanities Magazine.\n\n\nMiller, Harvey J, and Michael F Goodchild. 2015. “Data-Driven Geography.” GeoJournal 80. Springer:449–61. https://doi.org/10.1007/s10708-014-9602-6.\n\n\nMinton, A. 2023. “New York is breaking free of Airbnb’s clutches. This is how the rest of the world can follow suit.” The Guardian. https://www.theguardian.com/commentisfree/2023/sep/27/new-york-airbnb-renters-cities-law-ban-properties.\n\n\nMuller, C. L., and C. Kidd. 2014. “Debugging Geographers: Teaching Programming to Non-Computer Scientists.” Journal of Geography in Higher Education 38 (2). Taylor & Francis:175–92. https://doi.org/10.1080/03098265.2014.908275.\n\n\nNeate, R. 2023. “‘This is where people with staggering wealth end up’: who will buy Britain’s most expensive house?” The Guardian. https://www.theguardian.com/money/2023/apr/08/britain-most-expensive-house-rutland-gate-mansion-london-super-rich-buyer.\n\n\nO’Sullivan, David, and Steven M Manson. 2015. “Do physicists have geography envy? And what can geographers learn from it?” Annals of the Association of American Geographers 105 (4). Taylor & Francis:704–22. https://doi.org/10.1080/00045608.2015.1039105.\n\n\nOpen Data Institute. n.d. “SOD0009 - Evidence on Statistics and Open Data.” https://committees.parliament.uk/writtenevidence/45220/pdf/.\n\n\nPrat, Chantel S, Tara M Madhyastha, Malayka J Mottarella, and Chu-Hsuan Kuo. 2020. “Relating Natural Language Aptitude to Individual Differences in Learning Programming Languages.” Scientific Reports 10 (1). Nature Publishing Group UK London:3817. https://www.nature.com/articles/s41598-020-60661-8.\n\n\nQuattrone, G., A. Greatorex, D. Quercia, L. Capra, and M. Musolesi. 2018. “Analyzing and Predicting the Spatial Penetration of Airbnb in u.s. Cities.” EPJ Data Science 7 (31). https://doi.org/10.1140/epjds/s13688-018-0156-6.\n\n\nQuattrone, Giovanni, Davide Proserpio, Daniele Quercia, Licia Capra, and Mirco Musolesi. 2016. “Who Benefits from the ‘Sharing’ Economy of Airbnb?” In Proceedings of the 25th International Conference on World Wide Web, 1385–94. WWW ’16. Republic; Canton of Geneva, CHE: International World Wide Web Conferences Steering Committee. https://doi.org/10.1145/2872427.2874815.\n\n\nReades, Jonathan, and Jennie Williams. 2023. “Clustering and Visualising Documents Using Word Embeddings.” Programming Historian. https://doi.org/10.46430/phen0111.\n\n\nReades, J., H. Yingjie, Emmanouil Tranos, and E. Delmelle. in review. “The City as Text: Understanding and Modeling Cities through the Lens of Text.” NA, in review.\n\n\nRose, Gillian. 1997. “Situating Knowledges: Positionality, Reflexivities and Other Tactics.” Progress in Human Geography 21 (3):305–20. https://doi.org/10.1191/030913297673302122.\n\n\nScheider, Simon, Enkhbold Nyamsuren, Han Kruiger, and Haiqi Xu. 2020. “Why Geographic Data Science Is Not a Science.” Geography Compass 14 (11). Wiley Online Library:e12537.\n\n\nShabrina, Z., E. Arcaute, and M. Batty. 2019. “Airbnb’s Disruption of the Housing Structure in London.” ArXiv Prepring. University College London. https://arxiv.org/pdf/1903.11205.pdf.\n\n\nShabrina, Z., Y. Zhang, E. Arcaute, and M. Batty. 2017. “Beyond Informality: The Rise of Peer-to-Peer (P2P) Renting.” CASA Working Paper 209. University College London. https://www.ucl.ac.uk/bartlett/casa/case-studies/2017/mar/casa-working-paper-209.\n\n\nShapiro, W., and M. Yavuz. 2017. “Rethinking ’distance’ in New York City.” Medium. https://medium.com/topos-ai/rethinking-distance-in-new-york-city-d17212d24919.\n\n\nSingleton, Alex, and Daniel Arribas-Bel. 2021. “Geographic Data Science.” Geographical Analysis 53 (1):61–75. https://doi.org/10.1111/gean.12194.\n\n\nSmith, D. 2010. “Valuing housing and green spaces: Understanding local amenities, the built environment and house prices in London.” GLA Economics. https://www.centreforlondon.org/wp-content/uploads/2016/08/CFLJ4292-London-Inequality-04_16_WEB_V4.pdf.\n\n\nSthapit, Erose, and Peter Björk. 2019. “Sources of Distrust: Airbnb Guests’ Perspectives.” Tourism Management Perspectives 31:245–53. https://doi.org/10.1016/j.tmp.2019.05.009.\n\n\nStrauß, Stefan. 2015. “Datafication and the Seductive Power of Uncertainty–a Critical Exploration of Big Data Enthusiasm.” Information 6 (4). MDPI:836–47.\n\n\nSusnjara, S., and I. Smalley. 2025. “What Is Virtualization?” 2025. https://www.ibm.com/think/topics/virtualization.\n\n\nTravers, Tony, Sam Sims, and Nicolas Bosetti. 2016. “Housing and Inequality in London.” Centre for London. https://www.centreforlondon.org/wp-content/uploads/2016/08/CFLJ4292-London-Inequality-04_16_WEB_V4.pdf.\n\n\nUnwin, David. 1980. “Make Your Practicals Open-Ended.” Journal of Geography in Higher Education 4 (2). Taylor & Francis:39–42. https://doi.org/10.1080/03098268008708772.\n\n\nVanderPlas, Jake. 2014. “Is Seattle Really Seeing an Uptick in Cycling?” http://jakevdp.github.io/blog/2014/06/10/is-seattle-really-seeing-an-uptick-in-cycling/.\n\n\nWachsmuth, D., D. Chaney, D. Kerrigan, A. Shillolo, and R. Basalaev-Binder. 2018. “The High Cost of Short-Term Rentals in New York City.” McGill University. https://www.mcgill.ca/newsroom/files/newsroom/channels/attach/airbnb-report.pdf.\n\n\nWachsmuth, D., and A. Weisler. 2018. “Airbnb and the Rent Gap: Gentrification Through the Sharing Economy.” Environment and Planning A: Economy and Space 50 (6):1147–70. https://doi.org/10.1177/0308518X18778038.\n\n\nWilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. “The FAIR Guiding Principles for Scientific Data Management and Stewardship.” Scientific Data 3 (1):160018. https://doi.org/10.1038/sdata.2016.18.\n\n\nWolf, Levi John, Sean Fox, Rich Harris, Ron Johnston, Kelvyn Jones, David Manley, Emmanouil Tranos, and Wenfei Winnie Wang. 2021. “Quantitative Geography III: Future Challenges and Challenging Futures.” Progress in Human Geography 45 (3). SAGE Publications Sage UK: London, England:596–608. https://doi.org/10.1177/0309132520924722.\n\n\nWolfe, C. R. 2023b. “Program-Aided Language Models.” https://cameronrwolfe.substack.com/p/chain-of-thought-prompting-for-llms.\n\n\n———. 2023a. “Program-Aided Language Models.” https://medium.com/data-science/program-aided-language-models-93d226c7d9a0.\n\n\nXiao, Ningchuan. 2016. GIS Algorithms: Theory and Applications for Geographic Information Science & Technology. Research Methods. SAGE. https://doi.org/https://dx.doi.org/10.4135/9781473921498.\n\n\nXie, Tessa. 2024a. “How to Better Communicate as a Data Scientist.” Towards Data Science. https://www.divingintodata.com/p/how-to-better-communicate-as-a-data-scientist-6fc5428d3143.\n\n\n———. 2024c. “The Most Undervalued Skill for Data Scientists.” 2024. https://towardsdatascience.com/the-most-undervalued-skill-for-data-scientists-e0e0d7709321/.\n\n\n———. 2024b. “The Most Undervalued Skill for Data Scientists.” Towards Data Science. https://towardsdatascience.com/the-most-undervalued-skill-for-data-scientists-e0e0d7709321.\n\n\nZemanek, H. 1983. “Algorithmic Perfection.” Annals of the History of Computing. AMER FED INFORM PROCESSING SOC.\n\n\nZervas, Georgios, Davide Proserpio, and John W Byers. 2021. “A First Look at Online Reputation on Airbnb, Where Every Stay Is Above Average.” Marketing Letters 32. Springer:1–16.\n\n\nZervas, G., D. Proserpio, and J. Byers. 2015. “A First Look at Online Reputation on Airbnb, Where Every Stay Is Above Average.” SSRN. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2554500."
+  },
+  {
+    "objectID": "bib/Template.html",
+    "href": "bib/Template.html",
+    "title": "Summary of Reading",
+    "section": "",
+    "text": "Is it an academic paper, technical report, blogpost, etc.? And what kind of contribution is trying to make? Conceptual, theoretical, empirical or something else?"
+  },
+  {
+    "objectID": "bib/Template.html#what-kind-of-reading-is-it",
+    "href": "bib/Template.html#what-kind-of-reading-is-it",
+    "title": "Summary of Reading",
+    "section": "",
+    "text": "Is it an academic paper, technical report, blogpost, etc.? And what kind of contribution is trying to make? Conceptual, theoretical, empirical or something else?"
+  },
+  {
+    "objectID": "bib/Template.html#who-is-the-intended-audience",
+    "href": "bib/Template.html#who-is-the-intended-audience",
+    "title": "Summary of Reading",
+    "section": "2 Who is the intended audience?",
+    "text": "2 Who is the intended audience?\n\nIs it intended for academics, field experts, the general public? etc.? For example, if you think this is intended for someone who needs to learn new skills or someone who is in a policy-making position how do you know this?"
+  },
+  {
+    "objectID": "bib/Template.html#how-is-the-piece-structured",
+    "href": "bib/Template.html#how-is-the-piece-structured",
+    "title": "Summary of Reading",
+    "section": "3 How is the piece structured?",
+    "text": "3 How is the piece structured?\n\nBriefly, how is it organised in terms of headings, sub-headings, sections, etc.? Can you explain this structure responds to the kind of reading and type of audience?"
+  },
+  {
+    "objectID": "bib/Template.html#what-are-the-key-ideas-concepts-or-theories-discussed",
+    "href": "bib/Template.html#what-are-the-key-ideas-concepts-or-theories-discussed",
+    "title": "Summary of Reading",
+    "section": "4 What are the key ideas, concepts, or theories discussed?",
+    "text": "4 What are the key ideas, concepts, or theories discussed?\n\nBriefly identify the specific areas that the contribution engages with. How do you know this?"
+  },
+  {
+    "objectID": "bib/Template.html#what-is-the-overall-contribution",
+    "href": "bib/Template.html#what-is-the-overall-contribution",
+    "title": "Summary of Reading",
+    "section": "5 What is the overall contribution?",
+    "text": "5 What is the overall contribution?\n\nWhat does it build on or what gap does it respond to? What are the key findings or conclusions?"
+  },
+  {
+    "objectID": "bib/Template.html#what-issues-or-gaps-remain",
+    "href": "bib/Template.html#what-issues-or-gaps-remain",
+    "title": "Summary of Reading",
+    "section": "6 What issues or gaps remain?",
+    "text": "6 What issues or gaps remain?\n\nIf relevant, are there assumptions that might not hold in other contexts? Can you think of other case studies or contexts where the reading would apply and explain why? If you think the contribution is generally valid can you explain why? Are there areas for future work identified?"
+  },
+  {
+    "objectID": "lectures/1.4-tools.html#jupyterlab-python",
+    "href": "lectures/1.4-tools.html#jupyterlab-python",
+    "title": "Our Tools",
+    "section": "JupyterLab + Python",
+    "text": "JupyterLab + Python"
   }
 ]
