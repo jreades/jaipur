@@ -1,0 +1,250 @@
+---
+format:
+  revealjs:
+    theme: [serif, slides.scss]
+author: "Jon Reades"
+title: "The Week Ahead"
+footer: "The Week Ahead"
+highlight-style: github
+code-copy: true
+code-line-numbers: true
+slide-level: 2
+title-slide-attributes:
+  data-background-image: ../img/CASA_Logo_no_text.png
+  data-background-size: cover
+  data-background-position: center
+  data-background-opacity: '0.17'
+logo: ../img/CASA_logo.png
+history: false
+css: slides.css
+---
+
+# A few 'fun' facts about your professor...
+
+::: {.notes}
+Jon:
+
+- Has a first degree in literature.
+- Has never studied computer science and has only ever taken night classes in programming.
+- Worked for a dot.com start-up in New York before transferring to London.
+- Has taught undergraduate geography at King's, from which this module evolved, and has taught this module for five years.
+- When not working on teaching, being head of department, and squeezing in some reseach, Jon can be found looking after his two young daughters, mountain biking, or hiking in Scotland.
+
+:::
+
+## Useful Information
+
+All of the content will remain available to you after our workshop:
+
+1. The main micro-site: [jreades.github.io/jaipur/](https://jreades.github.io/jaipur/) -- talks, applied sessions, and some suggested readings.
+2. A quick introduction to Python: [jreades.github.io/code-camp/](https://jreades.github.io/code-camp/) -- 12 self-paced sessions focussing on the basics of Python.
+
+There are plenty of other resources online (Khan Academy, MIT Open Courseware, etc, etc) if you want to go further. And, of course, our [Urban Spatial Science MSc](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/urban-spatial-science-msc) and [Connected Environments MSc](https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/connected-environments-msc).
+
+## What Are We Trying to Do?
+
+This workshop hopes to achieve four things:
+
+1. To expose you to the power of spatial analysis in Python.
+2. To expose you to a set of tools that support reproducible analysis.
+3. To (hopefully) convince you that going further with this is worth your time.
+4. To signpost resources that will support further learning.
+
+This knowledge is intended to be transferrable.
+
+# Principles
+
+- Software should be *free* (as far as practicable).
+- Software should be *open* (as far as practicable).
+- Software should *run* on all platforms (you get the idea).
+- Software should *reflect* what you will encounter in the 'real world'.
+
+# Overall Structure
+
+- **Day 1: Getting Started**: introducing open source, code and data.
+- **Day 2: Preparing**: setting up, managing, and linking data.
+- **Day 3: Reproducing**: making outputs and analysis reproducible.
+- **Day 4: Reinforcing**: making maps and visualisations.
+
+## The Challenges
+
+- To learn a bit of programming *and* to connect it to the bigger picture.
+- To be ok with learning to walk before you run.
+- To learn not to rely (too much) on ChatGPT.
+- To communicate your thoughts through code and text.
+
+::: {.notes}
+
+This is a new one for us too. We don't want to pretend that ChatGPT doesn't exist. It's how you will do your work. Unquestionably. But it is also a trap. This year we're hoping to show you that.
+
+:::
+
+## The Rewards
+
+- Skills that are highly transferrable and highly sought-after professionally.
+- Problem-solving and practical skills that are valued by the private and public sectors.
+- A whole new way of seeing the world and interacting with it.
+- Lots of support along the way… *if you remember to ask for it!*
+
+# Getting Help
+
+::: {style="font-size: smaller;"}
+Hint: There's lots of help 'out there'.
+:::
+
+## Study Aids
+
+When you need an answer *right now*:
+
+- [Google](https://www.google.co.uk) 
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/python)
+- [Slack](https://casa-students-2020.slack.com/)
+
+When you want to *learn more*: 
+
+- [Medium](https://medium.com/search?q=python)
+- [Pocket](https://app.getpocket.com/search/python)
+
+::: {.notes}
+
+Google will become more useful as you learn more and this is definitely one class in which "I Googled it" is a *good* answer.
+
+As of early September 2020, Stack Overflow contains over 1.5 *million* Python questions alone! Chances are someone else has had your question before.
+
+Where's ChatGPT in this? We'll get to that!
+
+:::
+
+## **Before** You Ask for Help
+
+From the [Computer Science Wiki](https://computersciencewiki.org/index.php/How_to_ask_for_help):
+
+- Draw a picture of the problem
+- Explain the problem to a toy or inanimate object (really!)
+- Forget about a computer; how would you solve this with a pencil and paper?
+- Talk it through out loud
+- Explain the problem to a friend
+
+To which we would add:
+
+- Use `print(variable)` statements liberally in your code!
+
+::: {.notes}
+
+We'll cover this last bit as we get more used to coding!
+
+:::
+
+## **When** to Ask for Help
+
+- When you get warning messages from your computer's Operating System.
+- When you cannot get the coding environment to run _at all_.
+- When even simple commands return line after line of error code.
+- When you have no clue what is going on or why.
+- When you have been wrestling with a coding question for more than 20 minutes (but see: [*How* to Ask for Help](https://jreades.github.io/sds_env/skills/help.html)!)
+
+::: {.notes}
+
+In order to learn you *do* need to struggle, but only up to a point! So we don't think that *giving* you the answer to a coding question as soon as you get stuck is a good way for you to learn. At the same time, I remain sad to this day that one of the most insightful students I've ever taught in a lecture context dropped out of our module because they were having trouble with their computer and thought it was *their* fault nothing was working right. By we had realised what was going on it was too late: they were so far behind that they didn't feel able to catch up. We'd *rather* that you asked and we said “Close, but try it again" than you didn't ask and checked out thinking that you couldn't 'do' programming.
+
+:::
+
+## **How** to Ask for Help
+
+In addition to [what we have provided](https://jreades.github.io/sds_env/skills/help.html), we like the "How to ask programming questions" page provided [by ProPublica](https://www.propublica.org/nerds/how-to-ask-programming-questions):
+
+1. Do some research first.
+2. Be specific.
+3. Repeat.
+4. Document and share.
+
+If you find yourself wanting to ask a question on Stack Exchange then they also [have a guide](https://codereview.stackexchange.com/help/how-to-ask), and there are [plenty](https://codingkilledthecat.wordpress.com/2012/06/26/how-to-ask-for-programming-help/) of [checklists](https://medium.com/better-programming/the-smarter-way-of-asking-for-programming-help-52cd140dc437).
+
+::: {.notes}
+
+There's also useful ideas on [how to get help](https://jreades.github.io/sds_env/skills/help.html) that covers things like 'how to get a reply from your Prof' and 'where to look for help'.
+
+:::
+
+# A Final Note: LLMs
+
+::: {style="font-size: smaller;"}
+We *can't* pretend they don't exist.
+:::
+
+## **Why** Use Them?
+
+Many programmers use LLMs as part of their coding for three reasons:
+
+1. They can help to spot bugs, redundancy, and other issues that impact the performance of large applications (i.e. *feedback*).
+2. They can provide information about different libraries and strategies the developer can use, as well as completing code begun by the developer (i.e. *guidance* or *training*).
+3. They can help to 'translate' code and design patterns between languages (i.e. *re-use*).
+
+This is very much a 'brave new world' and we are all trying to figure it out on the fly.
+
+## **How** to Use THem
+
+LLMs like ChatGPT can help you to learn to be a better coder by providing guidance and feedback:
+
+- Use AI like a patient, but scatty tutor.
+- Ask it to explain. Then ask it again.
+- Always test its suggestions against reality and logic.
+
+::: {.callout-warning}
+
+### LLMs as co-authors
+
+Using ChatGPT as your co-*pilot* is not the same as using ChatGPT as your co-*author*. 
+
+:::
+
+## **How** (Not) to Use Them
+
+Here's what we've noticed so far:
+
+- Don't delegate *learning* to the LLM, it doesn't work.
+- Don't let it write paragraphs for you because LLMs like flowery language (e.g. 'intricate methodologies', 'exhaustive reviews', ...).
+- Don't expect LLMs to come up with an argument for you because they strugle with structure/coherence.
+- Don't expect LLMs to get the details right (they don't 'like' referencing!).
+
+## Read the Fine Print
+
+![](./img/FB_Galactica_Disclaimers.jpg){fig-align="middle" height="80%"}
+
+## **Own** Your Mistakes
+
+![](./img/Learning_from_Mistakes.png)
+
+## So... **Study** like you're learning a new language. **Recognise** you are all starting at different levels. **Talk** to other students. **Ask** for help when you need it!^[Don't take my word for it, @prat:2020 in *Nature* link language learning to programming language learning!]
+
+::: {.notes}
+
+So... we do hope to convince you that:
+
+- Anyone---and this includes **you**---can code. 
+- Learning to code does *not* require mathematical ability.
+- Learning to code does *not* require linguistic ability.
+- Learning to code *does* require practice. And more practice. And more again.
+
+:::
+
+## One More Thing...
+
+::: {.incremental}
+- You will get things wrong. 
+- We will get things wrong. 
+- We will assume that you are trying your best. 
+- Please assume the same about us!
+- It's going to be messy, but we're *really* excited about it!
+:::
+
+## References
+
+---
+nocite: |
+  @wolfe:2023, @wolfe:2023a, @chiang:2023, @heaven:2022
+---
+
+::: {.references}
+
+:::
