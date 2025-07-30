@@ -15,13 +15,9 @@ A basic understanding of core concepts in reproducible analysis and the advantag
 Introductory session:
 
 - [1.1 Getting Started](../lectures/1.1-the_week.qmd)
-- [1.2 Our Principles](../lectures/1.2-principles.qmd)
-- Why use (open source) code?
-- Why use (open) data?
-- Why use virtualisation?
-- Why care about reproducibility?
-- Why share your code?
-- Why share your data?
+- [1.2 What Do (Spatial) Data Scientists Do](../lectures/1.2-what-do-we-do.qmd)
+- [1.3 Our Principles](../lectures/1.3-principles.qmd)
+- [1.4 Our Tools](../lectures/1.4-tools.qmd)
  
 Applied session:
 

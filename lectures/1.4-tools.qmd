@@ -1,0 +1,253 @@
+---
+format:
+  revealjs:
+    theme: [serif, slides.scss]
+author: "Jon Reades"
+title: "Our Tools"
+footer: "Our Tools"
+highlight-style: github
+code-copy: true
+code-line-numbers: true
+slide-level: 2
+title-slide-attributes:
+  data-background-image: ../img/CASA_Logo_no_text.png
+  data-background-size: cover
+  data-background-position: center
+  data-background-opacity: '0.17'
+logo: ../img/CASA_logo.png
+history: false
+css: slides.css
+---
+
+## Tools to Make Your Life Easier
+
+1. **Virtualisation**: separate your computer from your coding environment.
+2. **Version Control**: manage your code, your data, and even your reports.
+3. **Code**: how we do 'data science'.
+4. **Markup**: focus on the *structure* while you write!
+5. **Render**: creating documents and web pages from code and markup.
+
+# Virtualisation
+
+> ... a technology that enables the creation of virtual environments from a single physical machine, allowing for more efficient use of resources by distributing them across computing environments.
+> 
+> Source: @susnjara:2025
+
+## Two Basic 'Flavours'
+
+Both do the *same* thing: separate the platform from the hardware, but they do this in defferent ways for different reasons.
+
+- A 'full' Virtual Machine (VM) includes the Operating System and behaves like a *separate computer* even though it may share hardware with other VMs.
+- A 'container' is a 'lightweight' VM running only the application and its dependencies; everything else is managed by the host Operating SYstem so the resulting 'image' is small and easy to distribute.
+
+Short version: if you have to install an Operating System you are using a full VM; otherwise you are probably using a containerisation tool/
+
+Many things, including storage, networks, CPUs, GPUs, etc. can be virtualised.
+
+## Why Use Containers?
+
+We gain quite a few benefits:
+
+1. Easier installation and 'everyone' has the same versions of the code.
+2. Each container is isolated and read-only.
+3. Easy to tidy up when you’re done.
+4. Easy to scale up and scale down, or to link them together via 'microservices'.
+5. Used in the ‘real world’ by *many* companies (JP Morgan Chase, GSK, PayPal, Twitter, Spotify, Uber...).
+
+## Change of View
+
+> Rather than having one environment for *every* project, we have one environment for *each* project.
+
+- 'Computing contexts' are disposable, while data and code are persistent when I need them.
+- I don't care where my code and data are, so long as they're accessible when I need them.
+- I don't care if containers are created or destroyed, so long as they're available when I need them. 
+- I rebuild or update the computing context when I am ready to do so.
+
+## Podman
+
+![](../img/Podman-logo.png){syle="width:90%;"}
+
+> Podman is an **open source** container and image management engine. Podman makes it easy to find, run, build, and share containers.
+
+## We Recommend...
+
+Using Podman because configuring a development machine is hard and this makes it (fairly) simple. If a Podman image works for us then we *know*[^1] it works for you. 
+
+Use either: 
+
+1. `{{< var docker.all >}}` (Windows and Older Macs)
+2. `{{< var docker.mac >}}` (Newer Macs)
+
+[^1]: Usually, but not always, true.
+
+# Version Control
+
+> ... is the practice of tracking and managing changes to software code.
+>
+> Source: [Altassian](https://www.atlassian.com/git/tutorials/what-is-version-control)
+
+## Why use Version Control?
+
+> ... If a mistake is made, developers can turn back the clock and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.
+>
+> Source: [Altassian](https://www.atlassian.com/git/tutorials/what-is-version-control)
+
+In addition:
+
+::: {.incremental}
+1. We can **share** code with others (directly) as source code or (indirectly) as the product of compiling that source code.
+2. We can **rewind**, **fast forward**, and **combine** changes by different people working on different features.
+3. We gain detailed, incremental **backups** that help us tro track down the changes that introduced a bug when something goes wrong.
+:::
+
+::: {.notes}
+
+Discuss comparison with Dropbox or OneDrive. How are they similar, how are they different? File level vs. row-level views. 
+:::
+
+## Change of View
+
+> In open source projects there may be no *one* view of what the 'right' solution/version of a project is, so differences need to be *negotiated*.
+
+- Every computer with version control might have the 'right' version of the code for a given user, so there is no 'master' view of a project.
+- We need to be able to choose whether to *merge* other people's changes with our changes, rather than having everything forced on us.
+- We still want to be able to share *our* version of the code / outputs of the code with other people, and a web site is a good way to do that.
+
+## Git
+
+:::: {.columns}
+::: {.column width="30%"}
+![](./img/Git.png)
+:::
+::: {.column width="70%"}
+Version control allows us to:
+
+1. Track changes to files with a high level of detail using `commit`.
+2. `push` these changes out to others.
+3. `pull` down changes made by others.
+4. `merge` and resolve conflicting changes.
+5. Create a `tag` when a 'milestones' is reached.
+6. Create a `branch` to add a feature.
+7. Retrieve specific versions or branches with a `checkout`.
+
+:::
+::::
+
+## GitHub
+
+:::: {.columns}
+::: {.column width="30%"}
+![](./img/Octocat.png)
+:::
+::: {.column width="70%"}
+Git is distributed, meaning that every computer is a potential server *and* a potential authority. **Result**: commits on a plane!
+
+But how do people find and access your code if your 'server' is a home machine that goes to sleep at night? **Result**: GitHub.
+
+GitHub is 'just' a very large Git server with a *lot* of nice web-friendly features tacked on: create a web site, issue/bug tracking, promote your project... 
+
+:::
+::::
+
+## Git+GitHub is for... anything!
+
+```{=html}
+<iframe width="780" height="500" src="https://jreades.github.io/jaipur/" title="Jaipur Workshop Web Site"></iframe>
+```
+
+::: {.notes}
+
+This whole course is on GitHub.
+
+:::
+
+## Oh My Git!
+
+{{< video https://ohmygit.org/assets/trailer.mov >}}
+
+::: {style="width: 95%; text-align: right; font-size: small;"}
+Source: [OhMyGit](https://ohmygit.org/)
+:::
+
+# Coding
+
+> The writing of sequences of instructions for a computer to follow using a programming language that the computer can 'understand'.
+
+## Why Code?
+
+Coding has a number of advantages over 'point-and-click':
+
+::: {.incremental}
+1. The computer requires our instructions to be unambiguous and logical.^[This does not guarantee that they'll be *correct*.]
+2. Computers are infinitely patient so a process can be re-run as many times as necessary to get it 'right'.
+3. We can add complexity iteratively, but successful programming requires us to break a problem down into small steps.
+:::
+
+## Change of View
+
+> If we can't explain it simply enough that a computer can do it, perhaps we don't actually understand it? Conversely, perhaps the *real* value of humans over AI lies in what *cannot* be explained to the computer.
+
+- It's easy to forget how you obtained a particular result when you are clicking around inside software like ArcGIS; this is *much* harder when using code.
+- In analysing the problem so that we can submit it to the computer we often develop a better understanding of the problem ourselves!
+- Why spend your time doing the boring stuff???
+
+# JupyterLab
+
+> JupyterLab is the latest web-based interactive development environment for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning.
+>
+> Source: [Project Jupyter](https://jupyter.org/)
+
+## Why use JupyterLab?
+
+- Nothing to install (runs in your web browser).
+- Run code from anywhere (runs in your web browser).
+- Natural way to interact with containers/VMs.
+- Large ecosystem of plugins/extensions.
+- Jupyter notebooks are compatible with VSCode.
+
+## Change of View
+
+> The way you interact with your code can be the same whether you are running it on your computer or on a cluster half-way round the world!
+
+- Together with VMs and Version Control, this allows us to largely stop worrying about *where* code is running.
+- The web browser has become the 'app' of choice for many developers, though it's not without challenges.
+
+# Markup
+
+> A markup language is a text-encoding system which specifies the structure and formatting of a document...
+>
+> Source: [Wikipedia](https://en.wikipedia.org/wiki/Markup_language)
+
+## Why use Markup?
+
+::: {.incremental}
+- Quickly sketch out the structure of a document.
+- Works well with version control (line-by-line changes + GitHub.io web site).
+- Works well with JupyterLab and other coding environments.
+:::
+
+## Change of View
+
+> I spend a *lot* less time 'faffing' when writing than I used to. Spend more time on *what* you want to say and worry about the *how* later.
+
+# Render
+
+> 'Rendering' is the process of taking all of the code and markup and outputting it to a particular format (web page, web site, PDF, etc.). So it's the last piece of this pipeline for working with data, code, and text.
+
+## Why Render?
+
+::: {.incremental}
+- Outputs can be: web pages, Jupyter notebooks, Word documents, PDFs, presentations... 
+- It can be really useful to have a single input and *multiple* outputs because requirements and needs *always* change.
+- It teaches you to focus on the process, not the minutiae.
+:::
+
+## Change of View
+
+> Everything we are seeing and doing this week passed through Quarto. It has transformed the way I teach, do research, and write! It embodies 'literate programming' [@knuth:1984]. 
+
+## References
+
+::: {.references}
+
+:::
