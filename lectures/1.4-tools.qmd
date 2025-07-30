@@ -19,13 +19,76 @@ history: false
 css: slides.css
 ---
 
-## Tools to Make Your Life Easier
+## Literate Programming
 
-1. **Virtualisation**: separate your computer from your coding environment.
-2. **Version Control**: manage your code, your data, and even your reports.
-3. **Code**: how we do 'data science'.
+Ideally, we want to 'do' data science in ways that are '[literate](https://en.wikipedia.org/wiki/Literate_programming)'.
+
+> The best programs are written so that computing machines can perform them quickly and so that human beings can understand them clearly. A programmer is ideally an essayist who works with traditional aesthetic and literary forms as well as mathematical concepts, to communicate the way that an algorithm works and to convince a reader that the results will be correct. ~ @knuth:1996
+
+## Key Tenets
+
+What we want:
+
+1. **Weaving**: the code and its documentation are together.
+2. **Tangling**: the code can be run directly.
+
+In ideal world, these are the *same* file...
+
+## 
+
+<h1 style="margin-top: 275px;">But **why** would we want this?</h1>
+
+## And **how** do we do this?
+
+*Hint*: it's more than just one thing...
+
+::: {.incremental}
+1. **JupyterLab**: how we do 'data science'.
+2. **Virtualisation**: separate your computer from your coding environment.
+3. **Version Control**: manage your code, your data, and even your reports.
 4. **Markup**: focus on the *structure* while you write!
 5. **Render**: creating documents and web pages from code and markup.
+::: 
+
+# Jupyter(Lab) & Notebooks
+
+> Browser + JupyterLab + Markup == Tangled, Woven code in (m)any languages
+
+::: {.notes}
+
+*Note*: you can set equations too!
+
+:::
+
+## Why Use JupyterLab?
+
+Coding in JupyterLab has a number of advantages over 'point-and-click':
+
+::: {.incremental}
+1. Coding requires our instructions to be unambiguous and logical.^[This does not guarantee that they'll be *correct*.]
+2. Computers are infinitely patient so we can re-run as many times as necessary to get it 'right'.
+3. There is nothing to install (runs in your web browser).
+4. You can run code from anywhere (runs in your web browser).
+:::
+
+## Change of View
+
+> If we can't explain it simply enough that a computer can do it, perhaps we don't actually understand it?
+
+::: {.incremental}
+- Together with the other tools in this talk, you can largely stop worrying about *where* code is running.
+- It's easy to forget how you obtained a particular result when you are clicking around inside software like ArcGIS; this is *much* harder when using code.
+- In analysing the problem so that we can submit it to the computer we often develop a better understanding of the problem ourselves!
+- Why spend your time doing the boring stuff???
+::: 
+
+::: {.notes}
+Conversely, perhaps the *real* value of humans over AI lies in what *cannot* be explained to the computer.
+:::
+
+## JupyterLab + Python
+
+![](./img/Notebook.png)
 
 # Virtualisation
 
@@ -38,7 +101,7 @@ css: slides.css
 Both do the *same* thing: separate the platform from the hardware, but they do this in defferent ways for different reasons.
 
 - A 'full' Virtual Machine (VM) includes the Operating System and behaves like a *separate computer* even though it may share hardware with other VMs.
-- A 'container' is a 'lightweight' VM running only the application and its dependencies; everything else is managed by the host Operating SYstem so the resulting 'image' is small and easy to distribute.
+- A 'container' is a 'lightweight' VM running only the application and its dependencies; everything else is managed by the host Operating System so the resulting 'image' is small and easy to distribute.
 
 Short version: if you have to install an Operating System you are using a full VM; otherwise you are probably using a containerisation tool/
 
@@ -69,9 +132,9 @@ We gain quite a few benefits:
 
 > Podman is an **open source** container and image management engine. Podman makes it easy to find, run, build, and share containers.
 
-## We Recommend...
+## Using Podman
 
-Using Podman because configuring a development machine is hard and this makes it (fairly) simple. If a Podman image works for us then we *know*[^1] it works for you. 
+Podman makes configuring a development environment (fairly) simple. If a Podman image works for us then we *know*[^1] it works for you. 
 
 Use either: 
 
@@ -169,49 +232,6 @@ This whole course is on GitHub.
 Source: [OhMyGit](https://ohmygit.org/)
 :::
 
-# Coding
-
-> The writing of sequences of instructions for a computer to follow using a programming language that the computer can 'understand'.
-
-## Why Code?
-
-Coding has a number of advantages over 'point-and-click':
-
-::: {.incremental}
-1. The computer requires our instructions to be unambiguous and logical.^[This does not guarantee that they'll be *correct*.]
-2. Computers are infinitely patient so a process can be re-run as many times as necessary to get it 'right'.
-3. We can add complexity iteratively, but successful programming requires us to break a problem down into small steps.
-:::
-
-## Change of View
-
-> If we can't explain it simply enough that a computer can do it, perhaps we don't actually understand it? Conversely, perhaps the *real* value of humans over AI lies in what *cannot* be explained to the computer.
-
-- It's easy to forget how you obtained a particular result when you are clicking around inside software like ArcGIS; this is *much* harder when using code.
-- In analysing the problem so that we can submit it to the computer we often develop a better understanding of the problem ourselves!
-- Why spend your time doing the boring stuff???
-
-# JupyterLab
-
-> JupyterLab is the latest web-based interactive development environment for notebooks, code, and data. Its flexible interface allows users to configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning.
->
-> Source: [Project Jupyter](https://jupyter.org/)
-
-## Why use JupyterLab?
-
-- Nothing to install (runs in your web browser).
-- Run code from anywhere (runs in your web browser).
-- Natural way to interact with containers/VMs.
-- Large ecosystem of plugins/extensions.
-- Jupyter notebooks are compatible with VSCode.
-
-## Change of View
-
-> The way you interact with your code can be the same whether you are running it on your computer or on a cluster half-way round the world!
-
-- Together with VMs and Version Control, this allows us to largely stop worrying about *where* code is running.
-- The web browser has become the 'app' of choice for many developers, though it's not without challenges.
-
 # Markup
 
 > A markup language is a text-encoding system which specifies the structure and formatting of a document...
@@ -230,6 +250,71 @@ Coding has a number of advantages over 'point-and-click':
 
 > I spend a *lot* less time 'faffing' when writing than I used to. Spend more time on *what* you want to say and worry about the *how* later.
 
+## Markdown Examples {.smaller}
+
+See [CommonMark](https://commonmark.org/help/) and the [Markdown Guide](https://www.markdownguide.org/basic-syntax/) for more:
+
+```{=html}
+<table style="border: solid 1px rgb(230,230,230);">
+  <tr>
+    <th style="font-weight: bold; font-size: larger;">Format</th>
+    <th style="font-weight: bold; font-size: larger;">Output</th>
+  </tr><tr>
+    <td>Plain text...</td><td>Plain text</td>
+        </tr><tr>
+        <td>## A Large Heading</td><td><h2>A Large Heading</h2></td>
+  </tr><tr>
+        <td>### A Medium Heading</td><td><h3>A Medium Heading</h3></td>
+  </tr><tr>
+        <td>&#45; A list<br />&#45; More list</td><td><ul>
+                <li>A list</li>
+                <li>More list</li>
+        </ul></td>
+  </tr><tr>
+        <td>1&#46; An ordered list<br />2&#46; More ordered list</td>
+        <td><ol>
+      <li>An ordered list</li>
+      <li>More ordered list</li>
+    </ol></td>
+  </tr><tr>
+        <td>&lsqb;A link&rsqb;(http://casa.ucl.ac.uk)</td><td><a href="http://casa.ucl.ac.uk">A link</a></td>
+  </tr>
+</table>
+```
+
+::: {.notes}
+[This guide](https://www.toptal.com/designers/htmlarrows/punctuation/) is good for HTML entities, though Google will also give you them pretty easily if you type `HTML entity code for copyright`...
+:::
+
+## {.smaller}
+
+<table style="border: solid 1px rgb(230,230,230)">
+  <tr>
+    <th style="font-weight: bold; font-size: larger;">Format</th>
+    <th style="font-weight: bold; font-size: larger;">Output</th>
+  </tr><tr>
+        <td>!&lsqb;Alt Text&rsqb;(casa_logo.jpg)</td><td><img src="https://github.com/jreades/fsds/raw/master/img/casa_logo.jpg" width="
+100" alt="Alt Text"/></td>
+  </tr><tr>
+        <td>&#96;A code snippet&#96;</td><td>`A code snippet`</td>
+  </tr><tr>
+        <td>&#96;&#96;&#96;{python}<br />
+        A block of Python code<br />
+    &#96;&#96;&#96;
+        </td><td>```
+A block of Python code
+```</td>
+  </tr><tr>
+    <td><pre>$$
+f(a) = \frac{1}{2\pi i} <br />&nbsp;&nbsp;&nbsp; \oint_{\gamma} \frac{f(z)}{z-a} dz
+$$</pre></td>
+    <td>
+$$
+f(a) = \frac{1}{2\pi i} \oint_{\gamma} \frac{f(z)}{z-a} dz
+$$
+    </td>
+</table>
+
 # Render
 
 > 'Rendering' is the process of taking all of the code and markup and outputting it to a particular format (web page, web site, PDF, etc.). So it's the last piece of this pipeline for working with data, code, and text.
@@ -244,7 +329,21 @@ Coding has a number of advantages over 'point-and-click':
 
 ## Change of View
 
-> Everything we are seeing and doing this week passed through Quarto. It has transformed the way I teach, do research, and write! It embodies 'literate programming' [@knuth:1984]. 
+::: {style="margin-top: 225px;"}
+> **Everything** this week was created using these basic tools and techniques. It has transformed the way I teach, do research, and write! It **embodies** the potential of 'literate programming' [@knuth:1984]. 
+::: 
+
+## Additional Resources
+
+Markdown:
+
+- [Getting Started](https://www.markdownguide.org/getting-started/)
+- [An online interactive tutorial](https://www.markdowntutorial.com)
+- [Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+
+And once you're ready to get 'serious', check out [this tutorial](https://programminghistorian.org/en/lessons/sustainable-authorship-in
+-plain-text-using-pandoc-and-markdown) on *Sustainable Authorship in Plain Text using Pandoc and Markdown* from [The Programming  Historian](https://programminghistorian.org/en/lessons/)! That's what actually underpins Quarto, but you can do so much more...
+
 
 ## References
 

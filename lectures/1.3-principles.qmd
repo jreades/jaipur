@@ -3,8 +3,8 @@ format:
   revealjs:
     theme: [serif, slides.scss]
 author: "Jon Reades"
-title: "Opening Up"
-footer: "Opening Up"
+title: "Our Principles"
+footer: "Our Principles"
 highlight-style: github
 code-copy: true
 code-line-numbers: true
@@ -55,10 +55,12 @@ css: slides.css
 
 @Wilkinson:2016 set out the following principles:
 
+::: {.incremental}
 - **Findable**: data and metadata should be easy to find for computers *and* humans.
 - **Accessible**: it should be clear how the data found can be accessed.
 - **Interoperable**: data should work for range of analyses, storage, and processing needs.^[Shape files *fail* this test.]
 - **Reusable**: metadata and data should be well-described so they can be used/combined easily.
+::: 
 
 . . . 
 
@@ -69,11 +71,11 @@ There are strict and loose versions of these principles. Many governments truggl
 According to @oda:2013 (amongst others):
 
 ::: {.incremental}
-1. Promotes transparency and accountability in government and services.
-2. Promotes efficiency and service delivery.
-3. Promotes innovation and economic growth.
-4. Empowers citizens.
-5. Reduces costs.
+1. Promotes **transparency and accountability** in government and services.
+2. Promotes **efficiency** and service **delivery**.
+3. Promotes **innovation** and economic growth.
+4. **Empowers** citizens.
+5. **Reduces** costs.
 :::
 
 . . . 
