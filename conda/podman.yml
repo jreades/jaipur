@@ -45,18 +45,20 @@ dependencies:
   - openpyxl
 #   #- osmnx
   - palettable 
+  - geopandas[all]
   - pip: # Adds about 500MB
-    - geopandas[all]
+    #- geopandas[all]
     - datashader # -- Some problem here
     - pointpats # -- Some problem here
     - pyarrow # -- Some problem here
     # - libgdal-arrow-parquet
     - pysal # -- Possible problem
     - duckdb # -- Possible problem
-    - spatialpandas # -- Possible problem
+    #- spatialpandas # -- Possible problem
     # - esda # (alternative to PySAL stuff)
     # - joypy
     - matplotlib-scalebar 
+    - matplotlib-map-utils
   # - pointpats
   # - libgdal-arrow-parquet # -- Possible problem
   - polars

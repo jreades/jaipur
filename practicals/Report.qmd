@@ -1,0 +1,78 @@
+---
+bibliography: ../bib/Readings.bib
+csl: ../bib/harvard-cite-them-right.csl
+title: A Project
+execute:
+  echo: false
+  freeze: true
+format:
+  html:
+    code-copy: true
+    code-link: true
+    toc: true
+    toc-title: On this page
+    toc-depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+  pdf:
+    include-in-header:
+      text: |
+        \addtokomafont{disposition}{\rmfamily}
+    mainfont: "EB Garamond"
+    serifont: "EB Garamond"
+    sansfont: "Roboto Flex"
+    monofont: "Geist Mono"
+    papersize: a4
+    geometry:
+      - top=25mm
+      - left=40mm
+      - right=30mm
+      - bottom=25mm
+      - heightrounded
+    toc: false
+    number-sections: false
+    colorlinks: true
+    highlight-style: github
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+## Declaration of Authorship {.unnumbered .unlisted}
+
+Some content here.
+
+```{python}
+import matplotlib.pyplot as plt
+import geopandas as gpd
+from pathlib import Path
+from matplotlib_scalebar.scalebar import ScaleBar
+from matplotlib_map_utils.core.north_arrow import NorthArrow, north_arrow
+
+gdf = gpd.read_parquet(Path.home() / 'work/data/clean/Jaipur_Boundary.geoparquet')
+
+fdict = {'fontname':'EB Garamond', 'weight':'bold', 'size':'xx-large'}
+
+f, ax = plt.subplots(1,1,figsize=(6,5))
+ax.set_title("A Map of Jaipur", **fdict)
+ax.axis('off')
+#ax.get_xaxis().set_visible(False)
+#ax.get_yaxis().set_visible(False)
+# Create scale bar
+scalebar = ScaleBar(1)
+ax.add_artist(scalebar)
+north_arrow(
+    ax, location="upper left", rotation={"crs": gdf.crs, "reference": "center"}
+)
+
+gdf.plot(color='red', ax=ax)
+```
