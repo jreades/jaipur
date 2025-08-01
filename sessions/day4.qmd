@@ -1,5 +1,5 @@
 ---
-title: "Day 4: Reinforcement"
+title: "Day 4: Visualising Data"
 author: "Jon Reades"
 date: "8/1/2025"
 ---
@@ -8,7 +8,7 @@ date: "8/1/2025"
 
 ### Goal
 
-To get you using the tools and seeing the advantages by working in small groups on a report that uses the data already loaded plus (if available) data provided either online or via download.
+To get you using the tools taught to create maps and plots using data.
 
 :::
 
@@ -16,6 +16,7 @@ Applied session:
 
 - Applying what has been learned over the preceding days.
 - Adding new data to your map
+- Changing colours, line widths, ..., choropleths and maps-in-maps.
 - Working on a report — choosing a topic of interest (continuation of Day 3)
 
 

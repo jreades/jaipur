@@ -1,18 +1,22 @@
 
 /*-- scss:defaults --*/
 
-@import url(https://fonts.googleapis.com/css?family=Joan:300,500,700);
-@import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,400,700);
-@import url(https://fonts.googleapis.com/css?family=Barlow:100,400,700);
+@import url(https://fonts.googleapis.com/css2?family=Amatic+SC&family=JetBrains+Mono&family=Source+Sans+Pro&family=Source+Serif+Pro&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Caveat&family=Marck+Script&family=Qwitcher+Grypen&display=swap);
 
 $font-family-monospace: "JetBrains Mono", "Courier New", monospace !default;
 $font-family-sans-serif: "Barlow", sans-serif !default;
-$font-family-serif: "Joan", "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif !default;
+$font-family-serif: "Source Serif Pro", "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif !default;
+$presentation-heading-font: "Amatic SC", $font-family-sans-serif !default;
+$font-family-cursive: Caveat, "Marck Script", "Qwitcher Grypen", cursive;
 
 $mainfont: $font-family-serif !default;
 $font-family-base: $font-family-serif !default;
 $font-family-code: $font-family-monospace !default;
-$headings-font-family: $font-family-sans-serif !default;
+$headings-font-family: "Amatic SC", $font-family-sans-serif !default;
+
+$blockquote-font: $font-family-cursive !default;
+$table-font: "Source Sans Pro", "Amatic SC", sans-serif !default;
 
 $navbar-bg: #48384a !default;
 $secondary: #769670 !default;

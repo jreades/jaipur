@@ -8,16 +8,15 @@ date: "8/1/2025"
 
 ### Goal
 
-Discussion of data issues in planning and where code can help (or hinder) our work.
+Learning to manage and link data.
 
 ::: 
  
 Introductory session:
 
-- Think data 
+- [Think data](../lectures/2.1-Think_Data.qmd)
 - Sources of data
 - Reading data
-- Code vs. GIS
  
 Applied session:
 

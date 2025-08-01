@@ -7,9 +7,6 @@
 #   -v "$(pwd):/home/jovyan/work" \
 #   jreades/sparc:2025-arm start.sh jupyter lab \
 #   --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''
-#--- Under Docker ---#
-#  export IMG_NM=sds:2024-silicon && docker build --platform linux/arm64 -t jreades/$IMG_NM --compress  -f ./docker/Dockerfile.master .
-#  export IMG_NM=sds:2024-intel && docker build --platform linux/amd64 -t jreades/$IMG_NM --compress  -f ./docker/Dockerfile.master .
 FROM quay.io/jupyter/minimal-notebook:notebook-7.4.1
 LABEL maintainer="Jon Reades <j.reades@ucl.ac.uk>"
 
@@ -117,8 +114,6 @@ USER $NB_UID
 
 # RUN echo "export PATH=$env_path/bin/:$PATH" >> ~/.bashrc 
 # RUN echo "export PROJ_LIB=$PROJ_LIB" >> ~/.bashrc
-# RUN echo "export GENSIM_DATA_DIR=$GENSIM_DATA_DIR # python -m gensim.downloader --download <dataname>" >> ~/.bashrc 
-# RUN echo "export SPACY_DATA_DIR=$SPACY_DATA_DIR # spacy.load('/path/to/en_core_web_sm')" >> ~/.bashrc 
 # RUN echo "export XDG_CACHE_HOME=$XDG_CACHE_HOME" >> ~/.bashrc
 
 
@@ -154,25 +149,22 @@ USER $NB_UID
 # ```
 #####################
 USER $NB_UID
-COPY ./fonts ./fontsrc
 ENV FONTCONF="/home/${NB_USER}/.config/fontconfig/conf.d"
 ENV FONTPATH="/home/${NB_USER}/fonts"
-# SHELL ["/bin/bash", "-c"]
+COPY ./fonts/conf "/home/${NB_USER}/.config/fontconfig/conf.d"
+COPY ./fonts/ttf "/home/${NB_USER}/fonts"
 RUN tlmgr init-usertree \ 
-    && mkdir -p ${FONTCONF} \ 
-    && mkdir -p ${FONTPATH} \
-    && cp ./fontsrc/?-fonts.conf ${FONTCONF}/ \
-    && for i in `ls ./fontsrc/*.zip`; \
-        do \
-            unzip -o -d ${FONTPATH} "$i" -x __MACOSX; \
-        done \
-    && fc-cache -f -v 
-    #&& rm -f ~/.cache/matplotlib/fontlist*.json || true \
-    #&& python -c "from matplotlib.font_manager import findfont; findfont('sans', rebuild_if_missing=True)"
+    #&& mkdir -p ${FONTCONF} \ 
+    #&& mkdir -p ${FONTPATH} \
+    #&& cp ./fonts/*.conf ${FONTCONF}/ \
+    #&& cp ./fonts/*.ttf ${FONTPATH}/ \
+    && fc-cache -f -v \ 
+    && rm -f ~/.cache/matplotlib/fontlist*.json || true \
+    && python -c "from matplotlib.font_manager import findfont; findfont('sans', rebuild_if_missing=True)"
 
 #--- Add the data ---#
 COPY ./data/src/ ./data/
-COPY ./Data.ipynb ./
+COPY ./practicals/*.ipynb ./
 
 #--- Configure startup params ---#
 # Switch back to user to avoid accidental container runs as root
