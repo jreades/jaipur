@@ -200,7 +200,7 @@ df[df.TOT_F>5000].TOT_F = 5000
 
 # What Can We Do? 
 
-## Chaining
+## Chaining {.smaller}
 
 Operations on a Data Frame **return a DataFrame** and operations on a Series **return a Series**, allowing us to 'chain' steps together:
 
@@ -214,26 +214,21 @@ df.sort_values(by=['TOT_P','TOT_M'], ascending=False).head(20).sample(frac=0.5).
 ```python
 # Returns a selection (Boolean series)
 df['TOT_P']>5000
-
 # Data frame of records matching selection
 df[ df['TOT_P']>5000 ]
 
 # Calculations on a slice (returns mean centroid!)
 df[df['TOT_P']>5000][['TOT_M','TOT_F']].mean()
-
-# Two conditions with a bit-wise AND
-df[
-  (df['TOT_P']>5000) &
-  (df['TOT_F']>5000)
-]
-
-# Two conditions with a bit-wise OR
-df[
-  (df['TOT_P']>5000) |
-  (df['TOT_P']>5000)
-]
 ```
 
+You can link several conditions using `&` (and) and `|` (or).
+
+```python
+# Two conditions with a bit-wise AND
+df[
+  (df['TOT_P']>5000) & (df['TOT_F']>5000)
+]
+```
 
 # Now we can automate... data anlysis!
 
@@ -331,8 +326,9 @@ How would you work out what this code does? ^[There are at least two ways: 1) pr
 
 ## Dealing with Money
 
-You may encounter currency treated as a string, instead of a number. Normally, this is because of the way that the data is formatted (e.g. &#8377;1,000,000) To deal with pricing information treated as a string:
+You may encounter currency treated as a string, instead of a number. Normally, this is because of the way that the data is formatted (e.g. '&#8377;1.5 lakh') To deal with pricing information treated as a string:
 ```python
+# You would need a function to deal with lakh and crore
 df['price'].str.replace('₹','').str.\
             replace(',','').astype(float)
 ```

@@ -4,8 +4,8 @@ format:
     theme: [serif, ../css/slides.scss]
     # embed-resources: true
 author: "Jon Reades"
-title: "Computational Mapping"
-footer: "Computational Mapping • Jon Reades"
+title: "Think Maps"
+footer: "Think Maps • Jon Reades"
 highlight-style: github
 code-copy: true
 code-line-numbers: true
@@ -20,7 +20,7 @@ history: false
 css: slides.css
 ---
 
-## Two Cultures
+## Two Cultures of Mapping
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -71,15 +71,15 @@ Don't forget that both QGIS and Arc offer a 'Model Builder' that is basically 'v
 
 ## Constituency Cards
 
-Clone and reproduce: [github.com/alasdairrae/wpc](https://github.com/alasdairrae/wpc) and explanation: [cconstituency cards](http://www.statsmapsnpix.com/2019/08/constituency-cards.html).
+[Constituency cards](http://www.statsmapsnpix.com/2019/08/constituency-cards.html) are 'scripted' in QGIS:
 
 ![](img/Constituency-Walthamstow.png)
 ![](img/Constituency-Brighton.png)
-
 ![](img/Constituency-Aldridge.png)
 
+Source: [github.com/alasdairrae/wpc](https://github.com/alasdairrae/wpc)
 
-## Short-Term Lets in Scotland {.smaller}
+## Short-Term Lets in Scotland
 
 Analysis of Airbnb and other short-term lets in Scotland feeding through into policy-making via [Research into the impact of short-term lets on communities across Scotland](https://www.gov.scot/binaries/content/documents/govscot/publications/research-and-analysis/2019/10/research-impact-short-term-lets-communities-scotland/documents/people-communities-places-research-impact-short-term-lets-communities-scotland/people-communities-places-research-impact-short-term-lets-communities-scotland/govscot:document/people-communities-places-research-impact-short-term-lets-communities-scotland.pdf)
 
@@ -96,11 +96,6 @@ Analysis of Airbnb and other short-term lets in Scotland feeding through into po
 
 ![](img/NYT-MS-Culture.png)
 ![](img/NYT-MS-Suburbs.png)
-
-
-## Think it Through!
-
-<img src="https://github.com/jreades/i2p/raw/master/lectures/img/XKCD-Population_Maps.png" width="900" />
 
 
 # Colouring in
@@ -123,27 +118,45 @@ Humans can only take in so much data at once. Your choice of colour scheme, brea
 
 ## Six Views of Employment
 
-<div>
-<span><img src="https://github.com/jreades/i2p/raw/master/lectures/img/Employment-No_Class.png" width="49%" /></span>
-<span><img src="https://github.com/jreades/i2p/raw/master/lectures/img/Employment-3_Quantiles.png" width="49%" /></span>
-</div>
+::: {.columns}
 
+::: {.column width="49%"}
+![No Class Breaks](img/Employment-No_Class.png){width="100%"}
+:::
 
-## Six Views of Employment
+::: {.column width="49%"}
+![3 Quantiles](img/Employment-3_Quantiles.png){width="100%"}
+:::
 
-<div>
-<span><img src="https://github.com/jreades/i2p/raw/master/lectures/img/Employment-7_Quantiles.png" width="49%" /></span>
-<span><img src="https://github.com/jreades/i2p/raw/master/lectures/img/Employment-7_Equal.png" width="49%" /></span>
-</div>
-
+::::
 
 ## Six Views of Employment
 
-<div>
-<span><img src="https://github.com/jreades/i2p/raw/master/lectures/img/Employment-7_Pretty.png" width="49%" /></span>
-<span><img src="https://github.com/jreades/i2p/raw/master/lectures/img/Employment-7_Natural.png" width="49%" /></span>
-</div>
+::: {.columns}
 
+::: {.column width="49%"}
+![7 Quantiles](img/Employment-7_Quantiles.png){width="100%"}
+:::
+
+::: {.column width="49%"}
+![7 Equal Interval](img/Employment-7_Equal.png){width="100%"}
+:::
+
+::::
+
+## Six Views of Employment
+
+::: {.columns}
+
+::: {.column width="49%"}
+![7 Pretty Breaks](img/Employment-7_Pretty.png){width="100%"}
+:::
+
+::: {.column width="49%"}
+![7 Natural Breaks](img/Employment-7_Natural.png){width="100%"}
+:::
+
+::::
 
 ## Consider
 
@@ -174,9 +187,9 @@ At the *very least* we have the following options:
 Look at the Data!
 
 
-## Look at the Data!
+# Look at the Data!
 
-Different colour and break schemes not only give us different *views* of the data, they give us different *understandings* of the data! Each scheme changes how the data looks and, consequently, how we perceive the distribution.
+> Different colour and break schemes not only give us different *views* of the data, they give us different *understandings* of the data! Each scheme changes how the data looks and, consequently, how we perceive the distribution.
 
 
 ## Takeaway: Maps have a 'Rhetoric'

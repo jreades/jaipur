@@ -4,8 +4,8 @@ format:
     theme: [serif, ../css/slides.scss]
     # embed-resources: true
 author: "Jon Reades"
-title: "File Formats"
-footer: "File Formats • Jon Reades"
+title: "Think Data"
+footer: "Think Data • Jon Reades"
 highlight-style: github
 code-copy: true
 code-line-numbers: true

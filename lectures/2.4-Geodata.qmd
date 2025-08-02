@@ -1,7 +1,7 @@
 ---
 format:
   revealjs:
-    theme: [serif, slides.scss]
+    theme: [serif, ../css/slides.scss]
     # embed-resources: true
 author: "Jon Reades"
 title: "Geopandas"
@@ -21,6 +21,11 @@ css: slides.css
 ---
 
 # Pandas Learns about Maps
+
+```{python}
+import pandas as pd
+import geopandas as gpd
+```
 
 ---
 
@@ -59,13 +64,24 @@ Again, depending on file size you may want to save these locally, but...
 
 ```python
 import geopandas as gpd
-gpkg_src = 'https://bit.ly/2K4JcsB'
+gpkg_src = 'https://orca.casa.ucl.ac.uk/~jreades/jaipur/TM_WORLD_BORDERS-0.3.gpkg'
 world = gpd.read_file(gpkg_src)
 # The ';' suppresses matplotlib output
 world.plot(facecolor='white', edgecolor='darkblue');
 ```
 
-![](./img/World_Demo.png)
+```{python}
+import geopandas as gpd
+try:
+  gpkg_src = 'https://orca.casa.ucl.ac.uk/~jredes/jaipur/TM_WORLD_BORDERS-0.3.gpkg'
+  world = gpd.read_file(gpkg_src)
+except:
+  gpkg_src = '../data/src/TM_WORLD_BORDERS-0.3.gpkg'
+  world = gpd.read_file(gpkg_src)
+# The ';' suppresses matplotlib output
+world.plot(facecolor='white', edgecolor='darkblue');
+world.to_file('../data/world.gpkg')
+```
 
 ## Writing (Local Files)
 
@@ -100,23 +116,19 @@ In principle, a GeoSeries can contain multiple geo-data types, but in practice y
 
 Recall that we can ask if a particular object is an *[instance](https://www.w3schools.com/python/ref_func_isinstance.asp)* of any given class:
 
-```python
-import pandas as pd
+```{python}
+#| echo: True
 print(isinstance(world, str))
 print(isinstance(world, pd.DataFrame))
 print(isinstance(world, gpd.GeoDataFrame))
 ```
 
-Prints: `False`, `True`, `True`.
-
-```python
-import pandas as pd
+```{python}
+#| echo: True
 print(isinstance(world.geometry, str))
 print(isinstance(world.geometry, pd.Series))
 print(isinstance(world.geometry, gpd.GeoSeries))
 ```
-
-Also prints: `False`, `True`, `True`.
 
 ::: {.notes}
 
@@ -130,49 +142,45 @@ You can use a GeoDataFrame anywhere you'd use a DataFrame with _no_ loss of func
 
 Depending on your data source, you may or may not have projection information attached to your GeoDataFrame:
 
-```python
+```{python}
+#| echo: true
 print(world.crs)
 ```
-outputs `epsg:4326`, but:
-```python
+But:
+
+```{python}
+#| echo: true
 world.crs
-``` 
-outputs:
-```
-<Geographic 2D CRS: EPSG:4326>
-Name: WGS 84
-Axis Info [ellipsoidal]:
-- Lat[north]: Geodetic latitude (degree)
-- Lon[east]: Geodetic longitude (degree)
-Area of Use:
-- name: World
-- bounds: (-180.0, -90.0, 180.0, 90.0)
-Datum: World Geodetic System 1984
-- Ellipsoid: WGS 84
-- Prime Meridian: Greenwich
 ```
 
-
-## Finding Projections {.smaller}
+## Finding Projections
 
 You'll have already covered this in GIS, but you can find nearly any EPSG you might need at [epsg.io](http://epsg.io/). By far the most commonly-used _here_ are:
 
 - [EPSG\:4326](http://epsg.io/4326) for the World Geodetic System 84 used in GPS.
 - [EPSG\:27700](http://epsg.io/27700) for OSGB 1936/British National Grid used in the UK.
+- [EPSG\:32643](http://epsg.io/32643) was what I was given for Jaipur geodata.
+- [EPSG\:3857](http://epsg.io/3857) was what I found for some boundary data for India.
 
 _Note_: recall that large territories (such as Canada, China and Russia) may well have _multiple_ projections at the state of provincial level.
-
 
 ## Reprojection
 
 For data sets _without_ projection information (i.e. often anything loaded from a shapefile) you must `gdf.set_crs(<spec>)`. For all others you should `gdf.to_crs(<spec>)`.
 
-```python
+```{python}
+#| echo: True
 world2 = world.to_crs('ESRI:54030')
 world2.plot();
 ```
 
-![](img/World_Reprojected.png)
+## Code Won't Stop You Being Silly
+
+```{python}
+#| echo: True
+world2 = world.to_crs('EPSG:27700')
+world2.plot();
+```
 
 ::: {.notes}
 
@@ -184,7 +192,8 @@ Unlike a shapefile, you can have more than one geometry column, each with a diff
 
 We can use GeoSeries' spatial index directly to perform simple spatial queries:
 
-```python
+```{python}
+#| echo: True
 import matplotlib.pyplot as plt
 wslice = world.cx[-50:50, -20:20] # cx = coordinate index
 ax = wslice.plot()
@@ -193,9 +202,6 @@ plt.axvline(50, linestyle='--', color='red')
 plt.axhline(-20, linestyle='--', color='red')
 plt.axhline(20, linestyle='--', color='red');
 ```
-
-![](img/geo-index.png)
-
 
 ## Attributes
 
