@@ -21,7 +21,9 @@ Introductory session:
  
 Applied session:
 
-- Setting up Podman
-- Running Podman
-- Running a Python Notebook
+- [Check your computer is up to date](../setup/base.qmd)
+- [Setting up Podman](../setup/env.qmd)
+- [Running Podman](../setup/env.qmd#running)
+- If you've never programmed before:
+  - [Think Data](../practicals/Think_Data.qmd)
  

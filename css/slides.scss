@@ -4,17 +4,17 @@
 
 // fonts
 
-@import url(https://fonts.googleapis.com/css2?family=Amatic+SC&family=JetBrains+Mono&family=Source+Sans+Pro&family=Source+Serif+Pro&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Caveat&family=Marck+Script&family=Qwitcher+Grypen&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=EB+Garamond&family=Amatic+SC&family=JetBrains+Mono&family=Source+Sans+Pro&family=Source+Serif+Pro&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Marck+Script&family=Qwitcher+Grypen&display=swap);
 
 $font-family-monospace: "JetBrains Mono", "Courier New", monospace !default;
 $font-family-sans-serif: "Barlow", sans-serif !default;
-$font-family-serif: "Source Serif Pro", "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif !default;
+$font-family-serif: "EB Garamond", "Source Serif Pro", "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif !default;
 $font-family-base: $font-family-serif !default;
 $mainfont: $font-family-serif !default;
 
 $presentation-heading-font: "Amatic SC", $font-family-sans-serif !default;
-$font-family-cursive: Caveat, "Marck Script", "Qwitcher Grypen", cursive;
+$font-family-cursive: "Caveat", "Marck Script", "Qwitcher Grypen", cursive;
 
 $mainfont: $font-family-serif !default;
 $font-family-base: $font-family-serif !default;
@@ -74,6 +74,10 @@ $code-block-border-left-width: 5px;
     //margin-top: 5em; //450px;
     //margin-left: 2em; //250px;
     //margin-bottom: 2em;
+}
+
+.reveal .slide blockquote p {
+    font-family: $blockquote-font;
 }
 
 .reveal .h2 {

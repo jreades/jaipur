@@ -14,14 +14,14 @@ Learning to manage and link data.
  
 Introductory session:
 
-- [Think data](../lectures/2.1-Think_Data.qmd)
-- Sources of data
-- Reading data
+- [Think Maps](../lectures/2.4-Mapping.qmd)
+- [Think Data](../lectures/2.1-Think_Data.qmd)
+- [Reading Tables](../lectures/2.2-Data.qmd)
+- [Reading Geographies](../lectures/2.3-Geodata.qmd)
  
 Applied session:
 
-- Linking data 
-- Data tables
-- Data maps
-- Simple analysis
+- Pandas
+- Tables
+- Maps
  
