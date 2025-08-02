@@ -32,7 +32,7 @@ What we want:
 1. **Weaving**: the code and its documentation are together.
 2. **Tangling**: the code can be run directly.
 
-In ideal world, these are the *same* file...
+In an ideal world, these are the *same* file...
 
 ## 
 
@@ -248,7 +248,26 @@ Source: [OhMyGit](https://ohmygit.org/)
 
 ## Change of View
 
-> I spend a *lot* less time 'faffing' when writing than I used to. Spend more time on *what* you want to say and worry about the *how* later.
+> I spend a *lot* less time 'faffing' writing in Markdown than I used to. Spend more time on *what* you want to say and worry about the *how* later.
+
+:::: {.columns}
+::: {.column width=48%}
+```
+### A Subtitle
+
+Some text in **bold** and *italics* with a [link](https://jreades.github.io/).
+
+> A blockquote
+```
+:::
+::: {.column width=48%}
+### A Subtitle
+
+Some text in **bold** and *italics* with a [link](https://jreades.github.io/).
+
+> A blockquote
+:::
+::::
 
 ## Markdown Examples {.smaller}
 
@@ -329,9 +348,7 @@ $$
 
 ## Change of View
 
-::: {style="margin-top: 225px;"}
-> **Everything** this week was created using these basic tools and techniques. It has transformed the way I teach, do research, and write! It **embodies** the potential of 'literate programming' [@knuth:1984]. 
-::: 
+> **Everything** this week was created using these basic tools and techniques. It has transformed the way I teach, do research, and write! It **embodies** the potential of 'literate programming' [@knuth:1984].
 
 ## Additional Resources
 
@@ -344,6 +361,15 @@ Markdown:
 And once you're ready to get 'serious', check out [this tutorial](https://programminghistorian.org/en/lessons/sustainable-authorship-in
 -plain-text-using-pandoc-and-markdown) on *Sustainable Authorship in Plain Text using Pandoc and Markdown* from [The Programming  Historian](https://programminghistorian.org/en/lessons/)! That's what actually underpins Quarto, but you can do so much more...
 
+# Recap
+
+- Podman is how you will run a virtual machine with all the necessary tools pre-installed.
+- JupyterLab is how you will 'talk' to the virtual machine and tell it to run code.
+- Markdown is how you will write simply-formatted content (in JupyterLab and Quarto)
+- Git/GitHub is how you ~will~ *can* manage code and content so that you always have a backup plan.
+- Rendering in Quarto is how you will output nicely formatted code and content.
+
+# Let's Get Started!
 
 ## References
 

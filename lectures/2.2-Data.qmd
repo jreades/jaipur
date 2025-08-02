@@ -1,0 +1,453 @@
+---
+format:
+  revealjs:
+    theme: [serif, ../css/slides.scss]
+    # embed-resources: true
+author: "Jon Reades"
+title: "Pandas"
+footer: "Pandas • Jon Reades"
+highlight-style: github
+code-copy: true
+code-line-numbers: true
+slide-level: 2
+title-slide-attributes:
+  data-background-image: ../img/CASA_Logo_no_text.png
+  data-background-size: cover
+  data-background-position: center
+  data-background-opacity: '0.17'
+logo: ../img/CASA_logo.png
+history: false
+css: slides.css
+---
+
+![](./img/Pandas.jpg)
+
+::: {.notes}
+
+Feel like I've been signposting this for a _really_ long time, so I hope you feel like it's worth it.
+
+:::
+
+
+::: {.notes}
+
+Pandas is derived from 'panel data' as used in econometrics, but also a play on 'Python data analysis' (according to Wikipedia at least).
+
+Pandas is an open source, library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It supports both numerical and time series data.
+
+We will now start to use the Pandas package, which allows us to create ‘data frame’ objects which supports a range of **very** useful data analysis methods.
+
+:::
+
+## Why Pandas?
+
+Pandas is probably (together with scipy, numpy, and sklearn) the *main* reason that Python has become popular for data science. According to ‘Learn Data Sci’ it accounts for 1% of *all* Stack Overflow question views!
+
+You will want to bookmark these:
+
+- [pandas.pydata.org](https://pandas.pydata.org/)
+- [Pandas Docs](https://pandas.pydata.org/pandas-docs/stable/index.html)
+- [pandas tutorial for beginners](https://www.learndatasci.com/tutorials/python-pandas-tutorial-complete-introduction-for-beginners/)
+
+
+## Pandas Terminology (Data Frame)
+
+![](./img/pandas-df.png)
+
+
+## Pandas Terminology (Index)
+
+
+![](./img/pandas-idx.png)
+
+
+## Pandas Terminology (Series)
+
+
+![](./img/pandas-series.png)
+
+
+## Pandas Terminology (Slice)
+
+
+![](./img/pandas-slice.png)
+
+
+## Using Pandas {.smaller}
+
+Here’s code to read a (remote) CSV file:
+
+```python
+import pandas as pd         # import package
+url='https://orca.casa.ucl.ac.uk/~jreades/jaipur/population.csv.gz'
+df = pd.read_csv(url)       # load a (remote) CSV
+print(type(df))             # not a 'simple' data type
+print(df.columns.to_list()) # column names
+```
+
+```{python}
+from pathlib import Path
+import pandas as pd         # import package
+url='https://orca.casa.ucl.ac.uk/~jreades/jaipur/population.csv.gz'
+try: 
+  df = pd.read_csv(url)       # load a (remote) CSV
+except:
+  df = pd.read_csv('../data/src/Wardwise/population/population.csv.gz')
+print(type(df))             # not a 'simple' data type
+print(df.columns.to_list()) # column names
+```
+
+## Summarise a Data Frame
+
+:::: {.columns}
+::: {.column width="50%" style="font-size:small;"}
+### Statistical summarisation.
+```{python}
+#| echo: True
+df.describe()
+```
+:::
+::: {.column width="50%" style="font-size:small;"}
+### Data types and memory usage.
+```{python}
+#| echo: True
+df.info()
+```
+:::
+::::
+
+## Accessing a Series {.smaller}
+
+```{python}
+#| echo: True
+print(type(df['State']))            # type for column
+print(type(df['State'].array))      # type for values
+print(df['State'].array[:5])        # first five values
+print(f"1: {df['TOT_P'].mean()}")   # summarise a series/column
+print(f"2: {df.TOT_P.mean():0.2f}") # if no spaces in name
+```
+
+::: {.notes}
+Notice that we've got two ways of accessing a pandas Series:
+
+1. The dictionary-like way: `df['Latitude']`; this works for *all* columns, always.
+2. The method-like way: `df.Latitude`; this works for 'reading' columns without spaces in their names.
+:::
+
+
+## Jupyter Formatting
+
+Pandas is also 'Jupyter-aware', meaning that output can displayed directly in Jupyter and Quarto in 'fancy' ways:
+
+```{python}
+#| echo: True
+df[['District','TOT_F','F_SC','NON_WORK_M']].sample(5)
+```
+
+
+## Nosing Around
+
+```python
+df.head(3)                       # First 3 rows of df
+df[['TOT_F','F_SC']].tail(3)     # Last 3 rows of selected columns
+df.sample(frac=0.3)              # A random 30% sample
+df.sample(3, random_state=42)    # A random sample of 3 with a seed
+df.sample(3, random_state=42)    # Same sample!
+```
+
+> Head and tail are used on the [Command Line](https://jreades.github.io/fsds/lectures/3.4-The_Command_Line.html). Random sampling with seeds is covered in my talk on [Randomness](https://jreades.github.io/fsds/lectures/6.2-Randomness.html). We've even got [Lists of Lists](https://jreades.github.io/fsds/lectures/3.2-LOLs.html), which is a really basic data structure!
+
+## Data Frames vs Series
+
+Pandas operates on two principles:
+
+1. Any operation on a Data Frame *returns* a Data Frame.
+2. Any operation on a Series *returns* a Series.
+
+::: {.notes}
+We'll see in a moment why this is useful!
+:::
+
+## 'Shallow' Copies
+
+More subtly, operations on a Series or Data Frame return a *shallow copy*, which is like a 'view' in a database...
+
+1. The original is unchanged *unless* you specify `inplace=True` (where supported).
+2. Attempts to *change* a subset of the data frame will often trigger a `SettingWithCopyWarning` warning.
+
+If you need a full copy then use the `copy()` method (e.g. `df.copy()` or `df.Series.copy()`).
+
+::: {.aside}
+[DataQuest](https://www.dataquest.io/blog/settingwithcopywarning/) has a nice overview of how `SettingWithCopyWarning` is triggered and what to do about it.
+:::
+
+## Putting These Ideas Together {.smaller}
+
+```{python}
+#| echo: True
+# Returns a series but not a column
+print(type(df.TOT_F - 1))
+# Saves returned series as a new column
+df['smaller'] = df.TOT_F - 1
+print(df.smaller.head(3))
+# Returns a new data frame w/o the dropped column 
+print(type(df.drop(columns=['smaller'])))
+# Modifies df directly to drop the column
+print(type(df.drop(columns=['smaller'], inplace=True)))
+# Try to modify a view of df (triggers warning)
+df[df.TOT_F>5000].TOT_F = 5000 
+```
+
+# What Can We Do? 
+
+## Chaining
+
+Operations on a Data Frame **return a DataFrame** and operations on a Series **return a Series**, allowing us to 'chain' steps together:
+
+```{python}
+#| echo: True
+df.sort_values(by=['TOT_P','TOT_M'], ascending=False).head(20).sample(frac=0.5).median(numeric_only=True)
+```
+
+## Selection {.smaller}
+
+```python
+# Returns a selection (Boolean series)
+df['TOT_P']>5000
+
+# Data frame of records matching selection
+df[ df['TOT_P']>5000 ]
+
+# Calculations on a slice (returns mean centroid!)
+df[df['TOT_P']>5000][['TOT_M','TOT_F']].mean()
+
+# Two conditions with a bit-wise AND
+df[
+  (df['TOT_P']>5000) &
+  (df['TOT_F']>5000)
+]
+
+# Two conditions with a bit-wise OR
+df[
+  (df['TOT_P']>5000) |
+  (df['TOT_P']>5000)
+]
+```
+
+
+# Now we can automate... data anlysis!
+
+## Dealing with Types {.smaller}
+
+
+A Data Series can *only* be of one type:
+
+| Pandas Dtype    | Python Type      | Usage                       |
+| --------------- | ---------------- | --------------------------- |
+| `object`        | `str` or mixed   | Text or mixed columns (including arrays) |
+| `int64`         | `int`            | Integer columns             |
+| `float64`       | `float`          | Floating point columns      |
+| `bool`          | `bool`           | True/False columns          |
+| `datetime64`    | N/A (`datetime`) | Date and time columns       |
+| `timedelta[ns]` | N/A (`datetime`) | Datetime difference columns |
+| `category`      | N/A (`set`)      | Categorical columns         |
+
+
+## Changing the Type {.smaller}
+
+
+```{python}
+#| echo: True
+print(f"Unique values: {df['TRU'].unique()}")   # Find unique values
+print(f"Data type is: {df['TRU'].dtype.name}")  # Confirm is 'object'
+df['TRU'] = df['TRU'].astype('category')
+print(f"Data type now: {df['TRU'].dtype.name}") # Confirm is 'category'
+print(df['TRU'].describe()) # Category column info
+```
+
+## Datetime Data {.smaller}
+
+What do we do here?
+
+```python
+print(df.Date.dtype.name)
+# object
+df.Date.to_list()[:3]
+# ['04/20/2019 11:00:00 PM', '12/02/2019 10:35:00 AM', '10/06/2019 04:50:00 PM']
+```
+
+This shows that `Date` is currently a string of dates+times.
+
+Pandas handles date and times using a `datetime` type that also works as an index (more on these later):
+```python
+df['dt'] = pd.to_datetime(df.Date.array, 
+              format="%m/%d/%Y %H:%M:%S %p")
+print(df.dt.dtype.name)
+# datetime64[ns]
+df.dt.to_list()[:3]
+# [Timestamp('2019-04-20 11:00:00'), Timestamp('2019-12-02 10:35:00'), Timestamp('2019-10-06 04:50:00')]
+```
+
+These follow [the formatting conventions](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) of `strftime` (string format time) for conversion.
+
+
+## Datetime Formats  {.smaller}
+
+Examples of `strftime` conventions include: 
+
+| Format | Applies To |
+| :----- | :--------- |
+| %d | 2-digit day |
+| %m | 2-digit month |
+| %y | 2-digit year |
+| %Y | 4-digit year |
+| %p | AM/PM |
+
+So that is why:
+```python
+pd.to_datetime(df.Date.array, format="%m/%d/%Y %H:%M:%S %p")
+```
+Note the other things happening here:
+
+1. `pd.to_datetime(...)` is *not* a method, it's a function from the `pandas` package.
+2. `df.Date.array` (and `df.Date.to_numpy()` and `df.Data.tolist()`) gives access to the *data* directly, whereas `df.Date` gives access to the *Series*.
+
+## Tidying Up
+
+This is one way, there are many options and subtleties...
+```{python}
+#| echo: True
+# Fix categories
+mapping = {}
+
+# df['Primary Type'].unique().to_list() also works
+for x in df['TRU'].cat.categories.to_list():
+  mapping[x]=x.lower()
+
+# And update
+df['TRU'] = df['TRU'].cat.rename_categories(mapping)
+```
+How would you work out what this code does? ^[There are at least two ways: 1) print out `mapping`; 2) before running the code comment out the 'update' line and print out `x` and `x.title()`; 3) search for `title python`.]
+
+## Dealing with Money
+
+You may encounter currency treated as a string, instead of a number. Normally, this is because of the way that the data is formatted (e.g. &#8377;1,000,000) To deal with pricing information treated as a string:
+```python
+df['price'].str.replace('₹','').str.\
+            replace(',','').astype(float)
+```
+Many more examples accessible via Google! 
+
+::: {.notes}
+Another thing you might notice here: adding `.cat` allows us to access *category methods* for the Series; adding `.str` allows us to access *string methods* for the Series.
+:::
+
+## Dropping Rows and Columns
+
+There are multiple ways to drop 'stuff':
+```{python}
+#| echo: True
+df2 = df.copy()
+print(f"The data frame has {df2.shape[0]:,} rows and {df2.shape[1]:,} cols.")
+df2.drop(index=range(5,1000), inplace=True) # Row 'numbers' or index values
+print(f"The data frame has {df2.shape[0]:,} rows and {df2.shape[1]:,} cols.")
+df2.drop(columns=['TOT_P'], inplace=True)   # Column name(s)
+print(f"The data frame has {df2.shape[0]:,} rows and {df2.shape[1]:,} cols.")
+```
+
+. . .  
+
+Why might you want the default to *not* be `in_place`?
+
+There is also `df.dropna()` which can apply to rows or columns with `NULL` or `np.nan` values.
+
+
+## Accessing Data by Location {.smaller}
+
+| Index | 0        | 1               | 2                     | 3                  |
+| - | -------- | --------------- | --------------------- | ------------------ |
+|   | **ID**   | **Case Number** | **Date**              | **Primary Type**   |
+| **0** | 11667185 | JC237601        | 04/20/2020 11:00:00PM | BURGLARY           |
+| **1** | 11998178 | JC532226        | 12/02/2020 10:35:00AM | DECEPTIVE PRACTICE |
+| **2** | 11852571 | JC462365        | 10/06/2020 04:50:00PM | BATTERY            |
+
+We can interact with rows and columns by *position* or *name*:
+
+```python
+df.iloc[0:2,0:2] # List selection! (':' means 'all')
+df.loc[0:2,['ID','Case Number']] # Dict selection
+```
+These actually return different results because of the index: 
+
+- `df.loc` returns the rows *labeled* 0, 1, and 2 (`[0..2]`), whereas
+- `df.iloc` returns the *range* 0..2 (`[0..2)`)!
+
+
+## Indexes {.smaller}
+
+So by default, pandas *creates* a row index index whose **values** are *0..n* and column index whose **values** are the column names. You will see this if you select a sample:
+
+```{python}
+#| echo: True
+df.sample(2)
+```
+
+The left-most column is the index. So `Name` is now the index and is *no longer* a column: notice that the number of columns has changed.
+
+```{python}
+#| echo: True
+df.set_index('Name', inplace=True)
+df.sample(2)
+```
+
+## Indexes (cont'd 1) {.smaller}
+
+So now we can pull the data for a single ward like this:
+
+```{python}
+#| echo: True
+df.loc['Jaipur (M Corp.) (Part) WARD NO.-0002',:]
+```
+
+## Indexes (cont'd 2) {.smaller}
+
+And we can pull data for a range of wards like this:
+
+```{python}
+#| echo: True
+df.loc['Jaipur (M Corp.) (Part) WARD NO.-0002':'Jaipur (M Corp.) (Part) WARD NO.-0004',
+  'TOT_P':'F_06']
+```
+
+*Mnemonic*: we used `iloc` to select rows/cols based on **integer location** and we use `loc` to select rows/cols based on **name location**.
+
+P.S. You can *reset* the data frame using `df.reset_index(inplace=True)`.
+
+
+## Saving {.smaller}
+
+Pandas can write to a [wide range of file types](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_parquet.html), including:
+
+| Command                  | Saved As...                                                  |
+| ------------------------ | ------------------------------------------------------------ |
+| `df.to_csv(<path>)`      | CSV file. But note [the options](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html) to change `sep` (default is `','`) and to suppress index output (`index=False`). |
+| `df.to_excel(<path>)`    | XLSX file. But note [the options](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_excel.html) to specify a `sheet_name`, `na_rep`, and so on, as well as to suppress the index (`index=False`). |
+| `df.to_parquet(<path>)`  | Directly usable by many languages. Requires `pyarrow` to be installed to access [the options](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_parquet.html). |
+| `df.to_latex(<path>))`   | Write a LaTeX-formatted table to a file. [Display requires booktabs](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_latex.html). Could do copy+paste with `print(df.to_latex())`. |
+| `df.to_markdown(<path>)` | Write a Markdown-formatted table to a file. [Requires tabulate](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_markdown.html). Could do copy+paste with `print(df.to_markdown())`. |
+
+In most cases compression is detected automatically (e.g. `df.to_csv('file.csv.gz')`) but you can also specify it (e.g. `df.to_csv('file.csv.gz', compression='gzip'))`.^[For instance, a bit.ly link to a Gzipped file requires `compression='gzip'` because there's nothing in the link itself to tell Pandas what to expect.]
+
+# Result!
+
+> Now you can do all of your analysis quickly in Python but send your manager a well-formatted Excel spreadsheet and pretend it took you *ages*... 
+
+## Resources {.smaller}
+
+- [Data Cleaning with Numpy and Pandas](https://realpython.com/python-data-cleaning-numpy-pandas/)
+- [Pandas dtypes](https://pbpython.com/pandas_dtypes.html)
+- [The Index Explained](https://towardsdatascience.com/pandas-index-explained-b131beaf6f7b)
+- [Using Pandas iloc](https://www.sharpsightlabs.com/blog/pandas-iloc/)
+- [A Clear Explanation of the Pandas Index](https://www.sharpsightlabs.com/blog/pandas-index/)
+- [Ufuncs and Apply](https://towardsdatascience.com/pandas-tips-and-tricks-33bcc8a40bb9)
+

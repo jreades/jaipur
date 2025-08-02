@@ -1,0 +1,199 @@
+---
+format:
+  revealjs:
+    theme: [serif, slides.scss]
+    # embed-resources: true
+author: "Jon Reades"
+title: "Data Structures"
+footer: "Data Structures • Jon Reades"
+highlight-style: github
+code-copy: true
+code-line-numbers: true
+slide-level: 2
+title-slide-attributes:
+  data-background-image: ../img/CASA_Logo_no_text.png
+  data-background-size: cover
+  data-background-position: center
+  data-background-opacity: '0.17'
+logo: ../img/CASA_logo.png
+history: false
+css: slides.css
+---
+
+# It's a very deep rabbit hole...
+
+```python
+cities = {
+  'London': [[51.5072, 0.1275], +0], 
+  'New York': [[40.7127, 74.0059], -5], 
+  'Tokyo': [[35.6833, 139.6833], +8]
+}
+```
+So:
+```python
+print(cities['London'][0]) # Prints [51.5072, 0.1275]
+```
+
+## But Compare... {.smaller}
+
+Consider how these two data structures differ:
+```python
+cities = [
+  {'name': 'London', 'loc': [51.5072, 0.1275], 'tz': +0}, 
+  {'name': 'New York', 'loc': [40.7127, 74.0059], 'tz': -5}, 
+  {'name': 'Tokyo', 'loc': [35.6833, 139.6833], 'tz': +8}
+]
+```
+Or:
+```python
+cities = {
+  'London': {'loc': [51.5072, 0.1275], 'tz': +0}, 
+  'New York': {'loc': [40.7127, 74.0059], 'tz': -5}, 
+  'Tokyo': {'loc': [35.6833, 139.6833], 'tz': +8}
+}
+```
+::: {.notes}
+Why don't you copy the code and then see how to access different fields/values? What might be the pros and cons of each? 
+:::
+
+## Implications
+
+> So we can mix and match dictionaries and lists in whatever way we need to store... 'data'. The question is then: what's the *right* way to store our data?
+
+::: {.notes}
+
+**Answer**: the way that makes the most **sense** to a human while *also* being the most **robust** for coding.
+
+:::
+
+# One more thing...
+
+---
+
+## But Compare... {.smaller}
+
+How do *these* data structures differ?
+
+:::: {.columns}
+::: {.column width="45%"}
+### Option 1
+
+```python
+ds1 = [
+  ['lat','lon','name','tz'],
+  [51.51,0.13,'London',+0],
+  [40.71,74.01,'New York',-5],
+  [35.69,139.68,'Tokyo',+8]
+]
+```
+
+:::
+::: {.column width="55%"}
+### Option 2
+```python
+ds2 = {
+  'lat': [51.51,40.71,35.69],
+  'lon': [0.13,74.01,139.68],
+  'tz':  [+0,-5,+8],
+  'name':['London','New York','Tokyo']
+}
+```
+:::
+::::
+
+::: {.notes}
+To understand why I'm asking this question, here are two example questions I'd like you to try to answer:
+
+1. What's the average latitude of these three cities?
+2. What's the time zone of Tokyo?
+:::
+
+## Thinking it Through {.smaller}
+
+Why does this work for both computers _and_ people?
+```python
+ds2 = {
+  'lat': [51.51,40.71,35.69],
+  'lon': [0.13,74.01,139.68],
+  'tz':  [+0,-5,+8],
+  'name':['London','New York','Tokyo']
+}
+```
+
+::: {.notes}
+
+We are doing away with the idea that the order of columns matters (humans don't care that a city's name is in the first column, and a city's latitude in the second). We just want to _find_ the column. But because we have a dictionary-of-lists we can ensure that the _row order_ is preserved. Let's see this in action.
+
+:::
+
+## Examples {.smaller}
+```python
+ds2 = {
+  'lat': [51.51,40.71,35.69],
+  'lon': [0.13,74.01,139.68],
+  'tz':  [+0,-5,+8],
+  'name':['London','New York','Tokyo']
+}
+
+print(ds2['name'][0]) # London
+print(ds2['lat'][0])  # 51.51
+print(ds2['tz'][0])   # 0
+```
+
+So `0` *always* returns information about London, and `2` *always* returns information about Tokyo. But it's *also* easy to ask for the latitude (`ds2['lat'][0]`) or time zone (`ds2['tz'][0]`) value once you know that `0` is London!
+
+::: {.notes}
+
+But there's *another* advantage that's not quite so obvious: for the computer because everything of type 'lat' is a float, everything of type 'tz' is an integer, and everything of type 'name' is a string, it's a lot easier to work with each column as data.
+
+:::
+
+## How is _that_ easier??? {.smaller}
+
+Remember that we can use _any_ immutable 'thing' as a key. This means...
+```python
+ds2 = {
+  'lat': [51.51,40.71,35.69],
+  'lon': [0.13,74.01,139.68],
+  'tz':  [+0,-5,+8],
+  'name':['London','New York','Tokyo']
+}
+
+city_nm = 'Tokyo'
+city_idx = ds2['name'].index(city_nm)
+
+print(f"The time zone of {city_nm} is {ds2['tz'][city_idx]}")
+```
+We can re-write this into a single line as:
+```python
+city_nm = 'New York'
+print(f"The time zone of {city_nm} is {ds2['tz'][ ds2['name'].index(city_nm)]}")
+```
+
+::: {.notes}
+
+This achieves several useful things:
+
+1. It is _fast_: faster than iterating over a list-of-lists or dictionary-of-dictionaries. In other words, there is *no* iteration at all!
+2. All data in a list is _of the same type_ so we can easily add checks to make sure that it's valid. 
+3. We can also easily calculate an average/max/min/median and so on (as we'll see later) without even having to look at any other columns!
+4. We can add more columns *instantly* and the process of finding something _is just as fast_ as it is now. And adding more rows doesn't make it much slower either!
+
+Also, notice how in these two examples we don't try to write the second example in one go: first, we work it out as a set of steps: how do we figure out what 'row' (position in the list) Tokyo is in? Now that we've got that, how do we retrieve the time zone value for Tokyo? We know that code works, now let's do _variable substitution_, as we would if we were doing maths: we can replace the `city_idx` in the time zone lookup with `ds2['name'].index('Tokyo')`.
+
+:::
+
+# This is critical! 
+
+> Once you get your head around this, then 🤯🤯🤯 because pandas and everything we do *next* will make a *lot* more sense.
+
+::: {.notes}
+
+I have many years of experience and it took me several _hours_ to get my head around why this approach is _better_ as a way of working with data.
+
+:::
+
+## Resources
+
+- [8 Data Structures Every Data Scientist Should Know](https://towardsdatascience.com/eight-data-structures-every-data-scientist-should-know-d178159df252) (by a CASA alum)
+
