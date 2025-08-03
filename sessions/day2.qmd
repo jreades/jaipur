@@ -14,14 +14,13 @@ Learning to manage and link data.
  
 Introductory session:
 
-- [Think Maps](../lectures/2.4-Mapping.qmd)
-- [Think Data](../lectures/2.1-Think_Data.qmd)
-- [Reading Tables](../lectures/2.2-Data.qmd)
-- [Reading Geographies](../lectures/2.3-Geodata.qmd)
+- [Think Maps](../lectures/2.1-Mapping.qmd)
+- [Think Data](../lectures/2.2-Think_Data.qmd)
+- [Reading Tables with Pandas](../lectures/2.3-Numeric_Data.qmd)
+- [Reading Geographies with GeoPandas](../lectures/2.4-Geodata.qmd)
  
 Applied session:
 
-- Pandas
-- Tables
-- Maps
+- [Pandas](../practicals/Exploring_Data.ipynb)
+- [Geopandas](../practicals/Exploring_Map_Data.ipynb)
  
