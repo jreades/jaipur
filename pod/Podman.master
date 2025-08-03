@@ -88,27 +88,6 @@ RUN jupyter labextension disable "@jupyterlab/apputils-extension:announcements" 
     #&& fix-permissions $CONDA_DIR \
     #&& fix-permissions /home/$NB_USER
 
-#--- Final steps
-USER $NB_UID
-
-#RUN jupyter lab --generate-config \
-#    && echo "c.MultiKernelManager.default_kernel_name='$env_nm'" >> \
-#       /home/$NB_USER/.jupyter/jupyter_lab_config.py \
-#    # https://github.com/jupyter/notebook/issues/3674#issuecomment-397212982
-#    && echo "c.KernelSpecManager.allowed_kernelspecs = {'$env_nm'}" >> \
-#        /home/$NB_USER/.jupyter/jupyter_lab_config.py \
-#    && echo "c.KernelSpecManager.ensure_native_kernel = True" >> \
-#         /home/$NB_USER/.jupyter/jupyter_lab_config.py \
-#    && echo "conda activate $env_nm" >> /home/$NB_USER/.bashrc
-
-#--- Make Proj4 Easy to Find ---#
-# Change depending on whether using base environment
-
-# RUN echo "export PATH=$env_path/bin/:$PATH" >> ~/.bashrc 
-# RUN echo "export PROJ_LIB=$PROJ_LIB" >> ~/.bashrc
-# RUN echo "export XDG_CACHE_HOME=$XDG_CACHE_HOME" >> ~/.bashrc
-
-
 #--- Install some fonts ---#
 #####################
 # To use web fonts: https://fonts.google.com/knowledge/using_type/using_web_fonts
@@ -126,8 +105,9 @@ RUN tlmgr init-usertree \
 
 #--- Add the data ---#
 COPY ./data/src/ ./data/
-COPY ./practicals/*.ipynb ./
-COPY ./practicals/*.qmd ./
+COPY ./practicals/Manage_Data.ipynb ./
+COPY ./practicals/Fonts.ipynb ./
+COPY ./practicals/Report.qmd ./
 
 #--- Configure startup params ---#
 # Switch back to user to avoid accidental container runs as root

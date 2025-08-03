@@ -25,5 +25,5 @@ Applied session:
 - [Setting up Podman](../setup/env.qmd)
 - [Running Podman](../setup/env.qmd#running)
 - If you've never programmed before:
-  - [Key Concepts](../practicals/Key_Concepts.qmd)
+  - [Key Concepts](../practicals/Key_Concepts.ipynb) (Ctrl+Click to download file)
  

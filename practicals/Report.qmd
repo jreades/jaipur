@@ -4,7 +4,8 @@ csl: ../bib/harvard-cite-them-right.csl
 title: A Project
 execute:
   echo: false
-  freeze: true
+  freeze: false
+  cache: false 
 format:
   html:
     code-copy: true
@@ -19,7 +20,7 @@ format:
     include-in-header:
       text: |
         \addtokomafont{disposition}{\rmfamily}
-    mainfont: "EB Garamond"
+    mainfont: "Hanken Grotesk"
     serifont: "EB Garamond"
     sansfont: "Roboto Flex"
     monofont: "Geist Mono"
@@ -47,7 +48,7 @@ jupyter:
     name: python3
 ---
 
-## Declaration of Authorship {.unnumbered .unlisted}
+## Introduction
 
 Some content here.
 
@@ -76,3 +77,21 @@ north_arrow(
 
 gdf.plot(color='red', ax=ax)
 ```
+
+## Another Heading
+
+```{python}
+#| echo: false
+#| output: asis
+import pandas as pd
+
+df = pd.read_parquet(Path.home() / 'work/data/clean/materials.parquet')
+
+
+# Most plastic roofing
+mward = df[df.roof_plastic_polythene==df.roof_plastic_polythene.max()].ward_no
+
+print(f"The ward with the highest concentration of plastic roofing is No. {mward.iloc[0]}.")
+```
+
+According to the documentation this should also work: `{python} mward.iloc[0] ` but it doesn't (consistently) for me.

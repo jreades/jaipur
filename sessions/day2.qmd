@@ -21,6 +21,6 @@ Introductory session:
  
 Applied session:
 
-- [Pandas](../practicals/Exploring_Data.ipynb)
-- [Geopandas](../practicals/Exploring_Map_Data.ipynb)
+- [Pandas](../practicals/Exploring_Data.ipynb) (Ctrl+Click to download file)
+- [Geopandas](../practicals/Exploring_Map_Data.ipynb) (Ctrl+Click to download file)
  

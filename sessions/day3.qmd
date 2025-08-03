@@ -20,5 +20,6 @@ Introductory session:
  
 Applied session:
 
-- Creating a report in Quarto:
+- [Linking data](../practicals/Linking_Data.ipynb)
+- Creating a report in Quarto starting from [Report.qmd](../practicals/Report.qmd)
  
