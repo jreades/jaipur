@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="..//img/favicon.ico" rel="icon">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="Jon Reades">
+  <title>CASA/MNIT Workshop – Pandas</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-81a51e870d59ca5e0d1d0bcb89d64e44.css">
+  <link rel="stylesheet" href="slides.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<meta property="og:title" content="Pandas – CASA/MNIT Workshop">
+<meta property="og:image" content="img/CASA_Logo_no_text.png">
+<meta property="og:site_name" content="Introduction to Spatial Data Science">
+<meta property="og:locale" content="en_GB">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../img/CASA_Logo_no_text.png" data-background-opacity="0.17" data-background-position="center" data-background-size="cover" class="quarto-title-block center">
+  <h1 class="title">Pandas</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Jon Reades 
+</div>
+</div>
+</div>
+
+</section>
+<section class="slide level2">
+
+
+<img data-src="./img/Pandas.jpg" class="r-stretch"><aside class="notes">
+<p>Feel like I’ve been signposting this for a <em>really</em> long time, so I hope you feel like it’s worth it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside class="notes">
+<p>Pandas is derived from ‘panel data’ as used in econometrics, but also a play on ‘Python data analysis’ (according to Wikipedia at least).</p>
+<p>Pandas is an open source, library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. It supports both numerical and time series data.</p>
+<p>We will now start to use the Pandas package, which allows us to create ‘data frame’ objects which supports a range of <strong>very</strong> useful data analysis methods.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why-pandas" class="slide level2">
+<h2>Why Pandas?</h2>
+<p>Pandas is probably (together with scipy, numpy, and sklearn) the <em>main</em> reason that Python has become popular for data science. According to ‘Learn Data Sci’ it accounts for 1% of <em>all</em> Stack Overflow question views!</p>
+<p>You will want to bookmark these:</p>
+<ul>
+<li><a href="https://pandas.pydata.org/">pandas.pydata.org</a></li>
+<li><a href="https://pandas.pydata.org/pandas-docs/stable/index.html">Pandas Docs</a></li>
+<li><a href="https://www.learndatasci.com/tutorials/python-pandas-tutorial-complete-introduction-for-beginners/">pandas tutorial for beginners</a></li>
+</ul>
+</section>
+<section id="pandas-terminology-data-frame" class="slide level2">
+<h2>Pandas Terminology (Data Frame)</h2>
+
+<img data-src="./img/pandas-df.png" class="r-stretch"></section>
+<section id="pandas-terminology-index" class="slide level2">
+<h2>Pandas Terminology (Index)</h2>
+
+<img data-src="./img/pandas-idx.png" class="r-stretch"></section>
+<section id="pandas-terminology-series" class="slide level2">
+<h2>Pandas Terminology (Series)</h2>
+
+<img data-src="./img/pandas-series.png" class="r-stretch"></section>
+<section id="pandas-terminology-slice" class="slide level2">
+<h2>Pandas Terminology (Slice)</h2>
+
+<img data-src="./img/pandas-slice.png" class="r-stretch"></section>
+<section id="using-pandas" class="slide level2 smaller">
+<h2>Using Pandas</h2>
+<p>Here’s code to read a (remote) CSV file:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd         <span class="co"># import package</span></span>
+<span id="cb1-2"><a></a>url<span class="op">=</span><span class="st">'https://orca.casa.ucl.ac.uk/~jreades/jaipur/population.csv.gz'</span></span>
+<span id="cb1-3"><a></a>df <span class="op">=</span> pd.read_csv(url)       <span class="co"># load a (remote) CSV</span></span>
+<span id="cb1-4"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df))             <span class="co"># not a 'simple' data type</span></span>
+<span id="cb1-5"><a></a><span class="bu">print</span>(df.columns.to_list()) <span class="co"># column names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="7d470dbc" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+['State', 'District', 'Subdistt', 'Town/Village', 'Ward', 'EB', 'Level', 'Name', 'TRU', 'No_HH', 'TOT_P', 'TOT_M', 'TOT_F', 'P_06', 'M_06', 'F_06', 'P_SC', 'M_SC', 'F_SC', 'P_ST', 'M_ST', 'F_ST', 'P_LIT', 'M_LIT', 'F_LIT', 'P_ILL', 'M_ILL', 'F_ILL', 'TOT_WORK_P', 'TOT_WORK_M', 'TOT_WORK_F', 'MAINWORK_P', 'MAINWORK_M', 'MAINWORK_F', 'MAIN_CL_P', 'MAIN_CL_M', 'MAIN_CL_F', 'MAIN_AL_P', 'MAIN_AL_M', 'MAIN_AL_F', 'MAIN_HH_P', 'MAIN_HH_M', 'MAIN_HH_F', 'MAIN_OT_P', 'MAIN_OT_M', 'MAIN_OT_F', 'MARGWORK_P', 'MARGWORK_M', 'MARGWORK_F', 'MARG_CL_P', 'MARG_CL_M', 'MARG_CL_F', 'MARG_AL_P', 'MARG_AL_M', 'MARG_AL_F', 'MARG_HH_P', 'MARG_HH_M', 'MARG_HH_F', 'MARG_OT_P', 'MARG_OT_M', 'MARG_OT_F', 'MARGWORK_3_6_P', 'MARGWORK_3_6_M', 'MARGWORK_3_6_F', 'MARG_CL_3_6_P', 'MARG_CL_3_6_M', 'MARG_CL_3_6_F', 'MARG_AL_3_6_P', 'MARG_AL_3_6_M', 'MARG_AL_3_6_F', 'MARG_HH_3_6_P', 'MARG_HH_3_6_M', 'MARG_HH_3_6_F', 'MARG_OT_3_6_P', 'MARG_OT_3_6_M', 'MARG_OT_3_6_F', 'MARGWORK_0_3_P', 'MARGWORK_0_3_M', 'MARGWORK_0_3_F', 'MARG_CL_0_3_P', 'MARG_CL_0_3_M', 'MARG_CL_0_3_F', 'MARG_AL_0_3_P', 'MARG_AL_0_3_M', 'MARG_AL_0_3_F', 'MARG_HH_0_3_P', 'MARG_HH_0_3_M', 'MARG_HH_0_3_F', 'MARG_OT_0_3_P', 'MARG_OT_0_3_M', 'MARG_OT_0_3_F', 'NON_WORK_P', 'NON_WORK_M', 'NON_WORK_F']</code></pre>
+</div>
+</div>
+</section>
+<section id="summarise-a-data-frame" class="slide level2">
+<h2>Summarise a Data Frame</h2>
+<div class="columns">
+<div class="column" style="font-size:small;">
+<h3 id="statistical-summarisation.">Statistical summarisation.</h3>
+<div id="fba4bff2" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">District</th>
+<th data-quarto-table-cell-role="th">Subdistt</th>
+<th data-quarto-table-cell-role="th">Town/Village</th>
+<th data-quarto-table-cell-role="th">Ward</th>
+<th data-quarto-table-cell-role="th">EB</th>
+<th data-quarto-table-cell-role="th">No_HH</th>
+<th data-quarto-table-cell-role="th">TOT_P</th>
+<th data-quarto-table-cell-role="th">TOT_M</th>
+<th data-quarto-table-cell-role="th">TOT_F</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">MARG_AL_0_3_F</th>
+<th data-quarto-table-cell-role="th">MARG_HH_0_3_P</th>
+<th data-quarto-table-cell-role="th">MARG_HH_0_3_M</th>
+<th data-quarto-table-cell-role="th">MARG_HH_0_3_F</th>
+<th data-quarto-table-cell-role="th">MARG_OT_0_3_P</th>
+<th data-quarto-table-cell-role="th">MARG_OT_0_3_M</th>
+<th data-quarto-table-cell-role="th">MARG_OT_0_3_F</th>
+<th data-quarto-table-cell-role="th">NON_WORK_P</th>
+<th data-quarto-table-cell-role="th">NON_WORK_M</th>
+<th data-quarto-table-cell-role="th">NON_WORK_F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>2561.0</td>
+<td>2561.0</td>
+<td>2561.000000</td>
+<td>2561.000000</td>
+<td>2561.000000</td>
+<td>2561.0</td>
+<td>2.561000e+03</td>
+<td>2.561000e+03</td>
+<td>2.561000e+03</td>
+<td>2.561000e+03</td>
+<td>...</td>
+<td>2561.000000</td>
+<td>2561.000000</td>
+<td>2561.000000</td>
+<td>2561.000000</td>
+<td>2561.000000</td>
+<td>2561.000000</td>
+<td>2561.000000</td>
+<td>2.561000e+03</td>
+<td>2.561000e+03</td>
+<td>2.561000e+03</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>8.0</td>
+<td>110.0</td>
+<td>543.976962</td>
+<td>169642.691527</td>
+<td>2.311207</td>
+<td>0.0</td>
+<td>2.561084e+03</td>
+<td>1.430145e+04</td>
+<td>7.489366e+03</td>
+<td>6.812087e+03</td>
+<td>...</td>
+<td>13.509567</td>
+<td>8.444748</td>
+<td>3.001171</td>
+<td>5.443577</td>
+<td>66.545881</td>
+<td>27.736431</td>
+<td>38.809449</td>
+<td>9.049970e+03</td>
+<td>3.776792e+03</td>
+<td>5.273178e+03</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>19.015389</td>
+<td>239933.613990</td>
+<td>8.628916</td>
+<td>0.0</td>
+<td>3.293322e+04</td>
+<td>1.815688e+05</td>
+<td>9.511259e+04</td>
+<td>8.645723e+04</td>
+<td>...</td>
+<td>189.164285</td>
+<td>106.745661</td>
+<td>38.197017</td>
+<td>69.027967</td>
+<td>851.119683</td>
+<td>350.089056</td>
+<td>516.492442</td>
+<td>1.158499e+05</td>
+<td>4.771246e+04</td>
+<td>6.835303e+04</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>8.0</td>
+<td>110.0</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>0.000000e+00</td>
+<td>0.000000e+00</td>
+<td>0.000000e+00</td>
+<td>0.000000e+00</td>
+<td>...</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000e+00</td>
+<td>0.000000e+00</td>
+<td>0.000000e+00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>8.0</td>
+<td>110.0</td>
+<td>542.000000</td>
+<td>79596.000000</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>9.500000e+01</td>
+<td>6.010000e+02</td>
+<td>3.100000e+02</td>
+<td>2.870000e+02</td>
+<td>...</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>3.120000e+02</td>
+<td>1.570000e+02</td>
+<td>1.520000e+02</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>8.0</td>
+<td>110.0</td>
+<td>545.000000</td>
+<td>80236.000000</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>1.700000e+02</td>
+<td>1.064000e+03</td>
+<td>5.530000e+02</td>
+<td>5.120000e+02</td>
+<td>...</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>2.000000</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td>6.050000e+02</td>
+<td>2.870000e+02</td>
+<td>3.110000e+02</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>8.0</td>
+<td>110.0</td>
+<td>548.000000</td>
+<td>80873.000000</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>3.170000e+02</td>
+<td>1.934000e+03</td>
+<td>1.010000e+03</td>
+<td>9.200000e+02</td>
+<td>...</td>
+<td>2.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>11.000000</td>
+<td>4.000000</td>
+<td>6.000000</td>
+<td>1.148000e+03</td>
+<td>5.280000e+02</td>
+<td>6.230000e+02</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>8.0</td>
+<td>110.0</td>
+<td>550.000000</td>
+<td>800523.000000</td>
+<td>77.000000</td>
+<td>0.0</td>
+<td>1.177096e+06</td>
+<td>6.626178e+06</td>
+<td>3.468507e+06</td>
+<td>3.157671e+06</td>
+<td>...</td>
+<td>6775.000000</td>
+<td>4002.000000</td>
+<td>1405.000000</td>
+<td>2597.000000</td>
+<td>32114.000000</td>
+<td>13016.000000</td>
+<td>19098.000000</td>
+<td>4.161285e+06</td>
+<td>1.753560e+06</td>
+<td>2.407725e+06</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 91 columns</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="font-size:small;">
+<h3 id="data-types-and-memory-usage.">Data types and memory usage.</h3>
+<div id="6f1b2daf" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 2561 entries, 0 to 2560
+Data columns (total 94 columns):
+ #   Column          Non-Null Count  Dtype 
+---  ------          --------------  ----- 
+ 0   State           2561 non-null   int64 
+ 1   District        2561 non-null   int64 
+ 2   Subdistt        2561 non-null   int64 
+ 3   Town/Village    2561 non-null   int64 
+ 4   Ward            2561 non-null   int64 
+ 5   EB              2561 non-null   int64 
+ 6   Level           2561 non-null   object
+ 7   Name            2561 non-null   object
+ 8   TRU             2561 non-null   object
+ 9   No_HH           2561 non-null   int64 
+ 10  TOT_P           2561 non-null   int64 
+ 11  TOT_M           2561 non-null   int64 
+ 12  TOT_F           2561 non-null   int64 
+ 13  P_06            2561 non-null   int64 
+ 14  M_06            2561 non-null   int64 
+ 15  F_06            2561 non-null   int64 
+ 16  P_SC            2561 non-null   int64 
+ 17  M_SC            2561 non-null   int64 
+ 18  F_SC            2561 non-null   int64 
+ 19  P_ST            2561 non-null   int64 
+ 20  M_ST            2561 non-null   int64 
+ 21  F_ST            2561 non-null   int64 
+ 22  P_LIT           2561 non-null   int64 
+ 23  M_LIT           2561 non-null   int64 
+ 24  F_LIT           2561 non-null   int64 
+ 25  P_ILL           2561 non-null   int64 
+ 26  M_ILL           2561 non-null   int64 
+ 27  F_ILL           2561 non-null   int64 
+ 28  TOT_WORK_P      2561 non-null   int64 
+ 29  TOT_WORK_M      2561 non-null   int64 
+ 30  TOT_WORK_F      2561 non-null   int64 
+ 31  MAINWORK_P      2561 non-null   int64 
+ 32  MAINWORK_M      2561 non-null   int64 
+ 33  MAINWORK_F      2561 non-null   int64 
+ 34  MAIN_CL_P       2561 non-null   int64 
+ 35  MAIN_CL_M       2561 non-null   int64 
+ 36  MAIN_CL_F       2561 non-null   int64 
+ 37  MAIN_AL_P       2561 non-null   int64 
+ 38  MAIN_AL_M       2561 non-null   int64 
+ 39  MAIN_AL_F       2561 non-null   int64 
+ 40  MAIN_HH_P       2561 non-null   int64 
+ 41  MAIN_HH_M       2561 non-null   int64 
+ 42  MAIN_HH_F       2561 non-null   int64 
+ 43  MAIN_OT_P       2561 non-null   int64 
+ 44  MAIN_OT_M       2561 non-null   int64 
+ 45  MAIN_OT_F       2561 non-null   int64 
+ 46  MARGWORK_P      2561 non-null   int64 
+ 47  MARGWORK_M      2561 non-null   int64 
+ 48  MARGWORK_F      2561 non-null   int64 
+ 49  MARG_CL_P       2561 non-null   int64 
+ 50  MARG_CL_M       2561 non-null   int64 
+ 51  MARG_CL_F       2561 non-null   int64 
+ 52  MARG_AL_P       2561 non-null   int64 
+ 53  MARG_AL_M       2561 non-null   int64 
+ 54  MARG_AL_F       2561 non-null   int64 
+ 55  MARG_HH_P       2561 non-null   int64 
+ 56  MARG_HH_M       2561 non-null   int64 
+ 57  MARG_HH_F       2561 non-null   int64 
+ 58  MARG_OT_P       2561 non-null   int64 
+ 59  MARG_OT_M       2561 non-null   int64 
+ 60  MARG_OT_F       2561 non-null   int64 
+ 61  MARGWORK_3_6_P  2561 non-null   int64 
+ 62  MARGWORK_3_6_M  2561 non-null   int64 
+ 63  MARGWORK_3_6_F  2561 non-null   int64 
+ 64  MARG_CL_3_6_P   2561 non-null   int64 
+ 65  MARG_CL_3_6_M   2561 non-null   int64 
+ 66  MARG_CL_3_6_F   2561 non-null   int64 
+ 67  MARG_AL_3_6_P   2561 non-null   int64 
+ 68  MARG_AL_3_6_M   2561 non-null   int64 
+ 69  MARG_AL_3_6_F   2561 non-null   int64 
+ 70  MARG_HH_3_6_P   2561 non-null   int64 
+ 71  MARG_HH_3_6_M   2561 non-null   int64 
+ 72  MARG_HH_3_6_F   2561 non-null   int64 
+ 73  MARG_OT_3_6_P   2561 non-null   int64 
+ 74  MARG_OT_3_6_M   2561 non-null   int64 
+ 75  MARG_OT_3_6_F   2561 non-null   int64 
+ 76  MARGWORK_0_3_P  2561 non-null   int64 
+ 77  MARGWORK_0_3_M  2561 non-null   int64 
+ 78  MARGWORK_0_3_F  2561 non-null   int64 
+ 79  MARG_CL_0_3_P   2561 non-null   int64 
+ 80  MARG_CL_0_3_M   2561 non-null   int64 
+ 81  MARG_CL_0_3_F   2561 non-null   int64 
+ 82  MARG_AL_0_3_P   2561 non-null   int64 
+ 83  MARG_AL_0_3_M   2561 non-null   int64 
+ 84  MARG_AL_0_3_F   2561 non-null   int64 
+ 85  MARG_HH_0_3_P   2561 non-null   int64 
+ 86  MARG_HH_0_3_M   2561 non-null   int64 
+ 87  MARG_HH_0_3_F   2561 non-null   int64 
+ 88  MARG_OT_0_3_P   2561 non-null   int64 
+ 89  MARG_OT_0_3_M   2561 non-null   int64 
+ 90  MARG_OT_0_3_F   2561 non-null   int64 
+ 91  NON_WORK_P      2561 non-null   int64 
+ 92  NON_WORK_M      2561 non-null   int64 
+ 93  NON_WORK_F      2561 non-null   int64 
+dtypes: int64(91), object(3)
+memory usage: 1.8+ MB</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="accessing-a-series" class="slide level2 smaller">
+<h2>Accessing a Series</h2>
+<div id="acef0f55" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df[<span class="st">'State'</span>]))            <span class="co">#&nbsp;type for column</span></span>
+<span id="cb6-2"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df[<span class="st">'State'</span>].array))      <span class="co"># type for values</span></span>
+<span id="cb6-3"><a></a><span class="bu">print</span>(df[<span class="st">'State'</span>].array[:<span class="dv">5</span>])        <span class="co"># first five values</span></span>
+<span id="cb6-4"><a></a><span class="bu">print</span>(<span class="ss">f"1: </span><span class="sc">{</span>df[<span class="st">'TOT_P'</span>]<span class="sc">.</span>mean()<span class="sc">}</span><span class="ss">"</span>)   <span class="co"># summarise a series/column</span></span>
+<span id="cb6-5"><a></a><span class="bu">print</span>(<span class="ss">f"2: </span><span class="sc">{</span>df<span class="sc">.</span>TOT_P<span class="sc">.</span>mean()<span class="sc">:0.2f}</span><span class="ss">"</span>) <span class="co"># if no spaces in name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.series.Series'&gt;
+&lt;class 'pandas.core.arrays.numpy_.NumpyExtensionArray'&gt;
+&lt;NumpyExtensionArray&gt;
+[8, 8, 8, 8, 8]
+Length: 5, dtype: int64
+1: 14301.45294806716
+2: 14301.45</code></pre>
+</div>
+</div>
+<aside class="notes">
+<p>Notice that we’ve got two ways of accessing a pandas Series:</p>
+<ol type="1">
+<li>The dictionary-like way: <code>df['Latitude']</code>; this works for <em>all</em> columns, always.</li>
+<li>The method-like way: <code>df.Latitude</code>; this works for ‘reading’ columns without spaces in their names.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="jupyter-formatting" class="slide level2">
+<h2>Jupyter Formatting</h2>
+<p>Pandas is also ‘Jupyter-aware’, meaning that output can displayed directly in Jupyter and Quarto in ‘fancy’ ways:</p>
+<div id="68ad180c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>df[[<span class="st">'District'</span>,<span class="st">'TOT_F'</span>,<span class="st">'F_SC'</span>,<span class="st">'NON_WORK_M'</span>]].sample(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">District</th>
+<th data-quarto-table-cell-role="th">TOT_F</th>
+<th data-quarto-table-cell-role="th">F_SC</th>
+<th data-quarto-table-cell-role="th">NON_WORK_M</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1486</td>
+<td>110</td>
+<td>670</td>
+<td>27</td>
+<td>413</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">941</td>
+<td>110</td>
+<td>2840</td>
+<td>522</td>
+<td>1629</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2041</td>
+<td>110</td>
+<td>458</td>
+<td>23</td>
+<td>296</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">220</td>
+<td>110</td>
+<td>428</td>
+<td>48</td>
+<td>244</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">720</td>
+<td>110</td>
+<td>1241</td>
+<td>351</td>
+<td>571</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="nosing-around" class="slide level2">
+<h2>Nosing Around</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>df.head(<span class="dv">3</span>)                       <span class="co"># First 3 rows of df</span></span>
+<span id="cb9-2"><a></a>df[[<span class="st">'TOT_F'</span>,<span class="st">'F_SC'</span>]].tail(<span class="dv">3</span>)     <span class="co"># Last 3 rows of selected columns</span></span>
+<span id="cb9-3"><a></a>df.sample(frac<span class="op">=</span><span class="fl">0.3</span>)              <span class="co"># A random 30% sample</span></span>
+<span id="cb9-4"><a></a>df.sample(<span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>)    <span class="co"># A random sample of 3 with a seed</span></span>
+<span id="cb9-5"><a></a>df.sample(<span class="dv">3</span>, random_state<span class="op">=</span><span class="dv">42</span>)    <span class="co"># Same sample!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote>
+<p>Head and tail are used on the <a href="https://jreades.github.io/fsds/lectures/3.4-The_Command_Line.html">Command Line</a>. Random sampling with seeds is covered in my talk on <a href="https://jreades.github.io/fsds/lectures/6.2-Randomness.html">Randomness</a>. We’ve even got <a href="https://jreades.github.io/fsds/lectures/3.2-LOLs.html">Lists of Lists</a>, which is a really basic data structure!</p>
+</blockquote>
+</section>
+<section id="data-frames-vs-series" class="slide level2">
+<h2>Data Frames vs Series</h2>
+<p>Pandas operates on two principles:</p>
+<ol type="1">
+<li>Any operation on a Data Frame <em>returns</em> a Data Frame.</li>
+<li>Any operation on a Series <em>returns</em> a Series.</li>
+</ol>
+<aside class="notes">
+<p>We’ll see in a moment why this is useful!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="shallow-copies" class="slide level2">
+<h2>‘Shallow’ Copies</h2>
+<p>More subtly, operations on a Series or Data Frame return a <em>shallow copy</em>, which is like a ‘view’ in a database…</p>
+<ol type="1">
+<li>The original is unchanged <em>unless</em> you specify <code>inplace=True</code> (where supported).</li>
+<li>Attempts to <em>change</em> a subset of the data frame will often trigger a <code>SettingWithCopyWarning</code> warning.</li>
+</ol>
+<p>If you need a full copy then use the <code>copy()</code> method (e.g.&nbsp;<code>df.copy()</code> or <code>df.Series.copy()</code>).</p>
+
+<aside><div>
+<p><a href="https://www.dataquest.io/blog/settingwithcopywarning/">DataQuest</a> has a nice overview of how <code>SettingWithCopyWarning</code> is triggered and what to do about it.</p>
+</div></aside></section>
+<section id="putting-these-ideas-together" class="slide level2 smaller">
+<h2>Putting These Ideas Together</h2>
+<div id="94d1fa2f" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Returns a series but not a column</span></span>
+<span id="cb10-2"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df.TOT_F <span class="op">-</span> <span class="dv">1</span>))</span>
+<span id="cb10-3"><a></a><span class="co"># Saves returned series as a new column</span></span>
+<span id="cb10-4"><a></a>df[<span class="st">'smaller'</span>] <span class="op">=</span> df.TOT_F <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb10-5"><a></a><span class="bu">print</span>(df.smaller.head(<span class="dv">3</span>))</span>
+<span id="cb10-6"><a></a><span class="co"># Returns a new data frame w/o the dropped column </span></span>
+<span id="cb10-7"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df.drop(columns<span class="op">=</span>[<span class="st">'smaller'</span>])))</span>
+<span id="cb10-8"><a></a><span class="co"># Modifies df directly to drop the column</span></span>
+<span id="cb10-9"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df.drop(columns<span class="op">=</span>[<span class="st">'smaller'</span>], inplace<span class="op">=</span><span class="va">True</span>)))</span>
+<span id="cb10-10"><a></a><span class="co"># Try to modify a view of df (triggers warning)</span></span>
+<span id="cb10-11"><a></a>df[df.TOT_F<span class="op">&gt;</span><span class="dv">5000</span>].TOT_F <span class="op">=</span> <span class="dv">5000</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.series.Series'&gt;
+0    3157670
+1    1511406
+2    1646263
+Name: smaller, dtype: int64
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+&lt;class 'NoneType'&gt;</code></pre>
+</div>
+</div>
+</section>
+<section>
+<section id="what-can-we-do" class="title-slide slide level1 center">
+<h1>What Can We Do?</h1>
+
+</section>
+<section id="chaining" class="slide level2 smaller">
+<h2>Chaining</h2>
+<p>Operations on a Data Frame <strong>return a DataFrame</strong> and operations on a Series <strong>return a Series</strong>, allowing us to ‘chain’ steps together:</p>
+<div id="a881b666" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>df.sort_values(by<span class="op">=</span>[<span class="st">'TOT_P'</span>,<span class="st">'TOT_M'</span>], ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">20</span>).sample(frac<span class="op">=</span><span class="fl">0.5</span>).median(numeric_only<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>State                 8.0
+District            110.0
+Subdistt            542.0
+Town/Village          0.0
+Ward                  0.0
+                   ...   
+MARG_OT_0_3_M       907.5
+MARG_OT_0_3_F      1932.5
+NON_WORK_P       241775.5
+NON_WORK_M       112422.0
+NON_WORK_F       129353.5
+Length: 91, dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="selection" class="slide level2 smaller">
+<h2>Selection</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Returns a selection (Boolean series)</span></span>
+<span id="cb14-2"><a></a>df[<span class="st">'TOT_P'</span>]<span class="op">&gt;</span><span class="dv">5000</span></span>
+<span id="cb14-3"><a></a><span class="co"># Data frame of records matching selection</span></span>
+<span id="cb14-4"><a></a>df[ df[<span class="st">'TOT_P'</span>]<span class="op">&gt;</span><span class="dv">5000</span> ]</span>
+<span id="cb14-5"><a></a></span>
+<span id="cb14-6"><a></a><span class="co"># Calculations on a slice (returns mean centroid!)</span></span>
+<span id="cb14-7"><a></a>df[df[<span class="st">'TOT_P'</span>]<span class="op">&gt;</span><span class="dv">5000</span>][[<span class="st">'TOT_M'</span>,<span class="st">'TOT_F'</span>]].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can link several conditions using <code>&amp;</code> (and) and <code>|</code> (or).</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Two conditions with a bit-wise AND</span></span>
+<span id="cb15-2"><a></a>df[</span>
+<span id="cb15-3"><a></a>  (df[<span class="st">'TOT_P'</span>]<span class="op">&gt;</span><span class="dv">5000</span>) <span class="op">&amp;</span> (df[<span class="st">'TOT_F'</span>]<span class="op">&gt;</span><span class="dv">5000</span>)</span>
+<span id="cb15-4"><a></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="now-we-can-automate-data-anlysis" class="title-slide slide level1 center">
+<h1>Now we can automate… data anlysis!</h1>
+
+</section>
+<section id="dealing-with-types" class="slide level2 smaller">
+<h2>Dealing with Types</h2>
+<p>A Data Series can <em>only</em> be of one type:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 27%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pandas Dtype</th>
+<th>Python Type</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>object</code></td>
+<td><code>str</code> or mixed</td>
+<td>Text or mixed columns (including arrays)</td>
+</tr>
+<tr class="even">
+<td><code>int64</code></td>
+<td><code>int</code></td>
+<td>Integer columns</td>
+</tr>
+<tr class="odd">
+<td><code>float64</code></td>
+<td><code>float</code></td>
+<td>Floating point columns</td>
+</tr>
+<tr class="even">
+<td><code>bool</code></td>
+<td><code>bool</code></td>
+<td>True/False columns</td>
+</tr>
+<tr class="odd">
+<td><code>datetime64</code></td>
+<td>N/A (<code>datetime</code>)</td>
+<td>Date and time columns</td>
+</tr>
+<tr class="even">
+<td><code>timedelta[ns]</code></td>
+<td>N/A (<code>datetime</code>)</td>
+<td>Datetime difference columns</td>
+</tr>
+<tr class="odd">
+<td><code>category</code></td>
+<td>N/A (<code>set</code>)</td>
+<td>Categorical columns</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="changing-the-type" class="slide level2 smaller">
+<h2>Changing the Type</h2>
+<div id="b09b1440" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="bu">print</span>(<span class="ss">f"Unique values: </span><span class="sc">{</span>df[<span class="st">'TRU'</span>]<span class="sc">.</span>unique()<span class="sc">}</span><span class="ss">"</span>)   <span class="co"># Find unique values</span></span>
+<span id="cb16-2"><a></a><span class="bu">print</span>(<span class="ss">f"Data type is: </span><span class="sc">{</span>df[<span class="st">'TRU'</span>]<span class="sc">.</span>dtype<span class="sc">.</span>name<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># Confirm is 'object'</span></span>
+<span id="cb16-3"><a></a>df[<span class="st">'TRU'</span>] <span class="op">=</span> df[<span class="st">'TRU'</span>].astype(<span class="st">'category'</span>)</span>
+<span id="cb16-4"><a></a><span class="bu">print</span>(<span class="ss">f"Data type now: </span><span class="sc">{</span>df[<span class="st">'TRU'</span>]<span class="sc">.</span>dtype<span class="sc">.</span>name<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Confirm is 'category'</span></span>
+<span id="cb16-5"><a></a><span class="bu">print</span>(df[<span class="st">'TRU'</span>].describe()) <span class="co"># Category column info</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Unique values: ['Total' 'Rural' 'Urban']
+Data type is: object
+Data type now: category
+count      2561
+unique        3
+top       Rural
+freq       2194
+Name: TRU, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="datetime-data" class="slide level2 smaller">
+<h2>Datetime Data</h2>
+<p>What do we do here?</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="bu">print</span>(df.Date.dtype.name)</span>
+<span id="cb18-2"><a></a><span class="co"># object</span></span>
+<span id="cb18-3"><a></a>df.Date.to_list()[:<span class="dv">3</span>]</span>
+<span id="cb18-4"><a></a><span class="co"># ['04/20/2019 11:00:00 PM', '12/02/2019 10:35:00 AM', '10/06/2019 04:50:00 PM']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This shows that <code>Date</code> is currently a string of dates+times.</p>
+<p>Pandas handles date and times using a <code>datetime</code> type that also works as an index (more on these later):</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>df[<span class="st">'dt'</span>] <span class="op">=</span> pd.to_datetime(df.Date.array, </span>
+<span id="cb19-2"><a></a>              <span class="bu">format</span><span class="op">=</span><span class="st">"%m/</span><span class="sc">%d</span><span class="st">/%Y %H:%M:%S %p"</span>)</span>
+<span id="cb19-3"><a></a><span class="bu">print</span>(df.dt.dtype.name)</span>
+<span id="cb19-4"><a></a><span class="co"># datetime64[ns]</span></span>
+<span id="cb19-5"><a></a>df.dt.to_list()[:<span class="dv">3</span>]</span>
+<span id="cb19-6"><a></a><span class="co"># [Timestamp('2019-04-20 11:00:00'), Timestamp('2019-12-02 10:35:00'), Timestamp('2019-10-06 04:50:00')]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These follow <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">the formatting conventions</a> of <code>strftime</code> (string format time) for conversion.</p>
+</section>
+<section id="datetime-formats" class="slide level2 smaller">
+<h2>Datetime Formats</h2>
+<p>Examples of <code>strftime</code> conventions include:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Format</th>
+<th style="text-align: left;">Applies To</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">%d</td>
+<td style="text-align: left;">2-digit day</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%m</td>
+<td style="text-align: left;">2-digit month</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%y</td>
+<td style="text-align: left;">2-digit year</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%Y</td>
+<td style="text-align: left;">4-digit year</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%p</td>
+<td style="text-align: left;">AM/PM</td>
+</tr>
+</tbody>
+</table>
+<p>So that is why:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>pd.to_datetime(df.Date.array, <span class="bu">format</span><span class="op">=</span><span class="st">"%m/</span><span class="sc">%d</span><span class="st">/%Y %H:%M:%S %p"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note the other things happening here:</p>
+<ol type="1">
+<li><code>pd.to_datetime(...)</code> is <em>not</em> a method, it’s a function from the <code>pandas</code> package.</li>
+<li><code>df.Date.array</code> (and <code>df.Date.to_numpy()</code> and <code>df.Data.tolist()</code>) gives access to the <em>data</em> directly, whereas <code>df.Date</code> gives access to the <em>Series</em>.</li>
+</ol>
+</section>
+<section id="tidying-up" class="slide level2">
+<h2>Tidying Up</h2>
+<p>This is one way, there are many options and subtleties…</p>
+<div id="fc521023" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="co"># Fix categories</span></span>
+<span id="cb21-2"><a></a>mapping <span class="op">=</span> {}</span>
+<span id="cb21-3"><a></a></span>
+<span id="cb21-4"><a></a><span class="co"># df['Primary Type'].unique().to_list() also works</span></span>
+<span id="cb21-5"><a></a><span class="cf">for</span> x <span class="kw">in</span> df[<span class="st">'TRU'</span>].cat.categories.to_list():</span>
+<span id="cb21-6"><a></a>  mapping[x]<span class="op">=</span>x.lower()</span>
+<span id="cb21-7"><a></a></span>
+<span id="cb21-8"><a></a><span class="co"># And update</span></span>
+<span id="cb21-9"><a></a>df[<span class="st">'TRU'</span>] <span class="op">=</span> df[<span class="st">'TRU'</span>].cat.rename_categories(mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>How would you work out what this code does? <sup>1</sup></p>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>There are at least two ways: 1) print out <code>mapping</code>; 2) before running the code comment out the ‘update’ line and print out <code>x</code> and <code>x.title()</code>; 3) search for <code>title python</code>.</p></li></ol></aside></section>
+<section id="dealing-with-money" class="slide level2">
+<h2>Dealing with Money</h2>
+<p>You may encounter currency treated as a string, instead of a number. Normally, this is because of the way that the data is formatted (e.g.&nbsp;‘₹1.5 lakh’) To deal with pricing information treated as a string:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="co"># You would need a function to deal with lakh and crore</span></span>
+<span id="cb22-2"><a></a>df[<span class="st">'price'</span>].<span class="bu">str</span>.replace(<span class="st">'₹'</span>,<span class="st">''</span>).<span class="bu">str</span>.<span class="op">\</span></span>
+<span id="cb22-3"><a></a>            replace(<span class="st">','</span>,<span class="st">''</span>).astype(<span class="bu">float</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Many more examples accessible via Google!</p>
+<aside class="notes">
+<p>Another thing you might notice here: adding <code>.cat</code> allows us to access <em>category methods</em> for the Series; adding <code>.str</code> allows us to access <em>string methods</em> for the Series.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="dropping-rows-and-columns" class="slide level2">
+<h2>Dropping Rows and Columns</h2>
+<p>There are multiple ways to drop ‘stuff’:</p>
+<div id="cc90a4e9" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>df2 <span class="op">=</span> df.copy()</span>
+<span id="cb23-2"><a></a><span class="bu">print</span>(<span class="ss">f"The data frame has </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">:,}</span><span class="ss"> cols."</span>)</span>
+<span id="cb23-3"><a></a>df2.drop(index<span class="op">=</span><span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">1000</span>), inplace<span class="op">=</span><span class="va">True</span>) <span class="co"># Row 'numbers' or index values</span></span>
+<span id="cb23-4"><a></a><span class="bu">print</span>(<span class="ss">f"The data frame has </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">:,}</span><span class="ss"> cols."</span>)</span>
+<span id="cb23-5"><a></a>df2.drop(columns<span class="op">=</span>[<span class="st">'TOT_P'</span>], inplace<span class="op">=</span><span class="va">True</span>)   <span class="co"># Column name(s)</span></span>
+<span id="cb23-6"><a></a><span class="bu">print</span>(<span class="ss">f"The data frame has </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">:,}</span><span class="ss"> cols."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The data frame has 2,561 rows and 94 cols.
+The data frame has 1,566 rows and 94 cols.
+The data frame has 1,566 rows and 93 cols.</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Why might you want the default to <em>not</em> be <code>in_place</code>?</p>
+<p>There is also <code>df.dropna()</code> which can apply to rows or columns with <code>NULL</code> or <code>np.nan</code> values.</p>
+</div>
+</section>
+<section id="accessing-data-by-location" class="slide level2 smaller">
+<h2>Accessing Data by Location</h2>
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 12%">
+<col style="width: 23%">
+<col style="width: 33%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><strong>ID</strong></td>
+<td><strong>Case Number</strong></td>
+<td><strong>Date</strong></td>
+<td><strong>Primary Type</strong></td>
+</tr>
+<tr class="even">
+<td><strong>0</strong></td>
+<td>11667185</td>
+<td>JC237601</td>
+<td>04/20/2020 11:00:00PM</td>
+<td>BURGLARY</td>
+</tr>
+<tr class="odd">
+<td><strong>1</strong></td>
+<td>11998178</td>
+<td>JC532226</td>
+<td>12/02/2020 10:35:00AM</td>
+<td>DECEPTIVE PRACTICE</td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td>11852571</td>
+<td>JC462365</td>
+<td>10/06/2020 04:50:00PM</td>
+<td>BATTERY</td>
+</tr>
+</tbody>
+</table>
+<p>We can interact with rows and columns by <em>position</em> or <em>name</em>:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>df.iloc[<span class="dv">0</span>:<span class="dv">2</span>,<span class="dv">0</span>:<span class="dv">2</span>] <span class="co">#&nbsp;List selection! (':' means 'all')</span></span>
+<span id="cb25-2"><a></a>df.loc[<span class="dv">0</span>:<span class="dv">2</span>,[<span class="st">'ID'</span>,<span class="st">'Case Number'</span>]] <span class="co"># Dict selection</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These actually return different results because of the index:</p>
+<ul>
+<li><code>df.loc</code> returns the rows <em>labeled</em> 0, 1, and 2 (<code>[0..2]</code>), whereas</li>
+<li><code>df.iloc</code> returns the <em>range</em> 0..2 (<code>[0..2)</code>)!</li>
+</ul>
+</section>
+<section id="indexes" class="slide level2 smaller">
+<h2>Indexes</h2>
+<p>So by default, pandas <em>creates</em> a row index index whose <strong>values</strong> are <em>0..n</em> and column index whose <strong>values</strong> are the column names. You will see this if you select a sample:</p>
+<div id="b032edc7" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>df.sample(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">District</th>
+<th data-quarto-table-cell-role="th">Subdistt</th>
+<th data-quarto-table-cell-role="th">Town/Village</th>
+<th data-quarto-table-cell-role="th">Ward</th>
+<th data-quarto-table-cell-role="th">EB</th>
+<th data-quarto-table-cell-role="th">Level</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">TRU</th>
+<th data-quarto-table-cell-role="th">No_HH</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">MARG_AL_0_3_F</th>
+<th data-quarto-table-cell-role="th">MARG_HH_0_3_P</th>
+<th data-quarto-table-cell-role="th">MARG_HH_0_3_M</th>
+<th data-quarto-table-cell-role="th">MARG_HH_0_3_F</th>
+<th data-quarto-table-cell-role="th">MARG_OT_0_3_P</th>
+<th data-quarto-table-cell-role="th">MARG_OT_0_3_M</th>
+<th data-quarto-table-cell-role="th">MARG_OT_0_3_F</th>
+<th data-quarto-table-cell-role="th">NON_WORK_P</th>
+<th data-quarto-table-cell-role="th">NON_WORK_M</th>
+<th data-quarto-table-cell-role="th">NON_WORK_F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2516</td>
+<td>8</td>
+<td>110</td>
+<td>550</td>
+<td>81169</td>
+<td>0</td>
+<td>0</td>
+<td>VILLAGE</td>
+<td>Vishanpura</td>
+<td>rural</td>
+<td>69</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>207</td>
+<td>102</td>
+<td>105</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">405</td>
+<td>8</td>
+<td>110</td>
+<td>540</td>
+<td>79341</td>
+<td>0</td>
+<td>0</td>
+<td>VILLAGE</td>
+<td>Surana</td>
+<td>rural</td>
+<td>518</td>
+<td>...</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td>1</td>
+<td>3</td>
+<td>2039</td>
+<td>911</td>
+<td>1128</td>
+</tr>
+</tbody>
+</table>
+
+<p>2 rows × 94 columns</p>
+</div>
+</div>
+</div>
+<p>The left-most column is the index. So <code>Name</code> is now the index and is <em>no longer</em> a column: notice that the number of columns has changed.</p>
+<div id="92d20f02" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>df.set_index(<span class="st">'Name'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-2"><a></a>df.sample(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">District</th>
+<th data-quarto-table-cell-role="th">Subdistt</th>
+<th data-quarto-table-cell-role="th">Town/Village</th>
+<th data-quarto-table-cell-role="th">Ward</th>
+<th data-quarto-table-cell-role="th">EB</th>
+<th data-quarto-table-cell-role="th">Level</th>
+<th data-quarto-table-cell-role="th">TRU</th>
+<th data-quarto-table-cell-role="th">No_HH</th>
+<th data-quarto-table-cell-role="th">TOT_P</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">MARG_AL_0_3_F</th>
+<th data-quarto-table-cell-role="th">MARG_HH_0_3_P</th>
+<th data-quarto-table-cell-role="th">MARG_HH_0_3_M</th>
+<th data-quarto-table-cell-role="th">MARG_HH_0_3_F</th>
+<th data-quarto-table-cell-role="th">MARG_OT_0_3_P</th>
+<th data-quarto-table-cell-role="th">MARG_OT_0_3_M</th>
+<th data-quarto-table-cell-role="th">MARG_OT_0_3_F</th>
+<th data-quarto-table-cell-role="th">NON_WORK_P</th>
+<th data-quarto-table-cell-role="th">NON_WORK_M</th>
+<th data-quarto-table-cell-role="th">NON_WORK_F</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Chaturbhuj</td>
+<td>8</td>
+<td>110</td>
+<td>538</td>
+<td>79085</td>
+<td>0</td>
+<td>0</td>
+<td>VILLAGE</td>
+<td>rural</td>
+<td>160</td>
+<td>921</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>504</td>
+<td>271</td>
+<td>233</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Mansharampura</td>
+<td>8</td>
+<td>110</td>
+<td>546</td>
+<td>80196</td>
+<td>0</td>
+<td>0</td>
+<td>VILLAGE</td>
+<td>rural</td>
+<td>258</td>
+<td>1718</td>
+<td>...</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>1085</td>
+<td>477</td>
+<td>608</td>
+</tr>
+</tbody>
+</table>
+
+<p>2 rows × 93 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="indexes-contd-1" class="slide level2 smaller">
+<h2>Indexes (cont’d 1)</h2>
+<p>So now we can pull the data for a single ward like this:</p>
+<div id="58a8e6cf" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>df.loc[<span class="st">'Jaipur (M Corp.) (Part) WARD NO.-0002'</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>State                 8
+District            110
+Subdistt            546
+Town/Village     800522
+Ward                  2
+                  ...  
+MARG_OT_0_3_M        64
+MARG_OT_0_3_F        59
+NON_WORK_P        45438
+NON_WORK_M        17962
+NON_WORK_F        27476
+Name: Jaipur (M Corp.) (Part) WARD NO.-0002, Length: 93, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="indexes-contd-2" class="slide level2 smaller">
+<h2>Indexes (cont’d 2)</h2>
+<p>And we can pull data for a range of wards like this:</p>
+<div id="89ba7484" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>df.loc[<span class="st">'Jaipur (M Corp.) (Part) WARD NO.-0002'</span>:<span class="st">'Jaipur (M Corp.) (Part) WARD NO.-0004'</span>,</span>
+<span id="cb30-2"><a></a>  <span class="st">'TOT_P'</span>:<span class="st">'F_06'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="56">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">TOT_P</th>
+<th data-quarto-table-cell-role="th">TOT_M</th>
+<th data-quarto-table-cell-role="th">TOT_F</th>
+<th data-quarto-table-cell-role="th">P_06</th>
+<th data-quarto-table-cell-role="th">M_06</th>
+<th data-quarto-table-cell-role="th">F_06</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Jaipur (M Corp.) (Part) WARD NO.-0002</td>
+<td>65260</td>
+<td>34942</td>
+<td>30318</td>
+<td>8296</td>
+<td>4597</td>
+<td>3699</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Jaipur (M Corp.) (Part) WARD NO.-0003</td>
+<td>39281</td>
+<td>21036</td>
+<td>18245</td>
+<td>4944</td>
+<td>2661</td>
+<td>2283</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Jaipur (M Corp.) (Part) WARD NO.-0004</td>
+<td>40485</td>
+<td>21147</td>
+<td>19338</td>
+<td>5086</td>
+<td>2771</td>
+<td>2315</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><em>Mnemonic</em>: we used <code>iloc</code> to select rows/cols based on <strong>integer location</strong> and we use <code>loc</code> to select rows/cols based on <strong>name location</strong>.</p>
+<p>P.S. You can <em>reset</em> the data frame using <code>df.reset_index(inplace=True)</code>.</p>
+</section>
+<section id="saving" class="slide level2 smaller">
+<h2>Saving</h2>
+<p>Pandas can write to a <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_parquet.html">wide range of file types</a>, including:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Saved As…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>df.to_csv(&lt;path&gt;)</code></td>
+<td>CSV file. But note <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html">the options</a> to change <code>sep</code> (default is <code>','</code>) and to suppress index output (<code>index=False</code>).</td>
+</tr>
+<tr class="even">
+<td><code>df.to_excel(&lt;path&gt;)</code></td>
+<td>XLSX file. But note <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_excel.html">the options</a> to specify a <code>sheet_name</code>, <code>na_rep</code>, and so on, as well as to suppress the index (<code>index=False</code>).</td>
+</tr>
+<tr class="odd">
+<td><code>df.to_parquet(&lt;path&gt;)</code></td>
+<td>Directly usable by many languages. Requires <code>pyarrow</code> to be installed to access <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_parquet.html">the options</a>.</td>
+</tr>
+<tr class="even">
+<td><code>df.to_latex(&lt;path&gt;))</code></td>
+<td>Write a LaTeX-formatted table to a file. <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_latex.html">Display requires booktabs</a>. Could do copy+paste with <code>print(df.to_latex())</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>df.to_markdown(&lt;path&gt;)</code></td>
+<td>Write a Markdown-formatted table to a file. <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_markdown.html">Requires tabulate</a>. Could do copy+paste with <code>print(df.to_markdown())</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>In most cases compression is detected automatically (e.g.&nbsp;<code>df.to_csv('file.csv.gz')</code>) but you can also specify it (e.g.&nbsp;<code>df.to_csv('file.csv.gz', compression='gzip'))</code>.<sup>1</sup></p>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>For instance, a bit.ly link to a Gzipped file requires <code>compression='gzip'</code> because there’s nothing in the link itself to tell Pandas what to expect.</p></li></ol></aside></section></section>
+<section>
+<section id="result" class="title-slide slide level1 center">
+<h1>Result!</h1>
+<blockquote>
+<p>Now you can do all of your analysis quickly in Python but send your manager a well-formatted Excel spreadsheet and pretend it took you <em>ages</em>…</p>
+</blockquote>
+</section>
+<section id="resources" class="slide level2 smaller">
+<h2>Resources</h2>
+<ul>
+<li><a href="https://realpython.com/python-data-cleaning-numpy-pandas/">Data Cleaning with Numpy and Pandas</a></li>
+<li><a href="https://pbpython.com/pandas_dtypes.html">Pandas dtypes</a></li>
+<li><a href="https://towardsdatascience.com/pandas-index-explained-b131beaf6f7b">The Index Explained</a></li>
+<li><a href="https://www.sharpsightlabs.com/blog/pandas-iloc/">Using Pandas iloc</a></li>
+<li><a href="https://www.sharpsightlabs.com/blog/pandas-index/">A Clear Explanation of the Pandas Index</a></li>
+<li><a href="https://towardsdatascience.com/pandas-tips-and-tricks-33bcc8a40bb9">Ufuncs and Apply</a></li>
+</ul>
+
+
+</section></section>
+
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../img/CASA_logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Pandas • Jon Reades</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

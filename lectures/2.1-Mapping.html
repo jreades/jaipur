@@ -7,13 +7,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Jon Reades">
-  <title>CASA/MNIT Workshop – Our Tools</title>
+  <title>CASA/MNIT Workshop – Think Maps</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,27 +29,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-81a51e870d59ca5e0d1d0bcb89d64e44.css">
   <link rel="stylesheet" href="slides.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -145,7 +123,7 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Our Tools – CASA/MNIT Workshop">
+<meta property="og:title" content="Think Maps – CASA/MNIT Workshop">
 <meta property="og:image" content="img/CASA_Logo_no_text.png">
 <meta property="og:site_name" content="Introduction to Spatial Data Science">
 <meta property="og:locale" content="en_GB">
@@ -155,7 +133,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="../img/CASA_Logo_no_text.png" data-background-opacity="0.17" data-background-position="center" data-background-size="cover" class="quarto-title-block center">
-  <h1 class="title">Our Tools</h1>
+  <h1 class="title">Think Maps</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -166,483 +144,219 @@ Jon Reades
 </div>
 
 </section>
-<section id="literate-programming" class="slide level2">
-<h2>Literate Programming</h2>
-<p>Ideally, we want to ‘do’ data science in ways that are ‘<a href="https://en.wikipedia.org/wiki/Literate_programming">literate</a>’.</p>
-<blockquote>
-<p>The best programs are written so that computing machines can perform them quickly and so that human beings can understand them clearly. A programmer is ideally an essayist who works with traditional aesthetic and literary forms as well as mathematical concepts, to communicate the way that an algorithm works and to convince a reader that the results will be correct. ~ <span class="citation" data-cites="knuth:1996">Knuth (<a href="#/references" role="doc-biblioref" onclick="">1996</a>)</span></p>
-</blockquote>
-</section>
-<section id="key-tenets" class="slide level2">
-<h2>Key Tenets</h2>
-<p>What we want:</p>
-<ol type="1">
-<li><strong>Weaving</strong>: the code and its documentation are together.</li>
-<li><strong>Tangling</strong>: the code can be run directly.</li>
-</ol>
-<p>In an ideal world, these are the <em>same</em> file…</p>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<h1 style="margin-top: 275px;">
-But <strong>why</strong> would we want this?
-</h1>
-</section>
-<section id="and-how-do-we-do-this" class="slide level2">
-<h2>And <strong>how</strong> do we do this?</h2>
-<p><em>Hint</em>: it’s more than just one thing…</p>
-<div>
-<ol type="1">
-<li class="fragment"><strong>JupyterLab</strong>: how we do ‘data science’.</li>
-<li class="fragment"><strong>Virtualisation</strong>: separate your computer from your coding environment.</li>
-<li class="fragment"><strong>Version Control</strong>: manage your code, your data, and even your reports.</li>
-<li class="fragment"><strong>Markup</strong>: focus on the <em>structure</em> while you write!</li>
-<li class="fragment"><strong>Render</strong>: creating documents and web pages from code and markup.</li>
-</ol>
-</div>
-</section>
-<section>
-<section id="jupyterlab-notebooks" class="title-slide slide level1 center">
-<h1>Jupyter(Lab) &amp; Notebooks</h1>
-<blockquote>
-<p>Browser + JupyterLab + Markup == Tangled, Woven code in (m)any languages</p>
-</blockquote>
-<aside class="notes">
-<p><em>Note</em>: you can set equations too!</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="why-use-jupyterlab" class="slide level2">
-<h2>Why Use JupyterLab?</h2>
-<p>Coding in JupyterLab has a number of advantages over ‘point-and-click’:</p>
-<div>
-<ol type="1">
-<li class="fragment">Coding requires our instructions to be unambiguous and logical.<sup>1</sup></li>
-<li class="fragment">Computers are infinitely patient so we can re-run as many times as necessary to get it ‘right’.</li>
-<li class="fragment">There is nothing to install (runs in your web browser).</li>
-<li class="fragment">You can run code from anywhere (runs in your web browser).</li>
-</ol>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>This does not guarantee that they’ll be <em>correct</em>.</p></li></ol></aside></section>
-<section id="change-of-view" class="slide level2">
-<h2>Change of View</h2>
-<blockquote>
-<p>If we can’t explain it simply enough that a computer can do it, perhaps we don’t actually understand it?</p>
-</blockquote>
-<div>
-<ul>
-<li class="fragment">Together with the other tools in this talk, you can largely stop worrying about <em>where</em> code is running.</li>
-<li class="fragment">It’s easy to forget how you obtained a particular result when you are clicking around inside software like ArcGIS; this is <em>much</em> harder when using code.</li>
-<li class="fragment">In analysing the problem so that we can submit it to the computer we often develop a better understanding of the problem ourselves!</li>
-<li class="fragment">Why spend your time doing the boring stuff???</li>
-</ul>
-</div>
-<aside class="notes">
-<p>Conversely, perhaps the <em>real</em> value of humans over AI lies in what <em>cannot</em> be explained to the computer.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="jupyterlab-python" class="slide level2">
-<h2>JupyterLab + Python</h2>
-
-<img data-src="./img/Notebook.png" class="r-stretch"></section></section>
-<section>
-<section id="virtualisation" class="title-slide slide level1 center">
-<h1>Virtualisation</h1>
-<blockquote>
-<p>… a technology that enables the creation of virtual environments from a single physical machine, allowing for more efficient use of resources by distributing them across computing environments.</p>
-<p>Source: <span class="citation" data-cites="susnjara:2025">Susnjara and Smalley (<a href="#/references" role="doc-biblioref" onclick="">2025</a>)</span></p>
-</blockquote>
-</section>
-<section id="two-basic-flavours" class="slide level2">
-<h2>Two Basic ‘Flavours’</h2>
-<p>Both do the <em>same</em> thing: separate the platform from the hardware, but they do this in defferent ways for different reasons.</p>
-<ul>
-<li>A ‘full’ Virtual Machine (VM) includes the Operating System and behaves like a <em>separate computer</em> even though it may share hardware with other VMs.</li>
-<li>A ‘container’ is a ‘lightweight’ VM running only the application and its dependencies; everything else is managed by the host Operating System so the resulting ‘image’ is small and easy to distribute.</li>
-</ul>
-<p>Short version: if you have to install an Operating System you are using a full VM; otherwise you are probably using a containerisation tool/</p>
-<p>Many things, including storage, networks, CPUs, GPUs, etc. can be virtualised.</p>
-</section>
-<section id="why-use-containers" class="slide level2">
-<h2>Why Use Containers?</h2>
-<p>We gain quite a few benefits:</p>
-<ol type="1">
-<li>Easier installation and ‘everyone’ has the same versions of the code.</li>
-<li>Each container is isolated and read-only.</li>
-<li>Easy to tidy up when you’re done.</li>
-<li>Easy to scale up and scale down, or to link them together via ‘microservices’.</li>
-<li>Used in the ‘real world’ by <em>many</em> companies (JP Morgan Chase, GSK, PayPal, Twitter, Spotify, Uber…).</li>
-</ol>
-</section>
-<section id="change-of-view-1" class="slide level2">
-<h2>Change of View</h2>
-<blockquote>
-<p>Rather than having one environment for <em>every</em> project, we have one environment for <em>each</em> project.</p>
-</blockquote>
-<ul>
-<li>‘Computing contexts’ are disposable, while data and code are persistent when I need them.</li>
-<li>I don’t care where my code and data are, so long as they’re accessible when I need them.</li>
-<li>I don’t care if containers are created or destroyed, so long as they’re available when I need them.</li>
-<li>I rebuild or update the computing context when I am ready to do so.</li>
-</ul>
-</section>
-<section id="podman" class="slide level2">
-<h2>Podman</h2>
-
-<img data-src="../img/Podman-logo.png" data-syle="width:90%;" class="r-stretch"><blockquote>
-<p>Podman is an <strong>open source</strong> container and image management engine. Podman makes it easy to find, run, build, and share containers.</p>
-</blockquote>
-</section>
-<section id="using-podman" class="slide level2">
-<h2>Using Podman</h2>
-<p>Podman makes configuring a development environment (fairly) simple. If a Podman image works for us then we <em>know</em><sup>1</sup> it works for you.</p>
-<p>Use either:</p>
-<ol type="1">
-<li><code>jreades/sparc:2025-amd</code> (Windows and Older Macs)</li>
-<li><code>jreades/sparc:2025-arm</code> (Newer Macs)</li>
-</ol>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Usually, but not always, true.</p></li></ol></aside></section></section>
-<section>
-<section id="version-control" class="title-slide slide level1 center">
-<h1>Version Control</h1>
-<blockquote>
-<p>… is the practice of tracking and managing changes to software code.</p>
-<p>Source: <a href="https://www.atlassian.com/git/tutorials/what-is-version-control">Altassian</a></p>
-</blockquote>
-</section>
-<section id="why-use-version-control" class="slide level2">
-<h2>Why use Version Control?</h2>
-<blockquote>
-<p>… If a mistake is made, developers can turn back the clock and compare earlier versions of the code to help fix the mistake while minimizing disruption to all team members.</p>
-<p>Source: <a href="https://www.atlassian.com/git/tutorials/what-is-version-control">Altassian</a></p>
-</blockquote>
-<p>In addition:</p>
-<div>
-<ol type="1">
-<li class="fragment">We can <strong>share</strong> code with others (directly) as source code or (indirectly) as the product of compiling that source code.</li>
-<li class="fragment">We can <strong>rewind</strong>, <strong>fast forward</strong>, and <strong>combine</strong> changes by different people working on different features.</li>
-<li class="fragment">We gain detailed, incremental <strong>backups</strong> that help us tro track down the changes that introduced a bug when something goes wrong.</li>
-</ol>
-</div>
-<aside class="notes">
-<p>Discuss comparison with Dropbox or OneDrive. How are they similar, how are they different? File level vs.&nbsp;row-level views.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="change-of-view-2" class="slide level2">
-<h2>Change of View</h2>
-<blockquote>
-<p>In open source projects there may be no <em>one</em> view of what the ‘right’ solution/version of a project is, so differences need to be <em>negotiated</em>.</p>
-</blockquote>
-<ul>
-<li>Every computer with version control might have the ‘right’ version of the code for a given user, so there is no ‘master’ view of a project.</li>
-<li>We need to be able to choose whether to <em>merge</em> other people’s changes with our changes, rather than having everything forced on us.</li>
-<li>We still want to be able to share <em>our</em> version of the code / outputs of the code with other people, and a web site is a good way to do that.</li>
-</ul>
-</section>
-<section id="git" class="slide level2">
-<h2>Git</h2>
+<section id="two-cultures-of-mapping" class="slide level2">
+<h2>Two Cultures of Mapping</h2>
 <div class="columns">
-<div class="column" style="width:30%;">
-<p><img data-src="./img/Git.png"></p>
-</div><div class="column" style="width:70%;">
-<p>Version control allows us to:</p>
-<ol type="1">
-<li>Track changes to files with a high level of detail using <code>commit</code>.</li>
-<li><code>push</code> these changes out to others.</li>
-<li><code>pull</code> down changes made by others.</li>
-<li><code>merge</code> and resolve conflicting changes.</li>
-<li>Create a <code>tag</code> when a ‘milestones’ is reached.</li>
-<li>Create a <code>branch</code> to add a feature.</li>
-<li>Retrieve specific versions or branches with a <code>checkout</code>.</li>
-</ol>
+<div class="column" style="width:50%;">
+<h3 id="purely-computational">Purely Computational</h3>
+<p><em>Both</em> analysis and visualisation are accomplished via code:</p>
+<ul>
+<li>Fully replicable (including random samples).</li>
+<li>Fully documented (to extent commented by dev).</li>
+<li>Fully portable (assuming no platform-specific code).</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="mostly-computational">Mostly Computational</h3>
+<p><em>Only</em> the analysis is accomplished via code, visualisation is via a GIS:</p>
+<ul>
+<li>Wider variety of output formats (e.g.&nbsp;Atlases, 3D/web).</li>
+<li>Better support for ‘finishing touches’ (e.g.&nbsp;scalebars, north arrows, rule-based labels, etc.).</li>
+<li>Better-quality output for less effort (e.g.&nbsp;Model Builder + QGIS styles).</li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>Worth reflecting on pros and cons of these: when does one offer benefits over the other?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-challenge" class="slide level2">
+<h2>The Challenge</h2>
+<p>The hardest part of purely computational approaches is the need to anticipate how maps will look according to variations in:</p>
+<ul>
+<li>The density and type of data</li>
+<li>The context of the data</li>
+<li>The different scales involved</li>
+<li>The number of maps involved</li>
+<li>The need to annotate and label elements</li>
+</ul>
+<p>Ultimately, the complexity of the choices here may <em>require</em> the use of a scriptable GIS over <code>ggplot</code> or <code>matplotlib</code>.</p>
+<aside class="notes">
+<p>Don’t forget that both QGIS and Arc offer a ‘Model Builder’ that is basically ‘visual programming’.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="constituency-cards" class="slide level2">
+<h2>Constituency Cards</h2>
+<p><a href="http://www.statsmapsnpix.com/2019/08/constituency-cards.html">Constituency cards</a> are ‘scripted’ in QGIS:</p>
+<p><img data-src="img/Constituency-Walthamstow.png"> <img data-src="img/Constituency-Brighton.png"> <img data-src="img/Constituency-Aldridge.png"></p>
+<p>Source: <a href="https://github.com/alasdairrae/wpc">github.com/alasdairrae/wpc</a></p>
+</section>
+<section id="short-term-lets-in-scotland" class="slide level2">
+<h2>Short-Term Lets in Scotland</h2>
+<p>Analysis of Airbnb and other short-term lets in Scotland feeding through into policy-making via <a href="https://www.gov.scot/binaries/content/documents/govscot/publications/research-and-analysis/2019/10/research-impact-short-term-lets-communities-scotland/documents/people-communities-places-research-impact-short-term-lets-communities-scotland/people-communities-places-research-impact-short-term-lets-communities-scotland/govscot:document/people-communities-places-research-impact-short-term-lets-communities-scotland.pdf">Research into the impact of short-term lets on communities across Scotland</a></p>
+<p><img data-src="img/STL-Skye.png"> <img data-src="img/STL-Edinburgh.png"></p>
+</section>
+<section id="every-building-in-america" class="slide level2 smaller">
+<h2>Every Building in America</h2>
+<p><a href="https://github.com/Microsoft/USBuildingFootprints/">Building footprints</a> collected by Microsoft, but presentation by New York Times <a href="https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html">highlights society-nature interactions</a>.</p>
+<p><img data-src="img/NYT-MS-History.png"> <img data-src="img/NYT-MS-Geology.png"></p>
+<p><img data-src="img/NYT-MS-Culture.png"> <img data-src="img/NYT-MS-Suburbs.png"></p>
+</section>
+<section>
+<section id="colouring-in" class="title-slide slide level1 center">
+<h1>Colouring in</h1>
+
+</section>
+<section id="a-deceptively-simple-problem" class="slide level2">
+<h2>A Deceptively Simple Problem</h2>
+<blockquote>
+<p>We want to show data on a map in a way that is <strong>both accurate and informative</strong>.</p>
+</blockquote>
+<p>Why might this <em>not</em> be possible?</p>
+</section>
+<section id="classification" class="slide level2">
+<h2>Classification</h2>
+<p>Trade-offs:</p>
+<ul>
+<li>The greater the accuracy of a choropleth or other class-based map, the less it’s possible generalise from it.</li>
+<li>There is no ‘right’ way to group data into an arbitrary number of discrete classes (a.k.a. to generalise).</li>
+</ul>
+<p>Humans can only take in so much data at once. Your choice of colour scheme, breaks, and classification can profoundly affect how people see the world.</p>
+</section>
+<section id="six-views-of-employment" class="slide level2">
+<h2>Six Views of Employment</h2>
+<div class="columns">
+<div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Employment-No_Class.png" style="width:100.0%"></p>
+<figcaption>No Class Breaks</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Employment-3_Quantiles.png" style="width:100.0%"></p>
+<figcaption>3 Quantiles</figcaption>
+</figure>
+</div>
 </div></div>
 </section>
-<section id="github" class="slide level2">
-<h2>GitHub</h2>
+<section id="six-views-of-employment-1" class="slide level2">
+<h2>Six Views of Employment</h2>
 <div class="columns">
-<div class="column" style="width:30%;">
-<p><img data-src="./img/Octocat.png"></p>
-</div><div class="column" style="width:70%;">
-<p>Git is distributed, meaning that every computer is a potential server <em>and</em> a potential authority. <strong>Result</strong>: commits on a plane!</p>
-<p>But how do people find and access your code if your ‘server’ is a home machine that goes to sleep at night? <strong>Result</strong>: GitHub.</p>
-<p>GitHub is ‘just’ a very large Git server with a <em>lot</em> of nice web-friendly features tacked on: create a web site, issue/bug tracking, promote your project…</p>
+<div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Employment-7_Quantiles.png" style="width:100.0%"></p>
+<figcaption>7 Quantiles</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Employment-7_Equal.png" style="width:100.0%"></p>
+<figcaption>7 Equal Interval</figcaption>
+</figure>
+</div>
 </div></div>
 </section>
-<section id="gitgithub-is-for-anything" class="slide level2">
-<h2>Git+GitHub is for… anything!</h2>
-<iframe width="780" height="500" src="https://jreades.github.io/jaipur/" title="Jaipur Workshop Web Site"></iframe>
-<aside class="notes">
-<p>This whole course is on GitHub.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="oh-my-git" class="slide level2">
-<h2>Oh My Git!</h2>
-<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="https://ohmygit.org/assets/trailer.mov"></video>
-<div style="width: 95%; text-align: right; font-size: small;">
-<p>Source: <a href="https://ohmygit.org/">OhMyGit</a></p>
-</div>
-</section></section>
-<section>
-<section id="markup" class="title-slide slide level1 center">
-<h1>Markup</h1>
-<blockquote>
-<p>A markup language is a text-encoding system which specifies the structure and formatting of a document…</p>
-<p>Source: <a href="https://en.wikipedia.org/wiki/Markup_language">Wikipedia</a></p>
-</blockquote>
-</section>
-<section id="why-use-markup" class="slide level2">
-<h2>Why use Markup?</h2>
-<div>
-<ul>
-<li class="fragment">Quickly sketch out the structure of a document.</li>
-<li class="fragment">Works well with version control (line-by-line changes + GitHub.io web site).</li>
-<li class="fragment">Works well with JupyterLab and other coding environments.</li>
-</ul>
-</div>
-</section>
-<section id="change-of-view-3" class="slide level2">
-<h2>Change of View</h2>
-<blockquote>
-<p>I spend a <em>lot</em> less time ‘faffing’ writing in Markdown than I used to. Spend more time on <em>what</em> you want to say and worry about the <em>how</em> later.</p>
-</blockquote>
+<section id="six-views-of-employment-2" class="slide level2">
+<h2>Six Views of Employment</h2>
 <div class="columns">
-<div class="column" style="width:48%;">
-<pre><code>### A Subtitle
-
-Some text in **bold** and *italics* with a [link](https://jreades.github.io/).
-
-&gt; A blockquote</code></pre>
-</div><div class="column" style="width:48%;">
-<h3 id="a-subtitle">A Subtitle</h3>
-<p>Some text in <strong>bold</strong> and <em>italics</em> with a <a href="https://jreades.github.io/">link</a>.</p>
-<blockquote>
-<p>A blockquote</p>
-</blockquote>
+<div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Employment-7_Pretty.png" style="width:100.0%"></p>
+<figcaption>7 Pretty Breaks</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:49%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Employment-7_Natural.png" style="width:100.0%"></p>
+<figcaption>7 Natural Breaks</figcaption>
+</figure>
+</div>
 </div></div>
 </section>
-<section id="markdown-examples" class="slide level2 smaller">
-<h2>Markdown Examples</h2>
-<p>See <a href="https://commonmark.org/help/">CommonMark</a> and the <a href="https://www.markdownguide.org/basic-syntax/">Markdown Guide</a> for more:</p>
-<table class="caption-top" data-quarto-postprocess="true" style="border: solid 1px rgb(230,230,230);">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th" style="font-weight: bold; font-size: larger">Format</td>
-<td data-quarto-table-cell-role="th" style="font-weight: bold; font-size: larger">Output</td>
-</tr>
-<tr class="even">
-<td>Plain text...</td>
-<td>Plain text</td>
-</tr>
-<tr class="odd">
-<td>## A Large Heading</td>
-<td><h2 id="a-large-heading">A Large Heading</h2></td>
-</tr>
-<tr class="even">
-<td>### A Medium Heading</td>
-<td><h3 id="a-medium-heading">A Medium Heading</h3></td>
-</tr>
-<tr class="odd">
-<td>- A list<br>
-- More list</td>
-<td><ul>
-<li>A list</li>
-<li>More list</li>
-</ul></td>
-</tr>
-<tr class="even">
-<td>1. An ordered list<br>
-2. More ordered list</td>
-<td><ol>
-<li>An ordered list</li>
-<li>More ordered list</li>
-</ol></td>
-</tr>
-<tr class="odd">
-<td>[A link](http://casa.ucl.ac.uk)</td>
-<td><a href="http://casa.ucl.ac.uk">A link</a></td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p><a href="https://www.toptal.com/designers/htmlarrows/punctuation/">This guide</a> is good for HTML entities, though Google will also give you them pretty easily if you type <code>HTML entity code for copyright</code>…</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="consider" class="slide level2">
+<h2>Consider</h2>
+<p>We want to:</p>
+<ul>
+<li>Group features with similar values together.</li>
+<li>Show these in a way that doesn’t mislead the viewer.</li>
+</ul>
+<p>But we have the following problems:</p>
+<ul>
+<li>Too many classes confuse the viewer.</li>
+<li>Too few classes hides structure/pattern.</li>
+</ul>
 </section>
-<section id="section-1" class="slide level2 smaller">
-<h2></h2>
-<table style="border: solid 1px rgb(230,230,230)">
-<tbody><tr>
-<th style="font-weight: bold; font-size: larger;">
-Format
-</th>
-<th style="font-weight: bold; font-size: larger;">
-Output
-</th>
-</tr>
-<tr>
-<td>
-![Alt Text](casa_logo.jpg)
-</td>
-<td>
-<img src="https://github.com/jreades/fsds/raw/master/img/casa_logo.jpg" width="
-100" alt="Alt Text">
-</td>
-</tr>
-<tr>
-<td>
-`A code snippet`
-</td>
-<td>
-<code>A code snippet</code>
-</td>
-</tr>
-<tr>
-<td>
-```{python}<br> A block of Python code<br> ```
-</td>
-<td>
-<code>A block of Python code</code>
-</td>
-</tr>
-<tr>
-<td>
-<pre>$$
-f(a) = \frac{1}{2\pi i} <br>&nbsp;&nbsp;&nbsp; \oint_{\gamma} \frac{f(z)}{z-a} dz
-$$</pre>
-</td>
-<td>
-<span class="math display">\[
-f(a) = \frac{1}{2\pi i} \oint_{\gamma} \frac{f(z)}{z-a} dz
-\]</span>
-</td>
-</tr></tbody></table>
+<section id="choices-choices" class="slide level2">
+<h2>Choices, Choices</h2>
+<p>At the <em>very least</em> we have the following options:</p>
+<ul>
+<li>Assign classes manually.</li>
+<li>Split range evenly (i.e.&nbsp;equal intervals).</li>
+<li>Split data evenly (i.e.&nbsp;quantiles).</li>
+<li>Split data according to distribution (i.e.&nbsp;SD).</li>
+<li>Split data so that members of each group are more similar to each other than to members of another group (i.e.&nbsp;natural breaks/Jencks).</li>
+</ul>
 </section></section>
-<section>
-<section id="render" class="title-slide slide level1 center">
-<h1>Render</h1>
-<blockquote>
-<p>‘Rendering’ is the process of taking all of the code and markup and outputting it to a particular format (web page, web site, PDF, etc.). So it’s the last piece of this pipeline for working with data, code, and text.</p>
-</blockquote>
-</section>
-<section id="why-render" class="slide level2">
-<h2>Why Render?</h2>
-<div>
-<ul>
-<li class="fragment">Outputs can be: web pages, Jupyter notebooks, Word documents, PDFs, presentations…</li>
-<li class="fragment">It can be really useful to have a single input and <em>multiple</em> outputs because requirements and needs <em>always</em> change.</li>
-<li class="fragment">It teaches you to focus on the process, not the minutiae.</li>
-</ul>
-</div>
-</section>
-<section id="change-of-view-4" class="slide level2">
-<h2>Change of View</h2>
-<blockquote>
-<p><strong>Everything</strong> this week was created using these basic tools and techniques. It has transformed the way I teach, do research, and write! It <strong>embodies</strong> the potential of ‘literate programming’ <span class="citation" data-cites="knuth:1984">(<a href="#/references" role="doc-biblioref" onclick="">Knuth 1984</a>)</span>.</p>
-</blockquote>
-</section>
-<section id="additional-resources" class="slide level2">
-<h2>Additional Resources</h2>
-<p>Markdown:</p>
-<ul>
-<li><a href="https://www.markdownguide.org/getting-started/">Getting Started</a></li>
-<li><a href="https://www.markdowntutorial.com">An online interactive tutorial</a></li>
-<li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Cheatsheet</a></li>
-</ul>
-<p>And once you’re ready to get ‘serious’, check out <a href="https://programminghistorian.org/en/lessons/sustainable-authorship-in%20-plain-text-using-pandoc-and-markdown">this tutorial</a> on <em>Sustainable Authorship in Plain Text using Pandoc and Markdown</em> from <a href="https://programminghistorian.org/en/lessons/">The Programming Historian</a>! That’s what actually underpins Quarto, but you can do so much more…</p>
-</section></section>
-<section id="recap" class="title-slide slide level1 center">
-<h1>Recap</h1>
-<ul>
-<li>Podman is how you will run a virtual machine with all the necessary tools pre-installed.</li>
-<li>JupyterLab is how you will ‘talk’ to the virtual machine and tell it to run code.</li>
-<li>Markdown is how you will write simply-formatted content (in JupyterLab and Quarto)</li>
-<li>Git/GitHub is how you <sub>will</sub> <em>can</em> manage code and content so that you always have a backup plan.</li>
-<li>Rendering in Quarto is how you will output nicely formatted code and content.</li>
-</ul>
+<section id="whats-best" class="title-slide slide level1 center">
+<h1>What’s Best?</h1>
+<p>Look at the Data!</p>
 </section>
 
 <section>
-<section id="lets-get-started" class="title-slide slide level1 center">
-<h1>Let’s Get Started!</h1>
-
+<section id="look-at-the-data" class="title-slide slide level1 center">
+<h1>Look at the Data!</h1>
+<blockquote>
+<p>Different colour and break schemes not only give us different <em>views</em> of the data, they give us different <em>understandings</em> of the data! Each scheme changes how the data looks and, consequently, how we perceive the distribution.</p>
+</blockquote>
 </section>
-<section id="references" class="slide level2 smaller scrollable">
-<h2>References</h2>
-<div class="references">
+<section id="takeaway-maps-have-a-rhetoric" class="slide level2">
+<h2>Takeaway: Maps have a ‘Rhetoric’</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G0_MBrJnRq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</section>
+<section id="resources" class="slide level2 smaller">
+<h2>Resources</h2>
+<ul>
+<li><a href="https://plugins.qgis.org/styles/">QGIS Styles to Share</a></li>
+<li><a href="https://medium.com/the-pointscene-diaries/3d-map-qgis-guide-4688975b8fb4">QGIS and 3D Visualisation</a></li>
+<li><a href="https://geovation.github.io/qgis-processing-modeler">Modelling your data processing flow in QGIS</a></li>
+<li><a href="https://docs.qgis.org/3.16/en/docs/">QGIS Documentation</a></li>
+<li><a href="https://geobgu.xyz/presentations/p_2023_ogh/">Working with Spatial Data in Python</a></li>
+<li><a href="https://darribas.org/wmn/">Web Mapping Notes</a></li>
+</ul>
 
-</div>
 
-
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-knuth:1984" class="csl-entry" role="listitem">
-Knuth, D. E. 1984. <span>“Literate Programming.”</span> <em><span>The Computer Journal</span></em> 27 (2). Oxford University Press:97–111.
-</div>
-<div id="ref-knuth:1996" class="csl-entry" role="listitem">
-———. 1996. <em>Selected Papers on Computer Science</em>. Cambridge University Press.
-</div>
-<div id="ref-susnjara:2025" class="csl-entry" role="listitem">
-Susnjara, S., and I. Smalley. 2025. <span>“What Is Virtualization?”</span> 2025. <a href="https://www.ibm.com/think/topics/virtualization">https://www.ibm.com/think/topics/virtualization</a>.
-</div>
-</div>
 </section></section>
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../img/CASA_logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Our Tools</p>
+<p>Think Maps • Jon Reades</p>
 </div>
 </div></div>
 
@@ -1039,7 +753,6 @@ Susnjara, S., and I. Smalley. 2025. <span>“What Is Virtualization?”</span> 2
       }
     });
     </script>
-    <script>videojs(video_shortcode_videojs_video1);</script>
     
 
 </body></html>
