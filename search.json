@@ -2880,7 +2880,7 @@
     "href": "practicals/Report.html#another-heading",
     "title": "A Project",
     "section": "Another Heading",
-    "text": "Another Heading\nThe ward with the highest concentration of plastic roofing is No. 47.\n{python} mward.iloc[0]"
+    "text": "Another Heading\nThe ward with the highest concentration of plastic roofing is No. 47.\nThere is also an inline version (e.g. The ward is No. 47), but it doesn’t (consistently) work for me so you might need to play about a bit…"
   },
   {
     "objectID": "practicals/Key_Concepts.html",
