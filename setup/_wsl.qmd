@@ -14,12 +14,17 @@ Unless you get an outright *error* you can proceed to the next step:
 
 ## Windows
 
-You will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the `Windows PowerShell`:
+You *first* need to check that virtualisation is enabled on your computer. This is under `Windows Features` where you need to make sure that the following options are ticked:
+
+1. `Virtual Machine Platform`
+2. `Windows Hypervstor Platform`
+3. If you have to change these settings then you then need to *restart* your machine.
+
+You then need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the `Windows PowerShell`:
 
 1. `wsl --install` should quickly install the subsystem that we need.
-2. `wsl --update` will ensure that the most up-to-date version is available.
 
-That *should* be it: Podman and Docker should now run without complaint.
+That *should* be it: Podman (and Docker) should now run without complaint.
 
 ::: {.callout-tip}
 ### If You Need More Help
