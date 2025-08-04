@@ -108,6 +108,7 @@ COPY ./data/src/ ./data/
 COPY ./practicals/Manage_Data.ipynb ./
 COPY ./practicals/Fonts.ipynb ./
 COPY ./practicals/Report.qmd ./
+COPY ./practicals/include-in-header.tex ./
 
 #--- Configure startup params ---#
 # Switch back to user to avoid accidental container runs as root

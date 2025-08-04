@@ -20,9 +20,11 @@ format:
     include-in-header:
       text: |
         \addtokomafont{disposition}{\rmfamily}
-    mainfont: "Hanken Grotesk"
+        \input{include-in-header.tex}
+    pdf-engine: xelatex
+    mainfont: "EB Garamond"
     serifont: "EB Garamond"
-    sansfont: "Roboto Flex"
+    sansfont: "Hanken Grotesk"
     monofont: "Geist Mono"
     papersize: a4
     geometry:
@@ -35,6 +37,7 @@ format:
     number-sections: false
     colorlinks: true
     highlight-style: github
+engine: python
 jupyter:
   jupytext:
     text_representation:
@@ -91,7 +94,10 @@ df = pd.read_parquet(Path.home() / 'work/data/clean/materials.parquet')
 # Most plastic roofing
 mward = df[df.roof_plastic_polythene==df.roof_plastic_polythene.max()].ward_no
 
+val = int(mward.iloc[0])
+
 print(f"The ward with the highest concentration of plastic roofing is No. {mward.iloc[0]}.")
 ```
 
-According to the documentation this should also work: `{python} mward.iloc[0] ` but it doesn't (consistently) for me.
+There is also an inline version (e.g. The ward is No. `{python} val`), but it doesn't (consistently) work for me so you might need to play about a bit...
+
