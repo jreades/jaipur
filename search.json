@@ -1702,7 +1702,7 @@
     "href": "setup/installation.html#software",
     "title": "Installation",
     "section": "Software",
-    "text": "Software\n\nApple IntelApple Silicon (M-chips)Windows PCs\n\n\n\nEssential:\n\nPodman for AMD64\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Intel chip\n\n\n\n\n\nEssential:\n\nPodman for ARM64\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Apple silicon\n\n\n\n\n\nEssential:\n\nWindows Terminal installed via either Windows Store or winget.\nPodman for AMD64 (it’s unlikely that you need the ARM64 installer)\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGit\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Windows\n\n\n\n\n\n\n\n\n\n\n\nPodman v. Docker\n\n\n\nI you want to know more about the differences between Podman and Docker you can start_here.",
+    "text": "Software\n\nApple IntelApple Silicon (M-chips)Windows PCs\n\n\n\nEssential:\n\nPodman Desktop\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\n\n\n\n\nEssential:\n\nPodman Desktop\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\n\n\n\n\nEssential:\n\nWindows Terminal installed via either Windows Store or winget.\nPodman Desktop\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGit\nGitHub Desktop\n\n\n\n\n\n\n\n\n\n\n\nPodman v. Docker\n\n\n\nI you want to know more about the differences between Podman and Docker you can start_here.",
     "crumbs": [
       "Installation"
     ]
