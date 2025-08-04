@@ -4,7 +4,7 @@
     "href": "setup/virtualisation.html",
     "title": "Understanding Virtualisation",
     "section": "",
-    "text": "You’ll see below that we talk about both Podman and Docker interchangeably. You may have heard of one, but not the other. Is there a difference? In terms of what they do there is no difference that you need to care about at the moment: both allow you to build images of virtual machines, share them with other users, and run any image you find as a container. All of these words are explained below. The point being, they aim to do the same thing.\nHowever, how they do this is quite different. Docker is/was the market leader in this kind of image/container sharing system and is very stable and well-supported; however, to be installed and run Docker requires administrator access (also known as root).\nPodman is a more recent, open source tool: it is slightly less stable and widely supported than Docker, and to make the most of it you need to change quite a few things. However, the biggest benefit is that you can run it as a user: this makes installation and execution much easier.\nWe are trying to move over to Podman because it will make everyone’s life easier, but sometimes we run into issues that cause us to fall back to using Docker instead. Hope that makes sense!\n\n\n\n\n\n\nTL;DR\n\n\n\nChoose Podman unless you have a specific reason to choose Docker instead or you have been unable to successfully install and run Podman."
+    "text": "Podman and Docker are ‘virtualisation’ tools that allows you to run ‘virtual machines’ on your computer’s ‘host’ operating system. That’s a lot of new, probably meaningless words. If you’re one of those people who (understandably) likes to understand what’s going on then here’s how some people define it:\n\nGoogle on What is a virtual machine?\nVMWare on What is a virtual machine?\nMicrosoft on What is a virtual machine (VM)?\n\n\n\n\n\n\n\nDocker v. Podman\n\n\n\nYou can find out more about Podman and Docker here"
   },
   {
     "objectID": "setup/virtualisation.html#podman-or-docker",
@@ -17,8 +17,8 @@
     "objectID": "setup/virtualisation.html#what-is-virtualisation",
     "href": "setup/virtualisation.html#what-is-virtualisation",
     "title": "Understanding Virtualisation",
-    "section": "What is Virtualisation?",
-    "text": "What is Virtualisation?\nPodman and Docker are ‘virtualisation’ tools that allows you to run ‘virtual machines’ on your computer’s ‘host’ operating system. That’s a lot of new, probably meaningless words. If you’re one of those people who (understandably) likes to understand what’s going on then here’s how some people define it:\n\nGoogle on What is a virtual machine?\nVMWare on What is a virtual machine?\nMicrosoft on What is a virtual machine (VM)?"
+    "section": "",
+    "text": "Podman and Docker are ‘virtualisation’ tools that allows you to run ‘virtual machines’ on your computer’s ‘host’ operating system. That’s a lot of new, probably meaningless words. If you’re one of those people who (understandably) likes to understand what’s going on then here’s how some people define it:\n\nGoogle on What is a virtual machine?\nVMWare on What is a virtual machine?\nMicrosoft on What is a virtual machine (VM)?\n\n\n\n\n\n\n\nDocker v. Podman\n\n\n\nYou can find out more about Podman and Docker here"
   },
   {
     "objectID": "setup/virtualisation.html#podmandocker-in-a-nutshell",
@@ -93,7 +93,7 @@
     "href": "setup/env.html#what-kind-of-computer",
     "title": "Installation",
     "section": "What Kind of Computer?",
-    "text": "What Kind of Computer?\n\nApple Intel or Silicon/M-chip?\nApple has stopped using Intel computer chips and now uses its own ‘Silicon’ (aka ‘M’) chips instead. Confusingly, these are often also referred to by their technical specification as AMD64 (Intel) and ARM64 (Apple), respectively. To find out which you have, click on the Apple icon () and select About this Mac. Look at the Processor section and you should see which type of computer you have. If you see the word Intel then you have an Intel computer, if you see M1, M2, M3, etc. then you have an Apple Silicon computer.\n\n\nWindows 32- or 64-bit?\nIt is highly unlikely that you have a 32-bit machine, so if in doubt download the 64-bit version. It is also unlikely that you have an ARM device if you have an off-the-shelf Windows computer.\nPlease download all of the Essential packages for your type of computer (Apple Intel, Apple Silicon, Windows). The rest are listed for your convenience and you can install them as you see fit.\n\nApple IntelApple Silicon (M-chips)Windows PCs\n\n\n\nEssential:\n\nPodman for AMD64\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Intel chip\n\n\n\n\n\nEssential:\n\nPodman for ARM64\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Apple silicon\n\n\n\n\n\nEssential:\n\nWindows Terminal installed via either Windows Store or winget.\nPodman for AMD64 (it’s unlikely that you need the ARM64 installer)\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGit\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Windows",
+    "text": "What Kind of Computer?\n\nApple Intel or Silicon/M-chip?Windows 32- or 64-bit?\n\n\nApple has stopped using Intel computer chips and now uses its own ‘Silicon’ (aka ‘M’) chips instead. Confusingly, these are often also referred to by their technical specification as AMD64 (Intel) and ARM64 (Apple), respectively. To find out which you have, click on the Apple icon () and select About this Mac. Look at the Processor section and you should see which type of computer you have. If you see the word Intel then you have an Intel computer, if you see M1, M2, M3, etc. then you have an Apple Silicon computer.\n\n\nIt is highly unlikely that you have a 32-bit machine, so if in doubt download the 64-bit version. It is also unlikely that you have an ARM device if you have an off-the-shelf Windows computer.\nPlease download all of the Essential packages for your type of computer (Apple Intel, Apple Silicon, Windows). The rest are listed for your convenience and you can install them as you see fit.",
     "crumbs": [
       "Installation"
     ]
@@ -183,30 +183,21 @@
     "href": "setup/base.html",
     "title": "Updates",
     "section": "",
-    "text": "In order to get the machine ready to do virtualisation you need to install a few updates to the Operating System as well as some tools that help to interact with the programming platform. Things are a lot more complicated for Windows users here than for Mac (or Linux) users.",
-    "crumbs": [
-      "Updates"
-    ]
+    "text": "In order to get the machine ready to do virtualisation you need to install a few updates to the Operating System as well as some tools that help to interact with the programming platform. Things are a lot more complicated for Windows users here than for Mac (or Linux) users."
   },
   {
     "objectID": "setup/base.html#system-updates",
     "href": "setup/base.html#system-updates",
     "title": "Updates",
     "section": "System Updates",
-    "text": "System Updates\nBefore going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the other steps in this brief guide to getting started.",
-    "crumbs": [
-      "Updates"
-    ]
+    "text": "System Updates\nBefore going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the other steps in this brief guide to getting started."
   },
   {
     "objectID": "setup/base.html#base-utilities",
     "href": "setup/base.html#base-utilities",
     "title": "Updates",
     "section": "Base Utilities",
-    "text": "Base Utilities\nIn order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:\n\nMacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Podman and Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post.",
-    "crumbs": [
-      "Updates"
-    ]
+    "text": "Base Utilities\nIn order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:\n\nMacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Podman and Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post."
   },
   {
     "objectID": "setup/base.html#windows-only",
@@ -3203,5 +3194,166 @@
     "title": "Getting to Grips with Git",
     "section": "Resources",
     "text": "Resources\n\nUnderstanding Git (Part 1) – Explain it Like I’m Five\nTrying Git\nVisualising Git\nGit Novice\nConfusing Git Terminology\nGit Cheat Sheet: Commands and Best Practices\nAndy’s R-focussed Tutorial\n\n\nI now have everything in Git repos: articles, research, presentations, modules… the uses are basically endless once you start using Markdown heavily (even if you don’t do much coding)."
+  },
+  {
+    "objectID": "setup/env.html#software",
+    "href": "setup/env.html#software",
+    "title": "Installation",
+    "section": "Software",
+    "text": "Software\n\nApple IntelApple Silicon (M-chips)Windows PCs\n\n\n\nEssential:\n\nPodman for AMD64\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Intel chip\n\n\n\n\n\nEssential:\n\nPodman for ARM64\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Apple silicon\n\n\n\n\n\nEssential:\n\nWindows Terminal installed via either Windows Store or winget.\nPodman for AMD64 (it’s unlikely that you need the ARM64 installer)\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGit\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Windows",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/docker_vs_podman.html",
+    "href": "setup/docker_vs_podman.html",
+    "title": "Podman or Docker",
+    "section": "",
+    "text": "You’ll see that we talk about both Podman and Docker interchangeably. You may have heard of one, but not the other. Is there a difference? In terms of what they do there is no difference that you need to care about at the moment: both allow you to build images of virtual machines, share them with other users, and run any image you find as a container. All of these words are explained below. The point being, they aim to do the same thing.\nHowever, how they do this is quite different. Docker is/was the market leader in this kind of image/container sharing system and is very stable and well-supported; however, to be installed and run Docker requires administrator access (also known as root).\nPodman is a more recent, open source tool: it is slightly less stable and widely supported than Docker, and to make the most of it you need to change quite a few things. However, the biggest benefit is that you can run it as a user: this makes installation and execution much easier.\nWe are trying to move over to Podman because it will make everyone’s life easier, but sometimes we run into issues that cause us to fall back to using Docker instead. Hope that makes sense!\n\n\n\n\n\n\nTL;DR\n\n\n\nChoose Podman unless you have a specific reason to choose Docker instead or you have been unable to successfully install and run Podman."
+  },
+  {
+    "objectID": "setup/base.html#windows-only-optional",
+    "href": "setup/base.html#windows-only-optional",
+    "title": "Updates",
+    "section": "Windows Only (Optional)",
+    "text": "Windows Only (Optional)\n\n\n\n\n\n\nCompletely Optional}\n\n\n\nThis next part is completely optional for those who want to go further with Linux and WSL. You do not (normally) need to do all this to just get Podman or Docker running.\n\n\n\n\n\n\n\n\nCreating a Linux User\n\n\n\nIf you want to install a full Linux distribution (e.g. because you want to do more than just run Docker) then make sure you set up a new Linux user and do not end up running everything as root.\n\n\nTo make full use of WSL2 and Linux (if you want to do more than just use Docker) you will need to familiarise yourself with how having two operating systems that can talk to each other works. That is covered in the next section. This will actually be useful for understanding how Docker works, as it can be profoundly confusing.\nThe behaviour of the ‘shell’ (command line) is quite confusing because, with WSL2, you effectively end up with two ‘home’ directories: one for your Windows user, and one for your new Ubuntu user. Starting a Linux shell/command line puts you in your Linux home directory (the username may be completely different from your Windows username). Starting a Windows shell/command line puts you in your Windows home directory (again, the username may be completely different from your Linux username).\nSo the first, and perhaps most important, thing is understanding where ‘data’ is being stored:\n\nUnder Linux the user directory is apparently something like: \\\\wsl$\\&lt;DistroName&gt;\\home\\&lt;UserName&gt;\\ but you can usually get it by simply typing cd $HOME and then pwd when starting a new Linux shell.\nUnder Windows the user directory is: C:\\Users\\&lt;UserName&gt;\\ or /mnt/c/Users/&lt;UserName&gt;/, and you can often simply type pwd when opening a new Windows shell.\n\nSo these are different locations on your computer’s hard drive, and you will not see your Linux files in your Windows Home Directory and vice versa. To make it easy to switch between the two, I found this page on Microsoft’s web site that goes through some of the post-WSL2 installation steps, but see especially the additional page on Windows Terminal configuration.\nSlightly confusingly, you can run Linux commands directly from Windows, usually be adding wsl in front of the Linux command (e.g. wsl ls *.csv from Windows, where in Linux the command would be ls *.csv).\nTo make it easy to move from the Linux side of your machine to the Windows machine you can also do this:\n\nWork out where your CASA files are stored on the Windows side (see above: /mnt/c/Users/&lt;UserName&gt;/My\\ Documents/CASA/... where &lt;UserName&gt; is your Windows user name).\ncd to this location and type pwd to output the full path to the CASA directory.\nCopy this.\nNow start a Linux shell and run the following command once (you do not need to do it ever again): echo \"export WIN_HOME=\\\"/mnt/c/Users/.../CASA/\\\"\" &gt;&gt; $HOME/.bashrc. Replace the ... with the rest of the actual path! The \\\" is very important, don’t try to change those!\nNow run source .bashrc and you should see no errors.\n\nOnce you have done this you will have added a single line to your .bashrc file in Linux. This will create a ‘shortcut’ for bash in Linux. From here on out you should be able to type cd $WIN_HOME and move immediately over to the CASA directory on the Windows side. This will save having to remember (and type) the Windows path each time."
+  },
+  {
+    "objectID": "setup/wsl_users.html",
+    "href": "setup/wsl_users.html",
+    "title": "Linux Users in WSL",
+    "section": "",
+    "text": "Some students may either a) run into problems that require a Linux user to correct; or b) wish to go further with WSL and Linux. You do not (normally) need this to run Podman or Docker.\n\n\n\n\n\n\nCreating a Linux User\n\n\n\nIf you want to install a full Linux distribution (e.g. because you want to do more than just run Docker) then make sure you set up a new Linux user and do not end up running everything as root.\n\n\nTo make full use of WSL2 and Linux (if you want to do more than just use Docker) you will need to familiarise yourself with how having two operating systems that can talk to each other works. That is covered in the next section. This will actually be useful for understanding how Docker works, as it can be profoundly confusing.\nThe behaviour of the ‘shell’ (command line) is quite confusing because, with WSL2, you effectively end up with two ‘home’ directories: one for your Windows user, and one for your new Ubuntu user. Starting a Linux shell/command line puts you in your Linux home directory (the username may be completely different from your Windows username). Starting a Windows shell/command line puts you in your Windows home directory (again, the username may be completely different from your Linux username).\nSo the first, and perhaps most important, thing is understanding where ‘data’ is being stored:\n\nUnder Linux the user directory is apparently something like: \\\\wsl$\\&lt;DistroName&gt;\\home\\&lt;UserName&gt;\\ but you can usually get it by simply typing cd $HOME and then pwd when starting a new Linux shell.\nUnder Windows the user directory is: C:\\Users\\&lt;UserName&gt;\\ or /mnt/c/Users/&lt;UserName&gt;/, and you can often simply type pwd when opening a new Windows shell.\n\nSo these are different locations on your computer’s hard drive, and you will not see your Linux files in your Windows Home Directory and vice versa. To make it easy to switch between the two, I found this page on Microsoft’s web site that goes through some of the post-WSL2 installation steps, but see especially the additional page on Windows Terminal configuration.\nSlightly confusingly, you can run Linux commands directly from Windows, usually be adding wsl in front of the Linux command (e.g. wsl ls *.csv from Windows, where in Linux the command would be ls *.csv).\nTo make it easy to move from the Linux side of your machine to the Windows machine you can also do this:\n\nWork out where your CASA files are stored on the Windows side (see above: /mnt/c/Users/&lt;UserName&gt;/My\\ Documents/CASA/... where &lt;UserName&gt; is your Windows user name).\ncd to this location and type pwd to output the full path to the CASA directory.\nCopy this.\nNow start a Linux shell and run the following command once (you do not need to do it ever again): echo \"export WIN_HOME=\\\"/mnt/c/Users/.../CASA/\\\"\" &gt;&gt; $HOME/.bashrc. Replace the ... with the rest of the actual path! The \\\" is very important, don’t try to change those!\nNow run source .bashrc and you should see no errors.\n\nOnce you have done this you will have added a single line to your .bashrc file in Linux. This will create a ‘shortcut’ for bash in Linux. From here on out you should be able to type cd $WIN_HOME and move immediately over to the CASA directory on the Windows side. This will save having to remember (and type) the Windows path each time."
+  },
+  {
+    "objectID": "setup/installation.html",
+    "href": "setup/installation.html",
+    "title": "Installation",
+    "section": "",
+    "text": "Over the years, we have experimented with a range of approaches to setting you up with a programming environment, and we have come to the conclusion that Podman1 is the most robust way to ensure a consistent experience. This guarantees that all students end up with the same versions of each library, that difficult-to-diagnose hardware/OS issues are minimised, and that running/recovery is the most straightforward.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#what-kind-of-computer",
+    "href": "setup/installation.html#what-kind-of-computer",
+    "title": "Installation",
+    "section": "What Kind of Computer?",
+    "text": "What Kind of Computer?\n\nApple Intel or Silicon/M-chip?Windows 32- or 64-bit?\n\n\nApple has stopped using Intel computer chips and now uses its own ‘Silicon’ (aka ‘M’) chips instead. Confusingly, these are often also referred to by their technical specification as AMD64 (Intel) and ARM64 (Apple), respectively. To find out which you have, click on the Apple icon () and select About this Mac. Look at the Processor section and you should see which type of computer you have. If you see the word Intel then you have an Intel computer, if you see M1, M2, M3, etc. then you have an Apple Silicon computer.\n\n\nIt is highly unlikely that you have a 32-bit machine, so if in doubt download the 64-bit version. It is also unlikely that you have an ARM device if you have an off-the-shelf Windows computer.\nPlease download all of the Essential packages for your type of computer (Apple Intel, Apple Silicon, Windows). The rest are listed for your convenience and you can install them as you see fit.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#system-updates",
+    "href": "setup/installation.html#system-updates",
+    "title": "Installation",
+    "section": "System Updates",
+    "text": "System Updates\nBefore going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the other steps in this brief guide to getting started.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#base-utilities",
+    "href": "setup/installation.html#base-utilities",
+    "title": "Installation",
+    "section": "Base Utilities",
+    "text": "Base Utilities\nIn order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:\n\nMacOSWindows\n\n\nYou need the Xcode Command Line Tools installed on your Mac. In some cases this may have already been installed, but it’s the same process to check as to install:\n\nOpen the Terminal application (which can be found under Utilities in your Applications folder).\nType the following: xcode-select --install and then hit Enter (⏎)\n\nUnless you get an outright error you can proceed to the next step:\n\nAlthough not strictly necessary, you’ll eventually want the Homebrew package manager, which can also be installed directly from the Terminal.\n\n\n\nYou will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the Windows PowerShell:\n\nwsl --install should quickly install the subsystem that we need.\nwsl --update will ensure that the most up-to-date version is available.\n\nThat should be it: Podman and Docker should now run without complaint.\n\n\n\n\n\n\nIf You Need More Help\n\n\n\n\nThere is good guidance from Microsoft for Windows 11 and more recent ‘builds’ of Windows 10.\nThere are also older instructions for Windows 10.\n\nCommon installation errors are covered here.\nFinally, if you are still being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following this MS guide and, if there is still a problem, check this blog post.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#software",
+    "href": "setup/installation.html#software",
+    "title": "Installation",
+    "section": "Software",
+    "text": "Software\n\nApple IntelApple Silicon (M-chips)Windows PCs\n\n\n\nEssential:\n\nPodman for AMD64\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Intel chip\n\n\n\n\n\nEssential:\n\nPodman for ARM64\niTerm2\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Mac with Apple silicon\n\n\n\n\n\nEssential:\n\nWindows Terminal installed via either Windows Store or winget.\nPodman for AMD64 (it’s unlikely that you need the ARM64 installer)\n\nOptional:\n\nQGIS Long-Term Release (LTR)\nGit\nGitHub Desktop\n\nOnly if Podman doesn’t work:\n\nDocker Desktop for Windows\n\n\n\n\n\n\n\n\n\n\n\nPodman v. Docker\n\n\n\nI you want to know more about the differences between Podman and Docker you can start_here.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#installing",
+    "href": "setup/installation.html#installing",
+    "title": "Installation",
+    "section": "Installing",
+    "text": "Installing\n\n\n\n\n\n\nHow They Work\n\n\n\nOne way to think of Podman is as a ‘library’ of ready-made virtual computers that you can copy and use free-of-charge. If you’d like to know more about what Podman are and how they work, you can read more in the Understanding Virtualisation section.\n\n\n\n\n\n\n\n\nWindows Users\n\n\n\nPlease ensure that you have installed WSL2 before installing or Podman! If you cannot install WSL2 then please have a look at the ‘dealing with errors’ section.\n\n\nAfter you’ve downloaded Podman:\n\nInstall it – usually this will mean opening the image and either dragging it your Application folder (Mac) or running the installer (Windows)\nStart it up – double-click the Podman icon in your Applications folder to start the application running.\n\n\n\n\nPodman Desktop\n\n\nIf you didn’t see this (or see lots of errors) then you will need to have a look at the ‘dealing with errors’ section.\n\n\n\n\n\n\nImportant\n\n\n\nInstallation on a Mac should be fairly straightforward (as evidenced by the dearth of documentation), but for Windows there is quite a bit more detail.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#configuration",
+    "href": "setup/installation.html#configuration",
+    "title": "Installation",
+    "section": "Configuration",
+    "text": "Configuration\nPodman requires you to create a virtual machine with user-specified characteristics before you can run an image. You can think of this as specifying the ‘hardware’ of the computer before you buy it (How much RAM? How big a hard drive? And so on.). In principle, this means that you can have more than one valid configuration at a time which would allow you to tune each virtual machine to your needs (one machine could have a lot of memory, another a lot of storage). You can read a more detailed explanation of how to configure a virtual machine, but below is the ‘quick start’ version.\n\nApple MacOSWindows\n\n\nIn the Terminal you simply:\npodman machine init\npodman machine start\n\n\nIn the PowerShell or Window Terminal you should be able to simply:\npodman machine init\npodman machine start\n\n\n\n\n\n\nUnable to Run\n\n\n\nIn a small number of cases we’ve need to create a new, named virtual machine (e.g. podman machine init myvm) and then change the default. Hopefully this isn’t going to be needed.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#testing",
+    "href": "setup/installation.html#testing",
+    "title": "Installation",
+    "section": "Testing",
+    "text": "Testing\nTo test if Podman is installed correctly, you will need either the Terminal (macOS) or the Windows Terminal (Windows).\n\n\n\n\n\n\nCopy Code to Clipboard\n\n\n\nWhenever you see a ‘code block’ below, you will also see a ‘clipboard’ icon () in the right. Click that, and the code will be copied to your computer’s ‘clipboard’ so that you can then paste it into the Terminal or Windows Terminal (see Base Utilities. That will save you a lot of time and effort.\n\n\nPodman has provided a simple way to test if your installation is working correctly. You can run the following command:",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#running",
+    "href": "setup/installation.html#running",
+    "title": "Installation",
+    "section": "Running",
+    "text": "Running\nWe now need to download and run the sparc image that we created for the workshop. The image is the ‘template’ for running containers (i.e. virtual computers) on our ‘host’ computer and it comes complete with all of the Python libraries and other tools that you’ll need to complete the module (and a good deal more besides!). Installing the image will take a while as it’s quite large (1-5GB) and so will depend on the speed of your internet connection.\nYou can use a single command to download and start the sparc container by copying the following command into the Terminal or Windows Terminal (this may work in Power Shell, but not in the Command Prompt*/cmd):\n\nFor Intel MacsFor M-Chip MacsFor Windows\n\n\npodman run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-amd start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\n\n\n\n\nTip\n\n\n\nIf you were using Docker instead of Podman then the command is the same except that you need to replace podman with docker. This is on purpose: open source podman is intended to replace the proprietary docker.\n\n\n\n\npodman run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-arm start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\n\n\n\n\nTip\n\n\n\nIf you were using Docker instead of Podman then the command is the same except that you need to replace podman with docker. This is on purpose: open source podman is intended to replace the proprietary docker.\n\n\n\n\npodman run --rm -d --name sparc -p 8888:8888 -v \"$(pwd):/home/jovyan/work\" jreades/sparc:2025-amd start.sh jupyter lab --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\n\n\n\n\nTip\n\n\n\nIf you were using Docker instead of Podman then the command is the same except that you need to replace podman with docker. This is on purpose: open source podman is intended to replace the proprietary docker.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#if-things-go-wrong",
+    "href": "setup/installation.html#if-things-go-wrong",
+    "title": "Installation",
+    "section": "If Things Go Wrong",
+    "text": "If Things Go Wrong\nIf you encounter any problems with the installation, please have a look at the Dealing with Problems page.",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#success",
+    "href": "setup/installation.html#success",
+    "title": "Installation",
+    "section": "Success!",
+    "text": "Success!\nHowever, most of you should now be able to connect to the virtual machine by pointing your browser at: localhost:8888 where you should see something like this:\n\n\n\nJupyter Lab Success",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#footnotes",
+    "href": "setup/installation.html#footnotes",
+    "title": "Installation",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nAnd Docker, which is basically the same thing.↩︎",
+    "crumbs": [
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "setup/installation.html#podman",
+    "href": "setup/installation.html#podman",
+    "title": "Installation",
+    "section": "Podman",
+    "text": "Podman\npodman run hello-world\nThis should output something like:\nResolved \"hello-world\" as an alias (/etc/containers/registries.conf.d/000-shortnames.conf)\nTrying to pull quay.io/podman/hello:latest...\nGetting image source signatures\nCopying blob sha256:1ff9adeff4443b503b304e7aa4c37bb90762947125f4a522b370162a7492ff47\nCopying config sha256:83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32\nWriting manifest to image destination\n!... Hello Podman World ...!\n\n         .--\"--.\n       / -     - \\\n      / (O)   (O) \\\n   ~~~| -=(,Y,)=- |\n    .---. /`  \\   |~~\n ~/  o  o \\~~~~.----. ~~\n  | =(X)= |~  / (O (O) \\\n   ~~~~~~~  ~| =(Y_)=-  |\n  ~~~~    ~~~|   U      |~~\n\nProject:   https://github.com/containers/podman\nWebsite:   https://podman.io\nDesktop:   https://podman-desktop.io\nDocuments: https://docs.podman.io\nYouTube:   https://youtube.com/@Podman\nX/Twitter: @Podman_io\nMastodon:  @Podman_io@fosstodon.org\nIf you see these messages, then Podman is installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the ‘dealing with errors’ section. Notice how there are several things happening:\n\nTrying to pull... or Pulling from library/hello-world – this is starting the process of downloading the hello-world image from the internet.\nPull complete or Writing manifest to image destination – this is telling you that it has finished downloading the image.\nHello from Docker! or Hello Podman World – this is the hello-world image running and telling you that the image now running as a container.\n\nThere’s obviously a lot more to that message, but that’s the basic idea.",
+    "crumbs": [
+      "Installation"
+    ]
   }
 ]

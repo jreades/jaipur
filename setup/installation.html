@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../setup/base.html" rel="prev">
+<link href="../setup/health.html" rel="prev">
 <link href="..//img/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -111,10 +111,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <meta property="og:title" content="Installation – CASA/MNIT Workshop">
 <meta property="og:description" content="">
-<meta property="og:image" content="../img/Docker_Login.png">
+<meta property="og:image" content="../img/Podman_Desktop.png">
 <meta property="og:site_name" content="Introduction to Spatial Data Science">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image:alt" content="Docker trying to trick you into creating an account">
+<meta property="og:image:alt" content="Podman Desktop">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -151,11 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Requirements</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../setup/base.html">
- <span class="dropdown-text">Updates</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../setup/env.html">
+    <a class="dropdown-item" href="../setup/installation.html">
  <span class="dropdown-text">Installation</span></a>
   </li>  
     </ul>
@@ -203,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../setup/env.html">Installation</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../setup/installation.html">Installation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -223,13 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../setup/base.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Updates</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../setup/env.html" class="sidebar-item-text sidebar-link active">
+  <a href="../setup/installation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Installation</span></a>
   </div>
 </li>
@@ -244,11 +234,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#what-kind-of-computer" id="toc-what-kind-of-computer" class="nav-link active" data-scroll-target="#what-kind-of-computer">What Kind of Computer?</a></li>
+  <li><a href="#system-updates" id="toc-system-updates" class="nav-link" data-scroll-target="#system-updates">System Updates</a></li>
+  <li><a href="#base-utilities" id="toc-base-utilities" class="nav-link" data-scroll-target="#base-utilities">Base Utilities</a></li>
   <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
-  <li><a href="#podman-or-docker" id="toc-podman-or-docker" class="nav-link" data-scroll-target="#podman-or-docker">Podman or Docker?</a></li>
   <li><a href="#installing" id="toc-installing" class="nav-link" data-scroll-target="#installing">Installing</a></li>
   <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
   <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a></li>
+  <li><a href="#podman" id="toc-podman" class="nav-link" data-scroll-target="#podman">Podman</a></li>
   <li><a href="#running" id="toc-running" class="nav-link" data-scroll-target="#running">Running</a></li>
   <li><a href="#if-things-go-wrong" id="toc-if-things-go-wrong" class="nav-link" data-scroll-target="#if-things-go-wrong">If Things Go Wrong</a></li>
   <li><a href="#success" id="toc-success" class="nav-link" data-scroll-target="#success">Success!</a></li>
@@ -305,12 +297,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
+<section id="system-updates" class="level2">
+<h2 class="anchored" data-anchor-id="system-updates">System Updates</h2>
+<p>Before going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the <em>other</em> steps in this brief guide to getting started.</p>
+</section>
+<section id="base-utilities" class="level2">
+<h2 class="anchored" data-anchor-id="base-utilities">Base Utilities</h2>
+<p>In order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>You need the <strong>Xcode Command Line Tools</strong> installed on your Mac. In some cases this may have <em>already</em> been installed, but it’s the same process to check as to install:</p>
+<ol type="1">
+<li>Open the <code>Terminal</code> application (which can be found under <code>Utilities</code> in your <code>Applications</code> folder).</li>
+<li>Type the following: <code>xcode-select --install</code> and then hit Enter (⏎)</li>
+</ol>
+<p>Unless you get an outright <em>error</em> you can proceed to the next step:</p>
+<ol start="3" type="1">
+<li>Although not strictly necessary, you’ll <em>eventually</em> want the Homebrew package manager, which can also be installed <a href="https://phoenixnap.com/kb/install-homebrew-on-mac">directly from the Terminal</a>.</li>
+</ol>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>You will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the <code>Windows PowerShell</code>:</p>
+<ol type="1">
+<li><code>wsl --install</code> should quickly install the subsystem that we need.</li>
+<li><code>wsl --update</code> will ensure that the most up-to-date version is available.</li>
+</ol>
+<p>That <em>should</em> be it: Podman and Docker should now run without complaint.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+If You Need More Help
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>There is good guidance <a href="https://learn.microsoft.com/en-us/windows/wsl/install">from Microsoft</a> for Windows 11 and more recent ‘builds’ of Windows 10.</li>
+<li>There are also <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-windows-subsystem-for-linux-2-on-microsoft-windows-10">older instructions</a> for Windows 10.</li>
+</ol>
+<p>Common installation errors are <a href="https://learn.microsoft.com/en-us/windows/wsl/troubleshooting?source=recommendations">covered here</a>.</p>
+<p>Finally, if you are <em>still</em> being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following <a href="https://learn.microsoft.com/en-us/windows/wsl/install-manual">this MS guide</a> and, if there is still a problem, check <a href="https://s1gr1d.medium.com/how-to-set-up-linux-on-windows-with-wsl-2-debe2a64d20d">this blog post</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="software" class="level2">
 <h2 class="anchored" data-anchor-id="software">Software</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Apple Intel</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Apple Silicon (M-chips)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Windows PCs</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Apple Intel</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Apple Silicon (M-chips)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Windows PCs</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <ul>
 <li>Essential:
 <ul>
@@ -328,7 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
 <ul>
 <li>Essential:
 <ul>
@@ -346,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
 <ul>
 <li>Essential:
 <ul>
@@ -367,24 +409,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="podman-or-docker" class="level2">
-<h2 class="anchored" data-anchor-id="podman-or-docker">Podman or Docker?</h2>
-<p>You’ll see below that we talk about <em>both</em> Podman and Docker interchangeably. You may have heard of one, but not the other. Is there a difference? In terms of what they <em>do</em> there is no difference that <em>you</em> need to care about at the moment: both allow you to build images of virtual machines, share them with other users, and run any image you find as a container. All of these words are explained below. The point being, they aim to do the <em>same thing</em>.</p>
-<p>However, <em>how</em> they do this is quite different. Docker is/was the market leader in this kind of image/container sharing system and is very stable and well-supported; however, to be installed and run Docker requires administrator access (also known as <code>root</code>).</p>
-<p>Podman is a more recent, open source tool: it is <em>slightly</em> less stable and widely supported than Docker, and to make the most of it you need to change quite a few things. However, the biggest <em>benefit</em> is that you can run it as a user: this makes installation and execution much easier.</p>
-<p>We are trying to move over to Podman because it will make everyone’s life easier, but sometimes we run into issues that cause us to fall back to using Docker instead. Hope that makes sense!</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-TL;DR
+Podman v. Docker
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Choose Podman unless you have a specific reason to choose Docker instead or you have been unable to successfully install and run Podman.</p>
+<p>I you want to know more about the differences between Podman and Docker you can <a href="../setup/docker_vs_podman.html">start_here</a>.</p>
 </div>
 </div>
 </section>
@@ -400,7 +435,7 @@ How They Work
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><em>One</em> way to think of Podman/Docker is as a ‘library’ of ready-made <em>virtual</em> computers that you can copy and use free-of-charge. If you’d like to know more about what Podman/Docker are and how they work, you can read more in the <a href="../setup/virtualisation.html">Understanding Virtualisation</a> section.</p>
+<p><em>One</em> way to think of Podman is as a ‘library’ of ready-made <em>virtual</em> computers that you can copy and use free-of-charge. If you’d like to know more about what Podman are and how they work, you can read more in the <a href="../setup/virtualisation.html">Understanding Virtualisation</a> section.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -413,36 +448,21 @@ Windows Users
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please ensure that you have installed WSL2 <em>before</em> installing or Podman or Docker! If you cannot install WSL2 then please have a look at the ‘dealing with errors’ section.</p>
+<p>Please ensure that you have installed WSL2 <em>before</em> installing or Podman! If you cannot install WSL2 then please have a look at the ‘dealing with errors’ section.</p>
 </div>
 </div>
-<p><em>After</em> you’ve downloaded Podman (first choice) or Docker (second choice), you need to:</p>
+<p><em>After</em> you’ve downloaded Podman:</p>
 <ol type="1">
 <li>Install it – usually this will mean opening the image and either dragging it your Application folder (Mac) or running the installer (Windows)</li>
-<li>Start it up – double-click the Podman/Docker icon in your Applications folder to start the application running.</li>
-<li>Finish setup – you <em>may</em> see a login screen like the one below, but you do <em>not</em> need to create an account (notice <code>Continue without signing in</code>)</li>
-<li>On all the subsequent questions you can <code>Skip</code> (upper-right corner) answering as well.</li>
+<li>Start it up – double-click the Podman icon in your Applications folder to start the application running.</li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../img/Docker_Login.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Docker trying to trick you into creating an account"><img src="../img/Docker_Login.png" class="img-fluid figure-img" data-fig-width="50%" alt="Docker trying to trick you into creating an account"></a></p>
-<figcaption>Docker trying to trick you into creating an account</figcaption>
-</figure>
-</div>
-<p>You <strong>must finish setting up</strong> before proceeding to the next step. You’ll know that you’re ready to move on when you see either the ‘Podman Desktop’ or ‘Docker Desktop’ window appear listing ‘downloaded images’ and ‘running containers’:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="../img/Podman_Desktop.png" class="lightbox" data-gallery="desktop" title="Podman Desktop"><img src="../img/Podman_Desktop.png" class="img-fluid figure-img" data-fig-width="50%" alt="Podman Desktop"></a></p>
 <figcaption>Podman Desktop</figcaption>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../img/Docker_Desktop.png" class="lightbox" data-gallery="desktop" title="Docker Desktop"><img src="../img/Docker_Desktop.png" class="img-fluid figure-img" data-fig-width="50%" alt="Docker Desktop"></a></p>
-<figcaption>Docker Desktop</figcaption>
-</figure>
-</div>
-<p>If you <em>didn’t</em> see this then you will need to have a look at the ‘<a href="#dealing-with-errors">dealing with errors</a>’ section.</p>
+<p>If you <em>didn’t</em> see this (or see lots of errors) then you will need to have a look at the ‘<a href="#dealing-with-errors">dealing with errors</a>’ section.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -459,129 +479,39 @@ Important
 </section>
 <section id="configuration" class="level2">
 <h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
-<p>Podman requires you to create a virtual machine with user-specified characteristics <em>before</em> you can run an image. You can think of this as specifying the ‘hardware’ of the computer before you buy it (How much RAM? How big a hard drive? And so on.). In principle, this means that you can have more than one valid configuration at a time which would allow you to tune each virtual machine to your needs (one machine could have a lot of memory, another a lot of storage).</p>
-<p>In contrast, Docker uses a single configuration for <em>all</em> machines. If you want to change the configuration you need to shut everything down and then change the system setup in Docker.</p>
-<section id="considerations" class="level3">
-<h3 class="anchored" data-anchor-id="considerations">Considerations</h3>
-<p>You should create a virtual machine that has <em>enough</em> resources to do the job, but not so much that it affects your ability to do other work on the computer. Since every computer is unique, you need to look at your computer’s configuration and work it out from there but below is some basic guidance. You will find it easiest to configure this using Podman Desktop (next section) and clicking on the <code>Settings</code> and <code>Create Podman machine</code>.</p>
-<div id="tbl-RAM" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-RAM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Memory (RAM)
-</figcaption>
-<div aria-describedby="tbl-RAM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">If your computer has</th>
-<th style="text-align: right;">8GB</th>
-<th style="text-align: right;">16GB</th>
-<th style="text-align: right;">32GB</th>
-<th style="text-align: right;">64GB</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">We’d recommend</td>
-<td style="text-align: right;">1-2GB</td>
-<td style="text-align: right;">2-3GB</td>
-<td style="text-align: right;">4–8GB</td>
-<td style="text-align: right;">Lucky you!</td>
-</tr>
-</tbody>
-</table>
+<p>Podman requires you to create a virtual machine with user-specified characteristics <em>before</em> you can run an image. You can think of this as specifying the ‘hardware’ of the computer before you buy it (How much RAM? How big a hard drive? And so on.). In principle, this means that you can have more than one valid configuration at a time which would allow you to tune each virtual machine to your needs (one machine could have a lot of memory, another a lot of storage). You can read a more detailed explanation of <a href="../setup/configuring.html">how to configure a virtual machine</a>, but below is the ‘quick start’ version.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Apple MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Windows</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>In the Terminal you simply:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">podman</span> machine init</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">podman</span> machine start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</figure>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>In the PowerShell or Window Terminal you <em>should</em> be able to simply:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">podman</span> machine init</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">podman</span> machine start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="tbl-CPU" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-CPU-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Processing Power (CPUs)
-</figcaption>
-<div aria-describedby="tbl-CPU-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">If your computer has</th>
-<th style="text-align: right;">2CPUs</th>
-<th style="text-align: right;">8CPUs</th>
-<th style="text-align: right;">16CPU</th>
-<th style="text-align: right;">32CPUs</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">We’d recommend</td>
-<td style="text-align: right;">1CPU</td>
-<td style="text-align: right;">2-4CPUs</td>
-<td style="text-align: right;">4–8CPUs</td>
-<td style="text-align: right;">Lucky you!</td>
-</tr>
-</tbody>
-</table>
+<div class="callout-title-container flex-fill">
+Unable to Run
 </div>
-</figure>
 </div>
-<div id="tbl-HD" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-HD-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Free Disk Space (Disk size)
-</figcaption>
-<div aria-describedby="tbl-HD-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover caption-top table">
-<colgroup>
-<col style="width: 42%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">If your computer has</th>
-<th style="text-align: right;">10GB Free</th>
-<th style="text-align: right;">20GB Free</th>
-<th style="text-align: right;">100GB Free</th>
-<th style="text-align: right;">&gt; 150GB Free</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">We’d recommend</td>
-<td style="text-align: right;">Tidying up</td>
-<td style="text-align: right;">10GB</td>
-<td style="text-align: right;">30GB</td>
-<td style="text-align: right;">Lucky you!</td>
-</tr>
-</tbody>
-</table>
+<div class="callout-body-container callout-body">
+<p>In a small number of cases we’ve need to create a new, named virtual machine (e.g.&nbsp;<code>podman machine init myvm</code>) and then change the default. Hopefully this isn’t going to be needed.</p>
 </div>
-</figure>
 </div>
-<p>Note that some Windows machines come configured with <em>two</em> hard drives (usually called <code>C</code> and <code>D</code>); in those cases <code>D</code> is intended for data and often doesn’t have much on on it! In those cases, you can change the <code>Image Path</code> option in Podman desktop to store the image on the <code>D</code> drive and avoid problems with filling up your <code>C</code> drive.</p>
-</section>
-<section id="initialising-a-podman-machine" class="level3">
-<h3 class="anchored" data-anchor-id="initialising-a-podman-machine">Initialising a Podman Machine</h3>
-<p>The easiest way to configure your Podman machine is to use Podman Desktop. When you launch the Desktop, at the lower-left you’ll see a <code>Settings</code> button. Click this and then (if it’s not already selected) choose the <code>Resources</code> tab.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../img/Podman_Settings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Podman Resources"><img src="../img/Podman_Settings.png" class="img-fluid figure-img" alt="Podman Resources"></a></p>
-<figcaption>Podman Resources</figcaption>
-</figure>
 </div>
-<p>Select <code>Create new</code> and Podman will pick some sensible defaults for you; however, you might want to fine-tune the settings in line with the options set out above in Tables <a href="#tbl-RAM" class="quarto-xref">Table&nbsp;1</a> and <a href="#tbl-CPU" class="quarto-xref">Table&nbsp;2</a> especially. Here’s one setup for a fairly recent Apple MacBookPro M2.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../img/Podman_Machine_init.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Podman Machine Initalisation"><img src="../img/Podman_Machine_init.png" class="img-fluid figure-img" alt="Podman Machine Initalisation"></a></p>
-<figcaption>Podman Machine Initalisation</figcaption>
-</figure>
 </div>
-<p>Click on <code>Create</code> and you are now ready to run your first container from an image!</p>
-</section>
+</div>
 </section>
 <section id="testing" class="level2">
 <h2 class="anchored" data-anchor-id="testing">Testing</h2>
-<p>To test if the application (Docker or Podman) is installed correctly, you will need either the <code>Terminal</code> (macOS) or the <code>Windows Terminal</code> (Windows).</p>
+<p>To test if Podman is installed correctly, you will need either the <code>Terminal</code> (macOS) or the <code>Windows Terminal</code> (Windows).</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -595,12 +525,11 @@ Copy Code to Clipboard
 <p>Whenever you see a ‘code block’ below, you will <em>also</em> see a ‘clipboard’ icon (<img src="../img/copy-to-clipboard.png" height="18" alt="Copy to Clipboard Icon">) in the right. Click that, and the code will be copied to your computer’s ‘clipboard’ so that you can then paste it into the <code>Terminal</code> or <code>Windows Terminal</code> (see <a href="../setup/base.html#base-utilities">Base Utilities</a>. That will save you a lot of time and effort.</p>
 </div>
 </div>
-<p>Both Podman and Docker have provided a simple way to test if your installation is working correctly. You can run the following command:</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Podman</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Docker</a></li></ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">podman</span> run hello-world</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Podman has provided a simple way to test if your installation is working correctly. You can run the following command:</p>
+</section>
+<section id="podman" class="level2">
+<h2 class="anchored" data-anchor-id="podman">Podman</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">podman</span> run hello-world</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This should output something like:</p>
 <pre class="plaintext"><code>Resolved "hello-world" as an alias (/etc/containers/registries.conf.d/000-shortnames.conf)
 Trying to pull quay.io/podman/hello:latest...
@@ -627,40 +556,7 @@ Documents: https://docs.podman.io
 YouTube:   https://youtube.com/@Podman
 X/Twitter: @Podman_io
 Mastodon:  @Podman_io@fosstodon.org</code></pre>
-</div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run hello-world</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This should output something like:</p>
-<pre class="plaintext"><code>Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-478afc919002: Pull complete
-Digest: sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-    (arm64v8)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
-
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/</code></pre>
-</div>
-</div>
-</div>
-<p>If you see these messages, then Podman/Docker are installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the ‘<a href="#dealing-with-errors">dealing with errors</a>’ section. Notice how there are several things happening:</p>
+<p>If you see these messages, then Podman is installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the ‘<a href="#dealing-with-errors">dealing with errors</a>’ section. Notice how there are several things happening:</p>
 <ol type="1">
 <li><code>Trying to pull...</code> or <code>Pulling from library/hello-world</code> – this is starting the process of downloading the <code>hello-world</code> image from the internet.</li>
 <li><code>Pull complete</code> or <code>Writing manifest to image destination</code> – this is telling you that it has finished downloading the image.</li>
@@ -673,9 +569,9 @@ For more examples and ideas, visit:
 <p>We now need to download and run the sparc <strong>image</strong> that we created for the workshop. The image is the ‘template’ for running containers (i.e.&nbsp;virtual computers) on our ‘host’ computer and it comes complete with all of the Python libraries and other tools that you’ll need to complete the module (and a good deal more besides!). Installing the image will take a while as it’s quite large (1-5GB) and so will depend on the speed of your internet connection.</p>
 <p>You can use a single command to download and start the sparc <strong>container</strong> by copying the following command into the <code>Terminal</code> or <code>Windows Terminal</code> (this may work in <code>Power Shell</code>, but <em>not</em> in the Command Prompt*/<code>cmd</code>):</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">For Intel Macs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">For M-Chip Macs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">For Windows</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">For Intel Macs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">For M-Chip Macs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">For Windows</a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">--rm</span> <span class="at">-d</span> <span class="at">--name</span> sparc <span class="at">-p</span> 8888:8888 <span class="dt">\</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:/home/jovyan/work"</span> <span class="dt">\</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  jreades/sparc:2025-amd start.sh jupyter lab <span class="dt">\</span></span>
@@ -694,7 +590,7 @@ Tip
 </div>
 </div>
 </div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">--rm</span> <span class="at">-d</span> <span class="at">--name</span> sparc <span class="at">-p</span> 8888:8888 <span class="dt">\</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>   <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:/home/jovyan/work"</span> <span class="dt">\</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  jreades/sparc:2025-arm start.sh jupyter lab <span class="dt">\</span></span>
@@ -713,7 +609,7 @@ Tip
 </div>
 </div>
 </div>
-<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">podman</span> run <span class="at">--rm</span> <span class="at">-d</span> <span class="at">--name</span> sparc <span class="at">-p</span> 8888:8888 <span class="at">-v</span> <span class="st">"</span><span class="va">$(</span><span class="bu">pwd</span><span class="va">)</span><span class="st">:/home/jovyan/work"</span> jreades/sparc:2025-amd start.sh jupyter lab <span class="at">--LabApp.password</span><span class="op">=</span><span class="st">''</span> <span class="at">--ServerApp.password</span><span class="op">=</span><span class="st">''</span> <span class="at">--NotebookApp.token</span><span class="op">=</span><span class="st">''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -741,7 +637,7 @@ Tip
 <p>However, <em>most</em> of you should now be able to connect to the virtual machine by pointing your browser at: <a href="http://localhost:8888/lab/">localhost:8888</a> where you should see something like this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../img/Jupyter_Lab.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Jupyter Lab Success"><img src="../img/Jupyter_Lab.png" class="img-fluid figure-img" style="width:50.0%" alt="Jupyter Lab Success"></a></p>
+<p><a href="../img/Jupyter_Lab.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Jupyter Lab Success"><img src="../img/Jupyter_Lab.png" class="img-fluid figure-img" style="width:50.0%" alt="Jupyter Lab Success"></a></p>
 <figcaption>Jupyter Lab Success</figcaption>
 </figure>
 </div>
@@ -1175,8 +1071,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../setup/base.html" class="pagination-link" aria-label="Updates">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Updates</span>
+      <a href="../setup/health.html" class="pagination-link" aria-label="Requirements">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Requirements</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

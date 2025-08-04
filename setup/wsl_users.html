@@ -9,7 +9,7 @@
 <meta name="author" content="Jon Reades">
 <meta name="dcterms.date" content="2025-07-14">
 
-<title>Updates – CASA/MNIT Workshop</title>
+<title>Linux Users in WSL – CASA/MNIT Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Updates – CASA/MNIT Workshop">
+<meta property="og:title" content="Linux Users in WSL – CASA/MNIT Workshop">
 <meta property="og:description" content="">
 <meta property="og:image" content="img/CASA_Logo_no_text.png">
 <meta property="og:site_name" content="Introduction to Spatial Data Science">
@@ -156,23 +156,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#system-updates" id="toc-system-updates" class="nav-link active" data-scroll-target="#system-updates">System Updates</a></li>
-  <li><a href="#base-utilities" id="toc-base-utilities" class="nav-link" data-scroll-target="#base-utilities">Base Utilities</a></li>
-  <li><a href="#windows-only-optional" id="toc-windows-only-optional" class="nav-link" data-scroll-target="#windows-only-optional">Windows Only (Optional)</a></li>
-  </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/jreades/jaipur/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Updates</h1>
+<h1 class="title">Linux Users in WSL</h1>
 </div>
 
 
@@ -201,72 +193,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>In order to get the machine ready to do virtualisation you need to install a few updates to the Operating System as well as some tools that help to interact with the programming platform. Things are a lot more complicated for Windows users here than for Mac (or Linux) users.</p>
-<section id="system-updates" class="level2">
-<h2 class="anchored" data-anchor-id="system-updates">System Updates</h2>
-<p>Before going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the <em>other</em> steps in this brief guide to getting started.</p>
-</section>
-<section id="base-utilities" class="level2">
-<h2 class="anchored" data-anchor-id="base-utilities">Base Utilities</h2>
-<p>In order to access the majority of the features that this module uses, you will need to install several ‘base’ utilities:</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Windows</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>You need the <strong>Xcode Command Line Tools</strong> installed on your Mac. In some cases this may have <em>already</em> been installed, but it’s the same process to check as to install:</p>
-<ol type="1">
-<li>Open the <code>Terminal</code> application (which can be found under <code>Utilities</code> in your <code>Applications</code> folder).</li>
-<li>Type the following: <code>xcode-select --install</code> and then hit Enter (⏎)</li>
-</ol>
-<p>Unless you get an outright <em>error</em> you can proceed to the next step:</p>
-<ol start="3" type="1">
-<li>Although not strictly necessary, you’ll <em>eventually</em> want the Homebrew package manager, which can also be installed <a href="https://phoenixnap.com/kb/install-homebrew-on-mac">directly from the Terminal</a>.</li>
-</ol>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>You will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the <code>Windows PowerShell</code>:</p>
-<ol type="1">
-<li><code>wsl --install</code> should quickly install the subsystem that we need.</li>
-<li><code>wsl --update</code> will ensure that the most up-to-date version is available.</li>
-</ol>
-<p>That <em>should</em> be it: Podman and Docker should now run without complaint.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-If You Need More Help
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>There is good guidance <a href="https://learn.microsoft.com/en-us/windows/wsl/install">from Microsoft</a> for Windows 11 and more recent ‘builds’ of Windows 10.</li>
-<li>There are also <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-windows-subsystem-for-linux-2-on-microsoft-windows-10">older instructions</a> for Windows 10.</li>
-</ol>
-<p>Common installation errors are <a href="https://learn.microsoft.com/en-us/windows/wsl/troubleshooting?source=recommendations">covered here</a>.</p>
-<p>Finally, if you are <em>still</em> being told that you can’t install WSL2 and Linux, then the most likely cause of this issue is a setting in the BIOS of the computer itself. There are a couple of settings that need changing at a very low level to enable Hyper-V virtualisation. I would start by following <a href="https://learn.microsoft.com/en-us/windows/wsl/install-manual">this MS guide</a> and, if there is still a problem, check <a href="https://s1gr1d.medium.com/how-to-set-up-linux-on-windows-with-wsl-2-debe2a64d20d">this blog post</a>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="windows-only-optional" class="level2">
-<h2 class="anchored" data-anchor-id="windows-only-optional">Windows Only (Optional)</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Completely Optional}
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This next part is <em>completely optional</em> for those who want to go further with Linux and WSL. You do <em>not</em> (normally) need to do all this to just get Podman or Docker running.</p>
-</div>
-</div>
+<p>Some students may either a) run into problems that <em>require</em> a Linux user to correct; or b) wish to go further with WSL and Linux. You do not (normally) need this to run Podman or Docker.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -300,7 +227,6 @@ Creating a Linux User
 <p>Once you have done this you will have added a single line to your <code>.bashrc</code> file in Linux. This will create a ‘shortcut’ for bash in Linux. From here on out you <em>should</em> be able to type <code>cd $WIN_HOME</code> and move immediately over to the <code>CASA</code> directory on the Windows side. This will save having to remember (and type) the Windows path each time.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -728,7 +654,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> CASA Computing Environment</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jreades/jaipur/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/jreades/jaipur/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0812a7d3ff627bcd45a5ce7d509146a1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-da5941ee1e5f8f136a1d663ab47c3e00.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2fcf7bc05617db2f5f20cf7ec168f362.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../sessions/day4.html">
- <span class="dropdown-text">Day 4: Reinforcement</span></a>
+ <span class="dropdown-text">Day 4: Visualising Data</span></a>
   </li>  
     </ul>
   </li>
@@ -173,8 +173,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#podman-or-docker" id="toc-podman-or-docker" class="nav-link active" data-scroll-target="#podman-or-docker">Podman or Docker?</a></li>
-  <li><a href="#what-is-virtualisation" id="toc-what-is-virtualisation" class="nav-link" data-scroll-target="#what-is-virtualisation">What is Virtualisation?</a></li>
+  <li><a href="#what-is-virtualisation" id="toc-what-is-virtualisation" class="nav-link active" data-scroll-target="#what-is-virtualisation">What is Virtualisation?</a></li>
   <li><a href="#podmandocker-in-a-nutshell" id="toc-podmandocker-in-a-nutshell" class="nav-link" data-scroll-target="#podmandocker-in-a-nutshell">Podman/Docker in a Nutshell</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/jreades/jaipur/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -213,26 +212,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="podman-or-docker" class="level2">
-<h2 class="anchored" data-anchor-id="podman-or-docker">Podman or Docker?</h2>
-<p>You’ll see below that we talk about <em>both</em> Podman and Docker interchangeably. You may have heard of one, but not the other. Is there a difference? In terms of what they <em>do</em> there is no difference that <em>you</em> need to care about at the moment: both allow you to build images of virtual machines, share them with other users, and run any image you find as a container. All of these words are explained below. The point being, they aim to do the <em>same thing</em>.</p>
-<p>However, <em>how</em> they do this is quite different. Docker is/was the market leader in this kind of image/container sharing system and is very stable and well-supported; however, to be installed and run Docker requires administrator access (also known as <code>root</code>).</p>
-<p>Podman is a more recent, open source tool: it is <em>slightly</em> less stable and widely supported than Docker, and to make the most of it you need to change quite a few things. However, the biggest <em>benefit</em> is that you can run it as a user: this makes installation and execution much easier.</p>
-<p>We are trying to move over to Podman because it will make everyone’s life easier, but sometimes we run into issues that cause us to fall back to using Docker instead. Hope that makes sense!</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-TL;DR
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Choose Podman unless you have a specific reason to choose Docker instead or you have been unable to successfully install and run Podman.</p>
-</div>
-</div>
-</section>
 <section id="what-is-virtualisation" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-virtualisation">What is Virtualisation?</h2>
 <p>Podman and Docker are ‘virtualisation’ tools that allows you to run ‘virtual machines’ on your computer’s ‘host’ operating system. That’s a lot of new, probably meaningless words. If you’re one of those people who (understandably) likes to understand what’s going on then here’s how some people define it:</p>
@@ -241,6 +220,19 @@ TL;DR
 <li>VMWare on <a href="https://www.vmware.com/topics/virtual-machine#">What is a virtual machine</a>?</li>
 <li>Microsoft on <a href="https://azure.microsoft.com/en-gb/resources/cloud-computing-dictionary/what-is-a-virtual-machine">What is a virtual machine (VM)</a>?</li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Docker v. Podman
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can find out more about Podman and Docker <a href="../setup/docker_vs_podman.html">here</a></p>
+</div>
+</div>
 </section>
 <section id="podmandocker-in-a-nutshell" class="level2">
 <h2 class="anchored" data-anchor-id="podmandocker-in-a-nutshell">Podman/Docker in a Nutshell</h2>
