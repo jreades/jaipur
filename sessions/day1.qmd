@@ -21,9 +21,11 @@ Introductory session:
  
 Applied session:
 
-- [Check your computer is up to date](../setup/base.qmd)
-- [Setting up Podman](../setup/env.qmd)
-- [Running Podman](../setup/env.qmd#running)
+We are trying to do three things:
+
+1. Install required utilities: [WSL for Windows or Xcode for Mac](../setup/base.qmd)
+- [Setting up Podman](../setup/installation.qmd)
+- [Running Podman](../setup/installation.qmd#running)
 - If you've never programmed before:
   - [Key Concepts](../practicals/Key_Concepts.ipynb) (Ctrl+Click to download file)
  

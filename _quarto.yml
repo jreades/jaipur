@@ -5,6 +5,7 @@ project:
     port: 4100
   render:
     - "*.qmd"
+    - "!practicals/"
   resources:
     - "img"
     - "bib"

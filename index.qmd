@@ -29,7 +29,7 @@ Once you know that your machine and operating system are up-to-date, you should 
 
 ## Installation
 
-The [Installation Guide](./setup/env.qmd) section will help you to get your computer ready for the workshop sessions.
+The [Installation Guide](./setup/installation.qmd) section will help you to get your computer ready for the workshop sessions.
 
 ## Sessions
 
