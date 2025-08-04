@@ -143,7 +143,7 @@
     "href": "setup/env.html#running",
     "title": "Installation",
     "section": "Running",
-    "text": "Running\nWe now need to download and run the sparc image that we created for the workshop. The image is the ‘template’ for running containers (i.e. virtual computers) on our ‘host’ computer and it comes complete with all of the Python libraries and other tools that you’ll need to complete the module (and a good deal more besides!). Installing the image will take a while as it’s quite large (1-5GB) and so will depend on the speed of your internet connection.\nYou can use a single command to download and start the sparc container by copying the following command into the Terminal or Windows Terminal (this may work in Power Shell, but not in the Command Prompt*/cmd):\n\nFor Intel MacsFor M-Chip MacsFor Windows\n\n\ndocker run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-amd start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-arm start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\ndocker run --rm -d --name sparc -p 8888:8888 -v \"$(pwd):/home/jovyan/work\" jreades/sparc:2025-amd start.sh jupyter lab --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''",
+    "text": "Running\nWe now need to download and run the sparc image that we created for the workshop. The image is the ‘template’ for running containers (i.e. virtual computers) on our ‘host’ computer and it comes complete with all of the Python libraries and other tools that you’ll need to complete the module (and a good deal more besides!). Installing the image will take a while as it’s quite large (1-5GB) and so will depend on the speed of your internet connection.\nYou can use a single command to download and start the sparc container by copying the following command into the Terminal or Windows Terminal (this may work in Power Shell, but not in the Command Prompt*/cmd):\n\nFor Intel MacsFor M-Chip MacsFor Windows\n\n\npodman run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-amd start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\n\n\n\n\nTip\n\n\n\nIf you were using Docker instead of Podman then the command is the same except that you need to replace podman with docker. This is on purpose: open source podman is intended to replace the proprietary docker.\n\n\n\n\npodman run --rm -d --name sparc -p 8888:8888 \\\n   -v \"$(pwd):/home/jovyan/work\" \\\n  jreades/sparc:2025-arm start.sh jupyter lab \\\n  --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\n\n\n\n\nTip\n\n\n\nIf you were using Docker instead of Podman then the command is the same except that you need to replace podman with docker. This is on purpose: open source podman is intended to replace the proprietary docker.\n\n\n\n\npodman run --rm -d --name sparc -p 8888:8888 -v \"$(pwd):/home/jovyan/work\" jreades/sparc:2025-amd start.sh jupyter lab --LabApp.password='' --ServerApp.password='' --NotebookApp.token=''\n\n\n\n\n\n\nTip\n\n\n\nIf you were using Docker instead of Podman then the command is the same except that you need to replace podman with docker. This is on purpose: open source podman is intended to replace the proprietary docker.",
     "crumbs": [
       "Installation"
     ]
@@ -3098,5 +3098,110 @@
     "title": "Key Concepts",
     "section": "Packages",
     "text": "Packages\nA package is just some code that someone has written and shared with the rest of the world. Some of these are built into Python, some are ones that we can install ourselves after installing Python. Here we make use of four packages using variations of the import statement…\n\nimport urllib.request\nfrom PIL import Image\nfrom io import BytesIO\nimport matplotlib.pyplot as plt\n\nurl = \"https://jreades.github.io/jaipur/lectures/img/Octocat.png\"\n\n# Get the data\nresponse = urllib.request.urlopen(url)\nimage_data = response.read()\n\n# Load the image\nimg = Image.open(BytesIO(image_data))\n\n# Display the image\nplt.imshow(img)"
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#how-it-works",
+    "href": "lectures/3.5-Git.html#how-it-works",
+    "title": "Getting to Grips with Git",
+    "section": "How It Works",
+    "text": "How It Works\nThe natural way normal people think about managing versions of a document is to save a copy with a new name that somehow shows which version is most recent.\nThe natural way developers used to think about managing versions of a document is to have a master copy somewhere. Everyone asks the server for the master copy, makes some changes, and then checks those changes back in.\nThis is not how Git works.\n\nThe way normal people approach this problem assumes that, usually, only one or two people are making changes. But how do you coordinate with 20 other people to find out who has the most recent copy then collect all 21 people’s changes?\nThe way developers used to approach this problem assumes that someone is in final charge. That a company or organisation runs a server which will decide whose changes are allowed, and whose are not."
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#how-git-works",
+    "href": "lectures/3.5-Git.html#how-git-works",
+    "title": "Getting to Grips with Git",
+    "section": "How Git Works",
+    "text": "How Git Works\nGit is distributed, meaning that every computer where git is installed has its own master copy.\nSo every computer has a full history of any git project (aka. repository or ‘repo’). Indeed, you don’t have to synchronise your repo with any other computer or server at all! 1\n\nIn order to make this useful, you need ways to synchronise changes between computers that all think they’re right.\n\nI’d suggest that this is leaving the benefit of free backups on the table for no good reason!"
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#github",
+    "href": "lectures/3.5-Git.html#github",
+    "title": "Getting to Grips with Git",
+    "section": "GitHub",
+    "text": "GitHub\nGitHub is nothing special to Git, just another Git server with which to negotiate changes. Do not think of GitHub as the ‘master’ copy. There isn’t one.\nThere are, however, upstream and remote repositories.\n\nAn ‘upstream’ repository is where there’s a ‘gatekeeper’: e.g. the people who run PySAL have a repo that is considered the ‘gatekeeper’ for PySAL.\nA remote repository is any repository with which your copy synchronises. So the remote repository can be ‘upstream’ or it can just be another computer you run, or you GitHub account."
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#a-dropbox-analogy",
+    "href": "lectures/3.5-Git.html#a-dropbox-analogy",
+    "title": "Getting to Grips with Git",
+    "section": "A Dropbox Analogy",
+    "text": "A Dropbox Analogy\n\nThink of JupyterLab as being like Word or Excel: an application that allows you to read/write/edit notebook files.\nThink of GitHub as being like Dropbox: a place somewhere in the cloud that files on your home machine can be backed up.\n\nBut Dropbox doesn’t have the .gitignore file!\n\nGitHub offers a lot of ‘value added’ features (like simple text editing) on top of the basic service of ‘storing files’."
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#getting-started",
+    "href": "lectures/3.5-Git.html#getting-started",
+    "title": "Getting to Grips with Git",
+    "section": "Getting Started",
+    "text": "Getting Started\n\n\n\nTerm\nMeans\n\n\n\n\nRepository (Repo)\nA project or achive stored in Git.\n\n\ninit\nTo create a new repo on your computer.\n\n\nclone\nTo make a full copy of a repo somewhere else.\n\n\n\nThis creates a local repo that is unsynchronised with anything else:\nmkdir test\ncd test\ngit init\nWhereas this creates a local clone that is fully synchronised with GitHub:\ncd .. # To move out of 'test'\ngit clone https://github.com/jreades/fsds.git"
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#working-on-a-file",
+    "href": "lectures/3.5-Git.html#working-on-a-file",
+    "title": "Getting to Grips with Git",
+    "section": "Working on a File",
+    "text": "Working on a File\n\n\n\nTerm\nMeans\n\n\n\n\nadd\nAdd a file to a repo.\n\n\nmv\nMove/Rename a file in a repo.\n\n\nrm\nRemove a file from a repo.\n\n\n\nFor example:\ncd test # Back into the new Repo\ntouch README.md # Create empty file called README.md\ngit add README.md # Add it to the repository\ngit mv README.md fileA.md # Rename it (move it)\ngit rm fileA.md # Remove it... which is an Error!\nThis produces:\nerror: the following file has changes staged in the index:\n    fileA.md\n(use --cached to keep the file, or -f to force removal)\n\nThis is telling you that you can force remove (git rm -f fileA.md) if you really want, but you’d probably be better off commiting the changes that have been ‘staged’… more on this in a second!\nAlso: no one else knows about these changes yet!"
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#looking-at-the-history",
+    "href": "lectures/3.5-Git.html#looking-at-the-history",
+    "title": "Getting to Grips with Git",
+    "section": "Looking at the History",
+    "text": "Looking at the History\n\n\n\nTerm\nMeans\n\n\n\n\ndiff\nShow changes between commits.\n\n\nstatus\nShow status of files in repo.\n\n\nlog\nShow history of commits.\n\n\n\nFor example:\ncd ../test/ # In case you weren't already there\ngit status  # What's the status\nThis produces:\nOn branch master\n\nNo commits yet\n\nChanges to be committed:\n  (use \"git rm --cached &lt;file&gt;...\" to unstage)\n    new file:   fileA.md\n\nSo again, git is giving us hints as to the options: ‘changes to be committed’ vs. ‘unstage’ the changes. We can also see what files are to be committed (i.e. have changed)."
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#working-on-a-project-or-file",
+    "href": "lectures/3.5-Git.html#working-on-a-project-or-file",
+    "title": "Getting to Grips with Git",
+    "section": "Working on a Project or File",
+    "text": "Working on a Project or File\n\n\n\nTerm\nMeans\n\n\n\n\ncommit\nTo record changes to the repo.\n\n\nbranch\nCreate or delete branches.\n\n\ncheckout\nJump to a different branch.\n\n\n\nFor example:\ngit commit -m \"Added and then renamed the README.\"\ngit status\nYou should see:\n[master (root-commit) e7a0b25] Added and then renamed the README Markdown file.\n 1 file changed, 0 insertions(+), 0 deletions(-)\n create mode 100644 fileA.md\n# ... and then this:\nOn branch master\nnothing to commit, working tree clean\nMake a note of the number after ‘root-commit’!"
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#recovery",
+    "href": "lectures/3.5-Git.html#recovery",
+    "title": "Getting to Grips with Git",
+    "section": "Recovery",
+    "text": "Recovery\ngit rm fileA.md\ngit status\ngit commit -m \"Removed file.\"\nls \ngit checkout &lt;number you wrote down earlier&gt;\nls \n\nSo every operation on a file is recorded in the repository: adding, renaming, deleting, and so on. And we can roll back any change at any time. For plain-text files (such as Markdown, Python and R scripts) these changes are recorded at the level of each line of code: so you can jump around through your entire history of a project and trace exactly when and what changes you (or anyone else) made."
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#a-rock-climbing-analogy",
+    "href": "lectures/3.5-Git.html#a-rock-climbing-analogy",
+    "title": "Getting to Grips with Git",
+    "section": "A Rock-Climbing Analogy",
+    "text": "A Rock-Climbing Analogy"
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#collaborating-on-a-project",
+    "href": "lectures/3.5-Git.html#collaborating-on-a-project",
+    "title": "Getting to Grips with Git",
+    "section": "Collaborating on a Project",
+    "text": "Collaborating on a Project\n\n\n\nTerm\nMeans\n\n\n\n\npull\nTo request changes on a repo from another computer.\n\n\npush\nTo send changes on a repo to another computer.\n\n\n\nFor example:\ngit push"
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#a-note-on-workflow",
+    "href": "lectures/3.5-Git.html#a-note-on-workflow",
+    "title": "Getting to Grips with Git",
+    "section": "A Note on Workflow",
+    "text": "A Note on Workflow\nSo your workflow should be:\n\nSave edits to Jupyter notebook.\nRun git add &lt;filename.ipynb&gt; to record changes to the notebook (Note: replace &lt;filename.ipynb&gt; completely with the notebook filename).\nRun git commit -m \"Adding notes based on lecture\" (or whatever message is appropriate: -m means ‘message’).\nThen run git push to push the changes to GitHub.\n\nIf any of those commands indicate that there are no changes being recorded/pushed then it might be that you’re not editing the file that you think you are (this happens to me!).\nOn the GitHub web site you may need to force reload the view of the repository: Shift + the Reload button usually does it in most browsers. You may also need to wait 5 to 10 seconds for the changes to become ‘visible’ before reloading. It’s not quite instantaeous."
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#this-is-not-easy",
+    "href": "lectures/3.5-Git.html#this-is-not-easy",
+    "title": "Getting to Grips with Git",
+    "section": "This is not easy",
+    "text": "This is not easy\n\nSource"
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#so-here-are-some-cheat-sheets",
+    "href": "lectures/3.5-Git.html#so-here-are-some-cheat-sheets",
+    "title": "Getting to Grips with Git",
+    "section": "So here are some cheat sheets",
+    "text": "So here are some cheat sheets"
+  },
+  {
+    "objectID": "lectures/3.5-Git.html#resources",
+    "href": "lectures/3.5-Git.html#resources",
+    "title": "Getting to Grips with Git",
+    "section": "Resources",
+    "text": "Resources\n\nUnderstanding Git (Part 1) – Explain it Like I’m Five\nTrying Git\nVisualising Git\nGit Novice\nConfusing Git Terminology\nGit Cheat Sheet: Commands and Best Practices\nAndy’s R-focussed Tutorial\n\n\nI now have everything in Git repos: articles, research, presentations, modules… the uses are basically endless once you start using Markdown heavily (even if you don’t do much coding)."
   }
 ]
