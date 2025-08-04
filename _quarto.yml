@@ -52,8 +52,7 @@ website:
       background: light
       contents:
         - setup/health.qmd
-        - setup/base.qmd
-        - setup/env.qmd
+        - setup/installation.qmd
 
     - id: sessions
       title: "Sessions"

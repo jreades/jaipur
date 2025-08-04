@@ -7,9 +7,19 @@ lightbox: true
 
 Over the years, we have experimented with a range of approaches to setting you up with a programming environment, and we have come to the conclusion that **Podman**^[And Docker, which is basically the same thing.] is the most robust way to ensure a consistent experience. This guarantees that all students end up with the same versions of each library, that difficult-to-diagnose hardware/OS issues are minimised, and that running/recovery is the most straightforward.
 
-{{< include _downloading.qmd >}}
+{{< include ./_which_chip.qmd >}}
 
-{{< include ./_which_one.qmd >}}
+## System Updates
+
+Before going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the *other* steps in this brief guide to getting started.
+
+## Base Utilities
+
+In order to access the majority of the features that this module uses, you will need to install several 'base' utilities:
+
+{{< include _wsl.qmd >}}
+
+{{< include ./_software.qmd >}}
 
 {{< include ./_installing.qmd >}}
 

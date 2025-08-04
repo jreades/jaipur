@@ -1,17 +1,7 @@
 ---
 pversion: "1.20.1"
 ---
-## What Kind of Computer?
-
-### Apple Intel or Silicon/M-chip?
-
-Apple has stopped using Intel computer chips and now uses its own 'Silicon' (aka 'M') chips instead. Confusingly, these are often *also* referred to by their technical specification as `AMD64` (Intel) and `ARM64` (Apple), respectively. To find out which you have, click on the Apple icon (&#63743;) and select `About this Mac`. Look at the `Processor` section and you should see which type of computer you have. If you see the word `Intel` then you have an Intel computer, if you see `M1`, `M2`, `M3`, etc. then you have an Apple Silicon computer.
-
-### Windows 32- or 64-bit?
-
-It is *highly unlikely* that you have a 32-bit machine, so if in doubt download the 64-bit version. It is also unlikely that you have an ARM device if you have an off-the-shelf Windows computer.
-
-Please download *all* of the *Essential* packages for your type of computer (Apple Intel, Apple Silicon, Windows). The rest are listed for your convenience and you can install them as you see fit.
+## Software
 
 ::: {.panel-tabset}
 
@@ -48,5 +38,12 @@ Please download *all* of the *Essential* packages for your type of computer (App
   - [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/win32)
 - Only if Podman doesn't work:
   - [Docker Desktop for Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
+
+:::
+
+::: {.callout-tip}
+### Podman v. Docker
+
+I you want to know more about the differences between Podman and Docker you can [start_here](./docker_vs_podman.qmd).
 
 :::

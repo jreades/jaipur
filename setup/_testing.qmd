@@ -1,6 +1,6 @@
 ## Testing
 
-To test if the application (Docker or Podman) is installed correctly, you will need either the `Terminal` (macOS) or the `Windows Terminal` (Windows).
+To test if Podman is installed correctly, you will need either the `Terminal` (macOS) or the `Windows Terminal` (Windows).
 
 ::: {.callout-tip}
 
@@ -10,14 +10,14 @@ Whenever you see a 'code block' below, you will _also_ see a 'clipboard' icon (!
 
 :::
 
-Both Podman and Docker have provided a simple way to test if your installation is working correctly. You can run the following command:
-
-::: {.panel-tabset}
+Podman has provided a simple way to test if your installation is working correctly. You can run the following command:
 
 ## Podman 
+
 ```bash
 podman run hello-world
 ```
+
 This should output something like:
 
 ```plaintext
@@ -48,48 +48,11 @@ X/Twitter: @Podman_io
 Mastodon:  @Podman_io@fosstodon.org
 ```
 
-## Docker
-```bash
-docker run hello-world
-```
-
-This should output something like:
-
-```plaintext
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-478afc919002: Pull complete
-Digest: sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-    (arm64v8)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
-
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
-```
-
-:::
-
-If you see these messages, then Podman/Docker are installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the '[dealing with errors](#dealing-with-errors)' section. Notice how there are several things happening:
+If you see these messages, then Podman is installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the '[dealing with errors](#dealing-with-errors)' section. Notice how there are several things happening:
 
 1. `Trying to pull...` or `Pulling from library/hello-world` -- this is starting the process of downloading the `hello-world` image from the internet.
 2. `Pull complete` or `Writing manifest to image destination` -- this is telling you that it has finished downloading the image.
 3. `Hello from Docker!` or `Hello Podman World` -- this is the `hello-world` image running and telling you that the image now running as a container.
 
 There's obviously a *lot* more to that message, but that's the basic idea.
+

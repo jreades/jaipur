@@ -1,28 +1,10 @@
 ---
-title: "Updates"
+title: "Linux Users in WSL"
 author: "Jon Reades"
 date: "7/14/2025"
 ---
 
-In order to get the machine ready to do virtualisation you need to install a few updates to the Operating System as well as some tools that help to interact with the programming platform. Things are a lot more complicated for Windows users here than for Mac (or Linux) users.
-
-## System Updates
-
-Before going any further, please ensure that your computer is fully up-to-date with all Operating System and application updates before following any of the *other* steps in this brief guide to getting started.
-
-## Base Utilities
-
-In order to access the majority of the features that this module uses, you will need to install several 'base' utilities:
-
-{{< include _wsl.qmd >}}
-
-## Windows Only (Optional)
-
-::: {.callout-tip}
-### Completely Optional}
-
-This next part is *completely optional* for those who want to go further with Linux and WSL. You do *not* (normally) need to do all this to just get Podman or Docker running.
-:::
+Some students may either a) run into problems that *require* a Linux user to correct; or b) wish to go further with WSL and Linux. You do not (normally) need this to run Podman or Docker.
 
 ::: {.callout-tip}
 ## Creating a Linux User

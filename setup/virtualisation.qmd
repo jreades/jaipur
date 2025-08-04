@@ -4,8 +4,6 @@ author: Jon Reades
 date: 7/11/25
 ---
 
-{{< include _which_one.qmd >}}
-
 ## What is Virtualisation?
 
 Podman and Docker are 'virtualisation' tools that allows you to run 'virtual machines' on your computer's 'host' operating system. That's a lot of new, probably meaningless words. If you're one of those people who (understandably) likes to understand what's going on then here's how some people define it:
@@ -13,6 +11,12 @@ Podman and Docker are 'virtualisation' tools that allows you to run 'virtual mac
 1. Google on [What is a virtual machine](https://cloud.google.com/learn/what-is-a-virtual-machine#)?
 2. VMWare on [What is a virtual machine](https://www.vmware.com/topics/virtual-machine#)?
 3. Microsoft on [What is a virtual machine (VM)](https://azure.microsoft.com/en-gb/resources/cloud-computing-dictionary/what-is-a-virtual-machine)?
+
+::: {.callout-tip}
+### Docker v. Podman
+
+You can find out more about Podman and Docker [here](./docker_vs_podman.qmd)
+:::
 
 ## Podman/Docker in a Nutshell
 

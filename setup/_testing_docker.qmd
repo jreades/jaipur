@@ -1,0 +1,99 @@
+## Testing
+
+To test if Docker is installed correctly, you will need either the `Terminal` (macOS) or the `Windows Terminal` (Windows).
+
+::: {.callout-tip}
+
+## Copy Code to Clipboard 
+
+Whenever you see a 'code block' below, you will _also_ see a 'clipboard' icon (![Copy to Clipboard Icon](../img/copy-to-clipboard.png){height="18px"}) in the right. Click that, and the code will be copied to your computer's 'clipboard' so that you can then paste it into the `Terminal` or `Windows Terminal` (see [Base Utilities](./base.qmd#base-utilities). That will save you a lot of time and effort.
+
+:::
+
+Docker has provided a simple way to test if your installation is working correctly. You can run the following command:
+
+## Docker
+
+```bash
+docker run hello-world
+```
+
+This should output something like:
+
+```plaintext
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+478afc919002: Pull complete
+Digest: sha256:91fb4b041da273d5a3273b6d587d62d518300a6ad268b28628f74997b93171b2
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (arm64v8)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+```
+
+If you see this messages, then Docker are installed correctly and you can move on to the next step. If you see an error message, then you will need to have a look at the '[dealing with errors](#dealing-with-errors)' section. Notice how there are several things happening:
+
+1. `Trying to pull...` or `Pulling from library/hello-world` -- this is starting the process of downloading the `hello-world` image from the internet.
+2. `Pull complete` or `Writing manifest to image destination` -- this is telling you that it has finished downloading the image.
+3. `Hello from Docker!` -- this is the `hello-world` image running and telling you that the image now running as a container.
+
+There's obviously a *lot* more to that message, but that's the basic idea.
+---
+lightbox: true
+---
+## Installing
+
+:::{.callout-tip}
+### How They Work
+
+*One* way to think of Podman/Docker is as a 'library' of ready-made *virtual* computers that you can copy and use free-of-charge. If you'd like to know more about what Podman/Docker are and how they work, you can read more in the [Understanding Virtualisation](virtualisation.qmd) section.
+
+:::
+
+::: {.callout-important}
+### Windows Users
+
+Please ensure that you have installed WSL2 *before* installing or Podman or Docker! If you cannot install WSL2 then please have a look at the 'dealing with errors' section.
+
+:::
+
+*After* you've downloaded Podman (first choice) or Docker (second choice), you need to:
+
+1. Install it -- usually this will mean opening the image and either dragging it your Application folder (Mac) or running the installer (Windows)
+2. Start it up -- double-click the Podman/Docker icon in your Applications folder to start the application running.
+3. Finish setup -- you *may* see a login screen like the one below, but you do *not* need to create an account (notice `Continue without signing in`)
+4. On all the subsequent questions you can `Skip` (upper-right corner) answering as well.
+
+![Docker trying to trick you into creating an account](../img/Docker_Login.png){fig-width=50%}
+
+You **must finish setting up** before proceeding to the next step. You'll know that you're ready to move on when you see either the 'Podman Desktop' or 'Docker Desktop' window appear listing 'downloaded images' and 'running containers':
+
+![Podman Desktop](../img/Podman_Desktop.png){fig-width=50% group="desktop"}
+
+![Docker Desktop](../img/Docker_Desktop.png){fig-width=50% group="desktop"}
+
+If you *didn't* see this then you will need to have a look at the '[dealing with errors](#dealing-with-errors)' section.
+
+::: {.callout-important}
+
+Installation on a Mac should be fairly straightforward (as evidenced by the dearth of documentation), but for Windows there is [quite a bit more detail](https://github.com/containers/podman/blob/main/docs/tutorials/podman-for-windows.md).
+
+:::
