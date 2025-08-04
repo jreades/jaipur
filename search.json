@@ -145,7 +145,7 @@
     "href": "sessions/day4.html",
     "title": "Day 4: Visualising Data",
     "section": "",
-    "text": "Goal\n\n\n\nTo get you using the tools taught to create maps and plots using data.\n\n\nApplied session:\n\nApplying what has been learned over the preceding days.\nAdding new data to your map\nChanging colours, line widths, …, choropleths and maps-in-maps.\nWorking on a report — choosing a topic of interest (continuation of Day 3)",
+    "text": "Goal\n\n\n\nTo get you using the tools taught to create maps and plots using data.\n\n\nIntroductory session:\n\nAn introduction to Quarto\nA brief introduction to version control and github.io (Git / GitHub)\nApplied session:\nCreating a report in Quarto starting from Report.qmd\nAdding new data to your map\nChanging colours, line widths, …, choropleths and maps-in-maps.\nWorking on a report — choosing a topic of interest (continuation of Day 3)",
     "crumbs": [
       "Day 4: Visualising Data"
     ]
@@ -155,7 +155,7 @@
     "href": "sessions/day2.html",
     "title": "Day 2: Exploring Code",
     "section": "",
-    "text": "Goal\n\n\n\nLearning to manage and link data.\n\n\nIntroductory session:\n\nThink Maps\nThink Data\nReading Tables with Pandas\nReading Geographies with GeoPandas\n\nApplied session:\n\nPandas (Ctrl+Click to download file)\nGeopandas (Ctrl+Click to download file)",
+    "text": "Goal\n\n\n\nLearning to manage and link data.\n\n\nIntroductory session:\n\nDictionaries\nLists-of-Lists (LOLs)\nDictionaries-of-Lists (DOLs)\n\nApplied session:\n\nKey Concepts (Ctrl+Click to download file)",
     "crumbs": [
       "Day 2: Exploring Code"
     ]
@@ -1586,7 +1586,7 @@
     "href": "sessions/day1.html",
     "title": "Day 1: Getting Started",
     "section": "",
-    "text": "Goal\n\n\n\nA basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.\n\n\n\nPoll: how many people have used GIS? If so, which one?\nPoll: how many people have learned a programming language? If so, which one?\n\nIntroductory session:\n\n1.1 Getting Started\n1.2 What Do (Spatial) Data Scientists Do\n1.3 Our Principles\n1.4 Our Tools\n\nApplied session:\nWe are trying to do three things:\n\nInstall required utilities: WSL for Windows or Xcode for Mac\n\n\nSetting up Podman\nRunning Podman\nIf you’ve never programmed before:\n\nKey Concepts (Ctrl+Click to download file)",
+    "text": "Goal\n\n\n\nA basic understanding of core concepts in reproducible analysis and the advantages of moving to open data and open source code.\n\n\n\nPoll: how many people have used GIS? If so, which one?\nPoll: how many people have learned a programming language? If so, which one?\n\nIntroductory session:\n\n1.1 Getting Started\n1.2 What Do (Spatial) Data Scientists Do\n1.3 Our Principles\n1.4 Our Tools\n\nApplied session:\nWe are trying to do three things:\n\nInstall required utilities: WSL for Windows or Xcode for Mac\n\n\nSetting up Podman\nRunning Podman",
     "crumbs": [
       "Day 1: Getting Started"
     ]
@@ -1596,7 +1596,7 @@
     "href": "sessions/day3.html",
     "title": "Day 3: Reproducible Analysis",
     "section": "",
-    "text": "Goal\n\n\n\nHow tools like Quarto and Python can make report-writing ‘easy’.\n\n\nIntroductory session:\n\nWhat is reproducible analysis and why care about it?\nA brief introduction to version control and github.io (Git / GitHub)\nAn introduction to Quarto\n\nApplied session:\n\nLinking data\nCreating a report in Quarto starting from Report.qmd",
+    "text": "Goal\n\n\n\nHow tools like Quarto and Python can make report-writing ‘easy’.\n\n\nIntroductory session:\n\nThink Maps\nThink Data\nReading Tables with Pandas\nReading Geographies with GeoPandas\n\nApplied session:\n\nPandas (Ctrl+Click to download file)\nGeopandas (Ctrl+Click to download file)\nLinking data",
     "crumbs": [
       "Day 3: Reproducible Analysis"
     ]
