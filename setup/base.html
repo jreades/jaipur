@@ -111,6 +111,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../setup/health.html">
  <span class="dropdown-text">Requirements</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../setup/installation.html">
+ <span class="dropdown-text">Installation</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -224,12 +228,17 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>You will need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the <code>Windows PowerShell</code>:</p>
+<p>You <em>first</em> need to check that virtualisation is enabled on your computer. This is under <code>Windows Features</code> where you need to make sure that the following options are ticked:</p>
+<ol type="1">
+<li><code>Virtual Machine Platform</code></li>
+<li><code>Windows Hypervstor Platform</code></li>
+<li>If you have to change these settings then you then need to <em>restart</em> your machine.</li>
+</ol>
+<p>You then need to install WSL2 but, strangely, you do not actually need to install a full Linux O/S, so as far as we can tell this means you only need to run the following commands in the <code>Windows PowerShell</code>:</p>
 <ol type="1">
 <li><code>wsl --install</code> should quickly install the subsystem that we need.</li>
-<li><code>wsl --update</code> will ensure that the most up-to-date version is available.</li>
 </ol>
-<p>That <em>should</em> be it: Podman and Docker should now run without complaint.</p>
+<p>That <em>should</em> be it: Podman (and Docker) should now run without complaint.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

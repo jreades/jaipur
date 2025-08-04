@@ -9,7 +9,7 @@
 <meta name="author" content="Jon Reades">
 <meta name="dcterms.date" content="2025-07-11">
 
-<title>Requirements – CASA/MNIT Workshop</title>
+<title>Additional Configuration – CASA/MNIT Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +32,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../setup/installation.html" rel="next">
 <link href="..//img/favicon.ico" rel="icon">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -43,6 +42,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-2fcf7bc05617db2f5f20cf7ec168f362.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,14 +74,15 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Requirements – CASA/MNIT Workshop">
+<meta property="og:title" content="Additional Configuration – CASA/MNIT Workshop">
 <meta property="og:description" content="">
-<meta property="og:image" content="img/CASA_Logo_no_text.png">
+<meta property="og:image" content="../img/Podman_Settings.png">
 <meta property="og:site_name" content="Introduction to Spatial Data Science">
 <meta property="og:locale" content="en_GB">
+<meta property="og:image:alt" content="Podman Resources">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -156,56 +159,20 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../setup/health.html">Requirements</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../setup/health.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Requirements</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../setup/installation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Installation</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#hardware-requirements" id="toc-hardware-requirements" class="nav-link active" data-scroll-target="#hardware-requirements">Hardware Requirements</a></li>
-  <li><a href="#software-requirements" id="toc-software-requirements" class="nav-link" data-scroll-target="#software-requirements">Software Requirements</a></li>
-  </ul>
-<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/jreades/jaipur/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Requirements</h1>
+<h1 class="title">Additional Configuration</h1>
 </div>
 
 
@@ -234,85 +201,125 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This guide will help you to perform a basic ‘health check’ on your computer to see if you’re likely to run into problems running the programming environment. When answering the questions below, ‘your computer’ is the machine on which you plan to do the programming.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Podman requires you to create a virtual machine with user-specified characteristics <em>before</em> you can run an image. You can think of this as specifying the ‘hardware’ of the computer before you buy it (How much RAM? How big a hard drive? And so on.). In principle, this means that you can have more than one valid configuration at a time which would allow you to tune each virtual machine to your needs (one machine could have a lot of memory, another a lot of storage).</p>
+<section id="considerations" class="level3">
+<h3 class="anchored" data-anchor-id="considerations">Considerations</h3>
+<p>You should create a virtual machine that has <em>enough</em> resources to do the job, but not so much that it affects your ability to do other work on the computer. Since every computer is unique, you need to look at your computer’s configuration and work it out from there but below is some basic guidance. You will find it easiest to configure this using Podman Desktop (next section) and clicking on the <code>Settings</code> and <code>Create Podman machine</code>.</p>
+<div id="tbl-RAM" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-RAM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Memory (RAM)
+</figcaption>
+<div aria-describedby="tbl-RAM-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">If your computer has</th>
+<th style="text-align: right;">8GB</th>
+<th style="text-align: right;">16GB</th>
+<th style="text-align: right;">32GB</th>
+<th style="text-align: right;">64GB</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">We’d recommend</td>
+<td style="text-align: right;">1-2GB</td>
+<td style="text-align: right;">2-3GB</td>
+<td style="text-align: right;">4–8GB</td>
+<td style="text-align: right;">Lucky you!</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="callout-title-container flex-fill">
-TL;DR
+</figure>
 </div>
+<div id="tbl-CPU" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-CPU-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Processing Power (CPUs)
+</figcaption>
+<div aria-describedby="tbl-CPU-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">If your computer has</th>
+<th style="text-align: right;">2CPUs</th>
+<th style="text-align: right;">8CPUs</th>
+<th style="text-align: right;">16CPU</th>
+<th style="text-align: right;">32CPUs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">We’d recommend</td>
+<td style="text-align: right;">1CPU</td>
+<td style="text-align: right;">2-4CPUs</td>
+<td style="text-align: right;">4–8CPUs</td>
+<td style="text-align: right;">Lucky you!</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="callout-body-container callout-body">
-<p>If your computer is less than 4 years old, has plenty of RAM and more than 20GB of free disk space then you’re <em>probably</em> fine. The only other common issue is pif you have Windows 10 <em>Home</em> installed.</p>
+</figure>
 </div>
+<div id="tbl-HD" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-HD-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Free Disk Space (Disk size)
+</figcaption>
+<div aria-describedby="tbl-HD-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">If your computer has</th>
+<th style="text-align: right;">10GB Free</th>
+<th style="text-align: right;">20GB Free</th>
+<th style="text-align: right;">100GB Free</th>
+<th style="text-align: right;">&gt; 150GB Free</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">We’d recommend</td>
+<td style="text-align: right;">Tidying up</td>
+<td style="text-align: right;">10GB</td>
+<td style="text-align: right;">30GB</td>
+<td style="text-align: right;">Lucky you!</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>We try to support as many different configurations as possible, but there is <em>no</em> programming environment that installs and runs seamlessly on <em>all</em> computers so if you run into issues please come back to this guide.</p>
-<section id="hardware-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="hardware-requirements">Hardware Requirements</h2>
-<p>In our experience the students <strong>most likely to encounter problems</strong> share one or more of the following:</p>
-<ol type="1">
-<li>Your computer 8GB or less of RAM.</li>
-<li>Your computer has less than 20GB of free disk space remaining.</li>
-</ol>
-<p>Read on below to check what specification you have…</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Windows</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Linux</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>You will need to look up:</p>
-<ul>
-<li>How much RAM does <em>your computer</em> have? <a href="https://www.macworld.co.uk/how-to/mac/much-ram-need-more-3793418/">Help for Mac</a>.</li>
-<li>How much free disk space does <em>your computer</em> have? <a href="https://www.macworld.com/article/2972775/how-to-check-a-mac-free-hard-drive-space.html">Help for Mac</a>.</li>
-</ul>
+</figure>
 </div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>You will need to look up:</p>
-<ul>
-<li>How much RAM does <em>your computer</em> have? <a href="https://www.howtogeek.com/435644how-to-see-how-much-ram-is-in-your-pc-and-its-speed/">Help for Windows</a>.</li>
-<li>How much free disk space does <em>your computer</em> have? <a href="https://www.lifewire.com/how-to-check-free-hard-drive-space-in-windows-2619187">Help for Windows</a>.</li>
-</ul>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>We’re going to assume that you know what you’re doing. If you want a recommendation, we’d probably go with the latest Ubuntu desktop release.</p>
-</div>
-</div>
-</div>
-<p>If your computer has less than 8GB of RAM <em>and/or</em> less than 20GB of free disk space you are likely to have issues with <a href="../setup/virtualisation.html">virutalisation</a> and (on Windows) WSL2. Your options are: 1) add more RAM (possible on Windows); 2) back up and remove unnecessary files (Movies, Photos, and Applications are particularly big ‘hogs’).</p>
+<p>Note that some Windows machines come configured with <em>two</em> hard drives (usually called <code>C</code> and <code>D</code>); in those cases <code>D</code> is intended for data and often doesn’t have much on on it! In those cases, you can change the <code>Image Path</code> option in Podman desktop to store the image on the <code>D</code> drive and avoid problems with filling up your <code>C</code> drive.</p>
 </section>
-<section id="software-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="software-requirements">Software Requirements</h2>
-<p>In our experience the students <strong>most likely to encounter problems</strong> share one or more of the following:</p>
-<ol type="1">
-<li>Your computer runs Windows 10 Home or older, or</li>
-<li>Your computer runs MacOS 10.13 (High Sierra) or older.</li>
-</ol>
-<p>As long as your computer is running one of the last two major releases of the Operating System you should encounter few issues.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">MacOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Windows</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>You will need to look up:</p>
-<ul>
-<li>What Operating System and Version is <em>your computer</em> running? <a href="https://support.apple.com/en-gb/HT201260">Help for Mac</a>.</li>
-</ul>
+<section id="initialising-a-podman-machine" class="level3">
+<h3 class="anchored" data-anchor-id="initialising-a-podman-machine">Initialising a Podman Machine</h3>
+<p>The easiest way to configure your Podman machine is to use Podman Desktop. When you launch the Desktop, at the lower-left you’ll see a <code>Settings</code> button. Click this and then (if it’s not already selected) choose the <code>Resources</code> tab.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../img/Podman_Settings.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Podman Resources"><img src="../img/Podman_Settings.png" class="img-fluid figure-img" alt="Podman Resources"></a></p>
+<figcaption>Podman Resources</figcaption>
+</figure>
 </div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>You will need to look up:</p>
-<ul>
-<li>What Operating System and Version is <em>your computer</em> running? <a href="https://support.microsoft.com/en-gb/help/13443/windows-which-version-am-i-running">Help for Windows</a>.</li>
-</ul>
+<p>Select <code>Create new</code> and Podman will pick some sensible defaults for you; however, you might want to fine-tune the settings in line with the options set out above in Tables <a href="#tbl-RAM" class="quarto-xref">Table&nbsp;1</a> and <a href="#tbl-CPU" class="quarto-xref">Table&nbsp;2</a> especially. Here’s one setup for a fairly recent Apple MacBookPro M2.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../img/Podman_Machine_init.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Podman Machine Initalisation"><img src="../img/Podman_Machine_init.png" class="img-fluid figure-img" alt="Podman Machine Initalisation"></a></p>
+<figcaption>Podman Machine Initalisation</figcaption>
+</figure>
 </div>
-</div>
-</div>
-<section id="recommendations" class="level3">
-<h3 class="anchored" data-anchor-id="recommendations">Recommendations</h3>
-<p>If you are using a Mac then your system should have the option to update to the latest version of the MacOS at no charge. If you are unable to update then it is likely that you have an older machine that is not fully supported by the most recent Operating System and, in all probability, you will also encounter issues running the programming environment.</p>
-<p>If you are using a Windows PC then try to update to either Windows 11 or to Windows 10 Pro as this will ‘unlock’ additional features that are useful for supporting the programming environment. As a student you are likely to qualify for significantly cheaper/free updates, so make sure you do this when you have access to a discount.</p>
+<p>Click on <code>Create</code> and you are now ready to run your first container from an image!</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -733,15 +740,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../setup/installation.html" class="pagination-link" aria-label="Installation">
-        <span class="nav-page-text">Installation</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -750,7 +748,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
 <p><img src="../img/favicon-16x16.png" class="height:10px img-fluid"> CASA Computing Environment</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/jreades/jaipur/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.com/jreades/jaipur/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
@@ -769,6 +767,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

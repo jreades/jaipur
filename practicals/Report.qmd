@@ -1,0 +1,103 @@
+---
+bibliography: ../bib/Readings.bib
+csl: ../bib/harvard-cite-them-right.csl
+title: A Project
+execute:
+  echo: false
+  freeze: false
+  cache: false 
+format:
+  html:
+    code-copy: true
+    code-link: true
+    toc: true
+    toc-title: On this page
+    toc-depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+  pdf:
+    include-in-header:
+      text: |
+        \addtokomafont{disposition}{\rmfamily}
+        \input{include-in-header.tex}
+    pdf-engine: xelatex
+    mainfont: "EB Garamond"
+    serifont: "EB Garamond"
+    sansfont: "Hanken Grotesk"
+    monofont: "Geist Mono"
+    papersize: a4
+    geometry:
+      - top=25mm
+      - left=40mm
+      - right=30mm
+      - bottom=25mm
+      - heightrounded
+    toc: false
+    number-sections: false
+    colorlinks: true
+    highlight-style: github
+engine: python
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+## Introduction
+
+Some content here.
+
+```{python}
+import matplotlib.pyplot as plt
+import geopandas as gpd
+from pathlib import Path
+from matplotlib_scalebar.scalebar import ScaleBar
+from matplotlib_map_utils.core.north_arrow import NorthArrow, north_arrow
+
+gdf = gpd.read_parquet(Path.home() / 'work/data/clean/Jaipur_Boundary.geoparquet')
+
+fdict = {'fontname':'EB Garamond', 'weight':'bold', 'size':'xx-large'}
+
+f, ax = plt.subplots(1,1,figsize=(6,5))
+ax.set_title("A Map of Jaipur", **fdict)
+ax.axis('off')
+#ax.get_xaxis().set_visible(False)
+#ax.get_yaxis().set_visible(False)
+# Create scale bar
+scalebar = ScaleBar(1)
+ax.add_artist(scalebar)
+north_arrow(
+    ax, location="upper left", rotation={"crs": gdf.crs, "reference": "center"}
+)
+
+gdf.plot(color='red', ax=ax)
+```
+
+## Another Heading
+
+```{python}
+#| echo: false
+#| output: asis
+import pandas as pd
+
+df = pd.read_parquet(Path.home() / 'work/data/clean/materials.parquet')
+
+
+# Most plastic roofing
+mward = df[df.roof_plastic_polythene==df.roof_plastic_polythene.max()].ward_no
+
+val = int(mward.iloc[0])
+
+print(f"The ward with the highest concentration of plastic roofing is No. {mward.iloc[0]}.")
+```
+
+There is also an inline version (e.g. The ward is No. `{python} val`), but it doesn't (consistently) work for me so you might need to play about a bit...
+
