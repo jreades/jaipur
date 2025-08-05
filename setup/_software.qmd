@@ -8,36 +8,30 @@ pversion: "1.20.1"
 ### Apple Intel
 
 - Essential:
-  - [Podman for AMD64](https://github.com/podman-desktop/podman-desktop/releases/download/v{{< meta pversion >}}/podman-desktop-{{< meta pversion >}}-x64.dmg)
+  - [Podman Desktop](https://podman-desktop.io/downloads)
   - [iTerm2](https://iterm2.com/downloads/stable/iTerm2-3_5_14.zip)
 - Optional:
   - [QGIS Long-Term Release (LTR)](https://qgis.org/downloads/macos/qgis-macos-ltr.dmg) 
   - [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/darwin)
-- Only if Podman doesn't work:
-  - [Docker Desktop for Mac with Intel chip](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-amd64)
 
 ### Apple Silicon (M-chips)
 
 - Essential: 
-  - [Podman for ARM64](https://github.com/podman-desktop/podman-desktop/releases/download/v{{< meta pversion >}}/podman-desktop-{{< meta pversion >}}-arm64.dmg)
+  - [Podman Desktop](https://podman-desktop.io/downloads)
   - [iTerm2](https://iterm2.com/downloads/stable/iTerm2-3_5_14.zip)
 - Optional:
   - [QGIS Long-Term Release (LTR)](https://qgis.org/downloads/macos/qgis-macos-ltr.dmg) 
   - [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/darwin-arm64)
-- Only if Podman doesn't work:
-  - [Docker Desktop for Mac with Apple silicon](https://desktop.docker.com/mac/main/arm64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-mac-arm64) 
 
 ### Windows PCs
 
 - Essential:
   - [Windows Terminal](https://github.com/containers/podman/blob/main/docs/tutorials/podman-for-windows.md#prerequisites) installed via either Windows Store or `winget`.
-  - [Podman for AMD64](https://github.com/podman-desktop/podman-desktop/releases/download/v{{< meta pversion >}}/podman-desktop-{{< meta pversion >}}-setup-x64.exe) (it's unlikely that you need the [ARM64 installer](https://github.com/podman-desktop/podman-desktop/releases/download/v{{< meta pversion >}}/podman-desktop-{{< meta pversion >}}-setup-arm64.exe))
+  - [Podman Desktop](https://podman-desktop.io/downloads)
 - Optional:
   - [QGIS Long-Term Release (LTR)](https://qgis.org/downloads/QGIS-OSGeo4W-3.34.10-1.msi)
   - [Git](https://git-scm.com/download/win)
   - [GitHub Desktop](https://central.github.com/deployments/desktop/desktop/latest/win32)
-- Only if Podman doesn't work:
-  - [Docker Desktop for Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe)
 
 :::
 

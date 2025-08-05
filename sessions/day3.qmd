@@ -14,12 +14,15 @@ How tools like Quarto and Python can make report-writing 'easy'.
  
 Introductory session:
 
-- What is reproducible analysis and why care about it?
-- A brief introduction to version control and github.io (Git / GitHub)
-- An introduction to Quarto
+- [Think Maps](../lectures/2.1-Mapping.qmd)
+- [Think Data](../lectures/2.2-Think_Data.qmd)
+- [Reading Tables with Pandas](../lectures/2.3-Numeric_Data.qmd)
+- [Reading Geographies with GeoPandas](../lectures/2.4-Geodata.qmd)
  
 Applied session:
 
+- [Pandas](../practicals/Exploring_Data.ipynb) (Ctrl+Click to download file)
+- [Geopandas](../practicals/Exploring_Map_Data.ipynb) (Ctrl+Click to download file)
 - [Linking data](../practicals/Linking_Data.ipynb)
-- Creating a report in Quarto starting from [Report.qmd](../practicals/Report.qmd)
+
  

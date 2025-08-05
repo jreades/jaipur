@@ -14,13 +14,17 @@ Learning to manage and link data.
  
 Introductory session:
 
-- [Think Maps](../lectures/2.1-Mapping.qmd)
-- [Think Data](../lectures/2.2-Think_Data.qmd)
-- [Reading Tables with Pandas](../lectures/2.3-Numeric_Data.qmd)
-- [Reading Geographies with GeoPandas](../lectures/2.4-Geodata.qmd)
- 
+- [Lists](../lectures/3.1-Lists.qmd)
+- [Lists-of-Lists (LOLs)](../lectures/3.2-LOLs.qmd)
+- [Dictionaries](../lectures/3.3-Dictionaries.qmd)
+- [Dictionaries-of-Lists (DOLs)](../lectures/3.4-DOLs_to_Data.qmd)
+
+For further study (if the above is easy):
+
+- [The Command Line](../lectures/3.5-The_Command_Line.qmd)
+- [Git](../lectures/3.6-Git.qmd)
+
 Applied session:
 
-- [Pandas](../practicals/Exploring_Data.ipynb) (Ctrl+Click to download file)
-- [Geopandas](../practicals/Exploring_Map_Data.ipynb) (Ctrl+Click to download file)
+- [Key Concepts](../practicals/Key_Concepts.ipynb) (Ctrl+Click to download file)
  

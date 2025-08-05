@@ -12,11 +12,14 @@ To get you using the tools taught to create maps and plots using data.
 
 :::
 
+Introductory session:
+
+- An introduction to Quarto
+- A brief introduction to version control and github.io (Git / GitHub)
+- 
 Applied session:
 
-- Applying what has been learned over the preceding days.
+- Creating a report in Quarto starting from [Report.qmd](../practicals/Report.qmd)
 - Adding new data to your map
 - Changing colours, line widths, ..., choropleths and maps-in-maps.
 - Working on a report — choosing a topic of interest (continuation of Day 3)
-
-
