@@ -120,9 +120,7 @@ df.info()
 
 ```{python}
 #| echo: True
-print(type(df['State']))            # type for column
-print(type(df['State'].array))      # type for values
-print(df['State'].array[:5])        # first five values
+print(type(df['State']))            # data type for a column
 print(f"1: {df['TOT_P'].mean()}")   # summarise a series/column
 print(f"2: {df.TOT_P.mean():0.2f}") # if no spaces in name
 ```
@@ -168,34 +166,17 @@ Pandas operates on two principles:
 We'll see in a moment why this is useful!
 :::
 
-## 'Shallow' Copies
-
-More subtly, operations on a Series or Data Frame return a *shallow copy*, which is like a 'view' in a database...
-
-1. The original is unchanged *unless* you specify `inplace=True` (where supported).
-2. Attempts to *change* a subset of the data frame will often trigger a `SettingWithCopyWarning` warning.
-
-If you need a full copy then use the `copy()` method (e.g. `df.copy()` or `df.Series.copy()`).
-
-::: {.aside}
-[DataQuest](https://www.dataquest.io/blog/settingwithcopywarning/) has a nice overview of how `SettingWithCopyWarning` is triggered and what to do about it.
-:::
-
 ## Putting These Ideas Together {.smaller}
 
 ```{python}
 #| echo: True
-# Returns a series but not a column
+# Returns a series
 print(type(df.TOT_F - 1))
 # Saves returned series as a new column
 df['smaller'] = df.TOT_F - 1
-print(df.smaller.head(3))
+print(df[['TOT_F','smaller']].head(3))
 # Returns a new data frame w/o the dropped column 
 print(type(df.drop(columns=['smaller'])))
-# Modifies df directly to drop the column
-print(type(df.drop(columns=['smaller'], inplace=True)))
-# Try to modify a view of df (triggers warning)
-df[df.TOT_F>5000].TOT_F = 5000 
 ```
 
 # What Can We Do? 
@@ -260,53 +241,6 @@ print(f"Data type now: {df['TRU'].dtype.name}") # Confirm is 'category'
 print(df['TRU'].describe()) # Category column info
 ```
 
-## Datetime Data {.smaller}
-
-What do we do here?
-
-```python
-print(df.Date.dtype.name)
-# object
-df.Date.to_list()[:3]
-# ['04/20/2019 11:00:00 PM', '12/02/2019 10:35:00 AM', '10/06/2019 04:50:00 PM']
-```
-
-This shows that `Date` is currently a string of dates+times.
-
-Pandas handles date and times using a `datetime` type that also works as an index (more on these later):
-```python
-df['dt'] = pd.to_datetime(df.Date.array, 
-              format="%m/%d/%Y %H:%M:%S %p")
-print(df.dt.dtype.name)
-# datetime64[ns]
-df.dt.to_list()[:3]
-# [Timestamp('2019-04-20 11:00:00'), Timestamp('2019-12-02 10:35:00'), Timestamp('2019-10-06 04:50:00')]
-```
-
-These follow [the formatting conventions](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) of `strftime` (string format time) for conversion.
-
-
-## Datetime Formats  {.smaller}
-
-Examples of `strftime` conventions include: 
-
-| Format | Applies To |
-| :----- | :--------- |
-| %d | 2-digit day |
-| %m | 2-digit month |
-| %y | 2-digit year |
-| %Y | 4-digit year |
-| %p | AM/PM |
-
-So that is why:
-```python
-pd.to_datetime(df.Date.array, format="%m/%d/%Y %H:%M:%S %p")
-```
-Note the other things happening here:
-
-1. `pd.to_datetime(...)` is *not* a method, it's a function from the `pandas` package.
-2. `df.Date.array` (and `df.Date.to_numpy()` and `df.Data.tolist()`) gives access to the *data* directly, whereas `df.Date` gives access to the *Series*.
-
 ## Tidying Up
 
 This is one way, there are many options and subtleties...
@@ -360,23 +294,21 @@ There is also `df.dropna()` which can apply to rows or columns with `NULL` or `n
 
 ## Accessing Data by Location {.smaller}
 
-| Index | 0        | 1               | 2                     | 3                  |
-| - | -------- | --------------- | --------------------- | ------------------ |
-|   | **ID**   | **Case Number** | **Date**              | **Primary Type**   |
-| **0** | 11667185 | JC237601        | 04/20/2020 11:00:00PM | BURGLARY           |
-| **1** | 11998178 | JC532226        | 12/02/2020 10:35:00AM | DECEPTIVE PRACTICE |
-| **2** | 11852571 | JC462365        | 10/06/2020 04:50:00PM | BATTERY            |
-
 We can interact with rows and columns by *position* or *name*:
 
-```python
-df.iloc[0:2,0:2] # List selection! (':' means 'all')
-df.loc[0:2,['ID','Case Number']] # Dict selection
+```{python}
+#| echo: True
+df.iloc[0:2,0:4] # Position
+``` 
+
+```{python}
+#| echo: True
+df.loc[0:2,'State':'Town/Village'] # Dict selection
 ```
 These actually return different results because of the index: 
 
-- `df.loc` returns the rows *labeled* 0, 1, and 2 (`[0..2]`), whereas
-- `df.iloc` returns the *range* 0..2 (`[0..2)`)!
+- `df.loc` returns rows and columns by *label*
+- `df.iloc` returns rows and columns by *location*
 
 
 ## Indexes {.smaller}
@@ -385,7 +317,7 @@ So by default, pandas *creates* a row index index whose **values** are *0..n* an
 
 ```{python}
 #| echo: True
-df.sample(2)
+df.sample(2, random_state=42)[['State','District','Subdistt','Town/Village']]
 ```
 
 The left-most column is the index. So `Name` is now the index and is *no longer* a column: notice that the number of columns has changed.
@@ -393,8 +325,9 @@ The left-most column is the index. So `Name` is now the index and is *no longer*
 ```{python}
 #| echo: True
 df.set_index('Name', inplace=True)
-df.sample(2)
+df.sample(2, random_state=42)[['State','District','Subdistt','Town/Village']]
 ```
+
 
 ## Indexes (cont'd 1) {.smaller}
 
@@ -433,6 +366,19 @@ Pandas can write to a [wide range of file types](https://pandas.pydata.org/panda
 | `df.to_markdown(<path>)` | Write a Markdown-formatted table to a file. [Requires tabulate](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_markdown.html). Could do copy+paste with `print(df.to_markdown())`. |
 
 In most cases compression is detected automatically (e.g. `df.to_csv('file.csv.gz')`) but you can also specify it (e.g. `df.to_csv('file.csv.gz', compression='gzip'))`.^[For instance, a bit.ly link to a Gzipped file requires `compression='gzip'` because there's nothing in the link itself to tell Pandas what to expect.]
+
+## 'Shallow' Copies
+
+More subtly, operations on a Series or Data Frame return a *shallow copy*, which is like a 'view' in a database...
+
+1. The original is unchanged *unless* you specify `inplace=True` (where supported).
+2. Attempts to *change* a subset of the data frame will often trigger a `SettingWithCopyWarning` warning.
+
+If you need a full copy then use the `copy()` method (e.g. `df.copy()` or `df.Series.copy()`).
+
+::: {.aside}
+[DataQuest](https://www.dataquest.io/blog/settingwithcopywarning/) has a nice overview of how `SettingWithCopyWarning` is triggered and what to do about it.
+:::
 
 # Result!
 

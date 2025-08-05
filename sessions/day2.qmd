@@ -26,5 +26,6 @@ For further study (if the above is easy):
 
 Applied session:
 
-- [Key Concepts](../practicals/Key_Concepts.ipynb) (Ctrl+Click to download file)
+- [Key Concepts](../practicals/Key_Concepts.ipynb) (Right+Click to download file)
  
+

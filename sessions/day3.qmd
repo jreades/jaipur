@@ -1,5 +1,5 @@
 ---
-title: "Day 3: Reproducible Analysis"
+title: "Day 3: Working with Data"
 author: "Jon Reades"
 date: "8/1/2025"
 ---
@@ -21,8 +21,8 @@ Introductory session:
  
 Applied session:
 
-- [Pandas](../practicals/Exploring_Data.ipynb) (Ctrl+Click to download file)
-- [Geopandas](../practicals/Exploring_Map_Data.ipynb) (Ctrl+Click to download file)
-- [Linking data](../practicals/Linking_Data.ipynb)
+- [Pandas](../practicals/Exploring_Data.ipynb) (Right+Click to download file)
+- [Geopandas](../practicals/Exploring_Map_Data.ipynb) (Right+Click to download file)
+- [Linking data](../practicals/Linking_Data.ipynb) (Right+Click to download file)
 
  

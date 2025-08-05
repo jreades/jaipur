@@ -14,9 +14,17 @@ To get you using the tools taught to create maps and plots using data.
 
 Introductory session:
 
-- An introduction to Quarto
-- A brief introduction to version control and github.io (Git / GitHub)
-- 
+- An introduction to Quarto (some examples of what you can do):
+  - [The Palmer Penguins](https://apreshill.github.io/palmerpenguins-useR-2022/#/title-slide)
+  - [Create beautiful documents with R, Python, Julia and Observable](https://runapp2022.talks.jamesgoldie.dev/#/james-goldie)
+  - [Other 'Real-Life Examples' of Presentations, Web Sites and Books](https://github.com/mcanouil/awesome-quarto#real-life-examples)
+  - [Quarto for the Python User](https://www.jumpingrivers.com/blog/quarto-for-python-users/)
+
+| Source  | Site  |
+| :------- | :------- |
+| [github.com/jreades/code-camp](https://github.com/jreades/code-camp) | [jreades.github.io/code-camp](https://jreades.github.io/code-camp) |
+| [github.com/jreades/jaipur](https://github.com/jreades/jaipur) | [jreades.github.io/jaipur](https://jreades.github.io/jaipur) |
+
 Applied session:
 
 - Creating a report in Quarto starting from [Report.qmd](../practicals/Report.qmd)
