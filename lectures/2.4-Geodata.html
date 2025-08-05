@@ -274,7 +274,7 @@ Jon Reades
 </table>
 <p>Additionally, it is possible to read only <a href="https://geopandas.org/io.html#reading-subsets-of-the-data">subsets of the data</a> using row, column, geometry, and bbox filters.</p>
 </section>
-<section id="reading-remote-files" class="slide level2">
+<section id="reading-remote-files" class="slide level2 smaller">
 <h2>Reading (Remote Files)</h2>
 <p>Again, depending on file size you may want to save these locally, but…</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
@@ -282,7 +282,7 @@ Jon Reades
 <span id="cb1-3"><a></a>world <span class="op">=</span> gpd.read_file(gpkg_src)</span>
 <span id="cb1-4"><a></a><span class="co"># The ';' suppresses matplotlib output</span></span>
 <span id="cb1-5"><a></a>world.plot(facecolor<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'darkblue'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="a18e5d69" class="cell" data-execution_count="2">
+<div id="c97a1ee4" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -298,6 +298,8 @@ Jon Reades
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>world.to_file(<span class="st">'world.gpkg'</span>, driver<span class="op">=</span><span class="st">'GPKG'</span>)</span>
 <span id="cb2-2"><a></a>world.to_file(<span class="st">'world.shp'</span>, driver<span class="op">=</span><span class="st">'ESRI Shapefile'</span>)</span>
 <span id="cb2-3"><a></a>world.to_file(<span class="st">'world.geojson'</span>, driver<span class="op">=</span><span class="st">'GeoJSON'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>My favourite (when installed):</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>world.to_parquet(<span class="st">'world.geoparquet'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <aside class="notes">
 <p>If you forget to specify the driver it writes shapefiles by default. This is mainly an issue if you try to write a GeoPackage or GeoJSON file but then end up writing a shapefile to a directory called <code>world.gpkg</code>!</p>
 <style type="text/css">
@@ -329,20 +331,20 @@ Jon Reades
 <section id="consider" class="slide level2">
 <h2>Consider</h2>
 <p>Recall that we can ask if a particular object is an <em><a href="https://www.w3schools.com/python/ref_func_isinstance.asp">instance</a></em> of any given class:</p>
-<div id="d78bf541" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world, <span class="bu">str</span>))</span>
-<span id="cb3-2"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world, pd.DataFrame))</span>
-<span id="cb3-3"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world, gpd.GeoDataFrame))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="96dbb7ef" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world, <span class="bu">str</span>))</span>
+<span id="cb4-2"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world, pd.DataFrame))</span>
+<span id="cb4-3"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world, gpd.GeoDataFrame))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>False
 True
 True</code></pre>
 </div>
 </div>
-<div id="fce16c4f" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world.geometry, <span class="bu">str</span>))</span>
-<span id="cb5-2"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world.geometry, pd.Series))</span>
-<span id="cb5-3"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world.geometry, gpd.GeoSeries))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ab0a120e" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world.geometry, <span class="bu">str</span>))</span>
+<span id="cb6-2"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world.geometry, pd.Series))</span>
+<span id="cb6-3"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world.geometry, gpd.GeoSeries))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>False
 True
@@ -367,16 +369,16 @@ True</code></pre>
 <section id="projections" class="slide level2 smaller">
 <h2>Projections</h2>
 <p>Depending on your data source, you may or may not have projection information attached to your GeoDataFrame:</p>
-<div id="935a8470" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="bu">print</span>(world.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d082101f" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="bu">print</span>(world.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>EPSG:4326</code></pre>
 </div>
 </div>
 <p>But:</p>
-<div id="3fadb722" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>world.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="004c8178" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>world.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
 <pre><code>&lt;Geographic 2D CRS: EPSG:4326&gt;
 Name: WGS 84
 Axis Info [ellipsoidal]:
@@ -405,9 +407,9 @@ Datum: World Geodetic System 1984 ensemble
 <section id="reprojection" class="slide level2">
 <h2>Reprojection</h2>
 <p>For data sets <em>without</em> projection information (i.e.&nbsp;often anything loaded from a shapefile) you must <code>gdf.set_crs(&lt;spec&gt;)</code>. For all others you should <code>gdf.to_crs(&lt;spec&gt;)</code>.</p>
-<div id="af29e52b" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>world2 <span class="op">=</span> world.to_crs(<span class="st">'ESRI:54030'</span>)</span>
-<span id="cb11-2"><a></a>world2.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a3a7d1ce" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>world2 <span class="op">=</span> world.to_crs(<span class="st">'ESRI:54030'</span>)</span>
+<span id="cb12-2"><a></a>world2.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -419,9 +421,9 @@ Datum: World Geodetic System 1984 ensemble
 </section>
 <section id="code-wont-stop-you-being-silly" class="slide level2">
 <h2>Code Won’t Stop You Being Silly</h2>
-<div id="10f5dbab" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>world2 <span class="op">=</span> world.to_crs(<span class="st">'EPSG:27700'</span>)</span>
-<span id="cb12-2"><a></a>world2.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cca03489" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>world2 <span class="op">=</span> world.to_crs(<span class="st">'EPSG:27700'</span>)</span>
+<span id="cb13-2"><a></a>world2.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -447,14 +449,14 @@ Datum: World Geodetic System 1984 ensemble
 <section id="the-spatial-index" class="slide level2 smaller">
 <h2>The Spatial Index</h2>
 <p>We can use GeoSeries’ spatial index directly to perform simple spatial queries:</p>
-<div id="6b30958f" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb13-2"><a></a>wslice <span class="op">=</span> world.cx[<span class="op">-</span><span class="dv">50</span>:<span class="dv">50</span>, <span class="op">-</span><span class="dv">20</span>:<span class="dv">20</span>] <span class="co"># cx = coordinate index</span></span>
-<span id="cb13-3"><a></a>ax <span class="op">=</span> wslice.plot()</span>
-<span id="cb13-4"><a></a>plt.axvline(<span class="op">-</span><span class="dv">50</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb13-5"><a></a>plt.axvline(<span class="dv">50</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb13-6"><a></a>plt.axhline(<span class="op">-</span><span class="dv">20</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb13-7"><a></a>plt.axhline(<span class="dv">20</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9d5a2577" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-2"><a></a>wslice <span class="op">=</span> world.cx[<span class="op">-</span><span class="dv">50</span>:<span class="dv">50</span>, <span class="op">-</span><span class="dv">20</span>:<span class="dv">20</span>] <span class="co"># cx = coordinate index</span></span>
+<span id="cb14-3"><a></a>ax <span class="op">=</span> wslice.plot()</span>
+<span id="cb14-4"><a></a>plt.axvline(<span class="op">-</span><span class="dv">50</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb14-5"><a></a>plt.axvline(<span class="dv">50</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb14-6"><a></a>plt.axhline(<span class="op">-</span><span class="dv">20</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb14-7"><a></a>plt.axhline(<span class="dv">20</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'red'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -515,17 +517,18 @@ Datum: World Geodetic System 1984 ensemble
 <section id="converting-non-spatial-data-1" class="slide level2">
 <h2>Converting Non-Spatial Data 1</h2>
 <p>Lat/Long and Northing/Easting benefit from a helper function <code>gpd.points_from_xy()</code>:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>url <span class="op">=</span> <span class="st">'https://bit.ly/3I0XDrq'</span></span>
-<span id="cb14-2"><a></a>df  <span class="op">=</span> pd.read_csv(url)</span>
-<span id="cb14-3"><a></a></span>
-<span id="cb14-4"><a></a>gdf <span class="op">=</span> gpd.GeoDataFrame(df, </span>
-<span id="cb14-5"><a></a>            geometry<span class="op">=</span>gpd.points_from_xy(</span>
-<span id="cb14-6"><a></a>                        df[<span class="st">'longitude'</span>], </span>
-<span id="cb14-7"><a></a>                        df[<span class="st">'latitude'</span>], </span>
-<span id="cb14-8"><a></a>                        crs<span class="op">=</span><span class="st">'epsg:4326'</span></span>
-<span id="cb14-9"><a></a>            )</span>
-<span id="cb14-10"><a></a>      )</span>
-<span id="cb14-11"><a></a>gdf.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="dc20c41f" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>url <span class="op">=</span> <span class="st">'https://bit.ly/3I0XDrq'</span></span>
+<span id="cb15-2"><a></a>df  <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb15-3"><a></a></span>
+<span id="cb15-4"><a></a>gdf <span class="op">=</span> gpd.GeoDataFrame(df, </span>
+<span id="cb15-5"><a></a>            geometry<span class="op">=</span>gpd.points_from_xy(</span>
+<span id="cb15-6"><a></a>                        df[<span class="st">'longitude'</span>], </span>
+<span id="cb15-7"><a></a>                        df[<span class="st">'latitude'</span>], </span>
+<span id="cb15-8"><a></a>                        crs<span class="op">=</span><span class="st">'epsg:4326'</span></span>
+<span id="cb15-9"><a></a>            )</span>
+<span id="cb15-10"><a></a>      )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <aside class="notes">
 <p>You can also use list comprehensions (<code>[x for x in list]</code>) and <code>zip</code> to combine two lists but then need to specify the CRS as a separate step!</p>
 <style type="text/css">
@@ -542,8 +545,16 @@ Datum: World Geodetic System 1984 ensemble
 </section>
 <section id="csv-to-points-in-3-lines" class="slide level2">
 <h2>CSV to Points in 3 Lines!</h2>
-
-<img data-src="img/Airbnb_Sample.png" class="r-stretch"><aside class="notes">
+<div id="1d9cba5a" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="2.4-Geodata_files/figure-revealjs/cell-12-output-1.png" width="618" height="411"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
 <p>Notice that the default plot from a GeoDataFrame is… a map!</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -557,21 +568,30 @@ Datum: World Geodetic System 1984 ensemble
           display:block!important;
       }</style></aside>
 </section>
-<section id="converting-non-spatial-data-2" class="slide level2">
+<section id="converting-non-spatial-data-2" class="slide level2 smaller">
 <h2>Converting Non-Spatial Data 2</h2>
 <p>Other feature types need to be in some kind of regular format such as <a href="https://www.vertica.com/docs/9.2.x/HTML/Content/Authoring/AnalyzingData/Geospatial/Spatial_Definitions/WellknownTextWKT.htm">Well-Known Text</a> (WKT), <a href="https://geojson.org/">GeoJSON</a>, or something readable <em>as</em> a Shapely geometry.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">from</span> shapely <span class="im">import</span> wkt</span>
-<span id="cb15-2"><a></a></span>
-<span id="cb15-3"><a></a><span class="co"># Notice coordinate pairs and last point is same as first one</span></span>
-<span id="cb15-4"><a></a>bbox <span class="op">=</span> <span class="st">'POLYGON((5000000.0 2500000.0, 5000000.0 -2500000.0, -5000000.0 -2500000.0, -5000000.0 2500000.0, 5000000.0 2500000.0))'</span></span>
-<span id="cb15-5"><a></a></span>
-<span id="cb15-6"><a></a><span class="co"># Create GeoPandas from dict just like Pandas</span></span>
-<span id="cb15-7"><a></a>bgdf <span class="op">=</span> gpd.GeoDataFrame({<span class="st">'id'</span>:[<span class="dv">0</span>], <span class="st">'coordinates'</span>:bbox})</span>
-<span id="cb15-8"><a></a></span>
-<span id="cb15-9"><a></a><span class="co"># Turn it into a geometry</span></span>
-<span id="cb15-10"><a></a>bgdf[<span class="st">'geometry'</span>] <span class="op">=</span> bgdf.coordinates.<span class="bu">apply</span>(wkt.loads)</span>
-<span id="cb15-11"><a></a>bgdf <span class="op">=</span> bgdf.set_crs(<span class="st">'ESRI:54030'</span>)</span>
-<span id="cb15-12"><a></a>bgdf.plot() <span class="co"># Not very interesting but...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cd94f3ca" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="im">from</span> shapely <span class="im">import</span> wkt</span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a><span class="co"># Notice coordinate pairs and last point is same as first one</span></span>
+<span id="cb16-4"><a></a>bbox <span class="op">=</span> <span class="st">'POLYGON((5000000.0 2500000.0, 5000000.0 -2500000.0, -5000000.0 -2500000.0, -5000000.0 2500000.0, 5000000.0 2500000.0))'</span></span>
+<span id="cb16-5"><a></a></span>
+<span id="cb16-6"><a></a><span class="co"># Create GeoPandas from dict just like Pandas</span></span>
+<span id="cb16-7"><a></a>bgdf <span class="op">=</span> gpd.GeoDataFrame({<span class="st">'id'</span>:[<span class="dv">0</span>], <span class="st">'coordinates'</span>:bbox})</span>
+<span id="cb16-8"><a></a></span>
+<span id="cb16-9"><a></a><span class="co"># Turn it into a geometry</span></span>
+<span id="cb16-10"><a></a>bgdf[<span class="st">'geometry'</span>] <span class="op">=</span> bgdf.coordinates.<span class="bu">apply</span>(wkt.loads)</span>
+<span id="cb16-11"><a></a>bgdf <span class="op">=</span> bgdf.set_crs(<span class="st">'ESRI:54030'</span>)</span>
+<span id="cb16-12"><a></a>bgdf.plot() <span class="co"># Not very interesting but...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="2.4-Geodata_files/figure-revealjs/cell-13-output-1.png" width="787" height="442"></p>
+</figure>
+</div>
+</div>
+</div>
 <aside class="notes">
 <p>These are more rarely used for our purposes but knowing that they exist is useful.</p>
 <style type="text/css">
@@ -588,14 +608,22 @@ Datum: World Geodetic System 1984 ensemble
 </section>
 <section id="from-text-to-bounding-box" class="slide level2 smaller">
 <h2>From Text to Bounding Box</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>scale <span class="op">=</span> <span class="bu">int</span>(<span class="bu">float</span>(<span class="st">'1e7'</span>))</span>
-<span id="cb16-2"><a></a>f,ax<span class="op">=</span>plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</span>
-<span id="cb16-3"><a></a>world2.plot(ax<span class="op">=</span>ax)</span>
-<span id="cb16-4"><a></a>bgdf.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'none'</span>, edgecolor<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb16-5"><a></a>ax.set_xlim([<span class="op">-</span><span class="fl">0.75</span><span class="op">*</span>scale, <span class="op">+</span><span class="fl">0.75</span><span class="op">*</span>scale])</span>
-<span id="cb16-6"><a></a>ax.set_ylim([<span class="op">-</span><span class="dv">3</span><span class="op">*</span>scale<span class="op">/</span><span class="dv">10</span>, <span class="op">+</span><span class="dv">3</span><span class="op">*</span>scale<span class="op">/</span><span class="dv">10</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-<img data-src="img/WKT_Example.png" class="r-stretch"></section>
+<div id="a1393423" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>scale <span class="op">=</span> <span class="bu">int</span>(<span class="bu">float</span>(<span class="st">'1e7'</span>))</span>
+<span id="cb17-2"><a></a>f,ax<span class="op">=</span>plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</span>
+<span id="cb17-3"><a></a>world2.plot(ax<span class="op">=</span>ax)</span>
+<span id="cb17-4"><a></a>bgdf.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'none'</span>, edgecolor<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb17-5"><a></a>ax.set_xlim([<span class="op">-</span><span class="fl">0.75</span><span class="op">*</span>scale, <span class="op">+</span><span class="fl">0.75</span><span class="op">*</span>scale])</span>
+<span id="cb17-6"><a></a>ax.set_ylim([<span class="op">-</span><span class="dv">3</span><span class="op">*</span>scale<span class="op">/</span><span class="dv">10</span>, <span class="op">+</span><span class="dv">3</span><span class="op">*</span>scale<span class="op">/</span><span class="dv">10</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="2.4-Geodata_files/figure-revealjs/cell-14-output-1.png" width="643" height="311"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="resources" class="slide level2">
 <h2>Resources</h2>
 <ul>

@@ -1,6 +1,4 @@
 ---
-bibliography: ../bib/Readings.bib
-csl: ../bib/harvard-cite-them-right.csl
 title: A Project
 execute:
   echo: false

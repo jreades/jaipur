@@ -278,7 +278,7 @@ Jon Reades
 <span id="cb1-3"><a></a>df <span class="op">=</span> pd.read_csv(url)       <span class="co"># load a (remote) CSV</span></span>
 <span id="cb1-4"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df))             <span class="co"># not a 'simple' data type</span></span>
 <span id="cb1-5"><a></a><span class="bu">print</span>(df.columns.to_list()) <span class="co"># column names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="638458bb" class="cell" data-execution_count="1">
+<div id="87f6f3dd" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 ['State', 'District', 'Subdistt', 'Town/Village', 'Ward', 'EB', 'Level', 'Name', 'TRU', 'No_HH', 'TOT_P', 'TOT_M', 'TOT_F', 'P_06', 'M_06', 'F_06', 'P_SC', 'M_SC', 'F_SC', 'P_ST', 'M_ST', 'F_ST', 'P_LIT', 'M_LIT', 'F_LIT', 'P_ILL', 'M_ILL', 'F_ILL', 'TOT_WORK_P', 'TOT_WORK_M', 'TOT_WORK_F', 'MAINWORK_P', 'MAINWORK_M', 'MAINWORK_F', 'MAIN_CL_P', 'MAIN_CL_M', 'MAIN_CL_F', 'MAIN_AL_P', 'MAIN_AL_M', 'MAIN_AL_F', 'MAIN_HH_P', 'MAIN_HH_M', 'MAIN_HH_F', 'MAIN_OT_P', 'MAIN_OT_M', 'MAIN_OT_F', 'MARGWORK_P', 'MARGWORK_M', 'MARGWORK_F', 'MARG_CL_P', 'MARG_CL_M', 'MARG_CL_F', 'MARG_AL_P', 'MARG_AL_M', 'MARG_AL_F', 'MARG_HH_P', 'MARG_HH_M', 'MARG_HH_F', 'MARG_OT_P', 'MARG_OT_M', 'MARG_OT_F', 'MARGWORK_3_6_P', 'MARGWORK_3_6_M', 'MARGWORK_3_6_F', 'MARG_CL_3_6_P', 'MARG_CL_3_6_M', 'MARG_CL_3_6_F', 'MARG_AL_3_6_P', 'MARG_AL_3_6_M', 'MARG_AL_3_6_F', 'MARG_HH_3_6_P', 'MARG_HH_3_6_M', 'MARG_HH_3_6_F', 'MARG_OT_3_6_P', 'MARG_OT_3_6_M', 'MARG_OT_3_6_F', 'MARGWORK_0_3_P', 'MARGWORK_0_3_M', 'MARGWORK_0_3_F', 'MARG_CL_0_3_P', 'MARG_CL_0_3_M', 'MARG_CL_0_3_F', 'MARG_AL_0_3_P', 'MARG_AL_0_3_M', 'MARG_AL_0_3_F', 'MARG_HH_0_3_P', 'MARG_HH_0_3_M', 'MARG_HH_0_3_F', 'MARG_OT_0_3_P', 'MARG_OT_0_3_M', 'MARG_OT_0_3_F', 'NON_WORK_P', 'NON_WORK_M', 'NON_WORK_F']</code></pre>
@@ -290,9 +290,9 @@ Jon Reades
 <div class="columns">
 <div class="column" style="font-size:small;">
 <h3 id="statistical-summarisation.">Statistical summarisation.</h3>
-<div id="1524c809" class="cell" data-execution_count="2">
+<div id="bea78ce5" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="193">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -537,7 +537,7 @@ Jon Reades
 </div>
 </div><div class="column" style="font-size:small;">
 <h3 id="data-types-and-memory-usage.">Data types and memory usage.</h3>
-<div id="9b42c8b1" class="cell" data-execution_count="3">
+<div id="aa5dc73c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -647,18 +647,12 @@ memory usage: 1.8+ MB</code></pre>
 </section>
 <section id="accessing-a-series" class="slide level2 smaller">
 <h2>Accessing a Series</h2>
-<div id="3e62b6f8" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df[<span class="st">'State'</span>]))            <span class="co">#&nbsp;type for column</span></span>
-<span id="cb6-2"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df[<span class="st">'State'</span>].array))      <span class="co"># type for values</span></span>
-<span id="cb6-3"><a></a><span class="bu">print</span>(df[<span class="st">'State'</span>].array[:<span class="dv">5</span>])        <span class="co"># first five values</span></span>
-<span id="cb6-4"><a></a><span class="bu">print</span>(<span class="ss">f"1: </span><span class="sc">{</span>df[<span class="st">'TOT_P'</span>]<span class="sc">.</span>mean()<span class="sc">}</span><span class="ss">"</span>)   <span class="co"># summarise a series/column</span></span>
-<span id="cb6-5"><a></a><span class="bu">print</span>(<span class="ss">f"2: </span><span class="sc">{</span>df<span class="sc">.</span>TOT_P<span class="sc">.</span>mean()<span class="sc">:0.2f}</span><span class="ss">"</span>) <span class="co"># if no spaces in name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2492d1ef" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df[<span class="st">'State'</span>]))            <span class="co">#&nbsp;data type for a column</span></span>
+<span id="cb6-2"><a></a><span class="bu">print</span>(<span class="ss">f"1: </span><span class="sc">{</span>df[<span class="st">'TOT_P'</span>]<span class="sc">.</span>mean()<span class="sc">}</span><span class="ss">"</span>)   <span class="co"># summarise a series/column</span></span>
+<span id="cb6-3"><a></a><span class="bu">print</span>(<span class="ss">f"2: </span><span class="sc">{</span>df<span class="sc">.</span>TOT_P<span class="sc">.</span>mean()<span class="sc">:0.2f}</span><span class="ss">"</span>) <span class="co"># if no spaces in name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.series.Series'&gt;
-&lt;class 'pandas.core.arrays.numpy_.NumpyExtensionArray'&gt;
-&lt;NumpyExtensionArray&gt;
-[8, 8, 8, 8, 8]
-Length: 5, dtype: int64
 1: 14301.45294806716
 2: 14301.45</code></pre>
 </div>
@@ -684,9 +678,9 @@ Length: 5, dtype: int64
 <section id="jupyter-formatting" class="slide level2">
 <h2>Jupyter Formatting</h2>
 <p>Pandas is also ‘Jupyter-aware’, meaning that output can displayed directly in Jupyter and Quarto in ‘fancy’ ways:</p>
-<div id="f46936a6" class="cell" data-execution_count="5">
+<div id="78826fc8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>df[[<span class="st">'District'</span>,<span class="st">'TOT_F'</span>,<span class="st">'F_SC'</span>,<span class="st">'NON_WORK_M'</span>]].sample(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="196">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -714,39 +708,39 @@ Length: 5, dtype: int64
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">101</td>
+<td data-quarto-table-cell-role="th">2191</td>
 <td>110</td>
-<td>688</td>
-<td>0</td>
-<td>444</td>
+<td>285</td>
+<td>135</td>
+<td>157</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">692</td>
+<td data-quarto-table-cell-role="th">1829</td>
 <td>110</td>
-<td>760</td>
-<td>123</td>
-<td>414</td>
+<td>252</td>
+<td>4</td>
+<td>134</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">1902</td>
+<td data-quarto-table-cell-role="th">566</td>
 <td>110</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
+<td>740</td>
+<td>18</td>
+<td>439</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">500</td>
+<td data-quarto-table-cell-role="th">2393</td>
 <td>110</td>
-<td>704</td>
-<td>2</td>
-<td>388</td>
+<td>885</td>
+<td>196</td>
+<td>454</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2022</td>
+<td data-quarto-table-cell-role="th">1092</td>
 <td>110</td>
-<td>3680</td>
-<td>1609</td>
-<td>2163</td>
+<td>371</td>
+<td>0</td>
+<td>221</td>
 </tr>
 </tbody>
 </table>
@@ -787,40 +781,23 @@ Length: 5, dtype: int64
           display:block!important;
       }</style></aside>
 </section>
-<section id="shallow-copies" class="slide level2">
-<h2>‘Shallow’ Copies</h2>
-<p>More subtly, operations on a Series or Data Frame return a <em>shallow copy</em>, which is like a ‘view’ in a database…</p>
-<ol type="1">
-<li>The original is unchanged <em>unless</em> you specify <code>inplace=True</code> (where supported).</li>
-<li>Attempts to <em>change</em> a subset of the data frame will often trigger a <code>SettingWithCopyWarning</code> warning.</li>
-</ol>
-<p>If you need a full copy then use the <code>copy()</code> method (e.g.&nbsp;<code>df.copy()</code> or <code>df.Series.copy()</code>).</p>
-
-<aside><div>
-<p><a href="https://www.dataquest.io/blog/settingwithcopywarning/">DataQuest</a> has a nice overview of how <code>SettingWithCopyWarning</code> is triggered and what to do about it.</p>
-</div></aside></section>
 <section id="putting-these-ideas-together" class="slide level2 smaller">
 <h2>Putting These Ideas Together</h2>
-<div id="52e508a4" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Returns a series but not a column</span></span>
+<div id="b08f26f5" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Returns a series</span></span>
 <span id="cb10-2"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df.TOT_F <span class="op">-</span> <span class="dv">1</span>))</span>
 <span id="cb10-3"><a></a><span class="co"># Saves returned series as a new column</span></span>
 <span id="cb10-4"><a></a>df[<span class="st">'smaller'</span>] <span class="op">=</span> df.TOT_F <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb10-5"><a></a><span class="bu">print</span>(df.smaller.head(<span class="dv">3</span>))</span>
+<span id="cb10-5"><a></a><span class="bu">print</span>(df[[<span class="st">'TOT_F'</span>,<span class="st">'smaller'</span>]].head(<span class="dv">3</span>))</span>
 <span id="cb10-6"><a></a><span class="co"># Returns a new data frame w/o the dropped column </span></span>
-<span id="cb10-7"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df.drop(columns<span class="op">=</span>[<span class="st">'smaller'</span>])))</span>
-<span id="cb10-8"><a></a><span class="co"># Modifies df directly to drop the column</span></span>
-<span id="cb10-9"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df.drop(columns<span class="op">=</span>[<span class="st">'smaller'</span>], inplace<span class="op">=</span><span class="va">True</span>)))</span>
-<span id="cb10-10"><a></a><span class="co"># Try to modify a view of df (triggers warning)</span></span>
-<span id="cb10-11"><a></a>df[df.TOT_F<span class="op">&gt;</span><span class="dv">5000</span>].TOT_F <span class="op">=</span> <span class="dv">5000</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-7"><a></a><span class="bu">print</span>(<span class="bu">type</span>(df.drop(columns<span class="op">=</span>[<span class="st">'smaller'</span>])))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.series.Series'&gt;
-0    3157670
-1    1511406
-2    1646263
-Name: smaller, dtype: int64
-&lt;class 'pandas.core.frame.DataFrame'&gt;
-&lt;class 'NoneType'&gt;</code></pre>
+     TOT_F  smaller
+0  3157671  3157670
+1  1511407  1511406
+2  1646264  1646263
+&lt;class 'pandas.core.frame.DataFrame'&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -832,21 +809,21 @@ Name: smaller, dtype: int64
 <section id="chaining" class="slide level2 smaller">
 <h2>Chaining</h2>
 <p>Operations on a Data Frame <strong>return a DataFrame</strong> and operations on a Series <strong>return a Series</strong>, allowing us to ‘chain’ steps together:</p>
-<div id="a55de0db" class="cell" data-execution_count="7">
+<div id="d6102413" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>df.sort_values(by<span class="op">=</span>[<span class="st">'TOT_P'</span>,<span class="st">'TOT_M'</span>], ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">20</span>).sample(frac<span class="op">=</span><span class="fl">0.5</span>).median(numeric_only<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="198">
 <pre><code>State                 8.0
 District            110.0
-Subdistt            543.5
+Subdistt            545.5
 Town/Village          0.0
 Ward                  0.0
                    ...   
-MARG_OT_0_3_M       921.5
-MARG_OT_0_3_F      1968.0
-NON_WORK_P       409191.5
-NON_WORK_M       166471.5
-NON_WORK_F       242720.0
-Length: 91, dtype: float64</code></pre>
+MARG_OT_0_3_F      1140.5
+NON_WORK_P       268462.0
+NON_WORK_M       121100.0
+NON_WORK_F       147362.0
+smaller          205513.0
+Length: 92, dtype: float64</code></pre>
 </div>
 </div>
 </section>
@@ -927,7 +904,7 @@ Length: 91, dtype: float64</code></pre>
 </section>
 <section id="changing-the-type" class="slide level2 smaller">
 <h2>Changing the Type</h2>
-<div id="c6ff4ce9" class="cell" data-execution_count="8">
+<div id="92fb45d4" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="bu">print</span>(<span class="ss">f"Unique values: </span><span class="sc">{</span>df[<span class="st">'TRU'</span>]<span class="sc">.</span>unique()<span class="sc">}</span><span class="ss">"</span>)   <span class="co"># Find unique values</span></span>
 <span id="cb16-2"><a></a><span class="bu">print</span>(<span class="ss">f"Data type is: </span><span class="sc">{</span>df[<span class="st">'TRU'</span>]<span class="sc">.</span>dtype<span class="sc">.</span>name<span class="sc">}</span><span class="ss">"</span>)  <span class="co"># Confirm is 'object'</span></span>
 <span id="cb16-3"><a></a>df[<span class="st">'TRU'</span>] <span class="op">=</span> df[<span class="st">'TRU'</span>].astype(<span class="st">'category'</span>)</span>
@@ -945,86 +922,28 @@ Name: TRU, dtype: object</code></pre>
 </div>
 </div>
 </section>
-<section id="datetime-data" class="slide level2 smaller">
-<h2>Datetime Data</h2>
-<p>What do we do here?</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="bu">print</span>(df.Date.dtype.name)</span>
-<span id="cb18-2"><a></a><span class="co"># object</span></span>
-<span id="cb18-3"><a></a>df.Date.to_list()[:<span class="dv">3</span>]</span>
-<span id="cb18-4"><a></a><span class="co"># ['04/20/2019 11:00:00 PM', '12/02/2019 10:35:00 AM', '10/06/2019 04:50:00 PM']</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This shows that <code>Date</code> is currently a string of dates+times.</p>
-<p>Pandas handles date and times using a <code>datetime</code> type that also works as an index (more on these later):</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>df[<span class="st">'dt'</span>] <span class="op">=</span> pd.to_datetime(df.Date.array, </span>
-<span id="cb19-2"><a></a>              <span class="bu">format</span><span class="op">=</span><span class="st">"%m/</span><span class="sc">%d</span><span class="st">/%Y %H:%M:%S %p"</span>)</span>
-<span id="cb19-3"><a></a><span class="bu">print</span>(df.dt.dtype.name)</span>
-<span id="cb19-4"><a></a><span class="co"># datetime64[ns]</span></span>
-<span id="cb19-5"><a></a>df.dt.to_list()[:<span class="dv">3</span>]</span>
-<span id="cb19-6"><a></a><span class="co"># [Timestamp('2019-04-20 11:00:00'), Timestamp('2019-12-02 10:35:00'), Timestamp('2019-10-06 04:50:00')]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>These follow <a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes">the formatting conventions</a> of <code>strftime</code> (string format time) for conversion.</p>
-</section>
-<section id="datetime-formats" class="slide level2 smaller">
-<h2>Datetime Formats</h2>
-<p>Examples of <code>strftime</code> conventions include:</p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Format</th>
-<th style="text-align: left;">Applies To</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">%d</td>
-<td style="text-align: left;">2-digit day</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">%m</td>
-<td style="text-align: left;">2-digit month</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">%y</td>
-<td style="text-align: left;">2-digit year</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">%Y</td>
-<td style="text-align: left;">4-digit year</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">%p</td>
-<td style="text-align: left;">AM/PM</td>
-</tr>
-</tbody>
-</table>
-<p>So that is why:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>pd.to_datetime(df.Date.array, <span class="bu">format</span><span class="op">=</span><span class="st">"%m/</span><span class="sc">%d</span><span class="st">/%Y %H:%M:%S %p"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Note the other things happening here:</p>
-<ol type="1">
-<li><code>pd.to_datetime(...)</code> is <em>not</em> a method, it’s a function from the <code>pandas</code> package.</li>
-<li><code>df.Date.array</code> (and <code>df.Date.to_numpy()</code> and <code>df.Data.tolist()</code>) gives access to the <em>data</em> directly, whereas <code>df.Date</code> gives access to the <em>Series</em>.</li>
-</ol>
-</section>
 <section id="tidying-up" class="slide level2">
 <h2>Tidying Up</h2>
 <p>This is one way, there are many options and subtleties…</p>
-<div id="1e968eca" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="co"># Fix categories</span></span>
-<span id="cb21-2"><a></a>mapping <span class="op">=</span> {}</span>
-<span id="cb21-3"><a></a></span>
-<span id="cb21-4"><a></a><span class="co"># df['Primary Type'].unique().to_list() also works</span></span>
-<span id="cb21-5"><a></a><span class="cf">for</span> x <span class="kw">in</span> df[<span class="st">'TRU'</span>].cat.categories.to_list():</span>
-<span id="cb21-6"><a></a>  mapping[x]<span class="op">=</span>x.lower()</span>
-<span id="cb21-7"><a></a></span>
-<span id="cb21-8"><a></a><span class="co"># And update</span></span>
-<span id="cb21-9"><a></a>df[<span class="st">'TRU'</span>] <span class="op">=</span> df[<span class="st">'TRU'</span>].cat.rename_categories(mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="941762af" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="co"># Fix categories</span></span>
+<span id="cb18-2"><a></a>mapping <span class="op">=</span> {}</span>
+<span id="cb18-3"><a></a></span>
+<span id="cb18-4"><a></a><span class="co"># df['Primary Type'].unique().to_list() also works</span></span>
+<span id="cb18-5"><a></a><span class="cf">for</span> x <span class="kw">in</span> df[<span class="st">'TRU'</span>].cat.categories.to_list():</span>
+<span id="cb18-6"><a></a>  mapping[x]<span class="op">=</span>x.lower()</span>
+<span id="cb18-7"><a></a></span>
+<span id="cb18-8"><a></a><span class="co"># And update</span></span>
+<span id="cb18-9"><a></a>df[<span class="st">'TRU'</span>] <span class="op">=</span> df[<span class="st">'TRU'</span>].cat.rename_categories(mapping)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>How would you work out what this code does? <sup>1</sup></p>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>There are at least two ways: 1) print out <code>mapping</code>; 2) before running the code comment out the ‘update’ line and print out <code>x</code> and <code>x.title()</code>; 3) search for <code>title python</code>.</p></li></ol></aside></section>
 <section id="dealing-with-money" class="slide level2">
 <h2>Dealing with Money</h2>
 <p>You may encounter currency treated as a string, instead of a number. Normally, this is because of the way that the data is formatted (e.g.&nbsp;‘₹1.5 lakh’) To deal with pricing information treated as a string:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="co"># You would need a function to deal with lakh and crore</span></span>
-<span id="cb22-2"><a></a>df[<span class="st">'price'</span>].<span class="bu">str</span>.replace(<span class="st">'₹'</span>,<span class="st">''</span>).<span class="bu">str</span>.<span class="op">\</span></span>
-<span id="cb22-3"><a></a>            replace(<span class="st">','</span>,<span class="st">''</span>).astype(<span class="bu">float</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="co"># You would need a function to deal with lakh and crore</span></span>
+<span id="cb19-2"><a></a>df[<span class="st">'price'</span>].<span class="bu">str</span>.replace(<span class="st">'₹'</span>,<span class="st">''</span>).<span class="bu">str</span>.<span class="op">\</span></span>
+<span id="cb19-3"><a></a>            replace(<span class="st">','</span>,<span class="st">''</span>).astype(<span class="bu">float</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Many more examples accessible via Google!</p>
 <aside class="notes">
 <p>Another thing you might notice here: adding <code>.cat</code> allows us to access <em>category methods</em> for the Series; adding <code>.str</code> allows us to access <em>string methods</em> for the Series.</p>
@@ -1043,17 +962,17 @@ Name: TRU, dtype: object</code></pre>
 <section id="dropping-rows-and-columns" class="slide level2">
 <h2>Dropping Rows and Columns</h2>
 <p>There are multiple ways to drop ‘stuff’:</p>
-<div id="ede2f67d" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>df2 <span class="op">=</span> df.copy()</span>
-<span id="cb23-2"><a></a><span class="bu">print</span>(<span class="ss">f"The data frame has </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">:,}</span><span class="ss"> cols."</span>)</span>
-<span id="cb23-3"><a></a>df2.drop(index<span class="op">=</span><span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">1000</span>), inplace<span class="op">=</span><span class="va">True</span>) <span class="co"># Row 'numbers' or index values</span></span>
-<span id="cb23-4"><a></a><span class="bu">print</span>(<span class="ss">f"The data frame has </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">:,}</span><span class="ss"> cols."</span>)</span>
-<span id="cb23-5"><a></a>df2.drop(columns<span class="op">=</span>[<span class="st">'TOT_P'</span>], inplace<span class="op">=</span><span class="va">True</span>)   <span class="co"># Column name(s)</span></span>
-<span id="cb23-6"><a></a><span class="bu">print</span>(<span class="ss">f"The data frame has </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">:,}</span><span class="ss"> cols."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2712df8b" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>df2 <span class="op">=</span> df.copy()</span>
+<span id="cb20-2"><a></a><span class="bu">print</span>(<span class="ss">f"The data frame has </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">:,}</span><span class="ss"> cols."</span>)</span>
+<span id="cb20-3"><a></a>df2.drop(index<span class="op">=</span><span class="bu">range</span>(<span class="dv">5</span>,<span class="dv">1000</span>), inplace<span class="op">=</span><span class="va">True</span>) <span class="co"># Row 'numbers' or index values</span></span>
+<span id="cb20-4"><a></a><span class="bu">print</span>(<span class="ss">f"The data frame has </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">:,}</span><span class="ss"> cols."</span>)</span>
+<span id="cb20-5"><a></a>df2.drop(columns<span class="op">=</span>[<span class="st">'TOT_P'</span>], inplace<span class="op">=</span><span class="va">True</span>)   <span class="co"># Column name(s)</span></span>
+<span id="cb20-6"><a></a><span class="bu">print</span>(<span class="ss">f"The data frame has </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">:,}</span><span class="ss"> rows and </span><span class="sc">{</span>df2<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">:,}</span><span class="ss"> cols."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>The data frame has 2,561 rows and 94 cols.
-The data frame has 1,566 rows and 94 cols.
-The data frame has 1,566 rows and 93 cols.</code></pre>
+<pre><code>The data frame has 2,561 rows and 95 cols.
+The data frame has 1,566 rows and 95 cols.
+The data frame has 1,566 rows and 94 cols.</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -1063,69 +982,124 @@ The data frame has 1,566 rows and 93 cols.</code></pre>
 </section>
 <section id="accessing-data-by-location" class="slide level2 smaller">
 <h2>Accessing Data by Location</h2>
-<table class="caption-top" style="width:100%;">
-<colgroup>
-<col style="width: 1%">
-<col style="width: 12%">
-<col style="width: 23%">
-<col style="width: 33%">
-<col style="width: 28%">
-</colgroup>
+<p>We can interact with rows and columns by <em>position</em> or <em>name</em>:</p>
+<div id="3ae5fedb" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>df.iloc[<span class="dv">0</span>:<span class="dv">2</span>,<span class="dv">0</span>:<span class="dv">4</span>] <span class="co"># Position</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="202">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
 <thead>
-<tr class="header">
-<th>Index</th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">District</th>
+<th data-quarto-table-cell-role="th">Subdistt</th>
+<th data-quarto-table-cell-role="th">Town/Village</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td></td>
-<td><strong>ID</strong></td>
-<td><strong>Case Number</strong></td>
-<td><strong>Date</strong></td>
-<td><strong>Primary Type</strong></td>
+<td data-quarto-table-cell-role="th">0</td>
+<td>8</td>
+<td>110</td>
+<td>0</td>
+<td>0</td>
 </tr>
 <tr class="even">
-<td><strong>0</strong></td>
-<td>11667185</td>
-<td>JC237601</td>
-<td>04/20/2020 11:00:00PM</td>
-<td>BURGLARY</td>
-</tr>
-<tr class="odd">
-<td><strong>1</strong></td>
-<td>11998178</td>
-<td>JC532226</td>
-<td>12/02/2020 10:35:00AM</td>
-<td>DECEPTIVE PRACTICE</td>
-</tr>
-<tr class="even">
-<td><strong>2</strong></td>
-<td>11852571</td>
-<td>JC462365</td>
-<td>10/06/2020 04:50:00PM</td>
-<td>BATTERY</td>
+<td data-quarto-table-cell-role="th">1</td>
+<td>8</td>
+<td>110</td>
+<td>0</td>
+<td>0</td>
 </tr>
 </tbody>
 </table>
-<p>We can interact with rows and columns by <em>position</em> or <em>name</em>:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>df.iloc[<span class="dv">0</span>:<span class="dv">2</span>,<span class="dv">0</span>:<span class="dv">2</span>] <span class="co">#&nbsp;List selection! (':' means 'all')</span></span>
-<span id="cb25-2"><a></a>df.loc[<span class="dv">0</span>:<span class="dv">2</span>,[<span class="st">'ID'</span>,<span class="st">'Case Number'</span>]] <span class="co"># Dict selection</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+</div>
+</div>
+<div id="76ff881b" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>df.loc[<span class="dv">0</span>:<span class="dv">2</span>,<span class="st">'State'</span>:<span class="st">'Town/Village'</span>] <span class="co"># Dict selection</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="203">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">State</th>
+<th data-quarto-table-cell-role="th">District</th>
+<th data-quarto-table-cell-role="th">Subdistt</th>
+<th data-quarto-table-cell-role="th">Town/Village</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>8</td>
+<td>110</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>8</td>
+<td>110</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>8</td>
+<td>110</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 <p>These actually return different results because of the index:</p>
 <ul>
-<li><code>df.loc</code> returns the rows <em>labeled</em> 0, 1, and 2 (<code>[0..2]</code>), whereas</li>
-<li><code>df.iloc</code> returns the <em>range</em> 0..2 (<code>[0..2)</code>)!</li>
+<li><code>df.loc</code> returns rows and columns by <em>label</em></li>
+<li><code>df.iloc</code> returns rows and columns by <em>location</em></li>
 </ul>
 </section>
 <section id="indexes" class="slide level2 smaller">
 <h2>Indexes</h2>
 <p>So by default, pandas <em>creates</em> a row index index whose <strong>values</strong> are <em>0..n</em> and column index whose <strong>values</strong> are the column names. You will see this if you select a sample:</p>
-<div id="84d1960e" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>df.sample(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="a588dcbe" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>df.sample(<span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>)[[<span class="st">'State'</span>,<span class="st">'District'</span>,<span class="st">'Subdistt'</span>,<span class="st">'Town/Village'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="204">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1149,86 +1123,34 @@ The data frame has 1,566 rows and 93 cols.</code></pre>
 <th data-quarto-table-cell-role="th">District</th>
 <th data-quarto-table-cell-role="th">Subdistt</th>
 <th data-quarto-table-cell-role="th">Town/Village</th>
-<th data-quarto-table-cell-role="th">Ward</th>
-<th data-quarto-table-cell-role="th">EB</th>
-<th data-quarto-table-cell-role="th">Level</th>
-<th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th">TRU</th>
-<th data-quarto-table-cell-role="th">No_HH</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">MARG_AL_0_3_F</th>
-<th data-quarto-table-cell-role="th">MARG_HH_0_3_P</th>
-<th data-quarto-table-cell-role="th">MARG_HH_0_3_M</th>
-<th data-quarto-table-cell-role="th">MARG_HH_0_3_F</th>
-<th data-quarto-table-cell-role="th">MARG_OT_0_3_P</th>
-<th data-quarto-table-cell-role="th">MARG_OT_0_3_M</th>
-<th data-quarto-table-cell-role="th">MARG_OT_0_3_F</th>
-<th data-quarto-table-cell-role="th">NON_WORK_P</th>
-<th data-quarto-table-cell-role="th">NON_WORK_M</th>
-<th data-quarto-table-cell-role="th">NON_WORK_F</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">44</td>
+<td data-quarto-table-cell-role="th">2157</td>
 <td>8</td>
 <td>110</td>
-<td>538</td>
-<td>79038</td>
-<td>0</td>
-<td>0</td>
-<td>VILLAGE</td>
-<td>Bhopatpura</td>
-<td>rural</td>
-<td>65</td>
-<td>...</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>6</td>
-<td>1</td>
-<td>5</td>
-<td>214</td>
-<td>113</td>
-<td>101</td>
+<td>549</td>
+<td>80816</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">976</td>
+<td data-quarto-table-cell-role="th">1738</td>
 <td>8</td>
 <td>110</td>
-<td>543</td>
-<td>79757</td>
-<td>0</td>
-<td>0</td>
-<td>VILLAGE</td>
-<td>Dhandhonli</td>
-<td>rural</td>
-<td>454</td>
-<td>...</td>
-<td>9</td>
-<td>3</td>
-<td>2</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1386</td>
-<td>792</td>
-<td>594</td>
+<td>547</td>
+<td>80408</td>
 </tr>
 </tbody>
 </table>
 
-<p>2 rows × 94 columns</p>
 </div>
 </div>
 </div>
 <p>The left-most column is the index. So <code>Name</code> is now the index and is <em>no longer</em> a column: notice that the number of columns has changed.</p>
-<div id="3ea56093" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>df.set_index(<span class="st">'Name'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-2"><a></a>df.sample(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div id="1840611c" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>df.set_index(<span class="st">'Name'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb25-2"><a></a>df.sample(<span class="dv">2</span>, random_state<span class="op">=</span><span class="dv">42</span>)[[<span class="st">'State'</span>,<span class="st">'District'</span>,<span class="st">'Subdistt'</span>,<span class="st">'Town/Village'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="205">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1252,43 +1174,9 @@ The data frame has 1,566 rows and 93 cols.</code></pre>
 <th data-quarto-table-cell-role="th">District</th>
 <th data-quarto-table-cell-role="th">Subdistt</th>
 <th data-quarto-table-cell-role="th">Town/Village</th>
-<th data-quarto-table-cell-role="th">Ward</th>
-<th data-quarto-table-cell-role="th">EB</th>
-<th data-quarto-table-cell-role="th">Level</th>
-<th data-quarto-table-cell-role="th">TRU</th>
-<th data-quarto-table-cell-role="th">No_HH</th>
-<th data-quarto-table-cell-role="th">TOT_P</th>
-<th data-quarto-table-cell-role="th">...</th>
-<th data-quarto-table-cell-role="th">MARG_AL_0_3_F</th>
-<th data-quarto-table-cell-role="th">MARG_HH_0_3_P</th>
-<th data-quarto-table-cell-role="th">MARG_HH_0_3_M</th>
-<th data-quarto-table-cell-role="th">MARG_HH_0_3_F</th>
-<th data-quarto-table-cell-role="th">MARG_OT_0_3_P</th>
-<th data-quarto-table-cell-role="th">MARG_OT_0_3_M</th>
-<th data-quarto-table-cell-role="th">MARG_OT_0_3_F</th>
-<th data-quarto-table-cell-role="th">NON_WORK_P</th>
-<th data-quarto-table-cell-role="th">NON_WORK_M</th>
-<th data-quarto-table-cell-role="th">NON_WORK_F</th>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Name</th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th"></th>
@@ -1297,57 +1185,22 @@ The data frame has 1,566 rows and 93 cols.</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">Chainpura</td>
+<td data-quarto-table-cell-role="th">Kishanpura</td>
 <td>8</td>
 <td>110</td>
-<td>548</td>
-<td>80491</td>
-<td>0</td>
-<td>0</td>
-<td>VILLAGE</td>
-<td>rural</td>
-<td>150</td>
-<td>879</td>
-<td>...</td>
-<td>22</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>2</td>
-<td>1</td>
-<td>1</td>
-<td>340</td>
-<td>194</td>
-<td>146</td>
+<td>549</td>
+<td>80816</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">Sri Ramnagar</td>
+<td data-quarto-table-cell-role="th">Daulatpura</td>
 <td>8</td>
 <td>110</td>
-<td>548</td>
-<td>80602</td>
-<td>0</td>
-<td>0</td>
-<td>VILLAGE</td>
-<td>rural</td>
-<td>123</td>
-<td>906</td>
-<td>...</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>13</td>
-<td>3</td>
-<td>10</td>
-<td>441</td>
-<td>241</td>
-<td>200</td>
+<td>547</td>
+<td>80408</td>
 </tr>
 </tbody>
 </table>
 
-<p>2 rows × 93 columns</p>
 </div>
 </div>
 </div>
@@ -1355,31 +1208,31 @@ The data frame has 1,566 rows and 93 cols.</code></pre>
 <section id="indexes-contd-1" class="slide level2 smaller">
 <h2>Indexes (cont’d 1)</h2>
 <p>So now we can pull the data for a single ward like this:</p>
-<div id="94419997" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>df.loc[<span class="st">'Jaipur (M Corp.) (Part) WARD NO.-0002'</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div id="a0cadce5" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>df.loc[<span class="st">'Jaipur (M Corp.) (Part) WARD NO.-0002'</span>,:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="206">
 <pre><code>State                 8
 District            110
 Subdistt            546
 Town/Village     800522
 Ward                  2
                   ...  
-MARG_OT_0_3_M        64
 MARG_OT_0_3_F        59
 NON_WORK_P        45438
 NON_WORK_M        17962
 NON_WORK_F        27476
-Name: Jaipur (M Corp.) (Part) WARD NO.-0002, Length: 93, dtype: object</code></pre>
+smaller           30317
+Name: Jaipur (M Corp.) (Part) WARD NO.-0002, Length: 94, dtype: object</code></pre>
 </div>
 </div>
 </section>
 <section id="indexes-contd-2" class="slide level2 smaller">
 <h2>Indexes (cont’d 2)</h2>
 <p>And we can pull data for a range of wards like this:</p>
-<div id="015900c2" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>df.loc[<span class="st">'Jaipur (M Corp.) (Part) WARD NO.-0002'</span>:<span class="st">'Jaipur (M Corp.) (Part) WARD NO.-0004'</span>,</span>
-<span id="cb30-2"><a></a>  <span class="st">'TOT_P'</span>:<span class="st">'F_06'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div id="b8ea8443" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>df.loc[<span class="st">'Jaipur (M Corp.) (Part) WARD NO.-0002'</span>:<span class="st">'Jaipur (M Corp.) (Part) WARD NO.-0004'</span>,</span>
+<span id="cb28-2"><a></a>  <span class="st">'TOT_P'</span>:<span class="st">'F_06'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="207">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1487,7 +1340,19 @@ Name: Jaipur (M Corp.) (Part) WARD NO.-0002, Length: 93, dtype: object</code></p
 </tbody>
 </table>
 <p>In most cases compression is detected automatically (e.g.&nbsp;<code>df.to_csv('file.csv.gz')</code>) but you can also specify it (e.g.&nbsp;<code>df.to_csv('file.csv.gz', compression='gzip'))</code>.<sup>1</sup></p>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>For instance, a bit.ly link to a Gzipped file requires <code>compression='gzip'</code> because there’s nothing in the link itself to tell Pandas what to expect.</p></li></ol></aside></section></section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>For instance, a bit.ly link to a Gzipped file requires <code>compression='gzip'</code> because there’s nothing in the link itself to tell Pandas what to expect.</p></li></ol></aside></section>
+<section id="shallow-copies" class="slide level2">
+<h2>‘Shallow’ Copies</h2>
+<p>More subtly, operations on a Series or Data Frame return a <em>shallow copy</em>, which is like a ‘view’ in a database…</p>
+<ol type="1">
+<li>The original is unchanged <em>unless</em> you specify <code>inplace=True</code> (where supported).</li>
+<li>Attempts to <em>change</em> a subset of the data frame will often trigger a <code>SettingWithCopyWarning</code> warning.</li>
+</ol>
+<p>If you need a full copy then use the <code>copy()</code> method (e.g.&nbsp;<code>df.copy()</code> or <code>df.Series.copy()</code>).</p>
+
+<aside><div>
+<p><a href="https://www.dataquest.io/blog/settingwithcopywarning/">DataQuest</a> has a nice overview of how <code>SettingWithCopyWarning</code> is triggered and what to do about it.</p>
+</div></aside></section></section>
 <section>
 <section id="result" class="title-slide slide level1 center">
 <h1>Result!</h1>

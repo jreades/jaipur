@@ -145,7 +145,7 @@
     "href": "sessions/day4.html",
     "title": "Day 4: Visualising Data",
     "section": "",
-    "text": "Goal\n\n\n\nTo get you using the tools taught to create maps and plots using data.\n\n\nIntroductory session:\n\nAn introduction to Quarto\nA brief introduction to version control and github.io (Git / GitHub)\nApplied session:\nCreating a report in Quarto starting from Report.qmd\nAdding new data to your map\nChanging colours, line widths, …, choropleths and maps-in-maps.\nWorking on a report — choosing a topic of interest (continuation of Day 3)",
+    "text": "Goal\n\n\n\nTo get you using the tools taught to create maps and plots using data.\n\n\nIntroductory session:\n\nAn introduction to Quarto (some examples of what you can do):\n\nThe Palmer Penguins\nCreate beautiful documents with R, Python, Julia and Observable\nOther ‘Real-Life Examples’ of Presentations, Web Sites and Books\nQuarto for the Python User\n\n\n\n\n\nSource\nSite\n\n\n\n\ngithub.com/jreades/code-camp\njreades.github.io/code-camp\n\n\ngithub.com/jreades/jaipur\njreades.github.io/jaipur\n\n\n\nApplied session:\n\nCreating a report in Quarto starting from: Report.qmd and include-in-header.tex. [These need to be in the same directory!]\nAdding new data to your map\nChanging colours, line widths, …, choropleths and maps-in-maps.\nWorking on a report — choosing a topic of interest (continuation of Day 3)",
     "crumbs": [
       "Day 4: Visualising Data"
     ]
@@ -155,7 +155,7 @@
     "href": "sessions/day2.html",
     "title": "Day 2: Exploring Code",
     "section": "",
-    "text": "Goal\n\n\n\nLearning to manage and link data.\n\n\nIntroductory session:\n\nLists\nLists-of-Lists (LOLs)\nDictionaries\nDictionaries-of-Lists (DOLs)\n\nFor further study (if the above is easy):\n\nThe Command Line\nGit\n\nApplied session:\n\nKey Concepts (Ctrl+Click to download file)",
+    "text": "Goal\n\n\n\nLearning to manage and link data.\n\n\nIntroductory session:\n\nLists\nLists-of-Lists (LOLs)\nDictionaries\nDictionaries-of-Lists (DOLs)\n\nFor further study (if the above is easy):\n\nThe Command Line\nGit\n\nApplied session:\n\nKey Concepts (Right+Click to download file)",
     "crumbs": [
       "Day 2: Exploring Code"
     ]
@@ -389,7 +389,7 @@
     "href": "lectures/2.4-Geodata.html#writing-local-files",
     "title": "Geopandas",
     "section": "Writing (Local Files)",
-    "text": "Writing (Local Files)\nWrite any OGR-supported vector drivers.\nworld.to_file('world.gpkg', driver='GPKG')\nworld.to_file('world.shp', driver='ESRI Shapefile')\nworld.to_file('world.geojson', driver='GeoJSON')\n\nIf you forget to specify the driver it writes shapefiles by default. This is mainly an issue if you try to write a GeoPackage or GeoJSON file but then end up writing a shapefile to a directory called world.gpkg!"
+    "text": "Writing (Local Files)\nWrite any OGR-supported vector drivers.\nworld.to_file('world.gpkg', driver='GPKG')\nworld.to_file('world.shp', driver='ESRI Shapefile')\nworld.to_file('world.geojson', driver='GeoJSON')\nMy favourite (when installed):\nworld.to_parquet('world.geoparquet')\n\nIf you forget to specify the driver it writes shapefiles by default. This is mainly an issue if you try to write a GeoPackage or GeoJSON file but then end up writing a shapefile to a directory called world.gpkg!"
   },
   {
     "objectID": "lectures/2.4-Geodata.html#data-structures",
@@ -466,28 +466,28 @@
     "href": "lectures/2.4-Geodata.html#converting-non-spatial-data-1",
     "title": "Geopandas",
     "section": "Converting Non-Spatial Data 1",
-    "text": "Converting Non-Spatial Data 1\nLat/Long and Northing/Easting benefit from a helper function gpd.points_from_xy():\nurl = 'https://bit.ly/3I0XDrq'\ndf  = pd.read_csv(url)\n\ngdf = gpd.GeoDataFrame(df, \n            geometry=gpd.points_from_xy(\n                        df['longitude'], \n                        df['latitude'], \n                        crs='epsg:4326'\n            )\n      )\ngdf.plot()\n\nYou can also use list comprehensions ([x for x in list]) and zip to combine two lists but then need to specify the CRS as a separate step!"
+    "text": "Converting Non-Spatial Data 1\nLat/Long and Northing/Easting benefit from a helper function gpd.points_from_xy():\n\nurl = 'https://bit.ly/3I0XDrq'\ndf  = pd.read_csv(url)\n\ngdf = gpd.GeoDataFrame(df, \n            geometry=gpd.points_from_xy(\n                        df['longitude'], \n                        df['latitude'], \n                        crs='epsg:4326'\n            )\n      )\n\n\nYou can also use list comprehensions ([x for x in list]) and zip to combine two lists but then need to specify the CRS as a separate step!"
   },
   {
     "objectID": "lectures/2.4-Geodata.html#csv-to-points-in-3-lines",
     "href": "lectures/2.4-Geodata.html#csv-to-points-in-3-lines",
     "title": "Geopandas",
     "section": "CSV to Points in 3 Lines!",
-    "text": "CSV to Points in 3 Lines!\n\n\nNotice that the default plot from a GeoDataFrame is… a map!"
+    "text": "CSV to Points in 3 Lines!\n\n\n\n\n\n\n\n\n\n\nNotice that the default plot from a GeoDataFrame is… a map!"
   },
   {
     "objectID": "lectures/2.4-Geodata.html#converting-non-spatial-data-2",
     "href": "lectures/2.4-Geodata.html#converting-non-spatial-data-2",
     "title": "Geopandas",
     "section": "Converting Non-Spatial Data 2",
-    "text": "Converting Non-Spatial Data 2\nOther feature types need to be in some kind of regular format such as Well-Known Text (WKT), GeoJSON, or something readable as a Shapely geometry.\nfrom shapely import wkt\n\n# Notice coordinate pairs and last point is same as first one\nbbox = 'POLYGON((5000000.0 2500000.0, 5000000.0 -2500000.0, -5000000.0 -2500000.0, -5000000.0 2500000.0, 5000000.0 2500000.0))'\n\n# Create GeoPandas from dict just like Pandas\nbgdf = gpd.GeoDataFrame({'id':[0], 'coordinates':bbox})\n\n# Turn it into a geometry\nbgdf['geometry'] = bgdf.coordinates.apply(wkt.loads)\nbgdf = bgdf.set_crs('ESRI:54030')\nbgdf.plot() # Not very interesting but...\n\nThese are more rarely used for our purposes but knowing that they exist is useful."
+    "text": "Converting Non-Spatial Data 2\nOther feature types need to be in some kind of regular format such as Well-Known Text (WKT), GeoJSON, or something readable as a Shapely geometry.\n\nfrom shapely import wkt\n\n# Notice coordinate pairs and last point is same as first one\nbbox = 'POLYGON((5000000.0 2500000.0, 5000000.0 -2500000.0, -5000000.0 -2500000.0, -5000000.0 2500000.0, 5000000.0 2500000.0))'\n\n# Create GeoPandas from dict just like Pandas\nbgdf = gpd.GeoDataFrame({'id':[0], 'coordinates':bbox})\n\n# Turn it into a geometry\nbgdf['geometry'] = bgdf.coordinates.apply(wkt.loads)\nbgdf = bgdf.set_crs('ESRI:54030')\nbgdf.plot() # Not very interesting but...\n\n\n\n\n\n\n\n\n\nThese are more rarely used for our purposes but knowing that they exist is useful."
   },
   {
     "objectID": "lectures/2.4-Geodata.html#from-text-to-bounding-box",
     "href": "lectures/2.4-Geodata.html#from-text-to-bounding-box",
     "title": "Geopandas",
     "section": "From Text to Bounding Box",
-    "text": "From Text to Bounding Box\nscale = int(float('1e7'))\nf,ax=plt.subplots(figsize=(8,4))\nworld2.plot(ax=ax)\nbgdf.plot(ax=ax, color='none', edgecolor='r')\nax.set_xlim([-0.75*scale, +0.75*scale])\nax.set_ylim([-3*scale/10, +3*scale/10])"
+    "text": "From Text to Bounding Box\n\nscale = int(float('1e7'))\nf,ax=plt.subplots(figsize=(8,4))\nworld2.plot(ax=ax)\nbgdf.plot(ax=ax, color='none', edgecolor='r')\nax.set_xlim([-0.75*scale, +0.75*scale])\nax.set_ylim([-3*scale/10, +3*scale/10])"
   },
   {
     "objectID": "lectures/2.4-Geodata.html#resources",
@@ -1257,14 +1257,14 @@
     "href": "lectures/2.3-Numeric_Data.html#accessing-a-series",
     "title": "Pandas",
     "section": "Accessing a Series",
-    "text": "Accessing a Series\n\nprint(type(df['State']))            # type for column\nprint(type(df['State'].array))      # type for values\nprint(df['State'].array[:5])        # first five values\nprint(f\"1: {df['TOT_P'].mean()}\")   # summarise a series/column\nprint(f\"2: {df.TOT_P.mean():0.2f}\") # if no spaces in name\n\n&lt;class 'pandas.core.series.Series'&gt;\n&lt;class 'pandas.core.arrays.numpy_.NumpyExtensionArray'&gt;\n&lt;NumpyExtensionArray&gt;\n[8, 8, 8, 8, 8]\nLength: 5, dtype: int64\n1: 14301.45294806716\n2: 14301.45\n\n\n\nNotice that we’ve got two ways of accessing a pandas Series:\n\nThe dictionary-like way: df['Latitude']; this works for all columns, always.\nThe method-like way: df.Latitude; this works for ‘reading’ columns without spaces in their names."
+    "text": "Accessing a Series\n\nprint(type(df['State']))            # data type for a column\nprint(f\"1: {df['TOT_P'].mean()}\")   # summarise a series/column\nprint(f\"2: {df.TOT_P.mean():0.2f}\") # if no spaces in name\n\n&lt;class 'pandas.core.series.Series'&gt;\n1: 14301.45294806716\n2: 14301.45\n\n\n\nNotice that we’ve got two ways of accessing a pandas Series:\n\nThe dictionary-like way: df['Latitude']; this works for all columns, always.\nThe method-like way: df.Latitude; this works for ‘reading’ columns without spaces in their names."
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#jupyter-formatting",
     "href": "lectures/2.3-Numeric_Data.html#jupyter-formatting",
     "title": "Pandas",
     "section": "Jupyter Formatting",
-    "text": "Jupyter Formatting\nPandas is also ‘Jupyter-aware’, meaning that output can displayed directly in Jupyter and Quarto in ‘fancy’ ways:\n\ndf[['District','TOT_F','F_SC','NON_WORK_M']].sample(5)\n\n\n\n\n\n\n\n\nDistrict\nTOT_F\nF_SC\nNON_WORK_M\n\n\n\n\n101\n110\n688\n0\n444\n\n\n692\n110\n760\n123\n414\n\n\n1902\n110\n0\n0\n0\n\n\n500\n110\n704\n2\n388\n\n\n2022\n110\n3680\n1609\n2163"
+    "text": "Jupyter Formatting\nPandas is also ‘Jupyter-aware’, meaning that output can displayed directly in Jupyter and Quarto in ‘fancy’ ways:\n\ndf[['District','TOT_F','F_SC','NON_WORK_M']].sample(5)\n\n\n\n\n\n\n\n\nDistrict\nTOT_F\nF_SC\nNON_WORK_M\n\n\n\n\n2191\n110\n285\n135\n157\n\n\n1829\n110\n252\n4\n134\n\n\n566\n110\n740\n18\n439\n\n\n2393\n110\n885\n196\n454\n\n\n1092\n110\n371\n0\n221"
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#nosing-around",
@@ -1292,14 +1292,14 @@
     "href": "lectures/2.3-Numeric_Data.html#putting-these-ideas-together",
     "title": "Pandas",
     "section": "Putting These Ideas Together",
-    "text": "Putting These Ideas Together\n\n# Returns a series but not a column\nprint(type(df.TOT_F - 1))\n# Saves returned series as a new column\ndf['smaller'] = df.TOT_F - 1\nprint(df.smaller.head(3))\n# Returns a new data frame w/o the dropped column \nprint(type(df.drop(columns=['smaller'])))\n# Modifies df directly to drop the column\nprint(type(df.drop(columns=['smaller'], inplace=True)))\n# Try to modify a view of df (triggers warning)\ndf[df.TOT_F&gt;5000].TOT_F = 5000 \n\n&lt;class 'pandas.core.series.Series'&gt;\n0    3157670\n1    1511406\n2    1646263\nName: smaller, dtype: int64\n&lt;class 'pandas.core.frame.DataFrame'&gt;\n&lt;class 'NoneType'&gt;"
+    "text": "Putting These Ideas Together\n\n# Returns a series\nprint(type(df.TOT_F - 1))\n# Saves returned series as a new column\ndf['smaller'] = df.TOT_F - 1\nprint(df[['TOT_F','smaller']].head(3))\n# Returns a new data frame w/o the dropped column \nprint(type(df.drop(columns=['smaller'])))\n\n&lt;class 'pandas.core.series.Series'&gt;\n     TOT_F  smaller\n0  3157671  3157670\n1  1511407  1511406\n2  1646264  1646263\n&lt;class 'pandas.core.frame.DataFrame'&gt;"
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#chaining",
     "href": "lectures/2.3-Numeric_Data.html#chaining",
     "title": "Pandas",
     "section": "Chaining",
-    "text": "Chaining\nOperations on a Data Frame return a DataFrame and operations on a Series return a Series, allowing us to ‘chain’ steps together:\n\ndf.sort_values(by=['TOT_P','TOT_M'], ascending=False).head(20).sample(frac=0.5).median(numeric_only=True)\n\nState                 8.0\nDistrict            110.0\nSubdistt            543.5\nTown/Village          0.0\nWard                  0.0\n                   ...   \nMARG_OT_0_3_M       921.5\nMARG_OT_0_3_F      1968.0\nNON_WORK_P       409191.5\nNON_WORK_M       166471.5\nNON_WORK_F       242720.0\nLength: 91, dtype: float64"
+    "text": "Chaining\nOperations on a Data Frame return a DataFrame and operations on a Series return a Series, allowing us to ‘chain’ steps together:\n\ndf.sort_values(by=['TOT_P','TOT_M'], ascending=False).head(20).sample(frac=0.5).median(numeric_only=True)\n\nState                 8.0\nDistrict            110.0\nSubdistt            545.5\nTown/Village          0.0\nWard                  0.0\n                   ...   \nMARG_OT_0_3_F      1140.5\nNON_WORK_P       268462.0\nNON_WORK_M       121100.0\nNON_WORK_F       147362.0\nsmaller          205513.0\nLength: 92, dtype: float64"
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#selection",
@@ -1355,28 +1355,28 @@
     "href": "lectures/2.3-Numeric_Data.html#dropping-rows-and-columns",
     "title": "Pandas",
     "section": "Dropping Rows and Columns",
-    "text": "Dropping Rows and Columns\nThere are multiple ways to drop ‘stuff’:\n\ndf2 = df.copy()\nprint(f\"The data frame has {df2.shape[0]:,} rows and {df2.shape[1]:,} cols.\")\ndf2.drop(index=range(5,1000), inplace=True) # Row 'numbers' or index values\nprint(f\"The data frame has {df2.shape[0]:,} rows and {df2.shape[1]:,} cols.\")\ndf2.drop(columns=['TOT_P'], inplace=True)   # Column name(s)\nprint(f\"The data frame has {df2.shape[0]:,} rows and {df2.shape[1]:,} cols.\")\n\nThe data frame has 2,561 rows and 94 cols.\nThe data frame has 1,566 rows and 94 cols.\nThe data frame has 1,566 rows and 93 cols.\n\n\n\nWhy might you want the default to not be in_place?\nThere is also df.dropna() which can apply to rows or columns with NULL or np.nan values."
+    "text": "Dropping Rows and Columns\nThere are multiple ways to drop ‘stuff’:\n\ndf2 = df.copy()\nprint(f\"The data frame has {df2.shape[0]:,} rows and {df2.shape[1]:,} cols.\")\ndf2.drop(index=range(5,1000), inplace=True) # Row 'numbers' or index values\nprint(f\"The data frame has {df2.shape[0]:,} rows and {df2.shape[1]:,} cols.\")\ndf2.drop(columns=['TOT_P'], inplace=True)   # Column name(s)\nprint(f\"The data frame has {df2.shape[0]:,} rows and {df2.shape[1]:,} cols.\")\n\nThe data frame has 2,561 rows and 95 cols.\nThe data frame has 1,566 rows and 95 cols.\nThe data frame has 1,566 rows and 94 cols.\n\n\n\nWhy might you want the default to not be in_place?\nThere is also df.dropna() which can apply to rows or columns with NULL or np.nan values."
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#accessing-data-by-location",
     "href": "lectures/2.3-Numeric_Data.html#accessing-data-by-location",
     "title": "Pandas",
     "section": "Accessing Data by Location",
-    "text": "Accessing Data by Location\n\n\n\n\n\n\n\n\n\n\nIndex\n0\n1\n2\n3\n\n\n\n\n\nID\nCase Number\nDate\nPrimary Type\n\n\n0\n11667185\nJC237601\n04/20/2020 11:00:00PM\nBURGLARY\n\n\n1\n11998178\nJC532226\n12/02/2020 10:35:00AM\nDECEPTIVE PRACTICE\n\n\n2\n11852571\nJC462365\n10/06/2020 04:50:00PM\nBATTERY\n\n\n\nWe can interact with rows and columns by position or name:\ndf.iloc[0:2,0:2] # List selection! (':' means 'all')\ndf.loc[0:2,['ID','Case Number']] # Dict selection\nThese actually return different results because of the index:\n\ndf.loc returns the rows labeled 0, 1, and 2 ([0..2]), whereas\ndf.iloc returns the range 0..2 ([0..2))!"
+    "text": "Accessing Data by Location\nWe can interact with rows and columns by position or name:\n\ndf.iloc[0:2,0:4] # Position\n\n\n\n\n\n\n\n\nState\nDistrict\nSubdistt\nTown/Village\n\n\n\n\n0\n8\n110\n0\n0\n\n\n1\n8\n110\n0\n0\n\n\n\n\n\n\n\n\ndf.loc[0:2,'State':'Town/Village'] # Dict selection\n\n\n\n\n\n\n\n\nState\nDistrict\nSubdistt\nTown/Village\n\n\n\n\n0\n8\n110\n0\n0\n\n\n1\n8\n110\n0\n0\n\n\n2\n8\n110\n0\n0\n\n\n\n\n\n\n\nThese actually return different results because of the index:\n\ndf.loc returns rows and columns by label\ndf.iloc returns rows and columns by location"
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#indexes",
     "href": "lectures/2.3-Numeric_Data.html#indexes",
     "title": "Pandas",
     "section": "Indexes",
-    "text": "Indexes\nSo by default, pandas creates a row index index whose values are 0..n and column index whose values are the column names. You will see this if you select a sample:\n\ndf.sample(2)\n\n\n\n\n\n\n\n\nState\nDistrict\nSubdistt\nTown/Village\nWard\nEB\nLevel\nName\nTRU\nNo_HH\n...\nMARG_AL_0_3_F\nMARG_HH_0_3_P\nMARG_HH_0_3_M\nMARG_HH_0_3_F\nMARG_OT_0_3_P\nMARG_OT_0_3_M\nMARG_OT_0_3_F\nNON_WORK_P\nNON_WORK_M\nNON_WORK_F\n\n\n\n\n44\n8\n110\n538\n79038\n0\n0\nVILLAGE\nBhopatpura\nrural\n65\n...\n0\n0\n0\n0\n6\n1\n5\n214\n113\n101\n\n\n976\n8\n110\n543\n79757\n0\n0\nVILLAGE\nDhandhonli\nrural\n454\n...\n9\n3\n2\n1\n0\n0\n0\n1386\n792\n594\n\n\n\n\n2 rows × 94 columns\n\n\n\nThe left-most column is the index. So Name is now the index and is no longer a column: notice that the number of columns has changed.\n\ndf.set_index('Name', inplace=True)\ndf.sample(2)\n\n\n\n\n\n\n\n\nState\nDistrict\nSubdistt\nTown/Village\nWard\nEB\nLevel\nTRU\nNo_HH\nTOT_P\n...\nMARG_AL_0_3_F\nMARG_HH_0_3_P\nMARG_HH_0_3_M\nMARG_HH_0_3_F\nMARG_OT_0_3_P\nMARG_OT_0_3_M\nMARG_OT_0_3_F\nNON_WORK_P\nNON_WORK_M\nNON_WORK_F\n\n\nName\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nChainpura\n8\n110\n548\n80491\n0\n0\nVILLAGE\nrural\n150\n879\n...\n22\n0\n0\n0\n2\n1\n1\n340\n194\n146\n\n\nSri Ramnagar\n8\n110\n548\n80602\n0\n0\nVILLAGE\nrural\n123\n906\n...\n0\n0\n0\n0\n13\n3\n10\n441\n241\n200\n\n\n\n\n2 rows × 93 columns"
+    "text": "Indexes\nSo by default, pandas creates a row index index whose values are 0..n and column index whose values are the column names. You will see this if you select a sample:\n\ndf.sample(2, random_state=42)[['State','District','Subdistt','Town/Village']]\n\n\n\n\n\n\n\n\nState\nDistrict\nSubdistt\nTown/Village\n\n\n\n\n2157\n8\n110\n549\n80816\n\n\n1738\n8\n110\n547\n80408\n\n\n\n\n\n\n\nThe left-most column is the index. So Name is now the index and is no longer a column: notice that the number of columns has changed.\n\ndf.set_index('Name', inplace=True)\ndf.sample(2, random_state=42)[['State','District','Subdistt','Town/Village']]\n\n\n\n\n\n\n\n\nState\nDistrict\nSubdistt\nTown/Village\n\n\nName\n\n\n\n\n\n\n\n\nKishanpura\n8\n110\n549\n80816\n\n\nDaulatpura\n8\n110\n547\n80408"
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#indexes-contd-1",
     "href": "lectures/2.3-Numeric_Data.html#indexes-contd-1",
     "title": "Pandas",
     "section": "Indexes (cont’d 1)",
-    "text": "Indexes (cont’d 1)\nSo now we can pull the data for a single ward like this:\n\ndf.loc['Jaipur (M Corp.) (Part) WARD NO.-0002',:]\n\nState                 8\nDistrict            110\nSubdistt            546\nTown/Village     800522\nWard                  2\n                  ...  \nMARG_OT_0_3_M        64\nMARG_OT_0_3_F        59\nNON_WORK_P        45438\nNON_WORK_M        17962\nNON_WORK_F        27476\nName: Jaipur (M Corp.) (Part) WARD NO.-0002, Length: 93, dtype: object"
+    "text": "Indexes (cont’d 1)\nSo now we can pull the data for a single ward like this:\n\ndf.loc['Jaipur (M Corp.) (Part) WARD NO.-0002',:]\n\nState                 8\nDistrict            110\nSubdistt            546\nTown/Village     800522\nWard                  2\n                  ...  \nMARG_OT_0_3_F        59\nNON_WORK_P        45438\nNON_WORK_M        17962\nNON_WORK_F        27476\nsmaller           30317\nName: Jaipur (M Corp.) (Part) WARD NO.-0002, Length: 94, dtype: object"
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#indexes-contd-2",
@@ -1748,11 +1748,11 @@
   {
     "objectID": "sessions/day3.html",
     "href": "sessions/day3.html",
-    "title": "Day 3: Reproducible Analysis",
+    "title": "Day 3: Working with Data",
     "section": "",
-    "text": "Goal\n\n\n\nHow tools like Quarto and Python can make report-writing ‘easy’.\n\n\nIntroductory session:\n\nThink Maps\nThink Data\nReading Tables with Pandas\nReading Geographies with GeoPandas\n\nApplied session:\n\nPandas (Ctrl+Click to download file)\nGeopandas (Ctrl+Click to download file)\nLinking data",
+    "text": "Goal\n\n\n\nHow tools like Quarto and Python can make report-writing ‘easy’.\n\n\nIntroductory session:\n\nThink Maps\nThink Data\nReading Tables with Pandas\nReading Geographies with GeoPandas\n\nApplied session:\n\nPandas (Right+Click to download file)\nGeopandas (Right+Click to download file)\nLinking data (Right+Click to download file)",
     "crumbs": [
-      "Day 3: Reproducible Analysis"
+      "Day 3: Working with Data"
     ]
   },
   {
