@@ -282,7 +282,7 @@ Jon Reades
 <span id="cb1-3"><a></a>world <span class="op">=</span> gpd.read_file(gpkg_src)</span>
 <span id="cb1-4"><a></a><span class="co"># The ';' suppresses matplotlib output</span></span>
 <span id="cb1-5"><a></a>world.plot(facecolor<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'darkblue'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="63e05f39" class="cell" data-execution_count="2">
+<div id="a18e5d69" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -329,7 +329,7 @@ Jon Reades
 <section id="consider" class="slide level2">
 <h2>Consider</h2>
 <p>Recall that we can ask if a particular object is an <em><a href="https://www.w3schools.com/python/ref_func_isinstance.asp">instance</a></em> of any given class:</p>
-<div id="c2237c6a" class="cell" data-execution_count="3">
+<div id="d78bf541" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world, <span class="bu">str</span>))</span>
 <span id="cb3-2"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world, pd.DataFrame))</span>
 <span id="cb3-3"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world, gpd.GeoDataFrame))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -339,7 +339,7 @@ True
 True</code></pre>
 </div>
 </div>
-<div id="dea950a7" class="cell" data-execution_count="4">
+<div id="fce16c4f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world.geometry, <span class="bu">str</span>))</span>
 <span id="cb5-2"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world.geometry, pd.Series))</span>
 <span id="cb5-3"><a></a><span class="bu">print</span>(<span class="bu">isinstance</span>(world.geometry, gpd.GeoSeries))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -367,14 +367,14 @@ True</code></pre>
 <section id="projections" class="slide level2 smaller">
 <h2>Projections</h2>
 <p>Depending on your data source, you may or may not have projection information attached to your GeoDataFrame:</p>
-<div id="628429bb" class="cell" data-execution_count="5">
+<div id="935a8470" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="bu">print</span>(world.crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>EPSG:4326</code></pre>
 </div>
 </div>
 <p>But:</p>
-<div id="492807e7" class="cell" data-execution_count="6">
+<div id="3fadb722" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>world.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>&lt;Geographic 2D CRS: EPSG:4326&gt;
@@ -405,7 +405,7 @@ Datum: World Geodetic System 1984 ensemble
 <section id="reprojection" class="slide level2">
 <h2>Reprojection</h2>
 <p>For data sets <em>without</em> projection information (i.e.&nbsp;often anything loaded from a shapefile) you must <code>gdf.set_crs(&lt;spec&gt;)</code>. For all others you should <code>gdf.to_crs(&lt;spec&gt;)</code>.</p>
-<div id="042a6fc1" class="cell" data-execution_count="7">
+<div id="af29e52b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>world2 <span class="op">=</span> world.to_crs(<span class="st">'ESRI:54030'</span>)</span>
 <span id="cb11-2"><a></a>world2.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -419,13 +419,13 @@ Datum: World Geodetic System 1984 ensemble
 </section>
 <section id="code-wont-stop-you-being-silly" class="slide level2">
 <h2>Code Won’t Stop You Being Silly</h2>
-<div id="4e163f5c" class="cell" data-execution_count="8">
+<div id="10f5dbab" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>world2 <span class="op">=</span> world.to_crs(<span class="st">'EPSG:27700'</span>)</span>
 <span id="cb12-2"><a></a>world2.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="2.4-Geodata_files/figure-revealjs/cell-9-output-1.png" width="95" height="442"></p>
+<p><img data-src="2.4-Geodata_files/figure-revealjs/cell-9-output-1.png" width="94" height="442"></p>
 </figure>
 </div>
 </div>
@@ -447,7 +447,7 @@ Datum: World Geodetic System 1984 ensemble
 <section id="the-spatial-index" class="slide level2 smaller">
 <h2>The Spatial Index</h2>
 <p>We can use GeoSeries’ spatial index directly to perform simple spatial queries:</p>
-<div id="6fadd627" class="cell" data-execution_count="9">
+<div id="6b30958f" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb13-2"><a></a>wslice <span class="op">=</span> world.cx[<span class="op">-</span><span class="dv">50</span>:<span class="dv">50</span>, <span class="op">-</span><span class="dv">20</span>:<span class="dv">20</span>] <span class="co"># cx = coordinate index</span></span>
 <span id="cb13-3"><a></a>ax <span class="op">=</span> wslice.plot()</span>
