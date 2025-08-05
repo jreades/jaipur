@@ -27,7 +27,7 @@ Introductory session:
 
 Applied session:
 
-- Creating a report in Quarto starting from [Report.qmd](../practicals/Report.qmd)
+- Creating a report in Quarto starting from: [Report.qmd](../practicals/Report.qmd) and [include-in-header.tex](../practicals/include-in-header.tex). *[These need to be in the same directory!]*
 - Adding new data to your map
 - Changing colours, line widths, ..., choropleths and maps-in-maps.
 - Working on a report — choosing a topic of interest (continuation of Day 3)
