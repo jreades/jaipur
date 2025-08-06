@@ -1,0 +1,23 @@
+---
+format:
+  revealjs:
+    theme: [serif]
+author: "Your Names"
+title: "Your Title"
+footer: "Your Footer"
+highlight-style: github
+code-copy: true
+code-line-numbers: true
+slide-level: 2
+#title-slide-attributes:
+#  data-background-image: an_image.png
+#  data-background-size: cover
+#  data-background-position: center
+#  data-background-opacity: '0.17'
+history: false
+---
+
+::: {.notes}
+
+:::
+

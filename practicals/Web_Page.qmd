@@ -1,0 +1,20 @@
+---
+title: "My Web Page"
+author: "Your Names"
+date: "7/17/2025"
+format:
+  html:
+    theme:
+      - minty
+    code-copy: true
+    code-link: true
+    #cover-image: cover.png
+    toc: true
+    toc-title: "On this page"
+    toc-depth: 2
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+---
+
+## Your Content Here!
