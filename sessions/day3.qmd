@@ -25,4 +25,12 @@ Applied session:
 - [Geopandas](../practicals/Exploring_Map_Data.ipynb) (Right+Click to download file)
 - [Linking data](../practicals/Linking_Data.ipynb) (Right+Click to download file)
 
- 
+Advanced topic:
+
+If you'd like to dig into something that really stretches your understanding, then here are relevant links to some work that we did with using machine learning to predict neighbourhood change.
+
+- The [published article](https://journals.sagepub.com/doi/full/10.1177/0042098018789054) which presents our rationale and findings.
+- The [GitHub repository](https://github.com/jreades/urb-studies-predicting-gentrification) which shows how we obtained our results.
+- Because we had made that work public, this allowed [other researchers](https://rgs-ibg.onlinelibrary.wiley.com/doi/full/10.1111/tran.12522) to take it further. And they *also* [made their code open](https://github.com/jytg17/Unpacking-the-Nuances-of-Londons-Neighbourhood-Change-Gentrification-Trajectories-codes) as well.
+
+You can also, if you really want to do more with the built environment, explore the [GlobalMLBuildingFootprints](https://github.com/microsoft/GlobalMLBuildingFootprints) data set. It *looks* to me like you need to look in the `dataset-links.csv` file to find the files for your area; however, I haven't yet been able to make sense of how you can only get what you need for, say, India rather than having to download all of India!
