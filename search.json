@@ -1281,13 +1281,6 @@
     "text": "Data Frames vs Series\nPandas operates on two principles:\n\nAny operation on a Data Frame returns a Data Frame.\nAny operation on a Series returns a Series.\n\n\nWe’ll see in a moment why this is useful!"
   },
   {
-    "objectID": "lectures/2.3-Numeric_Data.html#shallow-copies",
-    "href": "lectures/2.3-Numeric_Data.html#shallow-copies",
-    "title": "Pandas",
-    "section": "‘Shallow’ Copies",
-    "text": "‘Shallow’ Copies\nMore subtly, operations on a Series or Data Frame return a shallow copy, which is like a ‘view’ in a database…\n\nThe original is unchanged unless you specify inplace=True (where supported).\nAttempts to change a subset of the data frame will often trigger a SettingWithCopyWarning warning.\n\nIf you need a full copy then use the copy() method (e.g. df.copy() or df.Series.copy()).\n\n\nDataQuest has a nice overview of how SettingWithCopyWarning is triggered and what to do about it."
-  },
-  {
     "objectID": "lectures/2.3-Numeric_Data.html#putting-these-ideas-together",
     "href": "lectures/2.3-Numeric_Data.html#putting-these-ideas-together",
     "title": "Pandas",
@@ -1321,20 +1314,6 @@
     "title": "Pandas",
     "section": "Changing the Type",
     "text": "Changing the Type\n\nprint(f\"Unique values: {df['TRU'].unique()}\")   # Find unique values\nprint(f\"Data type is: {df['TRU'].dtype.name}\")  # Confirm is 'object'\ndf['TRU'] = df['TRU'].astype('category')\nprint(f\"Data type now: {df['TRU'].dtype.name}\") # Confirm is 'category'\nprint(df['TRU'].describe()) # Category column info\n\nUnique values: ['Total' 'Rural' 'Urban']\nData type is: object\nData type now: category\ncount      2561\nunique        3\ntop       Rural\nfreq       2194\nName: TRU, dtype: object"
-  },
-  {
-    "objectID": "lectures/2.3-Numeric_Data.html#datetime-data",
-    "href": "lectures/2.3-Numeric_Data.html#datetime-data",
-    "title": "Pandas",
-    "section": "Datetime Data",
-    "text": "Datetime Data\nWhat do we do here?\nprint(df.Date.dtype.name)\n# object\ndf.Date.to_list()[:3]\n# ['04/20/2019 11:00:00 PM', '12/02/2019 10:35:00 AM', '10/06/2019 04:50:00 PM']\nThis shows that Date is currently a string of dates+times.\nPandas handles date and times using a datetime type that also works as an index (more on these later):\ndf['dt'] = pd.to_datetime(df.Date.array, \n              format=\"%m/%d/%Y %H:%M:%S %p\")\nprint(df.dt.dtype.name)\n# datetime64[ns]\ndf.dt.to_list()[:3]\n# [Timestamp('2019-04-20 11:00:00'), Timestamp('2019-12-02 10:35:00'), Timestamp('2019-10-06 04:50:00')]\nThese follow the formatting conventions of strftime (string format time) for conversion."
-  },
-  {
-    "objectID": "lectures/2.3-Numeric_Data.html#datetime-formats",
-    "href": "lectures/2.3-Numeric_Data.html#datetime-formats",
-    "title": "Pandas",
-    "section": "Datetime Formats",
-    "text": "Datetime Formats\nExamples of strftime conventions include:\n\n\n\nFormat\nApplies To\n\n\n\n\n%d\n2-digit day\n\n\n%m\n2-digit month\n\n\n%y\n2-digit year\n\n\n%Y\n4-digit year\n\n\n%p\nAM/PM\n\n\n\nSo that is why:\npd.to_datetime(df.Date.array, format=\"%m/%d/%Y %H:%M:%S %p\")\nNote the other things happening here:\n\npd.to_datetime(...) is not a method, it’s a function from the pandas package.\ndf.Date.array (and df.Date.to_numpy() and df.Data.tolist()) gives access to the data directly, whereas df.Date gives access to the Series."
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#tidying-up",
@@ -1391,6 +1370,13 @@
     "title": "Pandas",
     "section": "Saving",
     "text": "Saving\nPandas can write to a wide range of file types, including:\n\n\n\nCommand\nSaved As…\n\n\n\n\ndf.to_csv(&lt;path&gt;)\nCSV file. But note the options to change sep (default is ',') and to suppress index output (index=False).\n\n\ndf.to_excel(&lt;path&gt;)\nXLSX file. But note the options to specify a sheet_name, na_rep, and so on, as well as to suppress the index (index=False).\n\n\ndf.to_parquet(&lt;path&gt;)\nDirectly usable by many languages. Requires pyarrow to be installed to access the options.\n\n\ndf.to_latex(&lt;path&gt;))\nWrite a LaTeX-formatted table to a file. Display requires booktabs. Could do copy+paste with print(df.to_latex()).\n\n\ndf.to_markdown(&lt;path&gt;)\nWrite a Markdown-formatted table to a file. Requires tabulate. Could do copy+paste with print(df.to_markdown()).\n\n\n\nIn most cases compression is detected automatically (e.g. df.to_csv('file.csv.gz')) but you can also specify it (e.g. df.to_csv('file.csv.gz', compression='gzip')).1\nFor instance, a bit.ly link to a Gzipped file requires compression='gzip' because there’s nothing in the link itself to tell Pandas what to expect."
+  },
+  {
+    "objectID": "lectures/2.3-Numeric_Data.html#shallow-copies",
+    "href": "lectures/2.3-Numeric_Data.html#shallow-copies",
+    "title": "Pandas",
+    "section": "‘Shallow’ Copies",
+    "text": "‘Shallow’ Copies\nMore subtly, operations on a Series or Data Frame return a shallow copy, which is like a ‘view’ in a database…\n\nThe original is unchanged unless you specify inplace=True (where supported).\nAttempts to change a subset of the data frame will often trigger a SettingWithCopyWarning warning.\n\nIf you need a full copy then use the copy() method (e.g. df.copy() or df.Series.copy()).\n\n\nDataQuest has a nice overview of how SettingWithCopyWarning is triggered and what to do about it."
   },
   {
     "objectID": "lectures/2.3-Numeric_Data.html#resources",
@@ -1750,7 +1736,7 @@
     "href": "sessions/day3.html",
     "title": "Day 3: Working with Data",
     "section": "",
-    "text": "Goal\n\n\n\nHow tools like Quarto and Python can make report-writing ‘easy’.\n\n\nIntroductory session:\n\nThink Maps\nThink Data\nReading Tables with Pandas\nReading Geographies with GeoPandas\n\nApplied session:\n\nPandas (Right+Click to download file)\nGeopandas (Right+Click to download file)\nLinking data (Right+Click to download file)",
+    "text": "Goal\n\n\n\nHow tools like Quarto and Python can make report-writing ‘easy’.\n\n\nIntroductory session:\n\nThink Maps\nThink Data\nReading Tables with Pandas\nReading Geographies with GeoPandas\n\nApplied session:\n\nPandas (Right+Click to download file)\nGeopandas (Right+Click to download file)\nLinking data (Right+Click to download file)\n\nAdvanced topic:\nIf you’d like to dig into something that really stretches your understanding, then here are relevant links to some work that we did with using machine learning to predict neighbourhood change.\n\nThe published article which presents our rationale and findings.\nThe GitHub repository which shows how we obtained our results.\nBecause we had made that work public, this allowed other researchers to take it further. And they also made their code open as well.",
     "crumbs": [
       "Day 3: Working with Data"
     ]
