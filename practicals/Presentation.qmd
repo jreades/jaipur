@@ -2,9 +2,9 @@
 format:
   revealjs:
     theme: [serif]
-author: "Your Names"
-title: "Your Title"
-footer: "Your Footer"
+author: "Jon Reades"
+title: "Smart City Reflection"
+footer: "Thoughts from Jaipur"
 highlight-style: github
 code-copy: true
 code-line-numbers: true
@@ -16,8 +16,73 @@ slide-level: 2
 #  data-background-opacity: '0.17'
 history: false
 ---
+```{python}
+import matplotlib.pyplot as plt
+import geopandas as gpd
+import pandas as pd
+from pathlib import Path
+from matplotlib_scalebar.scalebar import ScaleBar
+from matplotlib_map_utils.core.north_arrow import NorthArrow, north_arrow
+```
+
+Some questions:
+
+1. Availability of data?
+
+And some text.
 
 ::: {.notes}
 
 :::
 
+# A Map
+
+```{python}
+gdf = gpd.read_parquet(Path.home() / 'work/data/clean/Jaipur_Boundary.geoparquet')
+
+fdict = {'fontname':'EB Garamond', 'weight':'bold', 'size':'xx-large'}
+
+f, ax = plt.subplots(1,1,figsize=(6,5))
+ax.set_title("A Map of Jaipur", **fdict)
+ax.axis('off')
+#ax.get_xaxis().set_visible(False)
+#ax.get_yaxis().set_visible(False)
+# Create scale bar
+scalebar = ScaleBar(1)
+ax.add_artist(scalebar)
+north_arrow(
+    ax, location="upper left", rotation={"crs": gdf.crs, "reference": "center"}
+)
+
+gdf.plot(color='red', ax=ax)
+```
+
+## Some Census Data
+
+```{python}
+def format_num(amount):
+    def truncate_float(number, places):
+        return int(number * (10 ** places)) / 10 ** places
+
+    if amount < 1e3:
+        return amount
+
+    if 1e3 <= amount < 1e5:
+        return str(truncate_float((amount / 1e5) * 100, 2)) + " K"
+
+    if 1e5 <= amount < 1e7:
+        return str(truncate_float((amount / 1e7) * 100, 2)) + " L"
+
+    if amount > 1e7:
+        return str(truncate_float(amount / 1e7, 2)) + " Cr"
+
+df = pd.read_parquet(Path.home() / 'work/data/clean/ward_population.parquet')
+jp = df[(df.Name=='Jaipur') & (df.TRU=='Total')]
+total = format_num(jp.TOT_P.sum())
+men =   format_num(jp.TOT_M.sum())
+women = format_num(jp.TOT_F.sum())
+
+ratio = float(jp.TOT_M.sum()/jp.TOT_F.sum())
+```
+
+Jaipur has a population of `{python} total` (`{python} men` and `{python} women`). The gender ratio is `{python} f"{ratio:0.2f}"`.

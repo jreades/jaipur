@@ -27,7 +27,10 @@ Introductory session:
 
 Applied session:
 
-- Creating a report in Quarto starting from: [Report.qmd](../practicals/Report.qmd) and [include-in-header.tex](../practicals/include-in-header.tex). *[These need to be in the same directory!]*
+- You have three ways that you can work on the project:
+  1. Creating a PDF report in Quarto starting from: [Report.qmd](../practicals/Report.qmd) and [include-in-header.tex](../practicals/include-in-header.tex). *[These need to be in the same directory!]*
+  2. Creating a Presentation (which you view in your browser) from: [Presentation.qmd](../practicals/Presentation.qmd).
+  3. Creating a Web Page (which you obviously view in your browser) from: [Web_Page.qmd](../practicals/Web_Page.qmd).
 - Adding new data to your map
 - Changing colours, line widths, ..., choropleths and maps-in-maps.
 - Working on a report — choosing a topic of interest (continuation of Day 3)
